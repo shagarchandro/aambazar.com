@@ -1842,6 +1842,11 @@ button:active:not(.no-ripple){transform:scale(.97);}
 
 .qv-mini-btn{width:100%;padding:7px;margin-bottom:8px;background:var(--g0);border:1.5px solid var(--card-border);border-radius:10px;font-family:'Hind Siliguri',sans-serif;font-size:12px;font-weight:600;cursor:pointer;color:var(--text2);transition:.2s;display:block;}
 .qv-mini-btn:hover{background:var(--a1);color:var(--db);}
+
+/* CRITICAL: Product cards always visible */
+.pc{opacity:1!important;}
+.pc.reveal,.pc.reveal-scale,.pc.reveal-left{opacity:1!important;transform:none!important;}
+.pg .pc{opacity:1!important;visibility:visible!important;}
 </style>
 </head>
 <body>
@@ -3287,16 +3292,24 @@ function buildCard(p){
 function renderProds(filtered){
   const pg=$id('pg');if(!pg)return;
   const hc=$id('hcnt');if(hc)hc.textContent=GP().length+'+';
-  // skeleton first
-  pg.innerHTML=Array(4).fill('<div class="skel-card"><div class="skeleton skel-img"></div><div class="skeleton skel-line" style="margin-top:14px;"></div><div class="skeleton skel-line short"></div><div class="skeleton skel-line" style="height:8px;margin-bottom:16px;"></div></div>').join('');
-  setTimeout(()=>{
-    try{
+  try{
     const prods=filtered||getFilteredProds();
     const fc=$id('fct');if(fc)fc.textContent=prods.length+' টি পণ্য';
-    if(!prods.length){pg.innerHTML='<div class="es" style="grid-column:1/-1"><div class="esi">🔍</div><div class="est">কোনো পণ্য পাওয়া যায়নি</div><div class="esd">অন্য ফিল্টার ব্যবহার করুন</div></div>';return;}
-    pg.innerHTML=prods.map(p=>{try{return buildCard(p);}catch(e){return '';}}).join('');
-    }catch(err){pg.innerHTML='<div class="es"><div class="esi">⚠️</div><div class="est">পণ্য লোড হয়নি</div></div>';}
-  },300);
+    if(!prods.length){
+      pg.innerHTML='<div class="es" style="grid-column:1/-1"><div class="esi">🔍</div><div class="est">কোনো পণ্য পাওয়া যায়নি</div><div class="esd">অন্য ফিল্টার ব্যবহার করুন</div></div>';
+      return;
+    }
+    pg.innerHTML=prods.map(p=>{try{return buildCard(p);}catch(e){console.error('buildCard error',p.id,e);return '';}}).join('');
+    // Ensure all cards are immediately visible
+    pg.querySelectorAll('.pc').forEach(function(el){
+      el.style.opacity='1';
+      el.style.transform='none';
+      el.classList.add('visible');
+    });
+  }catch(err){
+    console.error('renderProds error',err);
+    pg.innerHTML='<div class="es"><div class="esi">⚠️</div><div class="est">পণ্য লোড হয়নি</div><div class="esd">পেজ রিফ্রেশ করুন</div></div>';
+  }
 }
 
 function getFilteredProds(){
@@ -3420,10 +3433,6 @@ function doOrder(){
     // Reduce stock
     let prods=GP();cart.forEach(ci=>{prods=prods.map(p=>p.id===ci.id?{...p,stock:Math.max(0,(p.stock||0)-ci.qty)}:p);});
     localStorage.setItem('products',JSON.stringify(prods));
-    // Reduce stock
-    let prds=GP();
-    cart.forEach(ci=>{prds=prds.map(p=>p.id===ci.id?{...p,stock:Math.max(0,(p.stock||0)-ci.qty)}:p);});
-    localStorage.setItem('products',JSON.stringify(prds));
     const os=GO();
     os.push({orderId:oid,userId:u.id,userName:n,email:u.email||'',items:[...cart],subtotal:sub,couponDiscount:disc,couponCode:appliedCoupon?appliedCoupon.code:'',deliveryCharge:del,total,address:addr,phone:ph,paymentMethod:selPay2,deliveryDate:dt,note,status:'pending',date:new Date().toLocaleDateString('bn-BD'),ts:Date.now()});
     localStorage.setItem('orders',JSON.stringify(os));
@@ -6096,7 +6105,7 @@ renderProds=function(f){
 // ============================================================
 (function addRevealClasses(){
   setTimeout(function(){
-    document.querySelectorAll('.pc,.ss,.an-card,.test-card').forEach(function(el,i){
+    document.querySelectorAll('.ss,.an-card,.test-card').forEach(function(el,i){
       if(!el.classList.contains('reveal')&&!el.classList.contains('reveal-scale')){
         el.classList.add('reveal');
         el.style.transitionDelay=(i%6)*0.05+'s';
