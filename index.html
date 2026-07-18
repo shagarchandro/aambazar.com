@@ -1540,9 +1540,329 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
   .tc-panel{width:200px;}
 }
 
+/* ============================================================
+   PREMIUM FEATURES v5
+   ============================================================ */
+
+/* SCROLL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .6s ease,transform .6s ease;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .5s ease,transform .5s ease;}
+.reveal-scale.visible{opacity:1;transform:scale(1);}
+
+/* PAGE TRANSITIONS */
+.page.active{animation:pageSlideIn .35s cubic-bezier(.25,.46,.45,.94) both;}
+@keyframes pageSlideIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+/* GRADIENT BORDER on featured card */
+.pc.featured{position:relative;}
+.pc.featured::before{content:'';position:absolute;inset:-2px;border-radius:26px;background:linear-gradient(135deg,#f59e0b,#ef4444,#8b5cf6,#3b82f6,#10b981,#f59e0b);background-size:300%;animation:gradientBorder 4s linear infinite;z-index:-1;}
+@keyframes gradientBorder{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+/* SHIMMER SKELETON */
+.skeleton{background:linear-gradient(90deg,var(--g1) 25%,var(--g2) 37%,var(--g1) 63%);background-size:400% 100%;animation:shimmer 1.4s ease infinite;}
+@keyframes shimmer{0%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+.skel-card{background:var(--card);border-radius:24px;border:1.5px solid var(--card-border);overflow:hidden;}
+.skel-img{height:220px;border-radius:0;}
+.skel-line{height:14px;border-radius:7px;margin:10px 16px;}
+.skel-line.short{width:55%;}
+.skel-line.price{width:40%;height:20px;}
+
+/* NETWORK STATUS */
+.network-bar{position:fixed;top:0;left:0;right:0;z-index:10000;padding:8px 16px;text-align:center;font-size:12px;font-weight:700;display:none;transition:.3s;}
+.network-bar.offline{display:block;background:var(--err);color:white;animation:slideDown .3s ease;}
+.network-bar.online{display:block;background:var(--ok);color:white;}
+@keyframes slideDown{from{transform:translateY(-100%);}to{transform:translateY(0);}}
+
+/* FORM VALIDATION */
+.fi.valid{border-color:var(--ok)!important;box-shadow:0 0 0 3px rgba(16,185,129,.1)!important;}
+.fi.invalid{border-color:var(--err)!important;box-shadow:0 0 0 3px rgba(239,68,68,.1)!important;}
+.field-error{font-size:11px;color:var(--err);margin-top:4px;display:none;animation:fadeUp .2s ease;}
+.field-error.show{display:block;}
+.field-ok{font-size:11px;color:var(--ok);margin-top:4px;display:none;}
+.field-ok.show{display:block;}
+
+/* BUNDLE DEALS */
+.bundle-section{background:linear-gradient(135deg,#fef3c7,#fde68a,#fbbf24);border-radius:20px;padding:20px;margin:0 20px 16px;border:2px solid var(--y);}
+.bundle-title{font-size:16px;font-weight:800;color:var(--db);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.bundle-card{background:white;border-radius:14px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:.25s;cursor:pointer;}
+.bundle-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1);}
+.bundle-emoji{font-size:28px;}
+.bundle-info{flex:1;}
+.bundle-name{font-size:13px;font-weight:700;color:var(--db);}
+.bundle-desc{font-size:11px;color:var(--text2);margin-top:2px;}
+.bundle-price{font-size:15px;font-weight:800;color:var(--o);}
+.bundle-save{font-size:10px;background:var(--err);color:white;padding:2px 7px;border-radius:8px;font-weight:700;}
+
+/* RECENTLY ORDERED */
+.quick-reorder{background:var(--card);border-radius:20px;padding:18px;margin:0 20px 16px;border:1px solid var(--card-border);box-shadow:var(--sm);}
+.qr-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.qr-items{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;}
+.qr-item{flex-shrink:0;background:var(--g0);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;border:1.5px solid var(--card-border);transition:.2s;}
+.qr-item:hover{border-color:var(--y);background:var(--a0);}
+.qr-emoji{font-size:20px;}
+.qr-name{font-size:12px;font-weight:600;color:var(--text);}
+.qr-btn{font-size:10px;background:var(--y);color:var(--db);border:none;border-radius:6px;padding:3px 7px;cursor:pointer;font-weight:700;white-space:nowrap;}
+
+/* DISCOUNT CALCULATOR */
+.disc-calc{background:linear-gradient(135deg,#d1fae5,#a7f3d0);border:1px solid #6ee7b7;border-radius:12px;padding:12px 14px;margin-top:8px;display:none;}
+.disc-calc.show{display:block;animation:fadeUp .2s ease;}
+.disc-calc-row{display:flex;justify-content:space-between;font-size:12px;padding:3px 0;}
+.disc-calc-total{display:flex;justify-content:space-between;font-size:14px;font-weight:800;color:var(--ok);padding-top:6px;border-top:1px solid #6ee7b7;margin-top:4px;}
+
+/* SAVE FOR LATER */
+.save-later-btn{padding:5px 10px;background:var(--g1);border:1px solid var(--g2);color:var(--text2);border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:11px;cursor:pointer;transition:.2s;}
+.save-later-btn:hover{background:var(--a1);border-color:var(--y);color:var(--db);}
+
+/* SWIPE HINT */
+.swipe-hint{display:none;text-align:center;font-size:11px;color:var(--text2);padding:4px;animation:pulse 2s infinite;}
+@media(max-width:700px){.swipe-hint{display:block;}}
+
+/* CUSTOMER SEGMENTS */
+.seg-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:12px;font-size:10px;font-weight:700;}
+.seg-vip{background:linear-gradient(135deg,#f59e0b,#d97706);color:white;}
+.seg-regular{background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;}
+.seg-new{background:linear-gradient(135deg,#10b981,#059669);color:white;}
+
+/* MONTHLY REVENUE CHART */
+.monthly-chart{background:var(--card);border-radius:16px;padding:18px;border:1px solid var(--card-border);}
+.month-bars{display:flex;align-items:flex-end;gap:8px;height:160px;padding-top:8px;}
+.month-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.month-bar{width:100%;background:linear-gradient(180deg,var(--y),var(--o));border-radius:6px 6px 0 0;min-height:4px;transition:height .5s ease;}
+.month-bar:hover{background:linear-gradient(180deg,var(--o),var(--db));cursor:pointer;}
+.month-val{font-size:8px;color:var(--text2);text-align:center;white-space:nowrap;}
+.month-label{font-size:9px;color:var(--text2);text-align:center;}
+
+/* COUPON GENERATOR */
+.coupon-gen-box{background:linear-gradient(135deg,var(--a0),var(--a1));border:1.5px solid var(--y);border-radius:14px;padding:16px;}
+.gen-code-display{font-family:monospace;font-size:20px;font-weight:800;letter-spacing:3px;color:var(--db);text-align:center;padding:10px;background:white;border-radius:10px;border:2px dashed var(--y);margin:10px 0;cursor:pointer;}
+.gen-code-display:hover{background:var(--a0);}
+
+/* ORDER FULFILLMENT */
+.fulfill-steps{display:flex;gap:0;margin:10px 0;}
+.fulfill-step{flex:1;text-align:center;padding:8px 4px;font-size:11px;font-weight:600;color:var(--text2);border:1px solid var(--card-border);cursor:pointer;transition:.2s;}
+.fulfill-step:first-child{border-radius:10px 0 0 10px;}
+.fulfill-step:last-child{border-radius:0 10px 10px 0;}
+.fulfill-step.active{background:var(--o);color:white;border-color:var(--o);}
+.fulfill-step.done{background:var(--ok);color:white;border-color:var(--ok);}
+
+/* PERFORMANCE MONITOR */
+.perf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;}
+.perf-card{background:var(--g0);border-radius:12px;padding:12px;text-align:center;border:1px solid var(--card-border);}
+.perf-val{font-size:18px;font-weight:800;color:var(--o);}
+.perf-label{font-size:10px;color:var(--text2);margin-top:3px;}
+
+/* MICRO ANIMATIONS */
+@keyframes popIn{0%{transform:scale(.8);opacity:0;}70%{transform:scale(1.05);}100%{transform:scale(1);opacity:1;}}
+@keyframes bounce2{0%,100%{transform:translateY(0);}25%{transform:translateY(-8px);}75%{transform:translateY(-4px);}}
+.btn-micro{transition:transform .15s ease,box-shadow .15s ease;}
+.btn-micro:active{transform:scale(.96);}
+button:active:not(.no-ripple){transform:scale(.97);}
+
+/* INFINITE SCROLL */
+.load-sentinel{height:20px;margin-top:10px;}
+.loading-more{text-align:center;padding:16px;color:var(--text2);font-size:13px;display:none;}
+.loading-more.show{display:block;animation:pulse 1s infinite;}
+
+/* SERVICE WORKER STATUS */
+.sw-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 7px;border-radius:8px;font-weight:600;}
+.sw-on{background:#d1fae5;color:#065f46;}
+.sw-off{background:#fee2e2;color:#991b1b;}
+
+/* DRAG & DROP */
+.pc.dragging{opacity:.5;transform:scale(.97);}
+.pc.drag-over{border:2px dashed var(--y);background:var(--a0);}
+.drag-handle{cursor:grab;color:var(--g4);font-size:14px;position:absolute;top:8px;left:8px;z-index:4;opacity:0;transition:.2s;}
+.pc:hover .drag-handle{opacity:1;}
+
+/* EMAIL TEMPLATE */
+.email-template-box{background:var(--g0);border-radius:12px;padding:14px;border:1px solid var(--card-border);font-size:12px;line-height:1.8;color:var(--text);font-family:monospace;}
+
+/* PRICE DROP ALERT */
+.price-drop-alert{position:fixed;top:70px;right:20px;background:var(--card);border:2px solid var(--ok);border-radius:16px;padding:14px 18px;box-shadow:var(--sm);z-index:500;display:none;max-width:260px;animation:slideInRight .4s ease;}
+@keyframes slideInRight{from{transform:translateX(120%);opacity:0;}to{transform:translateX(0);opacity:1;}}
+.price-drop-alert.show{display:block;}
+
+/* ============================================================
+   PREMIUM v6 — ALL NEW FEATURES
+   ============================================================ */
+
+/* GLASSMORPHISM CARDS */
+[data-theme="dark"] .pc{
+  background:rgba(45,27,0,.6);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(245,158,11,.18);
+}
+[data-theme="dark"] .pc:hover{
+  background:rgba(61,36,0,.75);
+  border-color:rgba(245,158,11,.4);
+  box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 0 1px rgba(245,158,11,.15);
+}
+
+/* ANIMATED GRADIENT TEXT */
+.hero-gradient-text{
+  background:linear-gradient(270deg,#fbbf24,#f97316,#ef4444,#f59e0b,#fbbf24);
+  background-size:400%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:textGradient 4s ease infinite;
+}
+@keyframes textGradient{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+/* 3D CARD TILT */
+
+
+/* CONFETTI */
+.confetti-piece{position:fixed;width:10px;height:10px;border-radius:2px;opacity:0;pointer-events:none;z-index:9999;animation:confettiFall linear forwards;}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+
+/* ANIMATED PROGRESS RINGS */
+.ring-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;}
+.ring-svg{transform:rotate(-90deg);}
+.ring-track{fill:none;stroke:var(--g2);stroke-width:8;}
+.ring-fill{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.5s ease;}
+.ring-val{font-size:15px;font-weight:800;color:var(--o);}
+.ring-label{font-size:11px;color:var(--text2);text-align:center;}
+
+/* VOICE SEARCH */
+.voice-btn{position:absolute;right:40px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;color:var(--g4);transition:.2s;padding:4px;}
+.voice-btn:hover{color:var(--o);}
+.voice-btn.listening{color:var(--err);animation:pulse 1s infinite;}
+
+/* HARVEST CALENDAR */
+.harvest-section{background:var(--card);border-radius:20px;padding:20px;margin:0 20px 16px;border:1px solid var(--card-border);}
+.harvest-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px;}
+.harvest-month{border-radius:10px;padding:8px 4px;text-align:center;font-size:10px;}
+.harvest-month.active-season{background:linear-gradient(135deg,var(--y),var(--o));color:white;font-weight:700;}
+.harvest-month.off-season{background:var(--g1);color:var(--g4);}
+.harvest-mango{font-size:11px;font-weight:600;margin-bottom:4px;}
+.harvest-months-row{font-size:9px;color:var(--text2);}
+
+/* SPIN TO WIN */
+.spin-modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:900;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.spin-modal.show{display:flex;animation:fadeUp .3s ease;}
+.spin-box{background:var(--card);border-radius:28px;padding:28px;max-width:380px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.spin-title{font-size:20px;font-weight:800;color:var(--db);margin-bottom:4px;}
+.spin-sub{font-size:12px;color:var(--text2);margin-bottom:20px;}
+.wheel-container{position:relative;width:240px;height:240px;margin:0 auto 20px;}
+.wheel-canvas{border-radius:50%;box-shadow:0 8px 32px rgba(217,119,6,.4);cursor:pointer;}
+.wheel-pointer{position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:28px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));}
+.spin-btn-main{width:100%;padding:13px;background:var(--gradient-gold);color:white;border:none;border-radius:14px;font-family:'Hind Siliguri',sans-serif;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(217,119,6,.4);transition:.25s;}
+.spin-btn-main:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(217,119,6,.5);}
+.spin-btn-main:disabled{background:var(--g2);cursor:not-allowed;transform:none;}
+
+/* ADVANCED FILTERS */
+.price-slider-wrap{padding:8px 0;}
+.price-range{width:100%;-webkit-appearance:none;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--y) var(--pct,50%),var(--g2) var(--pct,50%));outline:none;cursor:pointer;}
+.price-range::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--o);cursor:pointer;box-shadow:0 2px 6px rgba(217,119,6,.4);}
+.price-display{display:flex;justify-content:space-between;font-size:11px;color:var(--text2);margin-top:4px;}
+.origin-pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
+.origin-pill{padding:4px 10px;border:1.5px solid var(--g2);border-radius:20px;font-size:11px;cursor:pointer;transition:.2s;color:var(--text2);}
+.origin-pill.sel{background:var(--y);border-color:var(--o);color:var(--db);font-weight:700;}
+
+/* STICKY BUY BUTTON */
+.sticky-buy{position:fixed;bottom:0;left:0;right:0;background:var(--card);padding:12px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.1);z-index:200;display:none;border-top:1px solid var(--card-border);animation:slideUp .3s ease;}
+.sticky-buy.show{display:flex;gap:10px;align-items:center;}
+@keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+.sticky-prod-info{flex:1;}
+.sticky-prod-name{font-size:13px;font-weight:700;color:var(--text);}
+.sticky-prod-price{font-size:12px;color:var(--o);font-weight:600;}
+
+/* REAL-TIME TICKER */
+.live-ticker{background:linear-gradient(90deg,var(--db),var(--o),var(--db));padding:6px 0;overflow:hidden;position:relative;}
+.live-ticker-inner{display:flex;gap:0;white-space:nowrap;animation:tickerScroll 20s linear infinite;}
+.ticker-item{font-size:11px;color:white;font-weight:600;padding:0 24px;opacity:.9;}
+.live-dot{width:6px;height:6px;background:#ef4444;border-radius:50%;animation:pulse 1s infinite;display:inline-block;margin-right:6px;}
+
+/* BULK PRICE EDITOR */
+.bulk-editor-table{width:100%;border-collapse:collapse;}
+.bulk-editor-table td{padding:7px 10px;border-bottom:1px solid var(--card-border);font-size:12px;}
+.bulk-editor-table input[type=number]{width:80px;padding:4px 8px;border:1.5px solid var(--input-border);border-radius:7px;font-size:12px;background:var(--input-bg);color:var(--text);}
+.bulk-editor-table input:focus{border-color:var(--y);outline:none;}
+.bulk-pct-input{width:60px!important;}
+
+/* ORDER CALENDAR */
+.order-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.cal-header{text-align:center;font-size:10px;font-weight:700;color:var(--text2);padding:4px 0;}
+.cal-day{aspect-ratio:1;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px;cursor:default;border:1px solid transparent;transition:.2s;}
+.cal-day.has-order{background:var(--a0);border-color:var(--y);color:var(--db);cursor:pointer;font-weight:700;}
+.cal-day.has-order:hover{background:var(--a1);}
+.cal-day.today{border-color:var(--o);background:var(--a1);}
+.cal-day.empty{opacity:0;}
+.cal-day .day-num{font-size:11px;}
+.cal-day .order-dot{width:5px;height:5px;border-radius:50%;background:var(--o);margin-top:2px;}
+
+/* DESKTOP NOTIFICATIONS */
+.notif-permission-bar{background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:10px 20px;text-align:center;font-size:12px;font-weight:600;display:none;align-items:center;justify-content:center;gap:10px;}
+.notif-permission-bar button{padding:5px 14px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);border-radius:8px;color:white;font-family:'Hind Siliguri',sans-serif;font-size:11px;cursor:pointer;}
+.notif-permission-bar button:hover{background:rgba(255,255,255,.35);}
+
+/* PROFIT CALCULATOR */
+.profit-calc{background:var(--g0);border-radius:14px;padding:16px;border:1px solid var(--card-border);}
+.profit-result{background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-radius:10px;padding:12px;margin-top:12px;font-size:13px;color:var(--ok);font-weight:700;text-align:center;display:none;}
+.profit-result.show{display:block;animation:fadeUp .2s ease;}
+
+/* PRODUCT ARCHIVE */
+.archived-badge{background:linear-gradient(135deg,#9ca3af,#6b7280);color:white;font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;letter-spacing:.5px;}
+.restore-btn{padding:4px 10px;background:var(--ok);color:white;border:none;border-radius:7px;font-family:'Hind Siliguri',sans-serif;font-size:11px;cursor:pointer;transition:.2s;}
+.restore-btn:hover{background:#059669;}
+
+/* QUANTITY CALCULATOR */
+.qty-calc-popup{background:var(--card);border:1.5px solid var(--card-border);border-radius:16px;padding:16px;margin-top:8px;box-shadow:var(--sm);display:none;animation:fadeUp .25s ease;}
+.qty-calc-popup.show{display:block;}
+.qty-calc-result{font-size:13px;font-weight:700;color:var(--o);margin-top:8px;padding:8px 12px;background:var(--a0);border-radius:8px;text-align:center;}
+
+/* AUTO DARK TIME */
+.auto-dark-badge{font-size:10px;background:linear-gradient(135deg,#1e40af,#3b82f6);color:white;padding:2px 7px;border-radius:8px;font-weight:600;}
+
+/* DELIVERY MAP */
+.delivery-map{background:linear-gradient(135deg,#e0f2fe,#bae6fd);border-radius:16px;padding:20px;margin:0 20px 16px;border:1px solid #7dd3fc;position:relative;overflow:hidden;}
+.delivery-map-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px;}
+.delivery-area{background:white;border-radius:10px;padding:8px;text-align:center;font-size:11px;font-weight:600;color:var(--db);border:1.5px solid #7dd3fc;transition:.2s;}
+.delivery-area:hover{background:var(--a1);border-color:var(--o);}
+.delivery-area.same-day{border-color:var(--ok);background:#d1fae5;color:#065f46;}
+
+/* REMEMBER ME */
+.remember-me-row{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:12px;color:var(--text2);}
+.remember-me-row input{accent-color:var(--o);}
+
+/* CLICK TO CALL */
+.call-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#10b981,#059669);color:white;padding:8px 16px;border-radius:10px;font-size:12px;font-weight:700;text-decoration:none;transition:.2s;}
+.call-btn:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(16,185,129,.4);}
+
+@media(max-width:700px){
+  .harvest-grid{grid-template-columns:repeat(3,1fr);}
+  .delivery-map-grid{grid-template-columns:repeat(2,1fr);}
+  .bulk-editor-table td{padding:5px 6px;}
+}
+
+.qv-mini-btn{width:100%;padding:7px;margin-bottom:8px;background:var(--g0);border:1.5px solid var(--card-border);border-radius:10px;font-family:'Hind Siliguri',sans-serif;font-size:12px;font-weight:600;cursor:pointer;color:var(--text2);transition:.2s;display:block;}
+.qv-mini-btn:hover{background:var(--a1);color:var(--db);}
 </style>
 </head>
 <body>
+<!-- NETWORK STATUS -->
+<div id="network-bar" class="network-bar">📶 ইন্টারনেট সংযোগ নেই! অফলাইন মোডে আছেন।</div>
+<!-- DESKTOP NOTIFICATION BAR -->
+<div id="notif-permission-bar" class="notif-permission-bar">
+  🔔 বিশেষ অফার ও অর্ডার আপডেট পেতে notification চালু করুন
+  <button onclick="requestDesktopNotif()">✅ চালু করুন</button>
+  <button onclick="document.getElementById('notif-permission-bar').style.display='none'">✕</button>
+</div>
+
+<!-- PRICE DROP ALERT -->
+<div class="price-drop-alert" id="price-drop-alert">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+    <span style="font-size:20px;">📉</span>
+    <span style="font-size:13px;font-weight:700;color:var(--ok);">দাম কমেছে!</span>
+    <button onclick="this.closest('.price-drop-alert').classList.remove('show')" style="background:none;border:none;cursor:pointer;margin-left:auto;color:var(--text2);">✕</button>
+  </div>
+  <div id="price-drop-info" style="font-size:12px;color:var(--text);">হিমসাগর আমের দাম ৳১৮০→৳১৬০</div>
+</div>
 <!-- SPLASH SCREEN -->
 <div id="splash" style="position:fixed;inset:0;background:linear-gradient(135deg,#3d1500,#7c3300,#d97706);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;">
   <div style="font-size:80px;animation:float 1.5s ease-in-out infinite;">🥭</div>
@@ -1612,7 +1932,10 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
   <div class="al ae2" id="le1"></div>
   <div class="fg"><label class="fl">ইমেইল</label><input class="fi" id="lem" type="email" placeholder="example@gmail.com"></div>
   <div class="fg"><label class="fl">পাসওয়ার্ড</label><div class="pw-wrap"><input class="fi" id="lpw" type="password" placeholder="পাসওয়ার্ড লিখুন" onkeydown="if(event.key==='Enter')doLogin()"><span class="pw-eye" onclick="togglePwd('lpw',this)">👁</span></div></div>
-  <button class="bf" id="login-btn" onclick="doLogin()">🚀 লগইন করুন</button>
+  <div class="remember-me-row">
+      <input type="checkbox" id="remember-me"> <label for="remember-me">পরের বার স্বয়ংক্রিয় লগইন</label>
+    </div>
+    <button class="bf" id="login-btn" onclick="doLogin()">🚀 লগইন করুন</button>
   <div class="sw" style="margin-top:10px;"><a onclick="openForgotPwd()" style="color:var(--o);font-weight:600;cursor:pointer;">🔑 পাসওয়ার্ড ভুলে গেছেন?</a></div>
   <div class="sw">অ্যাকাউন্ট নেই? <a onclick="navigate('register')">নিবন্ধন করুন</a></div>
 </div></div></div>
@@ -1651,7 +1974,8 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
       <span class="si-icon">🔍</span>
       <input class="shi" id="srch" placeholder="আম খুঁজুন... (যেমন: ফজলি, রাজশাহী)" autocomplete="off" oninput="onSearch()" onkeydown="handleSearchKey(event)" onfocus="showSuggest()">
       <button class="si-clear" onclick="clearSearch()" id="si-clear" style="display:none;">✕</button>
-      <div class="suggest-box" id="suggest-box"></div>
+      <div class="suggest-box" id="suggest-box">
+    <button class="voice-btn" id="voice-btn" onclick="startVoiceSearch()" title="ভয়েস সার্চ">🎙️</button></div>
     </div>
   </div>
   <!-- FILTER -->
@@ -1682,6 +2006,8 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
   </div>
   <!-- PRODUCTS -->
   <div class="ps"><div class="pst">🥭 আমাদের পণ্যসমূহ <div class="psl"></div></div><div class="pg" id="pg"></div>
+    <div class="load-sentinel" id="load-sentinel"></div>
+    <div class="loading-more" id="loading-more">🥭 আরও পণ্য লোড হচ্ছে...</div>
     <div style="text-align:center;margin-top:10px;" id="load-more-wrap" style="display:none;">
       <button class="load-more-btn" onclick="loadMore()">আরও পণ্য দেখুন ↓</button>
     </div>
@@ -1710,6 +2036,21 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
     <div style="font-size:11px;color:var(--text2);margin-top:8px;text-align:center;">👆 ক্লিক করে কোড কপি করুন</div>
   </div>
 
+  <!-- BUNDLE DEALS -->
+  <div class="bundle-section reveal" id="bundle-section" style="display:none;">
+    <div class="bundle-title">🎁 বান্ডেল অফার <span style="font-size:12px;font-weight:400;color:var(--db);opacity:.7;">বেশি কিনলে বেশি সাশ্রয়</span></div>
+    <div id="bundle-list"></div>
+  </div>
+
+  <!-- QUICK REORDER -->
+  <div class="quick-reorder reveal" id="quick-reorder" style="display:none;">
+    <div class="qr-title">🔄 আগে কিনেছিলেন <span style="font-size:11px;font-weight:400;color:var(--text2);">দ্রুত পুনরায় অর্ডার করুন</span></div>
+    <div class="qr-items" id="qr-items"></div>
+  </div>
+
+  <!-- SWIPE HINT -->
+  <div class="swipe-hint">👆 ← → সোয়াইপ করুন</div>
+
   <!-- RELATED PRODUCTS -->
   <div class="related-sec" id="related-sec">
     <div class="related-title">🥭 আপনার পছন্দ হতে পারে <div class="psl"></div></div>
@@ -1721,6 +2062,24 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
     <div class="test-title">⭐ গ্রাহকদের মতামত <div class="psl"></div></div>
     <div class="test-grid" id="test-grid"></div>
   </div>
+
+  <!-- HARVEST CALENDAR -->
+  <div class="harvest-section reveal" id="harvest-section">
+    <div style="font-size:18px;font-weight:800;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:8px;">🌾 আমের মৌসুম ক্যালেন্ডার <div class="psl"></div></div>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:12px;">কোন আম কখন পাওয়া যায়</div>
+    <div id="harvest-grid-inner"></div>
+  </div>
+
+  <!-- DELIVERY MAP -->
+  <div class="delivery-map reveal" id="delivery-map">
+    <div style="font-size:18px;font-weight:800;color:#0c4a6e;display:flex;align-items:center;gap:8px;">🗺️ ডেলিভারি এলাকা <div style="flex:1;height:2px;background:linear-gradient(90deg,#0ea5e9,transparent);border-radius:2px;"></div></div>
+    <div style="font-size:12px;color:#0c4a6e;opacity:.7;margin-top:4px;">৪৮ ঘণ্টার মধ্যে ডেলিভারি</div>
+    <div class="delivery-map-grid" id="delivery-areas"></div>
+    <div style="margin-top:10px;font-size:11px;"><span style="color:var(--ok);font-weight:700;">● সেম-ডে</span> ঢাকা মেট্রো &nbsp;|&nbsp; <span style="color:#0ea5e9;font-weight:700;">● ৪৮ঘণ্টা</span> সারা বাংলাদেশ</div>
+  </div>
+
+  <!-- SPIN TO WIN -->
+  <div style="text-align:center;margin:0 20px 20px;"><button class="bf reveal" onclick="openSpinWheel()" style="background:linear-gradient(135deg,#667eea,#764ba2);border:none;color:white;box-shadow:0 4px 20px rgba(102,126,234,.4);">🎡 স্পিন করুন ও ডিসকাউন্ট জিতুন!</button></div>
 
   <!-- NEWSLETTER -->
   <div class="newsletter">
@@ -1761,6 +2120,11 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
   <div class="ofs">আপনার ডেলিভারি তথ্য পূরণ করুন</div>
   <div class="al ae2" id="oe1"></div>
   <div class="osb" id="osb"></div>
+    <div class="disc-calc" id="disc-calc" style="display:none;">
+      <div class="disc-calc-row"><span>পণ্যের মূল মূল্য:</span><span id="dc-original">৳০</span></div>
+      <div class="disc-calc-row" style="color:var(--err);"><span>মোট সাশ্রয়:</span><span id="dc-saved">৳০</span></div>
+      <div class="disc-calc-total"><span>💰 আপনি বাঁচাচ্ছেন:</span><span id="dc-pct">০%</span></div>
+    </div>
   <div class="fr">
     <div class="fg"><label class="fl">পূর্ণ নাম</label><input class="fi" id="on" type="text" placeholder="আপনার নাম"></div>
     <div class="fg"><label class="fl">ফোন নম্বর</label><input class="fi" id="oph" type="tel" placeholder="01XXXXXXXXX"></div>
@@ -1828,6 +2192,9 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
     <button class="tbb" onclick="switchTab('tp9',this)">🛒 পরিত্যক্ত</button>
     <button class="tbb" onclick="switchTab('tp10',this)">📜 স্টক লগ</button>
     <button class="tbb" onclick="switchTab('tp11',this)">📦 Import/VAT</button>
+    <button class="tbb" onclick="switchTab('tp12',this)">💰 মূল্য সম্পাদক</button>
+    <button class="tbb" onclick="switchTab('tp13',this)">📅 ক্যালেন্ডার</button>
+    <button class="tbb" onclick="switchTab('tp14',this)">🗃️ আর্কাইভ</button>
   </div>
   <!-- TAB1: DASHBOARD -->
   <div class="tp act" id="tp1">
@@ -1898,6 +2265,10 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
       <p style="font-size:13px;color:var(--text2);margin-bottom:14px;">সব নিবন্ধিত কাস্টমারের নোটিফিকেশন লিস্টে বার্তা পাঠান।</p>
       <button class="abtn2" onclick="$id('broadcast-modal').classList.add('show')">📢 Broadcast পাঠান</button>
     </div>
+    <div class="ss"><div class="ss-t">⚡ সাইট পারফরম্যান্স</div>
+      <div class="perf-grid" id="perf-grid"></div>
+      <div style="font-size:11px;color:var(--text2);margin-top:8px;">ডেটা রিফ্রেশ হবে প্রতি ৩০ সেকেন্ডে</div>
+    </div>
     <div class="ss"><div class="ss-t">📊 কাস্টমার ও অর্ডার Export</div>
       <div class="export-btns">
         <button class="exp-btn" onclick="exportCSV()">📦 অর্ডার CSV</button>
@@ -1933,9 +2304,73 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
       <button class="bf" style="max-width:200px;margin-top:12px;" onclick="saveVAT()">💾 সেভ করুন</button>
     </div>
   </div>
+  <!-- TAB12: BULK PRICE EDITOR -->
+  <div class="tp" id="tp12">
+    <div class="tbh">
+      <div class="tbt">💰 বাল্ক মূল্য সম্পাদক</div>
+      <div style="display:flex;gap:8px;">
+        <select class="fse" id="bulk-pct-sel" style="font-size:12px;padding:5px 8px;">
+          <option value="">% পরিবর্তন করুন</option>
+          <option value="10">+১০%</option><option value="20">+২০%</option>
+          <option value="-10">-১০%</option><option value="-20">-২০%</option>
+        </select>
+        <button class="abtn2" onclick="applyBulkPriceChange()">প্রয়োগ করুন</button>
+        <button class="btns" onclick="saveBulkPrices()">💾 সেভ করুন</button>
+      </div>
+    </div>
+    <div class="tw"><table class="at" id="bulk-price-table"><thead><tr><th>পণ্য</th><th>বর্তমান দাম</th><th>নতুন দাম</th><th>ছাড় %</th></tr></thead><tbody id="bulk-price-body"></tbody></table></div>
+  </div>
+  <!-- TAB13: ORDER CALENDAR -->
+  <div class="tp" id="tp13">
+    <div class="tbh"><div class="tbt">📅 অর্ডার ক্যালেন্ডার</div><span id="cal-month-label" style="font-size:13px;color:var(--text2);"></span></div>
+    <div style="display:flex;gap:8px;margin-bottom:12px;">
+      <button class="ab abg" onclick="calPrev()">← আগের মাস</button>
+      <button class="ab abg" onclick="calNext()">পরের মাস →</button>
+    </div>
+    <div class="order-calendar" id="order-calendar"></div>
+    <div id="cal-orders" style="margin-top:14px;"></div>
+    <div class="ss" style="margin-top:16px;"><div class="ss-t">📈 লাভ ক্যালকুলেটর</div>
+      <div class="profit-calc">
+        <div class="fr" style="flex-wrap:wrap;">
+          <div class="fg" style="margin:0;min-width:120px;"><label class="fl">ক্রয়মূল্য (৳/কেজি)</label><input class="fi" id="cost-price" type="number" placeholder="৬০" onkeyup="calcProfit()"></div>
+          <div class="fg" style="margin:0;min-width:120px;"><label class="fl">বিক্রয়মূল্য (৳/কেজি)</label><input class="fi" id="sell-price" type="number" placeholder="১২০" onkeyup="calcProfit()"></div>
+          <div class="fg" style="margin:0;min-width:120px;"><label class="fl">পরিমাণ (কেজি)</label><input class="fi" id="qty-calc-val" type="number" placeholder="৫০" onkeyup="calcProfit()"></div>
+        </div>
+        <div class="profit-result" id="profit-result"></div>
+      </div>
+    </div>
+  </div>
+  <!-- TAB14: PRODUCT ARCHIVE -->
+  <div class="tp" id="tp14">
+    <div class="tbh"><div class="tbt">🗃️ আর্কাইভ পণ্য</div><span style="font-size:12px;color:var(--text2);">মুছে ফেলা পণ্য পুনরুদ্ধার করুন</span></div>
+    <div id="archived-prods"></div>
+  </div>
+
+<!-- TAB6: SETTINGS -->
   <!-- TAB6: SETTINGS -->
   <!-- TAB6: SETTINGS -->
   <div class="tp" id="tp6">
+    <div class="ss"><div class="ss-t">📈 মাসিক রাজস্ব চার্ট</div><div class="monthly-chart"><div class="month-bars" id="month-bars"></div><div style="display:flex;justify-content:space-between;margin-top:4px;" id="month-labels"></div></div></div>
+    <div class="ss"><div class="ss-t">🎫 কুপন জেনারেটর</div>
+      <div class="coupon-gen-box">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+          <select class="fse" id="gen-type"><option value="percent">শতাংশ ছাড়</option><option value="fixed">নির্দিষ্ট ছাড়</option></select>
+          <input class="fi" id="gen-value" type="number" placeholder="মান" style="width:80px;margin:0;">
+          <input class="fi" id="gen-min" type="number" placeholder="ন্যূনতম ৳" style="width:100px;margin:0;">
+        </div>
+        <div class="gen-code-display" id="gen-code" onclick="copyGenCode()">CLICK করুন</div>
+        <div style="display:flex;gap:8px;">
+          <button class="abtn2" onclick="generateCoupon()" style="flex:1;">🎲 নতুন কোড তৈরি</button>
+          <button class="btns" onclick="saveGenCoupon()" style="flex:1;">💾 সেভ করুন</button>
+        </div>
+      </div>
+    </div>
+    <div class="ss"><div class="ss-t">👥 কাস্টমার সেগমেন্ট</div><div id="customer-segments"></div></div>
+    <div class="ss"><div class="ss-t">📦 অর্ডার Fulfillment ওয়ার্কফ্লো</div><div id="fulfillment-list"></div></div>
+    <div class="ss"><div class="ss-t">📧 অর্ডার Confirmation Template</div>
+      <div class="email-template-box" id="email-template">লোড হচ্ছে...</div>
+      <button class="abtn2" style="margin-top:10px;" onclick="copyEmailTemplate()">📋 Template কপি করুন</button>
+    </div>
     <div class="ss"><div class="ss-t">🚚 ডেলিভারি চার্জ</div>
       <div class="fr" style="max-width:500px;">
         <div class="fg" style="margin:0;"><label class="fl">চার্জ (৳)</label><input class="fi" id="dci" type="number" placeholder="60" min="0"></div>
@@ -2210,6 +2645,36 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
   </div>
 </div>
 
+<!-- BIRTHDAY MODAL -->
+<div id="birthday-modal" style="position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:900;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px);">
+  <div style="background:linear-gradient(135deg,#fef3c7,white);border-radius:28px;padding:36px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3);border:2px solid var(--y);">
+    <div style="font-size:64px;animation:bounce2 .8s ease;">🎂</div>
+    <div style="font-size:22px;font-weight:800;color:var(--db);margin:12px 0 6px;">শুভ জন্মদিন!</div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:16px;">আপনার জন্মদিনে বিশেষ উপহার 🎁<br>আজকের সব অর্ডারে <strong style="color:var(--o);">১৫% বিশেষ ছাড়!</strong></div>
+    <div style="background:var(--a1);border:2px dashed var(--y);border-radius:10px;padding:10px;font-size:18px;font-weight:800;color:var(--db);letter-spacing:2px;margin-bottom:16px;">BDAY15</div>
+    <div style="display:flex;gap:8px;">
+      <button class="btns" style="flex:1;" onclick="copyBdayCode()">🎁 কোড কপি করুন</button>
+      <button class="btnc" style="flex:1;" onclick="document.getElementById('birthday-modal').style.display='none'">পরে</button>
+    </div>
+  </div>
+</div>
+
+<!-- SPIN TO WIN MODAL -->
+<div id="spin-modal" class="spin-modal" onclick="if(event.target===this)closeSpinModal()">
+  <div class="spin-box">
+    <button onclick="closeSpinModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:18px;cursor:pointer;color:var(--text2);">✕</button>
+    <div class="spin-title">🎡 স্পিন করুন!</div>
+    <div class="spin-sub">চাকা ঘুরিয়ে বিশেষ ডিসকাউন্ট জিতুন</div>
+    <div class="wheel-container">
+      <div class="wheel-pointer">▼</div>
+      <canvas id="wheel-canvas" class="wheel-canvas" width="240" height="240"></canvas>
+    </div>
+    <div id="spin-result" style="font-size:15px;font-weight:700;color:var(--o);margin-bottom:12px;min-height:24px;"></div>
+    <button class="spin-btn-main" id="spin-btn" onclick="spinWheel()">🎡 স্পিন করুন!</button>
+    <div style="font-size:11px;color:var(--text2);margin-top:8px;">প্রতি অ্যাকাউন্টে দিনে একবার</div>
+  </div>
+</div>
+
 <!-- UNDO TOAST -->
 <div id="undo-toast" style="position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#1f2937;color:white;border-radius:12px;padding:12px 20px;display:none;align-items:center;gap:12px;z-index:900;box-shadow:var(--sl);">
   <span id="undo-msg">মুছে ফেলা হয়েছে</span>
@@ -2223,6 +2688,16 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
 <div class="toast" id="toast"></div>
 
 <!-- FOOTER -->
+<!-- STICKY BUY BUTTON -->
+<div class="sticky-buy" id="sticky-buy">
+  <div class="sticky-prod-info">
+    <div class="sticky-prod-name" id="sticky-name">পণ্য বাছুন</div>
+    <div class="sticky-prod-price" id="sticky-price">৳০/কেজি</div>
+  </div>
+  <button class="btn-cart" style="width:auto;padding:10px 16px;" onclick="addToCart(stickyPid,false)">🛒 কার্টে</button>
+  <button class="btn-buy" style="width:auto;padding:10px 16px;" onclick="addToCart(stickyPid,true)">⚡ কিনুন</button>
+</div>
+
 <footer class="ft">
   <div class="fts">🥭 ফজলি &nbsp;•&nbsp; হিমসাগর &nbsp;•&nbsp; ল্যাংড়া &nbsp;•&nbsp; আম্রপালি &nbsp;•&nbsp; গোপালভোগ &nbsp;•&nbsp; খিরসাপাত 🥭</div>
   <div class="ftg">
@@ -2815,10 +3290,12 @@ function renderProds(filtered){
   // skeleton first
   pg.innerHTML=Array(4).fill('<div class="skel-card"><div class="skeleton skel-img"></div><div class="skeleton skel-line" style="margin-top:14px;"></div><div class="skeleton skel-line short"></div><div class="skeleton skel-line" style="height:8px;margin-bottom:16px;"></div></div>').join('');
   setTimeout(()=>{
+    try{
     const prods=filtered||getFilteredProds();
     const fc=$id('fct');if(fc)fc.textContent=prods.length+' টি পণ্য';
     if(!prods.length){pg.innerHTML='<div class="es" style="grid-column:1/-1"><div class="esi">🔍</div><div class="est">কোনো পণ্য পাওয়া যায়নি</div><div class="esd">অন্য ফিল্টার ব্যবহার করুন</div></div>';return;}
-    pg.innerHTML=prods.map(p=>buildCard(p)).join('');
+    pg.innerHTML=prods.map(p=>{try{return buildCard(p);}catch(e){return '';}}).join('');
+    }catch(err){pg.innerHTML='<div class="es"><div class="esi">⚠️</div><div class="est">পণ্য লোড হয়নি</div></div>';}
   },300);
 }
 
@@ -3942,7 +4419,7 @@ function renderChatMsgs(){
 // Show chat for logged-in users
 (function(){
   var cw=document.getElementById('chat-widget');
-  if(cw&&GCU()&&!GCU().isAdmin)cw.style.display='block';
+  var _cu=GCU();if(cw&&_cu&&!_cu.isAdmin)cw.style.display='block';
 })();
 
 // ============================================================
@@ -4518,7 +4995,7 @@ function checkBirthday(){
     var todayStr=today.toDateString();
     if(lastShown!==todayStr){
       localStorage.setItem('bday_shown_'+u.id,todayStr);
-      setTimeout(function(){var bm=document.getElementById('birthday-modal');if(bm)bm.classList.add('show');},3000);
+      setTimeout(function(){var bm=document.getElementById('birthday-modal');if(bm)bm.style.display='flex';},3000);
     }
   }
 }
@@ -4831,12 +5308,14 @@ document.addEventListener('keydown',function(e){
 function autoSaveForm(){
   var fields=['on','oph','oaddr','odt','onote'];
   fields.forEach(function(id){
+    try{
     var el=document.getElementById(id);
     if(el){
       var saved=sessionStorage.getItem('form_'+id);
       if(saved&&!el.value)el.value=saved;
       el.addEventListener('input',function(){sessionStorage.setItem('form_'+id,el.value);});
     }
+    }catch(e){}
   });
 }
 function clearFormCache(){
@@ -5056,16 +5535,1163 @@ openPM=function(prod){
 var _origBCF4=buildCard;
 buildCard=function(p){
   var card=_origBCF4(p);
-  // Add Quick View button before share-row
-  card=card.replace('<div class="share-row">','<button style="width:100%;padding:7px;margin-bottom:8px;background:var(--g0);border:1.5px solid var(--card-border);border-radius:10px;font-family:\'Hind Siliguri\',sans-serif;font-size:12px;font-weight:600;cursor:pointer;color:var(--text2);transition:.2s;" onmouseover="this.style.background=\'var(--a1)\'" onmouseout="this.style.background=\'var(--g0)\'" onclick="openQV(\''+p.id+'\')">🔍 দ্রুত দেখুন</button><div class="share-row">');
+  // Safe quick view button injection
+  var pid=p.id;
+  var qvBtn='<button class="qv-mini-btn" onclick="event.stopPropagation();openQV(\''+pid+'\')">🔍 দ্রুত দেখুন</button>';
+  if(card.indexOf('<div class="share-row">')>=0){
+    card=card.replace('<div class="share-row">',qvBtn+'<div class="share-row">');
+  }
   return card;
+};
+// ============================================================
+// SCROLL ANIMATIONS (Intersection Observer)
+// ============================================================
+(function initScrollAnimations(){
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  function observeAll(){
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-scale').forEach(function(el){
+      observer.observe(el);
+    });
+  }
+  observeAll();
+  // Re-observe after navigate
+  var origNav=navigate;
+  navigate=function(pg){
+    origNav(pg);
+    setTimeout(observeAll,400);
+  };
+})();
+
+// ============================================================
+// NETWORK STATUS
+// ============================================================
+(function initNetwork(){
+  var bar=document.getElementById('network-bar');
+  function setOnline(){
+    if(!bar)return;
+    bar.textContent='✅ ইন্টারনেট সংযোগ ফিরে এসেছে!';
+    bar.className='network-bar online';
+    setTimeout(function(){bar.style.display='none';bar.className='network-bar';},3000);
+  }
+  function setOffline(){
+    if(!bar)return;
+    bar.textContent='📶 ইন্টারনেট সংযোগ নেই! অফলাইন মোডে আছেন।';
+    bar.className='network-bar offline';
+  }
+  window.addEventListener('online',setOnline);
+  window.addEventListener('offline',setOffline);
+  if(!navigator.onLine)setOffline();
+})();
+
+// ============================================================
+// SERVICE WORKER (offline support)
+// ============================================================
+(function initSW(){
+  if(!('serviceWorker' in navigator))return;
+  var swCode="self.addEventListener('install',function(e){e.waitUntil(caches.open('aambazar-v1').then(function(c){return c.addAll(['./',document.location.href]);}));});self.addEventListener('fetch',function(e){e.respondWith(caches.match(e.request).then(function(r){return r||fetch(e.request).catch(function(){return caches.match('./');});}));});";
+  var blob=new Blob([swCode],{type:'application/javascript'});
+  var url=URL.createObjectURL(blob);
+  navigator.serviceWorker.register(url).then(function(){
+    // SW registered successfully
+  }).catch(function(){
+    // SW not supported or blocked
+  });
+})();
+
+// ============================================================
+// SWIPE GESTURES (mobile cart/menu)
+// ============================================================
+(function initSwipe(){
+  var startX=0,startY=0;
+  document.addEventListener('touchstart',function(e){
+    startX=e.touches[0].clientX;startY=e.touches[0].clientY;
+  },{passive:true});
+  document.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-startX;
+    var dy=e.changedTouches[0].clientY-startY;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>60){
+      if(dx<0){// swipe left = open cart
+        var u=GCU();if(u&&!u.isAdmin)openCart();
+      }else{// swipe right = close cart
+        closeCart();
+      }
+    }
+  },{passive:true});
+})();
+
+// ============================================================
+// IMAGE LAZY LOADING
+// ============================================================
+(function initLazyLoad(){
+  var lo=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var img=e.target;
+        if(img.dataset.src){img.src=img.dataset.src;delete img.dataset.src;lo.unobserve(img);}
+      }
+    });
+  },{rootMargin:'100px'});
+  function lazyImages(){
+    document.querySelectorAll('img[data-src]').forEach(function(img){lo.observe(img);});
+  }
+  lazyImages();
+  var origRP=renderProds;
+  renderProds=function(f){origRP(f);setTimeout(lazyImages,400);};
+})();
+
+// ============================================================
+// INFINITE SCROLL
+// ============================================================
+var infiniteLoading=false;
+(function initInfiniteScroll(){
+  var sentinel=document.getElementById('load-sentinel');
+  if(!sentinel)return;
+  var io=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting&&!infiniteLoading){
+      var prods=getFilteredProds();
+      if(visibleCount<prods.length){
+        infiniteLoading=true;
+        var lm=document.getElementById('loading-more');
+        if(lm)lm.classList.add('show');
+        setTimeout(function(){
+          visibleCount+=6;renderProds();
+          if(lm)lm.classList.remove('show');
+          infiniteLoading=false;
+        },600);
+      }
+    }
+  },{threshold:1});
+  io.observe(sentinel);
+})();
+
+// ============================================================
+// REAL-TIME FORM VALIDATION
+// ============================================================
+function validateField(id,rule,errMsg,okMsg){
+  var el=document.getElementById(id);if(!el)return true;
+  var errEl=el.parentNode?el.parentNode.querySelector('.field-error'):null;
+  var okEl=el.parentNode?el.parentNode.querySelector('.field-ok'):null;
+  var val=el.value.trim();
+  var valid=rule(val);
+  if(el){el.classList.toggle('valid',valid&&val.length>0);el.classList.toggle('invalid',!valid&&val.length>0);}
+  if(errEl){errEl.textContent=errMsg;errEl.classList.toggle('show',!valid&&val.length>0);}
+  if(okEl){okEl.textContent=okMsg||'✅';okEl.classList.toggle('show',valid&&val.length>0);}
+  return valid;
+}
+function addFieldError(id,msg){
+  var el=document.getElementById(id);if(!el)return;
+  if(el.parentNode.querySelector('.field-error'))return;
+  var div=document.createElement('div');div.className='field-error';div.id=id+'-err';
+  if(el.parentNode)el.parentNode.appendChild(div);
+  el.addEventListener('input',function(){
+    validateField(id,function(v){return v.length>0;},'',msg);
+  });
+}
+function initFormValidation(){
+  // Register form
+  var rn=document.getElementById('rn');
+  if(rn&&!rn._validated){
+    rn._validated=true;
+    rn.addEventListener('blur',function(){validateField('rn',function(v){return v.length>=2;},'নাম কমপক্ষে ২ অক্ষর','✅ নাম ঠিক আছে');});
+    var rem=document.getElementById('rem');
+    if(rem)rem.addEventListener('blur',function(){validateField('rem',function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);},'সঠিক ইমেইল লিখুন','✅ ইমেইল সঠিক');});
+    var rph=document.getElementById('rph');
+    if(rph)rph.addEventListener('blur',function(){validateField('rph',function(v){return v.length>=11;},'ফোন নম্বর ১১ সংখ্যার হতে হবে','✅ ফোন সঠিক');});
+    var rpw=document.getElementById('rpw');
+    if(rpw)rpw.addEventListener('blur',function(){validateField('rpw',function(v){return v.length>=6;},'পাসওয়ার্ড কমপক্ষে ৬ অক্ষর','✅ পাসওয়ার্ড শক্তিশালী');});
+  }
+  // Order form
+  var on=document.getElementById('on');
+  if(on&&!on._validated){
+    on._validated=true;
+    on.addEventListener('blur',function(){validateField('on',function(v){return v.length>=2;},'নাম দিন','✅');});
+    var oph=document.getElementById('oph');
+    if(oph)oph.addEventListener('blur',function(){validateField('oph',function(v){return v.length>=11;},'সঠিক ফোন নম্বর দিন','✅');});
+  }
+}
+
+// ============================================================
+// DEBOUNCED SEARCH
+// ============================================================
+var searchDebounceTimer=null;
+var _origOnSearch=onSearch;
+onSearch=function(){
+  clearTimeout(searchDebounceTimer);
+  var v=document.getElementById('srch')&&document.getElementById('srch').value;
+  if(document.getElementById('si-clear'))document.getElementById('si-clear').style.display=v?'block':'none';
+  if(v&&v.length>0)showSuggest();
+  else{var sb=document.getElementById('suggest-box');if(sb)sb.classList.remove('show');}
+  searchDebounceTimer=setTimeout(applyFilters,300);
 };
 
 // ============================================================
-// INIT
+// INPUT SANITIZATION (XSS protection)
+// ============================================================
+function sanitize(str){
+  if(!str)return'';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+// Patch doReg to sanitize
+var _origDoReg2=doReg;
+doReg=function(){
+  var rn=document.getElementById('rn');
+  if(rn)rn.value=sanitize(rn.value).replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+  _origDoReg2();
+};
+
+// ============================================================
+// BUNDLE DEALS
+// ============================================================
+var BUNDLES=[
+  {icon:'🥭🥭🥭',name:'৩ কেজি ফজলি প্যাক',desc:'৩ কেজি কিনলে ১ কেজি ফ্রি!',price:360,original:480,tag:'p1',qty:3,free:1},
+  {icon:'🥭💛',name:'মিক্স ফ্রুট বক্স',desc:'ফজলি+হিমসাগর+ল্যাংড়া ২কেজি করে',price:680,original:780,tag:null,qty:6,free:0},
+  {icon:'🎁🥭',name:'গিফট বক্স প্রিমিয়াম',desc:'সুন্দর গিফট প্যাকেজিং সহ ৫কেজি',price:950,original:1100,tag:'p2',qty:5,free:0},
+];
+function renderBundles(){
+  var sec=document.getElementById('bundle-section');var list=document.getElementById('bundle-list');
+  if(!sec||!list)return;
+  sec.style.display='block';
+  list.innerHTML=BUNDLES.map(function(b,i){
+    var save=b.original-b.price;var pct=Math.round(save/b.original*100);
+    return '<div class="bundle-card reveal-scale" onclick="addBundleToCart('+i+')">'
+      +'<div class="bundle-emoji">'+b.icon+'</div>'
+      +'<div class="bundle-info"><div class="bundle-name">'+b.name+'</div><div class="bundle-desc">'+b.desc+'</div></div>'
+      +'<div style="text-align:right;flex-shrink:0;">'
+      +'<div class="bundle-price">৳'+b.price+'</div>'
+      +'<div style="font-size:10px;text-decoration:line-through;color:var(--g4);">৳'+b.original+'</div>'
+      +'<div class="bundle-save">'+pct+'% সাশ্রয়</div>'
+      +'</div></div>';
+  }).join('');
+  // Re-observe for reveal
+  document.querySelectorAll('.reveal-scale').forEach(function(el){
+    setTimeout(function(){el.classList.add('visible');},100);
+  });
+}
+function addBundleToCart(idx){
+  var u=GCU();if(!u||u.isAdmin){showToast('লগইন করুন!','err');return;}
+  var b=BUNDLES[idx];
+  var cart=GCart();
+  var prods=GP();
+  var pricePerKg=Math.round(b.price/b.qty);
+  cart.push({id:'bundle-'+idx+'-'+Date.now(),name:b.name,price:pricePerKg,disc:0,fp:pricePerKg,qty:b.qty,img:'',isBundle:true});
+  SCart(cart);updBadge();
+  showToast('🎁 বান্ডেল কার্টে যোগ হয়েছে!','ok');
+  openCart();
+}
+
+// ============================================================
+// QUICK REORDER SECTION
+// ============================================================
+function renderQuickReorder(){
+  var u=GCU();var sec=document.getElementById('quick-reorder');var items=document.getElementById('qr-items');
+  if(!sec||!items)return;
+  if(!u||u.isAdmin){sec.style.display='none';return;}
+  var os=GO().filter(function(o){return o.userId===u.id;}).slice(-3).reverse();
+  if(!os.length){sec.style.display='none';return;}
+  sec.style.display='block';
+  var seen={};var unique=[];
+  os.forEach(function(o){o.items.forEach(function(i){if(!seen[i.id]){seen[i.id]=true;if(i)unique.push(Object.assign({},i,{oid:o.orderId}));}});});
+  if(!unique.length){sec.style.display='none';return;}
+  items.innerHTML=unique.slice(0,5).map(function(i){
+    return '<div class="qr-item"><div class="qr-emoji">🥭</div><div><div class="qr-name">'+i.name+'</div><div style="font-size:10px;color:var(--text2);">৳'+(i.fp||i.price)+'/কেজি</div></div><button class="qr-btn no-ripple" onclick="event.stopPropagation();quickReorderItem(\''+i.id+'\','+i.qty+')">+ কার্টে</button></div>';
+  }).join('');
+}
+function quickReorderItem(pid,qty){
+  var p=GP().find(function(x){return x.id===pid;});
+  if(!p){showToast('পণ্যটি আর পাওয়া যাচ্ছে না।','err');return;}
+  if(p.stock<=0){showToast('এই পণ্যটি স্টকে নেই।','err');return;}
+  var cart=GCart();var ex=cart.find(function(c){return c.id===pid;});
+  if(ex)ex.qty+=qty;
+  else cart.push({id:p.id,name:p.name,price:p.price,disc:p.disc||0,fp:dPrice(p,qty),qty:qty,img:p.img||''});
+  SCart(cart);updBadge();showToast('✅ '+p.name+' কার্টে যোগ হয়েছে!','ok');
+}
+
+// ============================================================
+// DISCOUNT CALCULATOR
+// ============================================================
+function updateDiscCalc(){
+  var cart=GCart();var calc=document.getElementById('disc-calc');if(!calc)return;
+  if(!cart.length){calc.style.display='none';return;}
+  var originalTotal=cart.reduce(function(s,i){return s+i.price*i.qty;},0);
+  var finalTotal=cartSub();
+  var saved=originalTotal-finalTotal;
+  if(saved<=0){calc.style.display='none';return;}
+  calc.style.display='block';
+  var pct=Math.round(saved/originalTotal*100);
+  var dc0=document.getElementById('dc-original');var dc1=document.getElementById('dc-saved');var dc2=document.getElementById('dc-pct');
+  if(dc0)dc0.textContent='৳'+originalTotal;
+  if(dc1)dc1.textContent='-৳'+saved;
+  if(dc2)dc2.textContent=pct+'% সাশ্রয়!';
+}
+
+// ============================================================
+// SAVE FOR LATER
+// ============================================================
+function saveForLater(id){
+  var cart=GCart();var item=cart.find(function(c){return c.id===id;});
+  if(!item)return;
+  // Move to wishlist
+  var wl=GWL();if(!wl.includes(id))wl.push(id);
+  localStorage.setItem('wishlist',JSON.stringify(wl));
+  SCart(cart.filter(function(c){return c.id!==id;}));
+  updBadge();renderCart();
+  showToast('❤️ পছন্দের তালিকায় সেভ হয়েছে!','ok');
+}
+
+// ============================================================
+// COUPON GENERATOR
+// ============================================================
+var generatedCode='';
+function generateCoupon(){
+  var chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  generatedCode='AAM';
+  for(var i=0;i<5;i++)generatedCode+=chars[Math.floor(Math.random()*chars.length)];
+  var el=document.getElementById('gen-code');if(el)el.textContent=generatedCode;
+}
+function copyGenCode(){
+  if(!generatedCode){generateCoupon();return;}
+  navigator.clipboard.writeText(generatedCode).then(function(){showToast('✅ '+generatedCode+' কপি হয়েছে!','ok');}).catch(function(){showToast('কোড: '+generatedCode,'ok');});
+}
+function saveGenCoupon(){
+  if(!generatedCode){showToast('আগে কোড তৈরি করুন!','err');return;}
+  var type=document.getElementById('gen-type').value;
+  var value=parseInt(document.getElementById('gen-value').value)||10;
+  var min=parseInt(document.getElementById('gen-min').value)||0;
+  var cs=GC();
+  cs.push({id:'c'+Date.now(),code:generatedCode,type:type,value:value,minOrder:min,maxUses:50,usedCount:0,expiry:'',active:true});
+  localStorage.setItem('coupons',JSON.stringify(cs));
+  showToast('✅ কুপন '+generatedCode+' সেভ হয়েছে!','ok');
+  renderACoupons();renderTicker();
+}
+generateCoupon(); // init
+
+// ============================================================
+// MONTHLY REVENUE CHART
+// ============================================================
+function renderMonthlyChart(){
+  var bars=document.getElementById('month-bars');
+  var labels=document.getElementById('month-labels');
+  if(!bars||!labels)return;
+  bars.innerHTML='';labels.innerHTML='';
+  var months=['জান','ফেব','মার','এপ্র','মে','জুন','জুল','আগ','সেপ','অক্ট','নভ','ডিস'];
+  var os=GO();
+  var data=months.map(function(_,i){
+    return os.filter(function(o){
+      var d=new Date(o.ts||0);return d.getMonth()===i;
+    }).reduce(function(s,o){return s+o.total;},0);
+  });
+  var maxD=data.length?Math.max.apply(null,data)||1:1;
+  bars.innerHTML=data.map(function(v,i){
+    var h=Math.max(4,Math.round(v/maxD*140));
+    return '<div class="month-col"><div class="month-val">'+(v>0?'৳'+Math.round(v/1000)+'k':'')+'</div><div class="month-bar" style="height:'+h+'px;" title="'+months[i]+': ৳'+v+'"></div></div>';
+  }).join('');
+  labels.innerHTML=months.map(function(m){return '<span style="font-size:9px;color:var(--text2);flex:1;text-align:center;">'+m+'</span>';}).join('');
+}
+
+// ============================================================
+// CUSTOMER SEGMENTS
+// ============================================================
+function renderCustomerSegments(){
+  var us=GU(),os=GO();var el=document.getElementById('customer-segments');if(!el)return;
+  el.innerHTML='';
+  var segs={vip:[],regular:[],new_c:[]};
+  us.forEach(function(u){
+    var spent=os.filter(function(o){return o.userId===u.id;}).reduce(function(s,o){return s+o.total;},0);
+    var orders=os.filter(function(o){return o.userId===u.id;}).length;
+    if(spent>=2000)segs.vip.push({...u,spent:spent,orders:orders});
+    else if(orders>0)segs.regular.push({...u,spent:spent,orders:orders});
+    else segs.new_c.push({...u,spent:spent,orders:orders});
+  });
+  el.innerHTML='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;">'
+    +'<div class="pstat"><div class="pstat-val" style="color:#f59e0b;">'+segs.vip.length+'</div><div class="pstat-label">💎 VIP (৳২০০০+)</div></div>'
+    +'<div class="pstat"><div class="pstat-val" style="color:#3b82f6;">'+segs.regular.length+'</div><div class="pstat-label">🔵 Regular</div></div>'
+    +'<div class="pstat"><div class="pstat-val" style="color:#10b981;">'+segs.new_c.length+'</div><div class="pstat-label">🟢 New</div></div>'
+    +'</div>'
+    +(segs.vip.length?'<div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;">💎 VIP কাস্টমার:</div>'
+    +segs.vip.slice(0,3).map(function(u){return '<div class="ac-card"><div class="rev-admin-av">'+u.name.charAt(0)+'</div><div class="ac-info"><div style="font-weight:700;">'+u.name+'</div><div style="color:var(--text2);">'+u.orders+' অর্ডার · ৳'+u.spent+'</div></div><span class="seg-badge seg-vip">VIP</span></div>';}).join(''):'');
+}
+
+// ============================================================
+// ORDER FULFILLMENT
+// ============================================================
+function renderFulfillment(){
+  var el=document.getElementById('fulfillment-list');if(!el)return;
+  var os=GO().filter(function(o){return o.status==='confirmed'||o.status==='shipped';}).slice(0,5);
+  if(!os.length){el.innerHTML='<div style="color:var(--text2);font-size:13px;text-align:center;padding:20px;">কোনো সক্রিয় অর্ডার নেই</div>';return;}
+  el.innerHTML=os.map(function(o){
+    var steps=['পিকিং','প্যাকিং','শিপিং','ডেলিভারি'];
+    var activeIdx=o.status==='shipped'?2:1;
+    return '<div style="margin-bottom:14px;padding:12px;background:var(--g0);border-radius:12px;border:1px solid var(--card-border);">'
+      +'<div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:12px;font-weight:700;">'+o.orderId+'</span><span style="font-size:11px;color:var(--text2);">'+o.userName+'</span></div>'
+      +'<div class="fulfill-steps">'+steps.map(function(s,i){return '<div class="fulfill-step'+(i<activeIdx?' done':i===activeIdx?' active':'')+'" onclick="updOS(\''+o.orderId+'\',\''+(i===3?'delivered':i===2?'shipped':'confirmed')+'\')">'+s+'</div>';}).join('')+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+// ============================================================
+// EMAIL TEMPLATE
+// ============================================================
+function getEmailTemplate(){
+  return'বিষয়: আপনার আমবাজার অর্ডার নিশ্চিত হয়েছে! 🥭\n\nপ্রিয় {গ্রাহকের নাম},\n\nআপনার অর্ডার {অর্ডার আইডি} সফলভাবে গ্রহণ করা হয়েছে।\n\n📦 অর্ডার বিবরণ:\n{পণ্যের তালিকা}\n\n💰 মোট মূল্য: ৳{মোট টাকা}\n🚚 ডেলিভারি: {ডেলিভারি তারিখ}\n📍 ঠিকানা: {ঠিকানা}\n\nআমরা শীঘ্রই আপনার পণ্য পাঠিয়ে দেব।\nযেকোনো প্রশ্নে: info@aambazar.com\n\nধন্যবাদ,\nআমবাজার টিম 🥭';
+}
+function loadEmailTemplate(){
+  var el=document.getElementById('email-template');
+  if(el)el.textContent=getEmailTemplate();
+}
+function copyEmailTemplate(){
+  navigator.clipboard.writeText(getEmailTemplate()).then(function(){showToast('✅ Email Template কপি হয়েছে!','ok');}).catch(function(){showToast('Template কপি হয়নি।','err');});
+}
+
+// ============================================================
+// PERFORMANCE MONITOR
+// ============================================================
+function renderPerfMonitor(){
+  var el=document.getElementById('perf-grid');if(!el)return;
+  el.innerHTML='';
+  var ps=GP(),os=GO(),us=GU();
+  var totalRev=os.reduce(function(s,o){return s+o.total;},0);
+  var avgOrder=os.length?Math.round(totalRev/os.length):0;
+  var convRate=us.length?Math.round(os.length/us.length*100):0;
+  var stockVal=ps.reduce(function(s,p){return s+p.price*p.stock;},0);
+  var perf=performance.getEntriesByType?performance.getEntriesByType('navigation')[0]:null;
+  var loadTime=perf?Math.round(perf.loadEventEnd-perf.startTime)+'ms':'N/A';
+  [
+    {v:loadTime,l:'পেজ লোড টাইম'},
+    {v:'৳'+avgOrder,l:'গড় অর্ডার মূল্য'},
+    {v:convRate+'%',l:'Conversion Rate'},
+    {v:ps.filter(function(p){return p.stock>0;}).length+'/'+ps.length,l:'স্টকে পণ্য'},
+    {v:'৳'+stockVal.toLocaleString(),l:'মোট স্টক মূল্য'},
+    {v:(localStorage.length)+'KB',l:'ডেটা সাইজ (আনু.)'},
+  ].forEach(function(item){
+    var card=document.createElement('div');card.className='perf-card';
+    card.innerHTML='<div class="perf-val">'+item.v+'</div><div class="perf-label">'+item.l+'</div>';
+    el.appendChild(card);
+  });
+}
+
+// ============================================================
+// DRAG & DROP PRODUCTS (admin)
+// ============================================================
+var dragSrcId=null;
+function initDragDrop(){
+  return; // disabled - use admin reorder instead
+  try{
+  var grid=document.getElementById('pg');if(!grid)return;
+  grid.querySelectorAll('.pc').forEach(function(card){
+    card.draggable=false; // disabled - breaks touch/click
+    card.addEventListener('dragstart',function(e){
+      dragSrcId=card.id.replace('pc-','');
+      card.classList.add('dragging');
+      e.dataTransfer.effectAllowed='move';
+    });
+    card.addEventListener('dragend',function(){card.classList.remove('dragging');card.classList.remove('drag-over');});
+    card.addEventListener('dragover',function(e){e.preventDefault();card.classList.add('drag-over');});
+    card.addEventListener('dragleave',function(){card.classList.remove('drag-over');});
+    card.addEventListener('drop',function(e){
+      e.preventDefault();card.classList.remove('drag-over');
+      var targetId=card.id.replace('pc-','');
+      if(dragSrcId&&dragSrcId!==targetId){
+        var prods=GP();
+        var si=prods.findIndex(function(p){return p.id===dragSrcId;});
+        var ti=prods.findIndex(function(p){return p.id===targetId;});
+        if(si>=0&&ti>=0){
+          var tmp=prods[si];prods[si]=prods[ti];prods[ti]=tmp;
+          localStorage.setItem('products',JSON.stringify(prods));
+          renderProds();showToast('✅ পণ্যের ক্রম পরিবর্তন হয়েছে।','ok');
+        }
+      }
+      dragSrcId=null;
+    });
+  });
+  }catch(e){}
+}
+
+// ============================================================
+// PRICE DROP ALERT (simulated)
+// ============================================================
+function checkPriceDrops(){
+  if(!document.getElementById('page-home').classList.contains('active'))return;
+  var prods=GP().filter(function(p){return p.disc>0&&p.disc>=10;});
+  if(!prods.length)return;
+  var p=prods[Math.floor(Math.random()*prods.length)];
+  var el=document.getElementById('price-drop-alert');
+  var info=document.getElementById('price-drop-info');
+  if(!el||!info)return;
+  info.textContent=p.name+' এর দাম কমেছে! ৳'+p.price+'→৳'+dPrice(p)+' ('+p.disc+'% ছাড়)';
+  el.classList.add('show');
+  setTimeout(function(){el.classList.remove('show');},6000);
+}
+
+// ============================================================
+// PATCH renderCart — add save-for-later button
+// ============================================================
+var _origRC5=renderCart;
+renderCart=function(){
+  _origRC5();
+  // Inject save-for-later into each cart item
+  document.querySelectorAll('.ci-del').forEach(function(btn){
+    try{
+      var m=btn.getAttribute('onclick')&&btn.getAttribute('onclick').match(/'([^']+)'/);
+      if(m&&m[1]&&btn.parentNode&&!btn.parentNode.querySelector('.save-later-btn')){
+        var slb=document.createElement('button');
+        slb.className='save-later-btn no-ripple';
+        slb.textContent='❤️ পরে কিনব';
+        var itemId=m[1];
+        slb.onclick=function(){saveForLater(itemId);};
+        btn.parentNode.insertBefore(slb,btn.nextSibling);
+      }
+    }catch(e){}
+  });
+  updateDiscCalc();
+};
+
+// ============================================================
+// PATCH navigate — init new features
+// ============================================================
+var _origNavF5=navigate;
+navigate=function(pg){
+  _origNavF5(pg);
+  if(pg==='home'){
+    setTimeout(function(){
+      renderBundles();renderQuickReorder();
+      setTimeout(initDragDrop,800);
+      // Random price drop alert after 15s
+      setTimeout(checkPriceDrops,15000);
+    },400);
+  }
+  if(pg==='login'||pg==='register'){setTimeout(initFormValidation,200);}
+  if(pg==='order'){setTimeout(function(){initFormValidation();updateDiscCalc();},200);}
+  if(pg==='admin'){setTimeout(function(){renderMonthlyChart();renderCustomerSegments();renderFulfillment();renderPerfMonitor();loadEmailTemplate();},300);}
+};
+
+// ============================================================
+// PATCH switchTab — render new tabs
+// ============================================================
+var _origST5=switchTab;
+switchTab=function(id,btn){
+  _origST5(id,btn);
+  if(id==='tp6'){
+    setTimeout(function(){
+      renderMonthlyChart();renderCustomerSegments();
+      renderFulfillment();loadEmailTemplate();renderPerfMonitor();
+    },100);
+  }
+};
+
+// ============================================================
+// PATCH renderProds — init drag after render
+// ============================================================
+var _origRP5=renderProds;
+renderProds=function(f){
+  _origRP5(f);
+  setTimeout(initDragDrop,600);
+};
+
+// ============================================================
+// MICRO-ANIMATIONS: add reveal classes to key sections
+// ============================================================
+(function addRevealClasses(){
+  setTimeout(function(){
+    document.querySelectorAll('.pc,.ss,.an-card,.test-card').forEach(function(el,i){
+      if(!el.classList.contains('reveal')&&!el.classList.contains('reveal-scale')){
+        el.classList.add('reveal');
+        el.style.transitionDelay=(i%6)*0.05+'s';
+      }
+    });
+    // Trigger observe
+    document.querySelectorAll('.reveal').forEach(function(el){
+      if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('visible');
+    });
+  },500);
+})();
+
+// ============================================================
+// INIT ALL
 // ============================================================
 (function(){
-  setTimeout(checkBirthday,2000);
+  setTimeout(function(){
+    renderBundles();
+    renderQuickReorder();
+    loadEmailTemplate();
+    generateCoupon();
+  },800);
+})();
+
+
+// ============================================================
+// 3D CARD TILT
+// ============================================================
+(function init3DTilt(){
+  document.addEventListener('mousemove',function(e){
+    var card=e.target.closest('.pc');
+    if(!card||window.innerWidth<700)return;
+    var rect=card.getBoundingClientRect();
+    var x=(e.clientX-rect.left)/rect.width-.5;
+    var y=(e.clientY-rect.top)/rect.height-.5;
+    card.style.transform='translateY(-10px) rotateY('+(x*12)+'deg) rotateX('+(-y*8)+'deg)';
+  });
+(function init3DTiltSafe(){
+  if(window.innerWidth<700)return;
+  function attach(card){
+    if(card._tilt)return;card._tilt=true;
+    card.addEventListener('mousemove',function(e){
+      var r=card.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width-.5;
+      var y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform='translateY(-8px) rotateY('+(x*8)+'deg) rotateX('+(-y*6)+'deg)';
+    });
+    card.addEventListener('mouseleave',function(){
+      card.style.transform='';
+    });
+  }
+  function attachAll(){document.querySelectorAll('.pc').forEach(attach);}
+  attachAll();
+  var pg=document.getElementById('pg');
+  if(pg)new MutationObserver(attachAll).observe(pg,{childList:true});
+})();
+})();
+
+// ============================================================
+// CONFETTI ON ORDER SUCCESS
+// ============================================================
+function launchConfetti(){
+  var colors=['#f59e0b','#ef4444','#10b981','#3b82f6','#8b5cf6','#f97316'];
+  for(var i=0;i<80;i++){
+    setTimeout(function(i){
+      var el=document.createElement('div');
+      el.className='confetti-piece';
+      el.style.cssText='left:'+Math.random()*100+'vw;background:'+colors[Math.floor(Math.random()*colors.length)]+';width:'+(6+Math.random()*8)+'px;height:'+(6+Math.random()*8)+'px;animation-duration:'+(1.5+Math.random()*2)+'s;animation-delay:'+Math.random()*.5+'s;border-radius:'+(Math.random()>.5?'50%':'2px')+'';
+      document.body.appendChild(el);
+      setTimeout(function(){el.remove();},3000);
+    },i*25,i);
+  }
+}
+// Patch closeSuc to launch confetti
+var _origCloseSuc=closeSuc;
+closeSuc=function(){
+  _origCloseSuc();
+};
+var _origDoOrder6=doOrder;
+doOrder=function(){
+  _origDoOrder6();
+  setTimeout(function(){
+    if(document.getElementById('sm')&&document.getElementById('sm').classList.contains('show'))launchConfetti();
+  },900);
+};
+
+// ============================================================
+// AUTO DARK MODE (night 8pm - 6am)
+// ============================================================
+function checkAutoDark(){
+  var h=new Date().getHours();
+  var shouldDark=h>=20||h<6;
+  var current=document.documentElement.getAttribute('data-theme');
+  var autoPref=localStorage.getItem('auto-dark');
+  if(autoPref!=='off'&&shouldDark&&current!=='dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+    localStorage.setItem('theme','dark');
+    var btn=document.getElementById('dm-btn');if(btn)btn.textContent='☀️';
+    showToast('🌙 রাতের জন্য Dark Mode চালু হয়েছে','ok');
+  }
+}
+setInterval(checkAutoDark,60000);
+setTimeout(checkAutoDark,2000);
+
+// ============================================================
+// VOICE SEARCH
+// ============================================================
+function startVoiceSearch(){
+  if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){
+    showToast('আপনার ব্রাউজারে Voice Search সমর্থিত নয়।','err');return;
+  }
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  var rec=new SR();
+  rec.lang='bn-BD';rec.continuous=false;rec.interimResults=false;
+  var btn=document.getElementById('voice-btn');if(btn)btn.classList.add('listening');
+  rec.onresult=function(e){
+    var text=e.results[0][0].transcript;
+    var srch=document.getElementById('srch');if(srch)srch.value=text;
+    if(btn)btn.classList.remove('listening');
+    applyFilters();showToast('🎙️ "'+text+'" খোঁজা হচ্ছে...','ok');
+  };
+  rec.onerror=function(){
+    if(btn)btn.classList.remove('listening');
+    showToast('Voice Search কাজ করেনি। আবার চেষ্টা করুন।','err');
+  };
+  rec.onend=function(){if(btn)btn.classList.remove('listening');};
+  rec.start();
+}
+
+// ============================================================
+// HARVEST CALENDAR
+// ============================================================
+var HARVEST_DATA=[
+  {name:'আম্রপালি',months:[5,6,7],origin:'সাতক্ষীরা'},
+  {name:'ফজলি',months:[6,7,8],origin:'রাজশাহী'},
+  {name:'হিমসাগর',months:[5,6],origin:'চাঁপাই'},
+  {name:'ল্যাংড়া',months:[5,6,7],origin:'মেহেরপুর'},
+  {name:'গোপালভোগ',months:[5,6],origin:'রাজশাহী'},
+  {name:'খিরসাপাত',months:[6,7],origin:'চাঁপাই'},
+];
+var MONTH_NAMES_BN=['জান','ফেব','মার','এপ্র','মে','জুন','জুল','আগ','সেপ','অক্ট','নভ','ডিস'];
+function renderHarvestCalendar(){
+  var el=document.getElementById('harvest-grid-inner');if(!el)return;
+  var currentMonth=new Date().getMonth();
+  el.innerHTML=HARVEST_DATA.map(function(m){
+    return '<div style="margin-bottom:10px;"><div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:5px;">🥭 '+m.name+' <span style="font-size:10px;color:var(--text2);">📍 '+m.origin+'</span></div>'
+      +'<div style="display:flex;gap:4px;">'+MONTH_NAMES_BN.map(function(mn,i){
+        var isActive=m.months.includes(i);var isCurrent=i===currentMonth&&isActive;
+        return '<div style="flex:1;text-align:center;padding:4px 2px;border-radius:6px;font-size:9px;font-weight:'+(isActive?'700':'400')+';background:'+(isCurrent?'var(--o)':isActive?'var(--a1)':'var(--g1)')+';color:'+(isCurrent?'white':isActive?'var(--db)':'var(--g4)')+';border:1px solid '+(isActive?'var(--y)':'transparent')+';">'+mn+'</div>';
+      }).join('')+'</div></div>';
+  }).join('');
+}
+
+// ============================================================
+// DELIVERY AREAS MAP
+// ============================================================
+function renderDeliveryAreas(){
+  var el=document.getElementById('delivery-areas');if(!el)return;
+  var areas=[
+    {name:'ঢাকা মেট্রো',sameDay:true},{name:'চট্টগ্রাম',sameDay:false},
+    {name:'রাজশাহী',sameDay:false},{name:'সিলেট',sameDay:false},
+    {name:'খুলনা',sameDay:false},{name:'বরিশাল',sameDay:false},
+    {name:'ময়মনসিংহ',sameDay:false},{name:'রংপুর',sameDay:false},
+  ];
+  el.innerHTML=areas.map(function(a){
+    return '<div class="delivery-area'+(a.sameDay?' same-day':'')+'" title="'+(a.sameDay?'সেম-ডে ডেলিভারি':'৪৮ ঘণ্টার মধ্যে')+'">'
+      +(a.sameDay?'⚡ ':'🚚 ')+a.name+'</div>';
+  }).join('');
+}
+
+// ============================================================
+// SPIN TO WIN
+// ============================================================
+var SPIN_PRIZES=[
+  {text:'৫% ছাড়',color:'#f59e0b',code:'SPIN5',disc:5},
+  {text:'১০% ছাড়',color:'#10b981',code:'SPIN10',disc:10},
+  {text:'৳২০ ছাড়',color:'#3b82f6',code:'SPIN20F',disc:0,fixed:20},
+  {text:'ফ্রি ডেলিভারি',color:'#8b5cf6',code:'SPINFREE',disc:0,freeShip:true},
+  {text:'১৫% ছাড়',color:'#ef4444',code:'SPIN15',disc:15},
+  {text:'৳৫০ ছাড়',color:'#f97316',code:'SPIN50F',disc:0,fixed:50},
+  {text:'৫% ছাড়',color:'#06b6d4',code:'SPIN5B',disc:5},
+  {text:'আবার চেষ্টা',color:'#6b7280',code:'',disc:0},
+];
+var spinSpun=false,spinAngle=0,spinAnimating=false;
+function openSpinWheel(){
+  var u=GCU();if(!u||u.isAdmin){showToast('লগইন করুন!','err');return;}
+  var lastSpin=localStorage.getItem('spin_'+u.id);
+  var today=new Date().toDateString();
+  spinSpun=lastSpin===today;
+  var modal=document.getElementById('spin-modal');if(modal)modal.classList.add('show');
+  setTimeout(function(){
+    drawWheel();
+    var btn=document.getElementById('spin-btn');
+    if(btn){btn.disabled=spinSpun;btn.textContent=spinSpun?'আজকের spin শেষ ✅':'🎡 স্পিন করুন!';}
+    var res=document.getElementById('spin-result');
+    if(res)res.textContent=spinSpun?'আবার আসুন আগামীকাল!':'চাকা ঘুরিয়ে পুরস্কার জিতুন!';
+  },100);
+}
+function closeSpinModal(){var m=document.getElementById('spin-modal');if(m)m.classList.remove('show');}
+function drawWheel(rotation){
+  var canvas=document.getElementById('wheel-canvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var W=canvas.width,H=canvas.height,cx=W/2,cy=H/2,r=cx-8;
+  var arc=2*Math.PI/SPIN_PRIZES.length;
+  ctx.clearRect(0,0,W,H);
+  rotation=rotation||spinAngle;
+  SPIN_PRIZES.forEach(function(prize,i){
+    var start=rotation+i*arc;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,start,start+arc);ctx.closePath();
+    ctx.fillStyle=prize.color;ctx.fill();
+    ctx.strokeStyle='white';ctx.lineWidth=2;ctx.stroke();
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(start+arc/2);
+    ctx.textAlign='right';ctx.fillStyle='white';ctx.font='bold 11px Hind Siliguri,sans-serif';
+    ctx.fillText(prize.text,r-10,4);ctx.restore();
+  });
+  // Center circle
+  ctx.beginPath();ctx.arc(cx,cy,22,0,2*Math.PI);
+  ctx.fillStyle='white';ctx.fill();
+  ctx.fillStyle=SPIN_PRIZES[0].color;
+  ctx.font='bold 16px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('🥭',cx,cy);
+}
+function spinWheel(){
+  if(spinAnimating||spinSpun)return;
+  var u=GCU();if(!u)return;
+  spinAnimating=true;
+  var btn=document.getElementById('spin-btn');if(btn){btn.disabled=true;btn.textContent='ঘুরছে...';}
+  var totalRot=360*5+Math.floor(Math.random()*360);
+  var duration=4000;var start=Date.now();var startAngle=spinAngle*(180/Math.PI);
+  var arc=360/SPIN_PRIZES.length;
+  function animate(){
+    var elapsed=Date.now()-start;var progress=Math.min(1,elapsed/duration);
+    var ease=1-Math.pow(1-progress,4);
+    var currentDeg=startAngle+totalRot*ease;
+    spinAngle=(currentDeg*Math.PI/180)%(2*Math.PI);
+    drawWheel(spinAngle);
+    if(progress<1){requestAnimationFrame(animate);}
+    else{
+      spinAnimating=false;
+      var finalDeg=((currentDeg%360)+360)%360;
+      var prizeIdx=Math.floor(((360-finalDeg)%360)/arc)%SPIN_PRIZES.length;
+      var prize=SPIN_PRIZES[prizeIdx];
+      var res=document.getElementById('spin-result');
+      if(prize.code){
+        if(res)res.innerHTML='🎉 <strong>'+prize.text+'</strong> জিতেছেন! কোড: <span style="color:var(--o);letter-spacing:2px;">'+prize.code+'</span>';
+        // Auto-save coupon
+        if(prize.disc>0||prize.fixed){
+          var cs=GC();
+          cs.push({id:'spin'+Date.now(),code:prize.code,type:prize.fixed?'fixed':'percent',value:prize.fixed||prize.disc,minOrder:0,maxUses:1,usedCount:0,expiry:'',active:true});
+          localStorage.setItem('coupons',JSON.stringify(cs));
+        }
+        addNotif('🎡','স্পিন পুরস্কার: '+prize.text+' — কোড: '+prize.code);
+      }else{
+        if(res)res.textContent='😅 এবার হলো না! আবার চেষ্টা করুন।';
+      }
+      spinSpun=true;
+      localStorage.setItem('spin_'+u.id,new Date().toDateString());
+      if(btn){btn.textContent='আজকের spin শেষ ✅';}
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+// ============================================================
+// STICKY BUY BUTTON
+// ============================================================
+var stickyPid='';
+function updateStickyBuy(p){
+  if(!p){var sb=document.getElementById('sticky-buy');if(sb)sb.classList.remove('show');return;}
+  stickyPid=p.id;
+  var sb=document.getElementById('sticky-buy');
+  var sn=document.getElementById('sticky-name');
+  var sp=document.getElementById('sticky-price');
+  if(!sb||!GCU()||GCU().isAdmin)return;
+  if(sn)sn.textContent=p.name;
+  if(sp)sp.textContent='৳'+dPrice(p)+'/কেজি';
+}
+(function initSticky(){
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var pid=e.target.id.replace('pc-','');
+      var p=GP().find(function(x){return x.id===pid;});
+      var sb=document.getElementById('sticky-buy');
+      if(e.isIntersecting){
+        if(p&&sb&&GCU()&&!GCU().isAdmin){sb.classList.add('show');updateStickyBuy(p);}
+      }
+    });
+  },{threshold:.3,rootMargin:'-100px 0px -200px 0px'});
+  function observeCards(){
+    document.querySelectorAll('.pc[id]').forEach(function(card){observer.observe(card);});
+  }
+  var origRP=renderProds;
+  renderProds=function(f){origRP(f);setTimeout(observeCards,600);};
+})();
+
+// ============================================================
+// REMEMBER ME LOGIN
+// ============================================================
+(function initRememberMe(){
+  var saved=localStorage.getItem('remember_email');
+  var savedPw=localStorage.getItem('remember_pw');
+  if(saved){
+    var le=document.getElementById('lem');var lp=document.getElementById('lpw');var rm=document.getElementById('remember-me');
+    if(le)le.value=saved;if(lp&&savedPw)lp.value=atob(savedPw);if(rm)rm.checked=true;
+  }
+})();
+var _origDoLogin6=doLogin;
+doLogin=function(){
+  var rm=document.getElementById('remember-me');
+  var e=document.getElementById('lem');var p=document.getElementById('lpw');
+  if(rm&&rm.checked&&e&&p){
+    localStorage.setItem('remember_email',e.value);
+    localStorage.setItem('remember_pw',btoa(p.value));
+  }else{
+    localStorage.removeItem('remember_email');localStorage.removeItem('remember_pw');
+  }
+  _origDoLogin6();
+};
+
+// ============================================================
+// DESKTOP NOTIFICATIONS
+// ============================================================
+function requestDesktopNotif(){
+  if(!('Notification' in window)){showToast('Browser notifications সমর্থিত নয়।','err');return;}
+  Notification.requestPermission().then(function(p){
+    var bar=document.getElementById('notif-permission-bar');
+    if(p==='granted'){
+      if(bar)bar.style.display='none';
+      new Notification('আমবাজার 🥭',{body:'নোটিফিকেশন চালু হয়েছে! অফার আসলে জানানো হবে।',icon:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🥭</text></svg>'});
+      showToast('✅ Desktop Notification চালু!','ok');
+    }else{
+      showToast('নোটিফিকেশন অনুমোদিত হয়নি।','err');
+    }
+  });
+}
+function sendDesktopNotif(title,body){
+  if(Notification.permission==='granted'){
+    new Notification(title,{body:body,icon:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🥭</text></svg>'});
+  }
+}
+// Show bar if not yet granted
+(function(){
+  if('Notification' in window&&Notification.permission==='default'){
+    setTimeout(function(){
+      var bar=document.getElementById('notif-permission-bar');
+      if(bar)bar.style.display='flex';
+    },5000);
+  }
+})();
+
+// ============================================================
+// PROFIT CALCULATOR
+// ============================================================
+function calcProfit(){
+  var cost=parseFloat(document.getElementById('cost-price').value)||0;
+  var sell=parseFloat(document.getElementById('sell-price').value)||0;
+  var qty=parseFloat(document.getElementById('qty-calc-val').value)||0;
+  var res=document.getElementById('profit-result');if(!res)return;
+  if(!cost||!sell||!qty){res.classList.remove('show');return;}
+  var profitPerKg=sell-cost;
+  var total=profitPerKg*qty;
+  var margin=Math.round(profitPerKg/sell*100);
+  res.classList.add('show');
+  res.innerHTML='মোট লাভ: <strong>৳'+total.toLocaleString()+'</strong> | প্রতি কেজি: ৳'+profitPerKg+' | মার্জিন: '+margin+'%';
+}
+
+// ============================================================
+// BULK PRICE EDITOR
+// ============================================================
+function renderBulkPriceEditor(){
+  var tbody=document.getElementById('bulk-price-body');if(!tbody)return;
+  var prods=GP();
+  tbody.innerHTML=prods.map(function(p){
+    return '<tr>'
+      +'<td><strong>'+p.name+'</strong><br><small style="color:var(--text2);">'+p.origin+'</small></td>'
+      +'<td>৳<strong>'+p.price+'</strong></td>'
+      +'<td><input type="number" class="bulk-editor-table" value="'+p.price+'" id="bulk-p-'+p.id+'" style="width:80px;padding:4px 8px;border:1.5px solid var(--input-border);border-radius:7px;font-size:12px;background:var(--input-bg);color:var(--text);" min="1"></td>'
+      +'<td><input type="number" class="bulk-pct-input" value="'+(p.disc||0)+'" id="bulk-d-'+p.id+'" style="width:60px;padding:4px 8px;border:1.5px solid var(--input-border);border-radius:7px;font-size:12px;background:var(--input-bg);color:var(--text);" min="0" max="90"> %</td>'
+      +'</tr>';
+  }).join('');
+}
+function applyBulkPriceChange(){
+  var pct=parseFloat(document.getElementById('bulk-pct-sel').value);if(!pct)return;
+  var prods=GP();
+  prods.forEach(function(p){
+    var inp=document.getElementById('bulk-p-'+p.id);
+    if(inp)inp.value=Math.max(1,Math.round(p.price*(1+pct/100)));
+  });
+  showToast('✅ দাম আপডেট দেখুন — সেভ করুন','ok');
+}
+function saveBulkPrices(){
+  var prods=GP();
+  prods=prods.map(function(p){
+    var pi=document.getElementById('bulk-p-'+p.id);
+    var di=document.getElementById('bulk-d-'+p.id);
+    return Object.assign({},p,{price:parseInt((pi&&pi.value)||p.price),disc:parseInt((di&&di.value)||p.disc||0)});
+  });
+  localStorage.setItem('products',JSON.stringify(prods));
+  showToast('✅ সব দাম সেভ হয়েছে!','ok');renderProds();
+}
+
+// ============================================================
+// ORDER CALENDAR
+// ============================================================
+var calYear=new Date().getFullYear(),calMonth=new Date().getMonth();
+function renderOrderCalendar(){
+  var el=document.getElementById('order-calendar');
+  var lbl=document.getElementById('cal-month-label');
+  if(!el)return;
+  if(lbl)lbl.textContent=MONTH_NAMES_BN[calMonth]+' '+calYear;
+  var os=GO();
+  var orderDates={};
+  os.forEach(function(o){
+    var d=new Date(o.ts||0);
+    if(d.getFullYear()===calYear&&d.getMonth()===calMonth){
+      var key=d.getDate();
+      orderDates[key]=(orderDates[key]||[]).concat(o);
+    }
+  });
+  var days=['সো','মঙ','বু','বৃ','শু','শ','র'];
+  var firstDay=new Date(calYear,calMonth,1).getDay();
+  var daysInMonth=new Date(calYear,calMonth+1,0).getDate();
+  var today=new Date().getDate();
+  var html=days.map(function(d){return '<div class="cal-header">'+d+'</div>';}).join('');
+  for(var i=0;i<firstDay;i++)html+='<div class="cal-day empty"></div>';
+  for(var d2=1;d2<=daysInMonth;d2++){
+    var hasOrder=orderDates[d2];var isToday=d2===today&&calYear===new Date().getFullYear()&&calMonth===new Date().getMonth();
+    html+='<div class="cal-day'+(hasOrder?' has-order':'')+(isToday?' today':'')+'" onclick="showCalDayOrders('+d2+')">'
+      +'<div class="day-num">'+d2+'</div>'+(hasOrder?'<div class="order-dot"></div>':'')+'</div>';
+  }
+  el.innerHTML=html;
+}
+function showCalDayOrders(day){
+  var os=GO().filter(function(o){
+    var d=new Date(o.ts||0);
+    return d.getFullYear()===calYear&&d.getMonth()===calMonth&&d.getDate()===day;
+  });
+  var el=document.getElementById('cal-orders');if(!el)return;
+  if(!os.length){el.innerHTML='';return;}
+  el.innerHTML='<div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px;">'+day+' '+MONTH_NAMES_BN[calMonth]+' এর '+os.length+' টি অর্ডার</div>'
+    +os.map(function(o){return '<div class="ac-card"><div class="ac-info"><div style="font-weight:700;">'+o.orderId+'</div><div style="color:var(--text2);">'+o.userName+' · '+o.items.map(function(i){return i.name;}).join(', ')+'</div></div><div class="ac-total">৳'+o.total+'</div></div>';}).join('');
+}
+function calPrev(){calMonth--;if(calMonth<0){calMonth=11;calYear--;}renderOrderCalendar();}
+function calNext(){calMonth++;if(calMonth>11){calMonth=0;calYear++;}renderOrderCalendar();}
+
+// ============================================================
+// PRODUCT ARCHIVE (soft delete)
+// ============================================================
+function archiveProduct(id){
+  var prods=GP();var p=prods.find(function(x){return x.id===id;});if(!p)return;
+  var archived=JSON.parse(localStorage.getItem('archived_prods')||'[]');
+  archived.push(Object.assign({},p,{archivedAt:new Date().toLocaleDateString('bn-BD')}));
+  localStorage.setItem('archived_prods',JSON.stringify(archived));
+  localStorage.setItem('products',JSON.stringify(prods.filter(function(x){return x.id!==id;})));
+  showToast('🗃️ পণ্যটি আর্কাইভ করা হয়েছে।','ok');refreshAdmin();
+}
+function renderArchivedProds(){
+  var el=document.getElementById('archived-prods');if(!el)return;
+  var archived=JSON.parse(localStorage.getItem('archived_prods')||'[]');
+  if(!archived.length){el.innerHTML='<div style="text-align:center;color:var(--text2);padding:28px;">কোনো আর্কাইভ পণ্য নেই</div>';return;}
+  el.innerHTML=archived.map(function(p){
+    return '<div class="ac-card"><div style="font-size:20px;">🥭</div><div class="ac-info"><div style="font-weight:700;">'+p.name+' <span class="archived-badge">আর্কাইভ</span></div><div style="color:var(--text2);">'+p.origin+' · ৳'+p.price+' · '+p.archivedAt+'</div></div>'
+      +'<button class="restore-btn" onclick="restoreProduct(\''+p.id+'\')">↩️ পুনরুদ্ধার</button>'
+      +'<button class="ab abd" style="margin-left:6px;" onclick="permDeleteArchived(\''+p.id+'\')">🗑️</button>'
+      +'</div>';
+  }).join('');
+}
+function restoreProduct(id){
+  var archived=JSON.parse(localStorage.getItem('archived_prods')||'[]');
+  var p=archived.find(function(x){return x.id===id;});if(!p)return;
+  var prods=GP();prods.push(p);
+  localStorage.setItem('products',JSON.stringify(prods));
+  localStorage.setItem('archived_prods',JSON.stringify(archived.filter(function(x){return x.id!==id;})));
+  showToast('✅ পণ্য পুনরুদ্ধার হয়েছে!','ok');renderArchivedProds();renderAP();
+}
+function permDeleteArchived(id){
+  if(!confirm('স্থায়ীভাবে মুছে ফেলবেন?'))return;
+  var archived=JSON.parse(localStorage.getItem('archived_prods')||'[]');
+  localStorage.setItem('archived_prods',JSON.stringify(archived.filter(function(x){return x.id!==id;})));
+  renderArchivedProds();showToast('মুছে ফেলা হয়েছে।');
+}
+
+// ============================================================
+// IMAGE COMPRESSOR (canvas-based)
+// ============================================================
+var _origHandleImg6=handleImg;
+handleImg=function(e){
+  var file=e.target.files[0];if(!file)return;
+  if(file.size<200*1024){_origHandleImg6(e);return;} // <200KB, no need to compress
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    var img=new Image();
+    img.onload=function(){
+      var canvas=document.createElement('canvas');
+      var MAX=800;var scale=Math.min(1,MAX/Math.max(img.width,img.height));
+      canvas.width=img.width*scale;canvas.height=img.height*scale;
+      canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
+      imgData=canvas.toDataURL('image/jpeg',.78);
+      var pr=document.getElementById('imp');if(pr){pr.src=imgData;pr.style.display='block';}
+      var orig=Math.round(file.size/1024);var comp=Math.round(imgData.length*.75/1024);
+      showToast('✅ ছবি কমপ্রেস: '+orig+'KB → '+comp+'KB','ok');
+    };
+    img.src=ev.target.result;
+  };
+  reader.readAsDataURL(file);
+};
+
+// ============================================================
+// QUANTITY CALCULATOR
+// ============================================================
+function suggestQty(input,pid){
+  var members=parseInt(input.value)||0;
+  var res=document.getElementById('qty-result-'+pid);if(!res||!members)return;
+  var kgPerPerson=0.5; // avg 500g per person per week
+  var suggested=Math.ceil(members*kgPerPerson*4); // 4 weeks
+  res.textContent='পরিবারের '+members+' জনের জন্য মাসে প্রায় '+suggested+' কেজি প্রয়োজন';
+}
+function toggleQtyCalc(pid){
+  var el=document.getElementById('qty-calc-'+pid);
+  if(el)el.classList.toggle('show');
+}
+
+// ============================================================
+// ANIMATED PROGRESS RINGS (hero stats)
+// ============================================================
+function animateRing(svgId,pct,color){
+  var el=document.getElementById(svgId);if(!el)return;
+  var circle=el.querySelector('.ring-fill');if(!circle)return;
+  var r=36,circ=2*Math.PI*r;
+  circle.style.stroke=color;
+  circle.style.strokeDasharray=circ;
+  circle.style.strokeDashoffset=circ;
+  setTimeout(function(){circle.style.strokeDashoffset=circ-(circ*pct/100);},100);
+}
+
+// ============================================================
+// ANIMATED GRADIENT TEXT (hero)
+// ============================================================
+(function(){
+  setTimeout(function(){
+    var ht=document.querySelector('.ht span');
+    if(ht)ht.classList.add('hero-gradient-text');
+  },2000);
+})();
+
+// ============================================================
+// REAL-TIME DASHBOARD TICKER
+// ============================================================
+function updateDashboardTicker(){
+  var os=GO();var rev=os.reduce(function(s,o){return s+o.total;},0);
+  var pending=os.filter(function(o){return o.status==='pending';}).length;
+  var prods=GP().length;
+  var ticker=document.getElementById('live-ticker-inner');if(!ticker)return;
+  var items=['💰 মোট রাজস্ব: ৳'+rev.toLocaleString(),'📦 মোট অর্ডার: '+os.length,'⏳ অপেক্ষমাণ: '+pending,'🥭 পণ্য: '+prods,'👥 কাস্টমার: '+GU().length,'⭐ গড় রেটিং: '+(GP().length?( GP().reduce(function(s,p){return s+(p.rating||0);},0)/GP().length).toFixed(1):'N/A')];
+  ticker.innerHTML=items.map(function(t){return '<span class="ticker-item"><span class="live-dot"></span>'+t+'</span>';}).join('');
+}
+setInterval(updateDashboardTicker,5000);
+
+// ============================================================
+// PATCH switchTab — new admin tabs
+// ============================================================
+var _origST6=switchTab;
+switchTab=function(id,btn){
+  _origST6(id,btn);
+  if(id==='tp12')setTimeout(renderBulkPriceEditor,100);
+  if(id==='tp13')setTimeout(function(){renderOrderCalendar();},100);
+  if(id==='tp14')setTimeout(renderArchivedProds,100);
+};
+
+// ============================================================
+// PATCH navigate — init new features
+// ============================================================
+var _origNavF6=navigate;
+navigate=function(pg){
+  _origNavF6(pg);
+  if(pg==='home'){
+    setTimeout(function(){
+      renderHarvestCalendar();
+      renderDeliveryAreas();
+      updateDashboardTicker();
+    },500);
+  }
+  if(pg==='admin')setTimeout(function(){updateDashboardTicker();loadEmailTemplate();},300);
+};
+
+// ============================================================
+// INIT ALL v6
+// ============================================================
+(function(){
+  setTimeout(function(){
+    renderHarvestCalendar();
+    renderDeliveryAreas();
+    updateDashboardTicker();
+  },1000);
+  drawWheel&&setTimeout(drawWheel,500);
 })();
 
 </script>
