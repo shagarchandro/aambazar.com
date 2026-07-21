@@ -2059,6 +2059,73 @@ button:active:not(.no-ripple){transform:scale(.97);}
   .social-btn{padding:7px 10px;font-size:11px;}
 }
 
+
+/* ====== WHY CHOOSE US - PREMIUM ====== */
+.why-section{background:var(--card);padding:40px 20px;position:relative;overflow:hidden;}
+.why-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(245,158,11,.06) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(217,119,6,.06) 0%,transparent 60%);pointer-events:none;}
+.why-header{text-align:center;margin-bottom:36px;}
+.why-badge{display:inline-flex;align-items:center;gap:6px;background:var(--a1);color:var(--db);font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;border:1px solid var(--y);margin-bottom:12px;letter-spacing:.5px;}
+.why-title{font-size:28px;font-weight:900;color:var(--text);letter-spacing:-1px;line-height:1.2;}
+.why-title span{background:linear-gradient(135deg,var(--y),var(--o));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.why-sub{font-size:14px;color:var(--text2);margin-top:8px;line-height:1.7;max-width:500px;margin-left:auto;margin-right:auto;}
+
+/* FEATURE CARDS */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto 36px;}
+.why-card{background:var(--g0);border-radius:20px;padding:24px;border:1.5px solid var(--card-border);transition:all .35s cubic-bezier(.175,.885,.32,1.275);position:relative;overflow:hidden;cursor:default;}
+.why-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--y),var(--o));opacity:0;transition:.35s;}
+.why-card:hover{transform:translateY(-8px);border-color:var(--y);box-shadow:0 20px 50px rgba(146,64,14,.15);}
+.why-card:hover::before{opacity:.05;}
+.why-card:hover .why-icon-wrap{transform:scale(1.1) rotate(-5deg);}
+.why-icon-wrap{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--a1),var(--a0));display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:16px;transition:.35s;box-shadow:0 4px 16px rgba(245,158,11,.2);}
+.why-card-title{font-size:15px;font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-.3px;}
+.why-card-desc{font-size:12px;color:var(--text2);line-height:1.7;}
+.why-card-tag{display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:10px;font-weight:700;color:var(--o);background:var(--a0);padding:3px 10px;border-radius:8px;}
+
+/* STATS ROW */
+.why-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:0 auto 36px;text-align:center;}
+.wstat{padding:20px 12px;background:linear-gradient(135deg,var(--a0),white);border-radius:18px;border:1px solid var(--a1);transition:.3s;}
+[data-theme="dark"] .wstat{background:linear-gradient(135deg,rgba(61,36,0,.5),rgba(45,27,0,.5));}
+.wstat:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(146,64,14,.12);}
+.wstat-num{font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--y),var(--o));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.wstat-label{font-size:11px;color:var(--text2);margin-top:4px;font-weight:600;}
+
+/* TRUST BADGES */
+.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:0 auto;}
+.trust-badge{display:flex;align-items:center;gap:8px;background:var(--g0);border:1.5px solid var(--card-border);border-radius:40px;padding:8px 18px;transition:.2s;}
+.trust-badge:hover{border-color:var(--y);background:var(--a0);}
+.trust-badge-icon{font-size:18px;}
+.trust-badge-text{font-size:12px;font-weight:600;color:var(--text);}
+
+/* PROCESS STEPS */
+.process-section{background:linear-gradient(135deg,var(--db),#3d1500);padding:40px 20px;text-align:center;}
+.process-title{font-size:22px;font-weight:800;color:white;margin-bottom:28px;}
+.process-steps{display:flex;align-items:flex-start;justify-content:center;gap:0;flex-wrap:wrap;max-width:900px;margin:0 auto;}
+.process-step{flex:1;min-width:140px;max-width:200px;padding:0 12px;position:relative;text-align:center;}
+.process-step::after{content:'→';position:absolute;right:-10px;top:20px;font-size:20px;color:rgba(255,255,255,.4);font-weight:300;}
+.process-step:last-child::after{display:none;}
+.process-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(245,158,11,.5);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px;transition:.3s;}
+.process-step:hover .process-icon{background:var(--y);border-color:var(--y);transform:scale(1.1);}
+.process-step-num{position:absolute;top:-4px;right:calc(50% - 36px);width:18px;height:18px;background:var(--y);color:var(--db);border-radius:50%;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.process-step-title{font-size:12px;font-weight:700;color:white;margin-bottom:4px;}
+.process-step-desc{font-size:10px;color:rgba(255,255,255,.65);line-height:1.5;}
+
+/* TESTIMONIAL PREMIUM UPGRADE */
+.test-card{animation:none!important;}
+.test-quote{font-size:48px;color:var(--y);opacity:.2;position:absolute;top:-8px;left:12px;font-family:Georgia,serif;line-height:1;}
+.test-verified{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--ok);font-weight:700;margin-top:4px;}
+
+@media(max-width:700px){
+  .why-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .why-card{padding:16px;}
+  .why-title{font-size:22px;}
+  .why-stats{grid-template-columns:repeat(2,1fr);}
+  .wstat-num{font-size:22px;}
+  .process-steps{gap:8px;}
+  .process-step::after{display:none;}
+  .trust-row{gap:8px;}
+  .trust-badge{padding:6px 12px;}
+}
+
 </style>
 </head>
 <body>
@@ -2227,6 +2294,111 @@ button:active:not(.no-ripple){transform:scale(.97);}
     </div>
   </div>
   <!-- PRODUCTS -->
+
+  <!-- WHY CHOOSE US SECTION -->
+  <div class="why-section reveal" id="why-section">
+    <div class="why-header">
+      <div class="why-badge">⭐ কেন আমাদের বেছে নেবেন?</div>
+      <div class="why-title">বাংলাদেশের সবচেয়ে <span>বিশ্বস্ত</span> আমের দোকান</div>
+      <div class="why-sub">রাজশাহীর বাগান থেকে সরাসরি আপনার দরজায়। মান, তাজাত্ব ও সততায় আমরা অতুলনীয়।</div>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="why-stats">
+      <div class="wstat reveal-scale"><div class="wstat-num" id="ws-orders">৫০০০+</div><div class="wstat-label">সফল অর্ডার</div></div>
+      <div class="wstat reveal-scale"><div class="wstat-num">১০০%</div><div class="wstat-label">তাজা গ্যারান্টি</div></div>
+      <div class="wstat reveal-scale"><div class="wstat-num">৪৮ঘণ্টা</div><div class="wstat-label">দ্রুত ডেলিভারি</div></div>
+      <div class="wstat reveal-scale"><div class="wstat-num">৬৪</div><div class="wstat-label">জেলায় সেবা</div></div>
+    </div>
+
+    <!-- FEATURE CARDS -->
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon-wrap">🌿</div>
+        <div class="why-card-title">১০০% প্রাকৃতিক ও রাসায়নিকমুক্ত</div>
+        <div class="why-card-desc">আমরা কোনো ক্ষতিকর রাসায়নিক ব্যবহার করি না। সরাসরি প্রাকৃতিক পদ্ধতিতে চাষ করা আম আপনার কাছে পৌঁছে দিই।</div>
+        <div class="why-card-tag">✅ সার্টিফাইড অর্গানিক</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon-wrap">🚚</div>
+        <div class="why-card-title">দ্রুততম ডেলিভারি সার্ভিস</div>
+        <div class="why-card-desc">ঢাকায় ২৪ ঘণ্টা, সারা দেশে ৪৮ ঘণ্টার মধ্যে পৌঁছে দেওয়ার গ্যারান্টি। ডেলিভারি ট্র্যাক করুন রিয়েলটাইমে।</div>
+        <div class="why-card-tag">⚡ এক্সপ্রেস ডেলিভারি</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon-wrap">🏆</div>
+        <div class="why-card-title">বাগান থেকে সরাসরি</div>
+        <div class="why-card-desc">কোনো মধ্যস্থকারী নেই। রাজশাহী ও চাঁপাইনবাবগঞ্জের সেরা বাগান থেকে সরাসরি আম সংগ্রহ করি।</div>
+        <div class="why-card-tag">🌱 ফার্ম-টু-ডোর</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon-wrap">💰</div>
+        <div class="why-card-title">সেরা মূল্যে সর্বোচ্চ মান</div>
+        <div class="why-card-desc">বাজারের চেয়ে কম দামে সেরা মানের আম। নিয়মিত কুপন, বাল্ক ডিসকাউন্ট ও লয়্যালটি পয়েন্টে আরও সাশ্রয়।</div>
+        <div class="why-card-tag">🎫 বিশেষ ছাড় সবসময়</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon-wrap">🔒</div>
+        <div class="why-card-title">নিরাপদ পেমেন্ট ও গ্যারান্টি</div>
+        <div class="why-card-desc">বিকাশ, নগদ, রকেট ও ক্যাশ অন ডেলিভারি। পণ্যে সমস্যা হলে সম্পূর্ণ রিফান্ড বা রিপ্লেসমেন্টের গ্যারান্টি।</div>
+        <div class="why-card-tag">🛡️ মানি-ব্যাক গ্যারান্টি</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon-wrap">📞</div>
+        <div class="why-card-title">২৪/৭ কাস্টমার সাপোর্ট</div>
+        <div class="why-card-desc">যেকোনো সমস্যায় আমরা সবসময় আপনার পাশে। ফোন, WhatsApp বা লাইভ চ্যাটে তাৎক্ষণিক সাহায্য পান।</div>
+        <div class="why-card-tag">💬 সবসময় সংযুক্ত</div>
+      </div>
+    </div>
+
+    <!-- TRUST BADGES -->
+    <div class="trust-row">
+      <div class="trust-badge"><div class="trust-badge-icon">✅</div><div class="trust-badge-text">১০০% তাজা</div></div>
+      <div class="trust-badge"><div class="trust-badge-icon">🔒</div><div class="trust-badge-text">নিরাপদ পেমেন্ট</div></div>
+      <div class="trust-badge"><div class="trust-badge-icon">🔄</div><div class="trust-badge-text">সহজ রিটার্ন</div></div>
+      <div class="trust-badge"><div class="trust-badge-icon">🌿</div><div class="trust-badge-text">রাসায়নিকমুক্ত</div></div>
+      <div class="trust-badge"><div class="trust-badge-icon">🚚</div><div class="trust-badge-text">দ্রুত শিপিং</div></div>
+      <div class="trust-badge"><div class="trust-badge-icon">⭐</div><div class="trust-badge-text">৪.৮/৫ রেটিং</div></div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="process-section reveal">
+    <div class="process-title">📦 কীভাবে কাজ করে</div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step-num">১</div>
+        <div class="process-icon">🛒</div>
+        <div class="process-step-title">পণ্য বাছুন</div>
+        <div class="process-step-desc">পছন্দের আম বেছে নিন ও কার্টে যোগ করুন</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">২</div>
+        <div class="process-icon">📝</div>
+        <div class="process-step-title">অর্ডার দিন</div>
+        <div class="process-step-desc">ঠিকানা ও পেমেন্ট পদ্ধতি নির্বাচন করুন</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">৩</div>
+        <div class="process-icon">🌿</div>
+        <div class="process-step-title">বাগান থেকে সংগ্রহ</div>
+        <div class="process-step-desc">তাজা আম সরাসরি বাগান থেকে সংগ্রহ</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">৪</div>
+        <div class="process-icon">🚚</div>
+        <div class="process-step-title">ডেলিভারি</div>
+        <div class="process-step-desc">৪৮ ঘণ্টার মধ্যে আপনার দরজায়</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">৫</div>
+        <div class="process-icon">😍</div>
+        <div class="process-step-title">উপভোগ করুন</div>
+        <div class="process-step-desc">তাজা আম খান ও রিভিউ দিন</div>
+      </div>
+    </div>
+  </div>
+
   <div class="ps"><div class="pst">🥭 আমাদের পণ্যসমূহ <div class="psl"></div></div><div class="pg" id="pg"></div>
     <div class="load-sentinel" id="load-sentinel"></div>
     <div class="loading-more" id="loading-more">🥭 আরও পণ্য লোড হচ্ছে...</div>
@@ -7855,6 +8027,114 @@ refreshAdmin=function(){
     renderFAQPage();
   },900);
 })();
+
+
+// ============================================================
+// WHY CHOOSE US — ANIMATED STATS + POLISH
+// ============================================================
+function renderWhySection(){
+  // Animate order count from real data
+  var totalOrders=GO().length;
+  var base=5000+totalOrders;
+  var wsOrders=document.getElementById('ws-orders');
+  if(wsOrders)wsOrders.textContent=(base>5000?base.toLocaleString():5000+'+');
+
+  // Animate stats numbers when in view
+  var stats=document.querySelectorAll('.wstat-num');
+  var so=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el=e.target;
+        var text=el.textContent;
+        var num=parseInt(text.replace(/[^0-9]/g,''));
+        if(num>0&&!el._animated){
+          el._animated=true;
+          var suffix=text.replace(/[0-9,]/g,'');
+          var start=0,dur=1500,st=Date.now();
+          (function u(){
+            var p=Math.min(1,(Date.now()-st)/dur);
+            var ease=1-Math.pow(1-p,3);
+            el.textContent=Math.round(num*ease).toLocaleString()+suffix;
+            if(p<1)requestAnimationFrame(u);
+          })();
+        }
+        so.unobserve(el);
+      }
+    });
+  },{threshold:.5});
+  stats.forEach(function(s){so.observe(s);});
+
+  // Card stagger animation
+  var cards=document.querySelectorAll('.why-card');
+  var co=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.style.opacity='1';
+        e.target.style.transform='none';
+        co.unobserve(e.target);
+      }
+    });
+  },{threshold:.15,rootMargin:'0px 0px -30px 0px'});
+  cards.forEach(function(card,i){
+    card.style.opacity='0';
+    card.style.transform='translateY(24px)';
+    card.style.transition='opacity .5s ease '+(i*0.08)+'s, transform .5s ease '+(i*0.08)+'s';
+    co.observe(card);
+  });
+
+  // Trust badges animate in
+  var badges=document.querySelectorAll('.trust-badge');
+  var bo=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.style.opacity='1';e.target.style.transform='scale(1)';
+        bo.unobserve(e.target);
+      }
+    });
+  },{threshold:.3});
+  badges.forEach(function(b,i){
+    b.style.opacity='0';b.style.transform='scale(.85)';
+    b.style.transition='opacity .4s ease '+(i*0.06)+'s, transform .4s ease '+(i*0.06)+'s';
+    bo.observe(b);
+  });
+
+  // Process steps animate
+  var steps=document.querySelectorAll('.process-step');
+  var po=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.style.opacity='1';e.target.style.transform='translateY(0)';
+        po.unobserve(e.target);
+      }
+    });
+  },{threshold:.2});
+  steps.forEach(function(s,i){
+    s.style.opacity='0';s.style.transform='translateY(20px)';
+    s.style.transition='opacity .5s ease '+(i*0.12)+'s, transform .5s ease '+(i*0.12)+'s';
+    po.observe(s);
+  });
+}
+
+// Patch navigate to render why section
+var _origNavWhy=navigate;
+navigate=function(pg){
+  _origNavWhy(pg);
+  if(pg==='home')setTimeout(renderWhySection,400);
+};
+
+// Patch refreshAdmin to update order count in stats
+var _origRAWhy=refreshAdmin;
+refreshAdmin=function(){
+  _origRAWhy();
+  var wsOrders=document.getElementById('ws-orders');
+  if(wsOrders){
+    var n=5000+GO().length;
+    wsOrders.textContent=n.toLocaleString()+'+';
+  }
+};
+
+// Init on load
+setTimeout(renderWhySection,700);
 
 </script>
 </body>
