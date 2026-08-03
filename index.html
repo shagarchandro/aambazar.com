@@ -31,6 +31,8 @@
   --gradient-gold:linear-gradient(135deg,#f59e0b,#d97706);
   /* Layout */
   --r:12px;--rl:18px;--rx:24px;--trans:.25s ease;
+  --gradient-hero:linear-gradient(135deg,#5c2300,#92400e 40%,#b45309 70%,#d97706);
+  --gradient-gold:linear-gradient(135deg,#f59e0b,#d97706);
 }
 [data-theme='dark']{
   --bg:#111008;--bg2:#1a1409;
@@ -454,49 +456,49 @@ select.fi{cursor:pointer;}
 .sw-stay{padding:7px 14px;background:linear-gradient(135deg,var(--y),var(--o));color:white;border:none;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:12px;font-weight:600;cursor:pointer;}
 .sw-logout{padding:7px 14px;background:var(--g1);color:var(--text);border:none;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:12px;font-weight:600;cursor:pointer;}
 /* FOOTER */
-.ft{background:linear-gradient(160deg,#3d1500,#5c2300 35%,#7c3300);color:rgba(255,255,255,.85);}
-.fts{background:var(--y);padding:9px 20px;text-align:center;font-size:12px;font-weight:700;color:var(--db);}
-.ftg{max-width:1200px;margin:0 auto;padding:38px 24px 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:28px;}
-.flogo{display:flex;align-items:center;gap:9px;font-size:20px;font-weight:700;color:var(--y);margin-bottom:12px;}
+
+
+
+
 .flogo span{font-size:26px;animation:float 3s ease-in-out infinite;}
 .fd{font-size:12px;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:13px;}
-.fci{display:flex;align-items:center;gap:7px;font-size:12px;color:rgba(255,255,255,.65);margin-bottom:6px;}
-.fsoc{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+
+
 .sb2{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:.25s;text-decoration:none;color:white;}
 .sb2:hover{background:var(--y);color:var(--db);transform:translateY(-3px);}
-.fct{font-size:13px;font-weight:700;color:var(--y);margin-bottom:11px;padding-bottom:7px;border-bottom:1px solid rgba(245,158,11,.25);}
-.fls{list-style:none;}
-.fls li{margin-bottom:8px;}
-.fls a{font-size:12px;color:rgba(255,255,255,.6);cursor:pointer;transition:.2s;display:flex;align-items:center;gap:5px;text-decoration:none;}
-.fls a:hover{color:var(--y);padding-left:4px;}
+
+
+
+
+
 .fbg{display:flex;flex-direction:column;gap:7px;}
 .fba{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:7px 10px;font-size:11px;color:rgba(255,255,255,.7);}
 .fdiv{border:none;border-top:1px solid rgba(255,255,255,.1);margin:0 24px;}
-.fbot{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
-.fcp{font-size:11px;color:rgba(255,255,255,.4);}
+
+
 .fcp span{color:var(--y);font-weight:600;}
-.fbl{display:flex;gap:12px;flex-wrap:wrap;}
-.fbl a{font-size:11px;color:rgba(255,255,255,.4);cursor:pointer;text-decoration:none;transition:.2s;}
-.fbl a:hover{color:var(--y);}
+
+
+
 /* TOAST */
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--db);color:white;padding:10px 20px;border-radius:30px;font-size:13px;font-weight:500;z-index:700;transition:transform .3s ease;box-shadow:var(--sl);white-space:nowrap;pointer-events:none;}
 .toast.show{transform:translateX(-50%) translateY(0);}
 /* LOADING SPINNER */
 .spinner{width:20px;height:20px;border:2px solid rgba(255,255,255,.3);border-top:2px solid white;border-radius:50%;animation:spin .8s linear infinite;display:inline-block;}
 /* RESPONSIVE */
-@media(max-width:1000px){.ftg{grid-template-columns:1fr 1fr;}.pg{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}}
+@media(max-width:1000px){.pg{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}}
 .page-admin .bnav,.page-admin~.bnav{display:none!important;}
 @media(max-width:700px){
   .nav{padding:0 12px;height:56px;}.nav-logo{font-size:17px;}.nav-logo span{font-size:22px;}
   .nv{display:none;}.nb{padding:6px 9px;font-size:12px;}.nu-name{display:none;}
   .bnav{display:block;}.page{padding-bottom:80px;}
-  .hero{padding:36px 16px 30px;}.ht{font-size:24px;}.hm{font-size:52px;}.hs2{font-size:13px;}
+  .ht{font-size:24px;}.hm{font-size:52px;}.hs2{font-size:13px;}
   .pg{grid-template-columns:1fr 1fr;gap:10px;}.pb{padding:11px;}.pn{font-size:14px;}.pp{font-size:17px;}.ql{display:none;}
   .cd{width:100vw;}.fr{grid-template-columns:1fr;}.ow{padding:0 12px 40px;margin:20px auto;}.ofc{padding:20px 14px;}
   .adw{padding:10px;}.tabs{gap:2px;}.tbb{padding:7px 9px;font-size:11px;}
   .amb{padding:20px 14px;}.ads{gap:6px;}.adc{padding:8px 10px;min-width:64px;}.adn{font-size:16px;}
-  .po{grid-template-columns:1fr 1fr;}.ftg{grid-template-columns:1fr;padding:28px 16px 20px;}
-  .fbot{padding:12px 16px;flex-direction:column;}.fdiv{margin:0 14px;}.btt{bottom:90px;}
+  .po{grid-template-columns:1fr 1fr;}
+  .fdiv{margin:0 14px;}.btt{bottom:90px;}
   .toast{bottom:90px;}.mbs{flex-direction:column;}.mb{padding:28px 18px;}
 }
 @media(max-width:480px){
@@ -523,12 +525,7 @@ select.fi{cursor:pointer;}
 .nav-logo span { filter: drop-shadow(0 0 8px rgba(245,158,11,0.6)); }
 
 /* ====== HERO PREMIUM ====== */
-.hero {
-  background: var(--gradient-hero);
-  padding: 72px 20px 60px;
-  position: relative;
-  overflow: hidden;
-}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -929,8 +926,8 @@ select.fi{cursor:pointer;}
 .pb-ltd { background: linear-gradient(135deg,#ef4444,#dc2626); color: white; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 12px; box-shadow: 0 2px 8px rgba(239,68,68,0.4); animation: pulse 2s infinite; }
 
 /* ====== FOOTER PREMIUM ====== */
-.ft { background: linear-gradient(160deg, #1a0700 0%, #3d1500 30%, #5c2300 60%, #7c3300 100%); }
-.fts { background: var(--gradient-gold); font-weight: 800; letter-spacing: 0.5px; }
+
+
 .sb2 { border-radius: 12px; }
 .fba { border-radius: 10px; transition: 0.2s; }
 .fba:hover { background: rgba(255,255,255,0.12); padding-left: 16px; }
@@ -951,7 +948,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--y); outline-off
   .nav { height: 58px; }
   .ht { font-size: 26px; }
   .hm { font-size: 58px; }
-  .hero { padding: 44px 16px 36px; }
+  
   .test-grid { grid-template-columns: 1fr; }
   .nl-form { flex-direction: column; }
   .nl-btn { border-radius: 12px; }
@@ -1036,7 +1033,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--y); outline-off
 .btn-ripple{position:relative;overflow:hidden;}
 .ripple-effect{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);animation:ripple .5s linear;pointer-events:none;}
 /* ===== PRINT STYLES ===== */
-@media print{.nav,.bnav,.btt,.wa-float,.promo-bar,.cookie-bar,.toast{display:none!important;}body{background:white;}page{size:A4;margin:15mm;}}
+@media print{.nav,.bnav,.btt,.wa-float,.promo-bar,.cookie-bar,.toast{display:none!important;}page{size:A4;margin:15mm;}}
 
 
 /* ====================================================
@@ -1372,7 +1369,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--y); outline-off
 .bis-btn{padding:8px 12px;background:var(--ok);color:white;border:none;border-radius:9px;font-family:'Hind Siliguri',sans-serif;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;}
 
 /* PARALLAX HERO */
-.hero{overflow:hidden;}
+
 .hero-inner{will-change:transform;transition:transform .1s linear;}
 
 /* REFERRAL SECTION */
@@ -1702,12 +1699,7 @@ button:active:not(.no-ripple){transform:scale(.97);}
    ============================================================ */
 
 /* GLASSMORPHISM CARDS */
-[data-theme="dark"] .pc{
-  background:rgba(45,27,0,.6);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border:1px solid rgba(245,158,11,.18);
-}
+[data-theme="dark"] 
 [data-theme="dark"] .pc:hover{
   background:rgba(61,36,0,.75);
   border-color:rgba(245,158,11,.4);
@@ -2157,16 +2149,16 @@ img{transition:transform .4s ease,opacity .3s ease!important;}
 
 
 /* FOOTER NEWSLETTER UPGRADE */
-.footer-nl{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;margin-bottom:24px;}
-.footer-nl-title{font-size:15px;font-weight:700;color:white;margin-bottom:6px;}
-.footer-nl-sub{font-size:12px;color:rgba(255,255,255,.65);margin-bottom:14px;}
-.footer-nl-form{display:flex;gap:8px;}
-.footer-nl-inp{flex:1;padding:10px 14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:10px;color:white;font-family:'Hind Siliguri',sans-serif;font-size:13px;}
-.footer-nl-inp::placeholder{color:rgba(255,255,255,.5);}
-.footer-nl-inp:focus{outline:none;border-color:var(--y);background:rgba(255,255,255,.15);}
-.footer-nl-btn{padding:10px 18px;background:linear-gradient(135deg,var(--y),var(--o));color:var(--db);border:none;border-radius:10px;font-family:'Hind Siliguri',sans-serif;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:.25s;}
-.footer-nl-btn:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(245,158,11,.4);}
-@media(max-width:700px){.footer-nl-form{flex-direction:column;}.footer-nl-btn{border-radius:10px;}}
+
+
+
+
+
+
+
+
+
+@media(max-width:700px){}
 
 /* ============================================================
    COURIER SERVICE — PREMIUM
@@ -2330,95 +2322,727 @@ img{transition:transform .4s ease,opacity .3s ease!important;}
 }
 
 
-/* ── DARK MODE GLASSMORPHISM ── */
-[data-theme="dark"] .pc{
-  background:rgba(31,23,16,.85);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(245,158,11,.15);
-}
-[data-theme="dark"] .pc:hover{
-  background:rgba(38,30,20,.95);
-  border-color:rgba(245,158,11,.3);
-  box-shadow:0 16px 48px rgba(0,0,0,.45),0 0 0 1px rgba(245,158,11,.1);
-}
-/* ── DARK MODE TEXT ── */
-[data-theme='dark'] .pn{color:var(--text)!important;}
-[data-theme='dark'] .pp{color:var(--y)!important;}
-[data-theme='dark'] .po,.bulk-badge{color:var(--text2)!important;}
-[data-theme='dark'] .fi{background:var(--input-bg)!important;border-color:var(--input-border)!important;color:var(--text)!important;}
-[data-theme='dark'] .fi::placeholder{color:var(--placeholder)!important;}
-[data-theme='dark'] .fi:focus{border-color:var(--y)!important;box-shadow:0 0 0 3px rgba(245,158,11,.12)!important;}
-[data-theme='dark'] .fse{background:var(--input-bg)!important;border-color:var(--input-border)!important;color:var(--text)!important;}
-[data-theme='dark'] .nb{background:rgba(15,12,6,.96)!important;border-bottom:1px solid rgba(245,158,11,.1)!important;backdrop-filter:blur(20px);}
-[data-theme='dark'] .nl{color:rgba(220,180,100,.8)!important;}
-[data-theme='dark'] .nl:hover,.nl.act{color:var(--y)!important;}
-[data-theme='dark'] .ss{background:var(--card)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .ss-t{color:var(--text)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .at th{background:var(--g1)!important;color:var(--text2)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .at td{border-color:var(--card-border)!important;color:var(--text)!important;}
-[data-theme='dark'] .at tr:hover td{background:var(--g0)!important;}
-/* ── DARK MODE CARDS ── */
-[data-theme='dark'] .kpi-card{background:var(--card)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .kpi-label{color:var(--text2)!important;}
-[data-theme='dark'] .kpi-value{color:var(--text)!important;}
-[data-theme='dark'] .why-card{background:var(--g0)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .why-card:hover{border-color:var(--y)!important;background:var(--g1)!important;}
-[data-theme='dark'] .why-card-title{color:var(--text)!important;}
-[data-theme='dark'] .why-card-desc{color:var(--text2)!important;}
-[data-theme='dark'] .wstat{background:linear-gradient(135deg,var(--g1),var(--g0))!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .sub-plan{background:var(--g1)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .sub-plan.selected{border-color:var(--y)!important;background:var(--g2)!important;}
-/* ── DARK MODE INFO PAGES ── */
-[data-theme='dark'] .info-card{background:var(--card)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .info-card p{color:var(--text2)!important;}
-[data-theme='dark'] .faq-q7{background:var(--card)!important;color:var(--text)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .faq-q7:hover{background:var(--g1)!important;}
-[data-theme='dark'] .faq-a7{background:var(--g0)!important;color:var(--text2)!important;}
-[data-theme='dark'] .contact-card{background:var(--g1)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .contact-card-value{color:var(--text)!important;}
-/* ── DARK MODE FOOTER ── */
-[data-theme='dark'] .ft{background:linear-gradient(180deg,#0c0904,#171008)!important;}
-[data-theme='dark'] .fct{color:rgba(245,158,11,.85)!important;}
-[data-theme='dark'] .fls a:hover{color:var(--y)!important;}
-/* ── DARK MODE ADMIN ── */
-[data-theme='dark'] .admin-sidebar{background:linear-gradient(180deg,#0c0904,#1a1009)!important;}
-[data-theme='dark'] .admin-quick-bar{background:var(--g0)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .quick-action{background:var(--card)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .quick-action:hover{background:var(--g1)!important;border-color:var(--y)!important;}
-[data-theme='dark'] .kanban-col{background:var(--g0)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .kanban-item{background:var(--card)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .analytics-tab{color:var(--text2)!important;}
-[data-theme='dark'] .analytics-tab.active{color:var(--y)!important;border-color:var(--y)!important;}
-/* ── DARK MODE CART & MODAL ── */
-[data-theme='dark'] .cart{background:var(--bg2)!important;}
-[data-theme='dark'] .ci{background:var(--card)!important;border-color:var(--card-border)!important;}
-[data-theme='dark'] .am{background:rgba(15,10,3,.7)!important;}
-[data-theme='dark'] .qv-box{background:var(--card)!important;}
-[data-theme='dark'] .shortcuts-box{background:var(--card)!important;}
-[data-theme='dark'] .shortcut-row{border-color:var(--card-border)!important;color:var(--text)!important;}
-[data-theme='dark'] kbd{background:var(--g1)!important;border-color:var(--g2)!important;color:var(--text)!important;}
+
+
+
+
+
+
+
 /* ── SMOOTH TRANSITION ── */
-/* Dark mode smooth transition — safe version */
-html{transition:background-color .3s ease;}
-.nb,.cart,.am,.ss{transition:background-color .25s ease,border-color .25s ease;}
 
 
-/* Footer only for users — hide on admin */
-#page-admin.active ~ footer,
-.page#page-admin.active ~ footer{display:none!important;}
 
 
-/* Hide footer and bottom nav on admin page */
-body.admin-mode footer,
-body.admin-mode .bnav{display:none!important;}
 
 
-/* CRITICAL VISIBILITY — always show key sections */
-.hero,.hero *,.ht,.hs,.hst,.hs3,.hps,.hp{opacity:1!important;visibility:visible!important;}
-.pg,.pc,.pn,.po,.pp,.pa,.pb,.piw{opacity:1!important;visibility:visible!important;}
-.nb,.nl,.logo{opacity:1!important;visibility:visible!important;}
-.ss,.ss-t,.at{opacity:1!important;}
-/* Only .reveal gets opacity:0 — critical elements never hidden */
+
+
+
+
+
+
+/* ── Base ── */
+html { transition: background-color .25s ease; }
+body { background: var(--bg); color: var(--text); font-family: 'Hind Siliguri', sans-serif; }
+
+/* ── Navbar (light) ── */
+nav.nav {
+  background: rgba(255,251,235,.97);
+  border-bottom: 1px solid #f0e6c8;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: sticky; top: 0; z-index: 500;
+  display: flex; align-items: center; padding: 0 14px; height: 56px; gap: 8px;
+}
+nav.nav .nav-logo { font-size: 17px; font-weight: 800; color: #d97706; display:flex;align-items:center;gap:5px; }
+.nl { color: #6b5c3e; }
+.nl:hover, .nl.act { color: #d97706; }
+
+/* ── Hero (always dark gradient) ── */
+.hero {
+  background: linear-gradient(135deg, #5c2300 0%, #92400e 40%, #b45309 70%, #d97706 100%);
+  display: block; min-height: 220px; padding: 44px 16px 36px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.ht { color: #fff; font-size: clamp(22px,6vw,42px); font-weight: 900; line-height: 1.2; }
+.hs, .hs2 { color: rgba(255,255,255,.88); }
+.hp { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.22); border-radius: 20px; padding: 4px 12px; font-size: 12px; }
+.hst .hn { color: #fff; font-size: 22px; font-weight: 900; }
+.hst .hl { color: rgba(255,255,255,.72); font-size: 11px; }
+.hero-gradient-text { background: linear-gradient(135deg,#fde68a,#fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* ── Product Cards (light) ── */
+.pc { background: #fff; border: 1.5px solid #f0e6c8; border-radius: 20px; overflow: hidden; }
+.pn { color: #1c1007; font-weight: 700; }
+.po { color: #6b5c3e; font-size: 12px; }
+.pp, .pri { color: #d97706; font-weight: 800; }
+
+/* ── Form inputs (light) ── */
+.fi {
+  background: #faf7f0; border: 2px solid #e8d9b5; color: #1c1007;
+  border-radius: 12px; padding: 10px 14px; width: 100%;
+  font-family: 'Hind Siliguri', sans-serif; font-size: 14px;
+  transition: border-color .2s ease;
+}
+.fi:focus { border-color: #f59e0b; background: #fff; outline: none; box-shadow: 0 0 0 3px rgba(245,158,11,.12); }
+.fi::placeholder { color: #b8a880; }
+.fse { background: #faf7f0; border: 2px solid #e8d9b5; color: #1c1007; border-radius: 10px; padding: 9px 12px; font-family: 'Hind Siliguri', sans-serif; }
+
+/* ── Section titles (light) ── */
+.ss { background: #fff; border: 1px solid #f0e6c8; }
+.ss-t { color: #1c1007; border-bottom: 2px solid #fef3c7; }
+
+/* ── Pages always visible ── */
+.page.active { display: block; opacity: 1; visibility: visible; }
+
+/* ══════════ DARK MODE OVERRIDES ══════════ */
+[data-theme="dark"] body { background: #111008; color: #f5e6c8; }
+
+[data-theme="dark"] nav.nav {
+  background: rgba(14,11,4,.97) !important;
+  border-bottom: 1px solid rgba(245,158,11,.12) !important;
+}
+[data-theme="dark"] .nl { color: rgba(210,170,90,.8) !important; }
+[data-theme="dark"] .nl:hover, [data-theme="dark"] .nl.act { color: #f59e0b !important; }
+[data-theme="dark"] nav.nav .nav-logo { color: #f59e0b !important; }
+
+/* Hero unchanged in dark — already dark gradient */
+
+[data-theme="dark"] .pc {
+  background: #1f1710 !important;
+  border: 1.5px solid #3a2a18 !important;
+}
+[data-theme="dark"] .pc:hover {
+  background: #2a1f12 !important;
+  border-color: rgba(245,158,11,.3) !important;
+}
+[data-theme="dark"] .pn { color: #f5e6c8 !important; }
+[data-theme="dark"] .po { color: #c4986a !important; }
+[data-theme="dark"] .pp, [data-theme="dark"] .pri { color: #f59e0b !important; }
+[data-theme="dark"] .piw { background: rgba(245,158,11,.07) !important; }
+
+[data-theme="dark"] .fi {
+  background: #2a1f12 !important; border-color: #4d3820 !important;
+  color: #f5e6c8 !important;
+}
+[data-theme="dark"] .fi:focus { border-color: #f59e0b !important; background: #321f0e !important; }
+[data-theme="dark"] .fi::placeholder { color: #6b4f2e !important; }
+[data-theme="dark"] .fse { background: #2a1f12 !important; border-color: #4d3820 !important; color: #f5e6c8 !important; }
+
+[data-theme="dark"] .ss { background: #1f1710 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .ss-t { color: #f5e6c8 !important; border-color: #3a2a18 !important; }
+
+[data-theme="dark"] .page { background: transparent; }
+
+[data-theme="dark"] .at th { background: #2a1f12 !important; color: #c4986a !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .at td { border-color: #3a2a18 !important; color: #f5e6c8 !important; }
+[data-theme="dark"] .at tr:hover td { background: #241a10 !important; }
+
+[data-theme="dark"] .cart { background: #111008 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .ch { background: #1f1710 !important; border-color: #3a2a18 !important; color: #f5e6c8 !important; }
+[data-theme="dark"] .ci { background: #241a10 !important; border-color: #3a2a18 !important; }
+
+[data-theme="dark"] .am { background: rgba(8,6,2,.82) !important; }
+[data-theme="dark"] .ab-box, [data-theme="dark"] .pm-box { background: #1f1710 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .abt, [data-theme="dark"] .pmt { color: #f5e6c8 !important; }
+[data-theme="dark"] .fl, [data-theme="dark"] label.fl { color: #c4986a !important; }
+[data-theme="dark"] .btnc { background: #2a1f12 !important; border-color: #4d3820 !important; color: #f5e6c8 !important; }
+
+[data-theme="dark"] .kpi-card { background: #1f1710 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .kpi-label { color: #c4986a !important; }
+[data-theme="dark"] .kpi-value { color: #f5e6c8 !important; }
+[data-theme="dark"] .admin-sidebar { background: linear-gradient(180deg,#0c0904,#1a1009) !important; }
+[data-theme="dark"] .sidebar-item { color: rgba(200,160,80,.75) !important; }
+[data-theme="dark"] .sidebar-item.active, [data-theme="dark"] .sidebar-item:hover { color: #f59e0b !important; background: rgba(245,158,11,.1) !important; }
+[data-theme="dark"] .quick-action { background: #1f1710 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .quick-action:hover { border-color: #f59e0b !important; }
+[data-theme="dark"] .quick-action-label { color: #c4986a !important; }
+[data-theme="dark"] .kanban-col { background: #1f1710 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .kanban-item { background: #241a10 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .kanban-col-header { color: inherit; }
+[data-theme="dark"] .analytics-tab { color: #c4986a !important; border-color: transparent !important; }
+[data-theme="dark"] .analytics-tab.active { color: #f59e0b !important; border-color: #f59e0b !important; }
+
+[data-theme="dark"] .why-section { background: #1f1710 !important; }
+[data-theme="dark"] .why-card { background: #241a10 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .why-card:hover { border-color: rgba(245,158,11,.4) !important; background: #2a1f12 !important; }
+[data-theme="dark"] .why-card-title { color: #f5e6c8 !important; }
+[data-theme="dark"] .why-card-desc { color: #c4986a !important; }
+[data-theme="dark"] .wstat { background: #241a10 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .trust-badge { background: #241a10 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .trust-badge-text { color: #f5e6c8 !important; }
+
+[data-theme="dark"] .info-card { background: #1f1710 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .info-card p, [data-theme="dark"] .info-card li { color: #c4986a !important; }
+[data-theme="dark"] .info-card-title { color: #f5e6c8 !important; }
+[data-theme="dark"] .faq-q7 { background: #1f1710 !important; color: #f5e6c8 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .faq-q7:hover { background: #2a1f12 !important; }
+[data-theme="dark"] .faq-a7 { background: #241a10 !important; color: #c4986a !important; }
+
+[data-theme="dark"] .oc { background: #1f1710 !important; border-color: #3a2a18 !important; }
+[data-theme="dark"] .oc-head { border-color: #3a2a18 !important; color: #f5e6c8 !important; }
+
+[data-theme="dark"] .toast { background: #2a1f12 !important; color: #f5e6c8 !important; border: 1px solid #4d3820 !important; }
+
+/* Admin footer/nav hidden */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ╔══════════════════════════════════════╗
+   ║  FOOTER CSS                          ║
+   ╚══════════════════════════════════════╝ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body.admin-mode footer{display:none!important;}
+@media(max-width:900px){}
+@media(max-width:600px){}
+
+/* ════════════════════════════════════════════
+   NEW FEATURES CSS
+   ════════════════════════════════════════════ */
+
+/* FLASH SALE HERO TIMER */
+.hero-flash{background:rgba(0,0,0,.25);border-radius:14px;padding:14px 20px;margin:16px auto;max-width:480px;text-align:center;}
+.hero-flash-label{font-size:12px;color:rgba(255,255,255,.8);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.flash-timer{display:flex;justify-content:center;gap:10px;}
+.flash-unit{display:flex;flex-direction:column;align-items:center;}
+.flash-num{font-size:32px;font-weight:900;color:#fff;background:rgba(0,0,0,.35);padding:6px 14px;border-radius:10px;min-width:52px;text-align:center;line-height:1.1;}
+.flash-lbl{font-size:10px;color:rgba(255,255,255,.65);margin-top:4px;font-weight:600;}
+.flash-colon{font-size:28px;font-weight:900;color:rgba(255,255,255,.6);padding-top:4px;}
+
+/* STOCK COUNTDOWN BADGE */
+.stock-low{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px;margin-top:3px;}
+.stock-ok{display:inline-flex;align-items:center;gap:4px;background:rgba(5,150,105,.12);color:#059669;font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px;margin-top:3px;border:1px solid rgba(5,150,105,.2);}
+
+/* LOYALTY PROGRESS BAR */
+.loyalty-bar-wrap{background:var(--g0);border:1px solid var(--card-border);border-radius:16px;padding:16px;margin-bottom:14px;}
+.loyalty-bar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.loyalty-level-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;}
+.loyalty-pts-label{font-size:12px;color:var(--text2);}
+.loyalty-bar-track{height:10px;background:var(--g2);border-radius:10px;overflow:hidden;margin-bottom:6px;}
+.loyalty-bar-fill{height:100%;border-radius:10px;transition:width .8s cubic-bezier(.4,0,.2,1);}
+.loyalty-bar-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--text2);}
+.loyalty-milestones{display:flex;justify-content:space-between;margin-top:10px;gap:4px;}
+.loyalty-milestone{flex:1;text-align:center;padding:6px 4px;border-radius:8px;font-size:9px;font-weight:600;border:1px solid var(--card-border);}
+.loyalty-milestone.reached{background:var(--a1);border-color:var(--y);color:var(--db);}
+.loyalty-milestone.next{background:linear-gradient(135deg,var(--y),var(--o));color:#fff;border-color:var(--o);}
+
+/* EXIT INTENT POPUP */
+.exit-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9990;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);animation:fadeUp .3s ease;}
+.exit-box{background:var(--card);border-radius:24px;padding:0;max-width:420px;width:100%;overflow:hidden;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.4);}
+.exit-header{background:linear-gradient(135deg,#5c2300,#92400e,#d97706);padding:28px 24px 20px;text-align:center;}
+.exit-emoji{font-size:48px;display:block;margin-bottom:8px;}
+.exit-title{font-size:20px;font-weight:900;color:#fff;margin-bottom:4px;}
+.exit-sub{font-size:13px;color:rgba(255,255,255,.8);}
+.exit-body{padding:20px 24px;}
+.exit-code-box{background:var(--a0);border:2px dashed var(--y);border-radius:12px;padding:12px;text-align:center;margin-bottom:16px;}
+.exit-code{font-size:22px;font-weight:900;color:var(--o);letter-spacing:2px;}
+.exit-code-sub{font-size:11px;color:var(--text2);margin-top:2px;}
+.exit-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--y),var(--o));color:var(--db);border:none;border-radius:12px;font-family:'Hind Siliguri',sans-serif;font-size:14px;font-weight:800;cursor:pointer;margin-bottom:8px;}
+.exit-close{width:100%;padding:10px;background:transparent;border:1px solid var(--card-border);border-radius:12px;font-family:'Hind Siliguri',sans-serif;font-size:13px;color:var(--text2);cursor:pointer;}
+.exit-timer{font-size:11px;color:var(--err);text-align:center;margin-top:8px;font-weight:600;}
+
+/* PRICE DROP ALERT */
+.price-drop-badge{background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;}
+.price-drop-notif{background:linear-gradient(135deg,#fff7f7,#fef2f2);border:1.5px solid #fca5a5;border-radius:14px;padding:12px 14px;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;}
+
+/* ACHIEVEMENT BADGES */
+.achievements-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:10px;margin-top:10px;}
+.achievement-badge{display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border-radius:14px;border:1.5px solid var(--card-border);text-align:center;transition:.25s;position:relative;}
+.achievement-badge.earned{background:linear-gradient(135deg,var(--a0),var(--a1));border-color:var(--y);}
+.achievement-badge.locked{opacity:.4;filter:grayscale(1);}
+.achievement-icon{font-size:28px;}
+.achievement-name{font-size:9px;font-weight:700;color:var(--text);line-height:1.3;}
+.achievement-badge.earned .achievement-name{color:var(--db);}
+.achievement-new{position:absolute;top:-4px;right:-4px;background:var(--err);color:#fff;font-size:8px;font-weight:700;padding:2px 5px;border-radius:6px;}
+
+/* DAILY CHECK-IN */
+.checkin-box{background:linear-gradient(135deg,var(--db),#7c3300);border-radius:16px;padding:18px;color:#fff;text-align:center;margin-bottom:14px;}
+.checkin-title{font-size:14px;font-weight:700;margin-bottom:4px;}
+.checkin-sub{font-size:12px;color:rgba(255,255,255,.75);margin-bottom:12px;}
+.checkin-days{display:flex;gap:6px;justify-content:center;margin-bottom:12px;}
+.checkin-day{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;background:rgba(255,255,255,.12);color:rgba(255,255,255,.6);font-size:11px;}
+.checkin-day.done{background:var(--y);color:var(--db);}
+.checkin-day.today{background:rgba(255,255,255,.25);color:#fff;border:2px solid #fff;}
+.checkin-btn{padding:10px 24px;background:#fff;color:var(--db);border:none;border-radius:10px;font-family:'Hind Siliguri',sans-serif;font-size:13px;font-weight:700;cursor:pointer;}
+.checkin-btn:disabled{opacity:.5;cursor:default;}
+
+/* LUCKY DRAW */
+.lucky-draw-box{background:linear-gradient(135deg,#7c3aed,#5b21b6);border-radius:16px;padding:20px;color:#fff;text-align:center;overflow:hidden;position:relative;}
+.lucky-draw-box::before{content:'🎰';position:absolute;font-size:80px;opacity:.06;top:-10px;right:-10px;}
+.lucky-title{font-size:15px;font-weight:800;margin-bottom:4px;}
+.lucky-sub{font-size:12px;color:rgba(255,255,255,.75);margin-bottom:14px;}
+.lucky-ticket{background:rgba(255,255,255,.12);border:1.5px dashed rgba(255,255,255,.3);border-radius:10px;padding:10px;margin-bottom:12px;font-size:13px;font-weight:700;letter-spacing:1px;}
+.lucky-btn{padding:10px 24px;background:#fff;color:#7c3aed;border:none;border-radius:10px;font-family:'Hind Siliguri',sans-serif;font-size:13px;font-weight:700;cursor:pointer;}
+
+/* ADMIN: BANGLADESH MAP */
+.bd-map-wrap{padding:16px;}
+.bd-district-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:6px;}
+.bd-district{padding:8px;border-radius:8px;text-align:center;font-size:11px;font-weight:600;border:1px solid var(--card-border);transition:.2s;cursor:pointer;}
+.bd-district:hover{border-color:var(--y);}
+.bd-district-name{font-size:10px;color:var(--text);display:block;}
+.bd-district-orders{font-size:12px;font-weight:800;color:var(--o);}
+
+/* ADMIN: PROFIT TABLE */
+.profit-table{width:100%;border-collapse:collapse;}
+.profit-table th,.profit-table td{padding:9px 10px;font-size:12px;border-bottom:1px solid var(--card-border);text-align:left;}
+.profit-table th{font-size:10px;font-weight:700;color:var(--text2);text-transform:uppercase;}
+.profit-cell-good{color:#059669;font-weight:700;}
+.profit-cell-bad{color:#dc2626;font-weight:700;}
+.profit-margin-bar{height:5px;background:var(--g2);border-radius:3px;margin-top:3px;}
+.profit-margin-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#10b981,#059669);}
+
+/* BULK STATUS UPDATE */
+.bulk-status-bar{display:flex;gap:8px;flex-wrap:wrap;padding:12px;background:var(--g0);border-radius:12px;margin-bottom:12px;align-items:center;border:1px solid var(--card-border);}
+.bulk-status-label{font-size:12px;font-weight:700;color:var(--text);flex:1;}
+
+/* RECENTLY VIEWED */
+.rv-section{padding:0 16px 20px;}
+.rv-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.rv-scroll{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;}
+.rv-scroll::-webkit-scrollbar{display:none;}
+.rv-card{min-width:120px;background:var(--card);border:1.5px solid var(--card-border);border-radius:14px;padding:10px;cursor:pointer;transition:.25s;flex-shrink:0;}
+.rv-card:hover{border-color:var(--y);transform:translateY(-2px);}
+.rv-card-img{width:100%;height:60px;object-fit:cover;border-radius:8px;background:var(--a0);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:6px;}
+.rv-card-name{font-size:11px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rv-card-price{font-size:11px;color:var(--o);font-weight:700;}
+
+/* PHOTO GALLERY */
+.gallery-wrap{position:relative;overflow:hidden;border-radius:14px;background:var(--a0);}
+.gallery-main{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:60px;}
+.gallery-thumbs{display:flex;gap:6px;margin-top:6px;overflow-x:auto;}
+.gallery-thumb{width:52px;height:40px;border-radius:8px;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:.2s;background:var(--g1);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.gallery-thumb.active,.gallery-thumb:hover{border-color:var(--y);}
+
+/* OG meta inject CSS (visual) */
+.share-preview-box{background:var(--card);border:1px solid var(--card-border);border-radius:10px;overflow:hidden;margin-top:10px;}
+.share-preview-img{background:linear-gradient(135deg,#5c2300,#92400e);height:60px;display:flex;align-items:center;justify-content:center;font-size:28px;}
+.share-preview-body{padding:8px 10px;}
+.share-preview-title{font-size:12px;font-weight:700;color:var(--text);}
+.share-preview-url{font-size:10px;color:var(--text2);}
+
+@media(max-width:600px){
+  .flash-num{font-size:24px;padding:5px 10px;min-width:42px;}
+  .loyalty-milestones{gap:2px;}
+  .achievements-grid{grid-template-columns:repeat(auto-fill,minmax(70px,1fr));}
+}
+
+
+
+/* ══════════════════════════════════════════════
+   FOOTER PREMIUM V3
+   ══════════════════════════════════════════════ */
+footer.ft {
+  background: linear-gradient(180deg,#1a0800 0%,#2d1000 40%,#3d1500 100%) !important;
+  color: rgba(255,255,255,.88) !important;
+  display: block !important;
+  position: relative;
+  overflow: hidden;
+}
+footer.ft::before {
+  content: '🥭';
+  position: absolute;
+  font-size: 320px;
+  opacity: .025;
+  right: -60px;
+  top: -60px;
+  pointer-events: none;
+  line-height: 1;
+}
+/* Animated marquee */
+footer.ft .fts {
+  background: linear-gradient(90deg,rgba(217,119,6,.25),rgba(180,83,9,.18),rgba(217,119,6,.25)) !important;
+  border-top: 1px solid rgba(245,158,11,.15) !important;
+  border-bottom: 1px solid rgba(245,158,11,.12) !important;
+  padding: 10px 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap;
+}
+footer.ft .fts-inner {
+  display: inline-block;
+  animation: marqueeFT 18s linear infinite;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,200,80,.85);
+  letter-spacing: .5px;
+}
+@keyframes marqueeFT {
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+
+/* Main grid */
+footer.ft .ftg {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 44px 20px 28px;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Logo */
+footer.ft .flogo {
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  color: #f59e0b !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px !important;
+  letter-spacing: -.5px;
+}
+footer.ft .flogo span { font-size: 26px; }
+footer.ft .ftag {
+  font-size: 11px;
+  color: rgba(245,158,11,.7);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+footer.ft .fd, footer.ft .fci {
+  color: rgba(255,255,255,.58) !important;
+  font-size: 12px !important;
+  line-height: 1.9;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+footer.ft .fd { margin-bottom: 2px; }
+
+/* Social */
+footer.ft .fsoc { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+footer.ft .sb2 {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 10px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.7); text-decoration: none;
+  transition: all .25s; flex-shrink: 0;
+}
+footer.ft .sb2:hover { background: rgba(245,158,11,.2); border-color: rgba(245,158,11,.4); color: #f59e0b; transform: translateY(-2px); }
+
+/* Section titles */
+footer.ft .fct {
+  color: rgba(245,158,11,.92) !important;
+  font-weight: 800 !important;
+  font-size: 12px !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid rgba(255,255,255,.07) !important;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+/* Lists */
+footer.ft .fls { list-style: none; padding: 0; margin: 0; }
+footer.ft .fls li { margin-bottom: 8px; }
+footer.ft .fls a {
+  color: rgba(255,255,255,.6) !important;
+  font-size: 13px !important;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  text-decoration: none;
+  transition: all .2s;
+  padding: 2px 0;
+}
+footer.ft .fls a:hover { color: #f59e0b !important; padding-left: 4px; }
+
+/* Newsletter */
+footer.ft .nl-wrap { margin-bottom: 20px; }
+footer.ft .nl-desc { font-size: 11px; color: rgba(255,255,255,.55); margin-bottom: 10px; line-height: 1.6; }
+footer.ft .nl-row { display: flex; gap: 6px; }
+footer.ft .nl-inp {
+  flex: 1; padding: 10px 12px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 10px; color: #fff;
+  font-family: 'Hind Siliguri', sans-serif; font-size: 12px;
+  transition: .2s;
+}
+footer.ft .nl-inp:focus { outline: none; border-color: rgba(245,158,11,.5); background: rgba(255,255,255,.1); }
+footer.ft .nl-inp::placeholder { color: rgba(255,255,255,.35); }
+footer.ft .nl-btn {
+  padding: 10px 14px;
+  background: linear-gradient(135deg,#f59e0b,#d97706);
+  color: #3d1500; border: none; border-radius: 10px;
+  font-family: 'Hind Siliguri', sans-serif; font-size: 12px; font-weight: 800;
+  cursor: pointer; white-space: nowrap; transition: .2s;
+}
+footer.ft .nl-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(245,158,11,.35); }
+
+/* Payment badges */
+footer.ft .pay-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 11px; border-radius: 8px;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,.88); margin: 3px;
+  border: 1px solid rgba(255,255,255,.12);
+  transition: .2s;
+}
+footer.ft .pay-badge:hover { transform: translateY(-1px); }
+
+/* Stats row */
+footer.ft .fstats {
+  display: flex; justify-content: center; gap: 0;
+  border-top: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  padding: 16px 20px;
+  position: relative; z-index: 1;
+}
+footer.ft .fstat {
+  flex: 1; text-align: center; padding: 0 16px;
+  border-right: 1px solid rgba(255,255,255,.07);
+}
+footer.ft .fstat:last-child { border-right: none; }
+footer.ft .fstat-num { font-size: 22px; font-weight: 900; color: #f59e0b; line-height: 1; }
+footer.ft .fstat-lbl { font-size: 10px; color: rgba(255,255,255,.5); margin-top: 3px; font-weight: 600; }
+
+/* Trust bar */
+footer.ft .ftrust {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  position: relative; z-index: 1;
+}
+footer.ft .ftrust-item {
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px; padding: 5px 12px;
+  font-size: 11px; color: rgba(255,255,255,.7); font-weight: 600;
+  transition: .2s;
+}
+footer.ft .ftrust-item:hover { background: rgba(245,158,11,.12); border-color: rgba(245,158,11,.25); color: #f59e0b; }
+
+/* Bottom bar */
+footer.ft .fbot {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 8px;
+  padding: 14px 20px;
+  position: relative; z-index: 1;
+}
+footer.ft .fcp {
+  color: rgba(255,255,255,.38) !important;
+  font-size: 12px !important;
+}
+footer.ft .fcp span { color: #f59e0b !important; font-weight: 700 !important; }
+footer.ft .fbl { display: flex; gap: 16px; flex-wrap: wrap; }
+footer.ft .fbl a {
+  color: rgba(255,255,255,.32) !important;
+  font-size: 11px !important; cursor: pointer; text-decoration: none;
+  transition: .15s;
+}
+footer.ft .fbl a:hover { color: rgba(255,255,255,.65) !important; }
+
+/* App download hint */
+footer.ft .fapp {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px; padding: 8px 12px; margin-top: 12px;
+  font-size: 11px; color: rgba(255,255,255,.6);
+}
+
+@media(max-width:900px){
+  footer.ft .ftg{grid-template-columns:1fr 1fr;gap:24px;padding:32px 16px 20px;}
+  footer.ft .fstats{gap:0;}
+  footer.ft .fstat{padding:0 10px;}
+  footer.ft .fstat-num{font-size:18px;}
+}
+@media(max-width:600px){
+  footer.ft .ftg{grid-template-columns:1fr;padding:24px 14px 16px;gap:20px;}
+  footer.ft .fstats{flex-wrap:wrap;gap:10px;}
+  footer.ft .fstat{min-width:45%;border-right:none;}
+  footer.ft .fbot{flex-direction:column;text-align:center;}
+  footer.ft .fbl{justify-content:center;}
+  footer.ft .nl-row{flex-direction:column;}
+  footer.ft .nl-btn{border-radius:10px;}
+}
+/* ═══════════════════════════════════════════
+   ALL NEW FEATURES CSS
+   ═══════════════════════════════════════════ */
+
+/* MULTI-STEP CHECKOUT */
+.checkout-steps{display:flex;align-items:center;justify-content:center;gap:0;padding:16px 20px;background:var(--card);border-bottom:1px solid var(--card-border);margin-bottom:0;}
+.checkout-step{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;position:relative;}
+.checkout-step::after{content:'';position:absolute;top:14px;left:60%;width:80%;height:2px;background:var(--g2);}
+.checkout-step:last-child::after{display:none;}
+.checkout-step.done::after,.checkout-step.active::after{background:var(--y);}
+.cs-dot{width:28px;height:28px;border-radius:50%;background:var(--g1);border:2px solid var(--g2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--text2);z-index:1;transition:.3s;}
+.checkout-step.done .cs-dot{background:var(--ok);border-color:var(--ok);color:#fff;}
+.checkout-step.active .cs-dot{background:var(--y);border-color:var(--o);color:var(--db);}
+.cs-label{font-size:10px;color:var(--text2);font-weight:600;white-space:nowrap;}
+.checkout-step.active .cs-label{color:var(--o);font-weight:700;}
+
+/* ORDER NOTES */
+.order-notes-box{background:var(--a0);border:1.5px solid var(--a1);border-radius:12px;padding:12px;margin-bottom:10px;}
+.order-notes-box textarea{background:transparent;border:none;outline:none;width:100%;font-family:'Hind Siliguri',sans-serif;font-size:13px;color:var(--text);resize:none;min-height:60px;}
+
+/* PROMO SUGGESTION */
+.promo-suggest{background:var(--a0);border:1px dashed var(--y);border-radius:10px;padding:8px 12px;margin-bottom:10px;font-size:12px;cursor:pointer;transition:.2s;}
+.promo-suggest:hover{background:var(--a1);}
+.promo-suggest strong{color:var(--o);}
+
+/* BACK TO TOP */
+#btt{position:fixed;bottom:80px;right:16px;width:40px;height:40px;background:linear-gradient(135deg,var(--y),var(--o));color:var(--db);border:none;border-radius:50%;font-size:18px;cursor:pointer;opacity:0;transform:translateY(10px);transition:.3s;z-index:300;box-shadow:0 4px 14px rgba(217,119,6,.4);}
+#btt.show{opacity:1;transform:translateY(0);}
+#btt:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(217,119,6,.5);}
+
+/* FLOATING WHATSAPP */
+#wa-float{position:fixed;bottom:136px;right:16px;width:46px;height:46px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:300;box-shadow:0 4px 14px rgba(37,211,102,.4);transition:.3s;text-decoration:none;}
+#wa-float:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(37,211,102,.5);}
+#wa-float::after{content:'সাহায্য দরকার?';position:absolute;right:54px;background:#333;color:#fff;font-size:11px;font-family:'Hind Siliguri',sans-serif;padding:4px 8px;border-radius:6px;white-space:nowrap;opacity:0;transition:.2s;pointer-events:none;}
+#wa-float:hover::after{opacity:1;}
+
+/* COOKIE CONSENT */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9800;background:rgba(30,20,5,.97);backdrop-filter:blur(16px);border-top:1px solid rgba(245,158,11,.2);padding:12px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;transform:translateY(100%);transition:.4s cubic-bezier(.4,0,.2,1);}
+#cookie-banner.show{transform:translateY(0);}
+#cookie-banner p{flex:1;font-size:12px;color:rgba(255,255,255,.75);line-height:1.6;margin:0;min-width:200px;}
+.cookie-btn{padding:8px 18px;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border:none;white-space:nowrap;}
+.cookie-btn.accept{background:linear-gradient(135deg,#f59e0b,#d97706);color:#3d1500;}
+.cookie-btn.decline{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);}
+
+/* SKELETON SCREENS */
+.skel-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:20px;overflow:hidden;padding:0;}
+.skel-img{width:100%;aspect-ratio:4/3;background:linear-gradient(90deg,var(--g1) 25%,var(--g2) 50%,var(--g1) 75%);background-size:200% 100%;animation:skelShimmer 1.4s infinite;}
+.skel-body{padding:12px;}
+.skel-line{height:10px;border-radius:5px;background:linear-gradient(90deg,var(--g1) 25%,var(--g2) 50%,var(--g1) 75%);background-size:200% 100%;animation:skelShimmer 1.4s infinite;margin-bottom:7px;}
+.skel-line.short{width:60%;}
+.skel-line.med{width:80%;}
+@keyframes skelShimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+
+/* ONBOARDING TOUR */
+.tour-overlay{position:fixed;inset:0;z-index:9700;pointer-events:none;}
+.tour-spotlight{position:absolute;border-radius:12px;box-shadow:0 0 0 9999px rgba(0,0,0,.7);transition:all .4s ease;}
+.tour-tooltip{position:fixed;z-index:9701;background:var(--card);border-radius:16px;padding:16px;max-width:280px;box-shadow:0 8px 32px rgba(0,0,0,.3);border:1.5px solid var(--y);}
+.tour-tooltip-title{font-size:14px;font-weight:800;color:var(--text);margin-bottom:6px;}
+.tour-tooltip-text{font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:12px;}
+.tour-steps-indicator{display:flex;gap:4px;justify-content:center;margin-bottom:10px;}
+.tour-step-dot{width:6px;height:6px;border-radius:50%;background:var(--g2);}
+.tour-step-dot.active{background:var(--y);width:14px;border-radius:3px;}
+.tour-btn-row{display:flex;gap:6px;}
+.tour-btn{flex:1;padding:8px;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border:none;}
+.tour-btn.next{background:linear-gradient(135deg,var(--y),var(--o));color:var(--db);}
+.tour-btn.skip{background:var(--g1);color:var(--text2);}
+
+/* PRODUCT RECOMMENDATION */
+.rec-section{padding:0 16px 20px;}
+.rec-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.rec-scroll{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;}
+.rec-scroll::-webkit-scrollbar{display:none;}
+
+/* CHATBOT FAQ */
+#chatbot-btn{position:fixed;bottom:80px;left:16px;width:46px;height:46px;background:linear-gradient(135deg,var(--y),var(--o));border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:300;font-size:20px;box-shadow:0 4px 14px rgba(245,158,11,.4);border:none;transition:.3s;}
+#chatbot-btn:hover{transform:scale(1.1);}
+#chatbot-panel{position:fixed;bottom:136px;left:16px;width:300px;background:var(--card);border:1.5px solid var(--card-border);border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,.2);z-index:301;display:none;overflow:hidden;max-height:420px;}
+#chatbot-panel.show{display:flex;flex-direction:column;animation:fadeUp .25s ease;}
+.chatbot-header{background:linear-gradient(135deg,var(--db),#7c3300);padding:12px 14px;display:flex;align-items:center;gap:8px;}
+.chatbot-header-title{font-size:13px;font-weight:700;color:#fff;flex:1;}
+.chatbot-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:12px;}
+.chatbot-messages{flex:1;overflow-y:auto;padding:12px;max-height:260px;display:flex;flex-direction:column;gap:8px;}
+.chatbot-msg{padding:8px 12px;border-radius:12px;font-size:12px;line-height:1.6;max-width:85%;}
+.chatbot-msg.bot{background:var(--g0);color:var(--text);border-bottom-left-radius:4px;}
+.chatbot-msg.user{background:linear-gradient(135deg,var(--y),var(--o));color:var(--db);align-self:flex-end;border-bottom-right-radius:4px;}
+.chatbot-quick{display:flex;flex-wrap:wrap;gap:5px;padding:8px 12px;border-top:1px solid var(--card-border);}
+.chatbot-quick-btn{padding:4px 10px;background:var(--a0);border:1px solid var(--a1);border-radius:14px;font-size:11px;color:var(--db);cursor:pointer;font-family:'Hind Siliguri',sans-serif;transition:.15s;}
+.chatbot-quick-btn:hover{background:var(--a1);}
+.chatbot-input-row{display:flex;gap:6px;padding:8px 10px;border-top:1px solid var(--card-border);}
+.chatbot-input{flex:1;padding:7px 10px;border:1px solid var(--card-border);border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:12px;background:var(--input-bg);color:var(--text);}
+.chatbot-send{padding:7px 12px;background:var(--o);border:none;border-radius:8px;color:#fff;cursor:pointer;font-size:13px;}
+
+/* REFERRAL DASHBOARD */
+.ref-dash{background:linear-gradient(135deg,var(--db),#7c3300);border-radius:16px;padding:18px;color:#fff;margin-bottom:10px;}
+.ref-code-box{background:rgba(255,255,255,.12);border:2px dashed rgba(255,255,255,.3);border-radius:10px;padding:10px;text-align:center;margin:10px 0;cursor:pointer;}
+.ref-code{font-size:20px;font-weight:900;letter-spacing:2px;color:#fef3c7;}
+.ref-stats{display:flex;gap:0;margin-top:10px;background:rgba(0,0,0,.2);border-radius:10px;overflow:hidden;}
+.ref-stat{flex:1;text-align:center;padding:10px 6px;border-right:1px solid rgba(255,255,255,.1);}
+.ref-stat:last-child{border-right:none;}
+.ref-stat-num{font-size:20px;font-weight:800;color:#f59e0b;}
+.ref-stat-lbl{font-size:10px;color:rgba(255,255,255,.65);margin-top:2px;}
+
+/* ADMIN CHARTS */
+.gauge-chart{text-align:center;padding:10px;}
+.gauge-svg{display:block;margin:0 auto;}
+.heatmap-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;margin-top:8px;}
+.heatmap-cell{aspect-ratio:1;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;}
+.heatmap-label{font-size:9px;color:var(--text2);text-align:center;}
+.retention-bar{height:8px;background:var(--g2);border-radius:4px;margin:6px 0;overflow:hidden;}
+.retention-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--y),var(--o));}
+
+/* BOTTOM SHEET CART (mobile) */
+.bs-cart{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top-left-radius:24px;border-top-right-radius:24px;z-index:700;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);box-shadow:0 -8px 40px rgba(0,0,0,.2);max-height:85vh;display:flex;flex-direction:column;}
+.bs-cart.show{transform:translateY(0);}
+.bs-handle{width:40px;height:4px;background:var(--g3);border-radius:2px;margin:12px auto 8px;}
+@media(min-width:700px){.bs-cart{display:none!important;}}
+
+/* SEASONAL AUTO-DISCOUNT BANNER */
+.seasonal-banner{background:linear-gradient(135deg,#065f46,#047857);color:#fff;border-radius:14px;padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.seasonal-banner-icon{font-size:28px;flex-shrink:0;}
+.seasonal-banner-text{flex:1;}
+.seasonal-banner-title{font-size:14px;font-weight:800;margin-bottom:3px;}
+.seasonal-banner-sub{font-size:12px;color:rgba(255,255,255,.8);}
+.seasonal-banner-btn{padding:7px 14px;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.3);border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:12px;font-weight:700;color:#fff;cursor:pointer;white-space:nowrap;transition:.2s;}
+.seasonal-banner-btn:hover{background:rgba(255,255,255,.28);}
+
+@media(max-width:600px){
+  .checkout-steps{padding:10px 12px;gap:0;}
+  .tour-tooltip{max-width:240px;}
+  #chatbot-panel{width:calc(100vw - 32px);left:16px;}
+}
 
 </style>
 </head>
@@ -3681,142 +4305,7 @@ body.admin-mode .bnav{display:none!important;}
 
 <!-- THEME CUSTOMIZER -->
 
-  <!-- FOOTER NEWSLETTER -->
-  <div class="footer-nl">
-    <div class="footer-nl-title">📧 বিশেষ অফার পেতে সাবস্ক্রাইব করুন</div>
-    <div class="footer-nl-sub">নতুন আম ও ডিসকাউন্টের খবর সবার আগে পান</div>
-    <div class="footer-nl-form">
-      <input class="footer-nl-inp" id="footer-nl-email" type="email" placeholder="আপনার ইমেইল লিখুন...">
-      <button class="footer-nl-btn" onclick="copyFooterEmail();subscribeNewsletter()">✉️ সাবস্ক্রাইব</button>
-    </div>
-  </div>
-
-  <!-- FOOTER QUICK LINKS -->
-  <div class="footer-links">
-    <div>
-      <div class="footer-col-title">🥭 আমবাজার</div>
-      <div class="footer-col-link" onclick="navigate('about')">ℹ️ আমাদের সম্পর্কে</div>
-      <div class="footer-col-link" onclick="navigate('faq')">❓ সাধারণ প্রশ্ন</div>
-      <div class="footer-col-link" onclick="navigate('contact')">📞 যোগাযোগ</div>
-    </div>
-    <div>
-      <div class="footer-col-title">🛒 কেনাকাটা</div>
-      <div class="footer-col-link" onclick="navigate('home')">🏠 হোম</div>
-      <div class="footer-col-link" onclick="navigate('wishlist')">❤️ পছন্দের তালিকা</div>
-      <div class="footer-col-link" onclick="navigate('orders')">📦 আমার অর্ডার</div>
-    </div>
-    <div>
-      <div class="footer-col-title">💳 পেমেন্ট</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;">
-        <span style="background:rgba(255,255,255,.1);padding:4px 10px;border-radius:8px;font-size:11px;color:rgba(255,255,255,.8);">💸 bKash</span>
-        <span style="background:rgba(255,255,255,.1);padding:4px 10px;border-radius:8px;font-size:11px;color:rgba(255,255,255,.8);">🔴 Nagad</span>
-        <span style="background:rgba(255,255,255,.1);padding:4px 10px;border-radius:8px;font-size:11px;color:rgba(255,255,255,.8);">🚀 Rocket</span>
-        <span style="background:rgba(255,255,255,.1);padding:4px 10px;border-radius:8px;font-size:11px;color:rgba(255,255,255,.8);">💵 COD</span>
-      </div>
-      <div class="footer-col-title" style="margin-top:12px;">📱 সোশ্যাল মিডিয়া</div>
-      <div class="footer-social">
-        <div class="footer-social-btn" style="background:#1877f2;" onclick="window.open('https://facebook.com','_blank')">📘</div>
-        <div class="footer-social-btn" style="background:#25d366;" onclick="window.open('https://wa.me/8801800000000','_blank')">💬</div>
-        <div class="footer-social-btn" style="background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);" onclick="window.open('https://instagram.com','_blank')">📷</div>
-      </div>
-    </div>
-  </div>
-
   <!-- COPYRIGHT -->
-  <div style="text-align:center;padding:16px 20px;border-top:1px solid rgba(255,255,255,.08);margin-top:8px;">
-    <div style="font-size:12px;color:rgba(255,255,255,.5);">© ২০২৪ আমবাজার। সর্বস্বত্ব সংরক্ষিত।</div>
-    <div style="font-size:11px;color:rgba(255,255,255,.3);margin-top:4px;">Made with ❤️ in Bangladesh 🇧🇩</div>
-  </div>
-
-<footer class="ft">
-  <!-- MARQUEE -->
-  <div class="fts">🥭 ফজলি &nbsp;•&nbsp; হিমসাগর &nbsp;•&nbsp; ল্যাংড়া &nbsp;•&nbsp; আম্রপালি &nbsp;•&nbsp; গোপালভোগ &nbsp;•&nbsp; খিরসাপাত 🥭</div>
-
-  <!-- MAIN GRID -->
-  <div class="ftg">
-    <!-- Brand -->
-    <div>
-      <div class="flogo"><span>🥭</span> আমবাজার</div>
-      <div class="fd">বাংলাদেশের সেরা আমের অনলাইন দোকান। রাজশাহীর বাগান থেকে সরাসরি আপনার দরজায়।</div>
-      <div class="fci">📞 +৮৮০ ১৮০০-AAMBAZAR</div>
-      <div class="fci">📧 info@aambazar.com</div>
-      <div class="fci">📍 রাজশাহী, বাংলাদেশ</div>
-      <div class="fci">⏰ সকাল ৮টা – রাত ১০টা</div>
-      <div class="fsoc">
-        <a class="sb2" href="https://facebook.com" target="_blank" title="Facebook"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-        <a class="sb2" href="https://wa.me/8801800000000" target="_blank" title="WhatsApp"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
-        <a class="sb2" href="https://instagram.com" target="_blank" title="Instagram"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        <a class="sb2" href="https://youtube.com" target="_blank" title="YouTube"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-      </div>
-    </div>
-
-    <!-- Quick Links -->
-    <div>
-      <div class="fct">🔗 দ্রুত লিংক</div>
-      <ul class="fls">
-        <li><a onclick="navigate('home')">🏠 হোম পেজ</a></li>
-        <li><a onclick="navigate('about')">ℹ️ আমাদের সম্পর্কে</a></li>
-        <li><a onclick="navigate('faq')">❓ সাধারণ প্রশ্ন</a></li>
-        <li><a onclick="navigate('contact')">📞 যোগাযোগ</a></li>
-        <li><a onclick="navigate('orders')">📦 আমার অর্ডার</a></li>
-        <li><a onclick="navigate('wishlist')">❤️ পছন্দের তালিকা</a></li>
-      </ul>
-    </div>
-
-    <!-- Mango types -->
-    <div>
-      <div class="fct">🥭 আমের প্রজাতি</div>
-      <ul class="fls">
-        <li><a>🌟 ফজলি আম — রাজশাহী</a></li>
-        <li><a>💛 হিমসাগর — চাঁপাই</a></li>
-        <li><a>🟡 ল্যাংড়া — মেহেরপুর</a></li>
-        <li><a>🟠 আম্রপালি — সাতক্ষীরা</a></li>
-        <li><a>🍊 গোপালভোগ — রাজশাহী</a></li>
-        <li><a>✨ খিরসাপাত — চাঁপাই</a></li>
-      </ul>
-    </div>
-
-    <!-- Newsletter + Payment -->
-    <div>
-      <div class="fct">📧 নিউজলেটার</div>
-      <div style="font-size:11px;color:rgba(255,255,255,.6);margin-bottom:10px;">বিশেষ অফার ও নতুন স্টকের আপডেট পান</div>
-      <div style="display:flex;gap:6px;">
-        <input id="footer-nl-email" type="email" placeholder="আপনার ইমেইল..." style="flex:1;padding:8px 12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:white;font-family:'Hind Siliguri',sans-serif;font-size:12px;" onfocus="this.style.borderColor='var(--y)'" onblur="this.style.borderColor='rgba(255,255,255,.2)'">
-        <button onclick="copyFooterEmail();subscribeNewsletter()" style="padding:8px 12px;background:linear-gradient(135deg,var(--y),var(--o));color:var(--db);border:none;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap;">✉️ যোগ</button>
-      </div>
-      <div class="fct" style="margin-top:16px;">💳 পেমেন্ট পদ্ধতি</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;">
-        <span style="background:rgba(226,19,110,.2);border:1px solid rgba(226,19,110,.4);color:rgba(255,255,255,.85);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;">💸 bKash</span>
-        <span style="background:rgba(245,166,35,.2);border:1px solid rgba(245,166,35,.4);color:rgba(255,255,255,.85);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;">🔴 Nagad</span>
-        <span style="background:rgba(139,92,246,.2);border:1px solid rgba(139,92,246,.4);color:rgba(255,255,255,.85);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;">🚀 Rocket</span>
-        <span style="background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.4);color:rgba(255,255,255,.85);padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;">💵 COD</span>
-      </div>
-      <div class="fct" style="margin-top:14px;">🚚 কুরিয়ার সার্ভিস</div>
-      <div style="font-size:11px;color:rgba(255,255,255,.6);">Pathao • RedX • Paperfly • সুন্দরবন • eCourier</div>
-    </div>
-  </div>
-
-  <!-- TRUST BAR -->
-  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:16px 20px;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);">
-    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.7);font-weight:600;"><span>✅</span> ১০০% তাজা গ্যারান্টি</div>
-    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.7);font-weight:600;"><span>🔒</span> নিরাপদ পেমেন্ট</div>
-    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.7);font-weight:600;"><span>🚚</span> দ্রুত ডেলিভারি</div>
-    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.7);font-weight:600;"><span>🔄</span> সহজ রিটার্ন</div>
-    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.7);font-weight:600;"><span>🌿</span> রাসায়নিকমুক্ত</div>
-    <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.7);font-weight:600;"><span>⭐</span> ৪.৮/৫ রেটিং</div>
-  </div>
-
-  <!-- COPYRIGHT -->
-  <div class="fbot">
-    <div class="fcp">© ২০২৪ <span>আমবাজার</span> — সর্বস্বত্ব সংরক্ষিত। Made with 🥭 in Bangladesh 🇧🇩</div>
-    <div class="fbl">
-      <a href="#">গোপনীয়তা নীতি</a>
-      <a href="#">ব্যবহারের শর্ত</a>
-      <a href="#">রিটার্ন পলিসি</a>
-      <a onclick="navigate('contact')">যোগাযোগ</a>
-    </div>
-  </div>
-</footer>
 
 <script>
 // ============================================================
@@ -3900,16 +4389,21 @@ function setLoading(btnId,loading){const b=$id(btnId);if(!b)return;b.disabled=lo
 // DARK MODE
 // ============================================================
 function toggleDark(){
-  const html=document.documentElement;
-  const isDark=html.getAttribute('data-theme')==='dark';
-  html.setAttribute('data-theme',isDark?'light':'dark');
-  localStorage.setItem('theme',isDark?'light':'dark');
+  var html=document.documentElement;
+  var isDark=html.getAttribute('data-theme')==='dark';
+  var newTheme=isDark?'light':'dark';
+  html.setAttribute('data-theme',newTheme);
+  localStorage.setItem('theme',newTheme);
+  localStorage.setItem('auto-dark','off'); // manual override stops auto
   var dmb=$id('dm-btn');if(dmb)dmb.textContent=isDark?'🌙':'☀️';
+  var tcdb=document.getElementById('tc-dark-btn');if(tcdb)tcdb.textContent=isDark?'🌙':'☀️';
+  showToast(isDark?'☀️ Light Mode চালু':'🌙 Dark Mode চালু','ok');
 }
 function initTheme(){
-  const t=localStorage.getItem('theme')||'light';
+  var t=localStorage.getItem('theme')||'light';
   document.documentElement.setAttribute('data-theme',t);
-  const btn=$id('dm-btn');if(btn)btn.textContent=t==='dark'?'☀️':'🌙';
+  var dmb=$id('dm-btn');if(dmb)dmb.textContent=t==='dark'?'☀️':'🌙';
+  var tcdb=document.getElementById('tc-dark-btn');if(tcdb)tcdb.textContent=t==='dark'?'☀️':'🌙';
 }
 
 // ============================================================
@@ -3939,16 +4433,19 @@ document.addEventListener('keydown',resetSession);
 // ============================================================
 // NAVIGATE
 // ============================================================
+var _navigating=false;
 function navigate(pg){
+  if(_navigating)return;
+  _navigating=true;
+  try{
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const el=$id('page-'+pg);if(el)el.classList.add('active');
   updNav();window.scrollTo(0,0);
   if(adminInterval&&pg!=='admin'){clearInterval(adminInterval);adminInterval=null;}
-  var ft=document.querySelector('footer');
   var bnav=document.querySelector('.bnav');
-  if(ft)ft.style.display=pg==='admin'?'none':'';
   if(bnav)bnav.style.display=pg==='admin'?'none':'';
   document.body.classList.toggle('admin-mode',pg==='admin');
+  var ft=document.querySelector('footer.ft');if(ft)ft.style.display=pg==='admin'?'none':'';
   if(pg==='home'){renderProds();renderTicker();renderRecentlyViewed();renderFlashSale();}
   if(pg==='orders')renderMyOrders();
   if(pg==='order')renderOrderSummary();
@@ -3959,6 +4456,8 @@ function navigate(pg){
   document.querySelectorAll('.bnav-item').forEach(b=>b.classList.remove('active'));
   const bnMap={home:'bn-home',orders:'bn-ord',wishlist:'bn-wl'};
   if(bnMap[pg]){const b=$id(bnMap[pg]);if(b)b.classList.add('active');}
+
+  }finally{_navigating=false;}
 }
 function goHome(){const u=GCU();navigate(u&&u.isAdmin?'admin':'home');}
 function toggleMenu(){
@@ -5360,7 +5859,7 @@ renderAO=function(){
     var oidText=oid.textContent;
     var cb=document.createElement('td');
     cb.innerHTML='<input type="checkbox" class="order-check" style="accent-color:var(--o);" onchange="toggleOrderSel(\''+oidText+'\',this)">';
-    row.insertBefore(cb,row.cells[0]);
+    if(row.cells&&row.cells[0])row.insertBefore(cb,row.cells[0]);else row.prepend(cb);
   });
 };
 
@@ -7110,7 +7609,7 @@ renderCart=function(){
         slb.textContent='❤️ পরে কিনব';
         var itemId=m[1];
         slb.onclick=function(){saveForLater(itemId);};
-        btn.parentNode.insertBefore(slb,btn.nextSibling);
+        try{if(btn.parentNode)btn.parentNode.insertBefore(slb,btn.nextSibling);}catch(e){if(btn.parentNode)btn.parentNode.appendChild(slb);}
       }
     }catch(e){}
   });
@@ -7259,6 +7758,8 @@ function checkAutoDark(){
   var shouldDark=h>=20||h<6;
   var current=document.documentElement.getAttribute('data-theme');
   var autoPref=localStorage.getItem('auto-dark');
+  // Reset auto-dark preference at noon (allow auto again)
+  if(h===12)localStorage.removeItem('auto-dark');
   if(autoPref!=='off'&&shouldDark&&current!=='dark'){
     document.documentElement.setAttribute('data-theme','dark');
     localStorage.setItem('theme','dark');
@@ -9072,7 +9573,7 @@ doOrder = function(){
         extra = document.createElement('div');
         extra.id = 'sm-courier-info';
         extra.style.cssText = 'background:var(--a0);border:1px solid var(--a1);border-radius:12px;padding:12px 16px;margin-bottom:12px;text-align:center;';
-        sm&&sm.querySelector('.smc').insertBefore(extra, sm&&sm.querySelector('#go-orders-btn'));
+        var smc=sm&&sm.querySelector('.smc');var goBtn=sm&&sm.querySelector('#go-orders-btn');if(smc&&goBtn&&goBtn.parentNode===smc){smc.insertBefore(extra,goBtn);}else if(smc){smc.appendChild(extra);}
       }
       extra.innerHTML = '<div style="font-size:12px;color:var(--text2);margin-bottom:4px;">🚚 কুরিয়ার সার্ভিস</div>'
         +'<div style="font-size:14px;font-weight:700;color:var(--db);">'+courier.logo+' '+courier.name+'</div>'
@@ -9449,7 +9950,7 @@ setTimeout(function(){
   if(poi&&!document.getElementById('pay-info')){
     var div=document.createElement('div');
     div.id='pay-info';div.style.display='none';div.style.marginTop='8px';
-    poi.parentNode.insertBefore(div,poi.nextSibling);
+    try{if(poi.parentNode)poi.parentNode.insertBefore(div,poi.nextSibling);}catch(e){if(poi.parentNode)poi.parentNode.appendChild(div);}
     poi.addEventListener('change',function(){updatePaymentUI(this.value);});
   }
   }catch(e){}
@@ -9909,6 +10410,1231 @@ setInterval(function(){
   },600);
 })();
 
+
+// ============================================================
+// 1. FLASH SALE COUNTDOWN — Hero Section
+// ============================================================
+function initFlashSaleTimer(){
+  var heroEl=document.querySelector('.hero');if(!heroEl)return;
+  if(document.getElementById('hero-flash'))return;
+  var endTime=JSON.parse(localStorage.getItem('flashSaleEnd')||'0');
+  if(!endTime||endTime<Date.now()){
+    // Set 24h sale
+    endTime=Date.now()+24*60*60*1000;
+    localStorage.setItem('flashSaleEnd',JSON.stringify(endTime));
+  }
+  var box=document.createElement('div');
+  box.className='hero-flash';box.id='hero-flash';
+  box.innerHTML='<div class="hero-flash-label">⚡ ফ্ল্যাশ সেল শেষ হচ্ছে</div>'
+    +'<div class="flash-timer">'
+    +'<div class="flash-unit"><div class="flash-num" id="fh">00</div><div class="flash-lbl">ঘণ্টা</div></div>'
+    +'<div class="flash-colon">:</div>'
+    +'<div class="flash-unit"><div class="flash-num" id="fm">00</div><div class="flash-lbl">মিনিট</div></div>'
+    +'<div class="flash-colon">:</div>'
+    +'<div class="flash-unit"><div class="flash-num" id="fs">00</div><div class="flash-lbl">সেকেন্ড</div></div>'
+    +'</div>';
+  var hst=heroEl.querySelector('.hst');
+  heroEl.appendChild(box);
+  var ti=setInterval(function(){
+    var rem=Math.max(0,endTime-Date.now());
+    var h=Math.floor(rem/3600000),m=Math.floor((rem%3600000)/60000),s=Math.floor((rem%60000)/1000);
+    var fh=$id('fh'),fm=$id('fm'),fs2=$id('fs');
+    if(fh)fh.textContent=String(h).padStart(2,'0');
+    if(fm)fm.textContent=String(m).padStart(2,'0');
+    if(fs2)fs2.textContent=String(s).padStart(2,'0');
+    if(rem<=0){clearInterval(ti);endTime=Date.now()+24*60*60*1000;localStorage.setItem('flashSaleEnd',JSON.stringify(endTime));}
+  },1000);
+}
+
+// ============================================================
+// 2. STOCK COUNTDOWN — Product Cards
+// ============================================================
+var _origBCStock=buildCard;
+buildCard=function(p){
+  var card=_origBCStock(p);
+  var stockHtml='';
+  if(p.stock<=0){
+    stockHtml='<div class="stock-low">❌ স্টক শেষ</div>';
+  } else if(p.stock<=10){
+    stockHtml='<div class="stock-low">🔥 মাত্র '+p.stock+' কেজি বাকি!</div>';
+  } else if(p.stock<=30){
+    stockHtml='<div class="stock-ok">✅ '+p.stock+' কেজি আছে</div>';
+  }
+  if(stockHtml) card=card.replace('</div></div></div>',stockHtml+'</div></div></div>');
+  return card;
+};
+
+// ============================================================
+// 3. RECENTLY VIEWED PRODUCTS
+// ============================================================
+function getRV(){return JSON.parse(localStorage.getItem('rv_products')||'[]');}
+function addRV(pid){
+  var rv=getRV().filter(function(id){return id!==pid;});
+  rv.unshift(pid);
+  localStorage.setItem('rv_products',JSON.stringify(rv.slice(0,8)));
+}
+function renderRecentlyViewedSection(){
+  var el=document.getElementById('rv-section');
+  if(!el){
+    var ps=document.querySelector('.ps');
+    if(!ps)return;
+    el=document.createElement('div');el.id='rv-section';el.className='rv-section';
+    try{if(ps.parentNode)ps.parentNode.insertBefore(el,ps);}catch(e){ps.parentNode.appendChild(el);}
+  }
+  var rv=getRV();var ps=GP();
+  var items=rv.map(function(id){return ps.find(function(p){return p.id===id;});}).filter(Boolean);
+  if(!items.length){el.style.display='none';return;}
+  el.style.display='block';
+  el.innerHTML='<div class="rv-title">👁️ সম্প্রতি দেখেছেন</div>'
+    +'<div class="rv-scroll">'+items.map(function(p){
+      return '<div class="rv-card" onclick="openQV(\''+p.id+'\')">'
+        +'<div class="rv-card-img">🥭</div>'
+        +'<div class="rv-card-name">'+p.name+'</div>'
+        +'<div class="rv-card-price">৳'+(p.fp||p.price)+'/কেজি</div>'
+        +'</div>';
+    }).join('')+'</div>';
+}
+// Patch addToCart and openQV to track viewed
+var _origOQVrv=openQV;
+openQV=function(pid){addRV(pid);_origOQVrv(pid);};
+
+// ============================================================
+// 4. LOYALTY PROGRESS BAR
+// ============================================================
+var LOYALTY_LEVELS=[
+  {name:'Bronze',icon:'🥉',min:0,max:500,color:'#d97706',bg:'#fef3c7'},
+  {name:'Silver',icon:'🥈',min:500,max:1500,color:'#9ca3af',bg:'#f3f4f6'},
+  {name:'Gold',icon:'🥇',min:1500,max:3000,color:'#f59e0b',bg:'#fef3c7'},
+  {name:'Platinum',icon:'💎',min:3000,max:6000,color:'#7c3aed',bg:'#ede9fe'},
+  {name:'Diamond',icon:'💠',min:6000,max:Infinity,color:'#0284c7',bg:'#e0f2fe'},
+];
+function getLoyaltyLevel(pts){
+  return LOYALTY_LEVELS.find(function(l){return pts>=l.min&&pts<l.max;})||LOYALTY_LEVELS[0];
+}
+function renderLoyaltyBar(containerEl){
+  if(!containerEl)return;
+  var u=GCU();if(!u||u.isAdmin)return;
+  var pts=getLoyaltyPts(u.id)||0;
+  var lvl=getLoyaltyLevel(pts);
+  var nextLvl=LOYALTY_LEVELS[LOYALTY_LEVELS.indexOf(lvl)+1];
+  var pct=nextLvl?Math.min(100,Math.round((pts-lvl.min)/(nextLvl.min-lvl.min)*100)):100;
+  var gradColors={'Bronze':'#d97706,#f59e0b','Silver':'#9ca3af,#6b7280','Gold':'#f59e0b,#d97706','Platinum':'#7c3aed,#6d28d9','Diamond':'#0284c7,#0369a1'};
+  var grad=gradColors[lvl.name]||'#f59e0b,#d97706';
+  containerEl.innerHTML='<div class="loyalty-bar-wrap">'
+    +'<div class="loyalty-bar-top">'
+    +'<span class="loyalty-level-badge" style="background:'+lvl.bg+';color:'+lvl.color+';">'+lvl.icon+' '+lvl.name+'</span>'
+    +'<span class="loyalty-pts-label">'+pts+' পয়েন্ট</span>'
+    +'</div>'
+    +'<div class="loyalty-bar-track"><div class="loyalty-bar-fill" style="width:'+pct+'%;background:linear-gradient(90deg,'+grad+');"></div></div>'
+    +'<div class="loyalty-bar-meta"><span>'+(nextLvl?lvl.min+' pts':'সর্বোচ্চ লেভেল')+'</span><span>'+(nextLvl?nextLvl.min+' pts ← পরবর্তী':'')+'</span></div>'
+    +'<div class="loyalty-milestones">'+LOYALTY_LEVELS.map(function(l){
+      var reached=pts>=l.min;var isNext=l===nextLvl;
+      return '<div class="loyalty-milestone '+(reached?'reached':isNext?'next':'')+'">'+l.icon+'<br>'+l.name+'</div>';
+    }).join('')+'</div>'
+    +'</div>';
+}
+
+// ============================================================
+// 5. BIRTHDAY AUTO-COUPON
+// ============================================================
+function checkBirthdayCoupon(){
+  var u=GCU();if(!u||u.isAdmin||!u.birthday)return;
+  var today=new Date();
+  var bday=new Date(u.birthday);
+  if(today.getMonth()===bday.getMonth()&&today.getDate()===bday.getDate()){
+    var key='bday_coupon_'+today.getFullYear()+'_'+u.id;
+    if(localStorage.getItem(key))return;
+    var code='BDAY'+u.id.slice(-4).toUpperCase();
+    var cs=GC();
+    if(!cs.find(function(c){return c.code===code;})){
+      cs.push({id:'bd'+Date.now(),code:code,type:'percent',value:15,minOrder:200,maxUses:1,usedCount:0,expiry:'',active:true});
+      localStorage.setItem('coupons',JSON.stringify(cs));
+    }
+    localStorage.setItem(key,'1');
+    setTimeout(function(){
+      showToast('🎂 জন্মদিনের শুভেচ্ছা! কুপন: '+code+' (১৫% ছাড়)','ok',5000);
+      addNotif('🎂','জন্মদিন মুবারক! আপনার বিশেষ কুপন: '+code+' — ১৫% ছাড় পাবেন।');
+    },2000);
+  }
+}
+
+// ============================================================
+// 6. PRICE DROP ALERT (wishlist)
+// ============================================================
+function checkPriceDrops(){
+  var u=GCU();if(!u||u.isAdmin)return;
+  var wl=GWL(u.id)||[];
+  var ps=GP();
+  var prevPrices=JSON.parse(localStorage.getItem('prev_prices_'+u.id)||'{}');
+  var drops=[];
+  ps.forEach(function(p){
+    if(wl.includes(p.id)){
+      var prev=prevPrices[p.id];
+      var cur=p.fp||p.price;
+      if(prev&&cur<prev){
+        drops.push({name:p.name,old:prev,new:cur,id:p.id});
+      }
+      prevPrices[p.id]=cur;
+    }
+  });
+  localStorage.setItem('prev_prices_'+u.id,JSON.stringify(prevPrices));
+  if(drops.length){
+    drops.forEach(function(d){
+      addNotif('📉','দাম কমেছে! '+d.name+': ৳'+d.old+'→৳'+d.new+'/কেজি');
+      showToast('📉 '+d.name+' এর দাম কমেছে! ৳'+d.old+'→৳'+d.new,'ok',4000);
+    });
+  }
+}
+
+// ============================================================
+// 7. EXIT INTENT POPUP
+// ============================================================
+var _exitShown=false;
+function showExitPopup(){
+  if(_exitShown||localStorage.getItem('exit_popup_shown'))return;
+  _exitShown=true;
+  localStorage.setItem('exit_popup_shown','1');
+  // Generate exit coupon
+  var code='EXIT20';
+  var cs=GC();
+  if(!cs.find(function(c){return c.code===code;})){
+    cs.push({id:'exit'+Date.now(),code:code,type:'percent',value:20,minOrder:300,maxUses:100,usedCount:0,expiry:'',active:true});
+    localStorage.setItem('coupons',JSON.stringify(cs));
+  }
+  var overlay=document.createElement('div');
+  overlay.id='exit-overlay';overlay.className='exit-overlay';
+  overlay.innerHTML='<div class="exit-box">'
+    +'<div class="exit-header"><span class="exit-emoji">🥭</span><div class="exit-title">অপেক্ষা করুন!</div><div class="exit-sub">চলে যাওয়ার আগে বিশেষ অফারটি নিন</div></div>'
+    +'<div class="exit-body">'
+    +'<div class="exit-code-box"><div class="exit-code">'+code+'</div><div class="exit-code-sub">যেকোনো অর্ডারে ২০% ছাড় — আজকের জন্য!</div></div>'
+    +'<button class="exit-btn" onclick="applyExitCoupon(\''+code+'\')">🎉 এই অফার নিন</button>'
+    +'<button class="exit-close" onclick="document.getElementById(\'exit-overlay\').remove()">না ধন্যবাদ</button>'
+    +'<div class="exit-timer" id="exit-timer">অফারটি <span id="exit-sec">60</span> সেকেন্ডে শেষ হবে</div>'
+    +'</div></div>';
+  document.body.appendChild(overlay);
+  var sec=60;
+  var ti=setInterval(function(){
+    sec--;
+    var es=$id('exit-sec');if(es)es.textContent=sec;
+    if(sec<=0){clearInterval(ti);var eo=$id('exit-overlay');if(eo)eo.remove();}
+  },1000);
+}
+function applyExitCoupon(code){
+  var eo=$id('exit-overlay');if(eo)eo.remove();
+  navigator.clipboard.writeText(code).catch(function(){});
+  showToast('✅ কুপন কপি হয়েছে: '+code,'ok');
+  navigate('order');
+}
+// Trigger on mouse leaving window
+document.addEventListener('mouseleave',function(e){
+  if(e.clientY<5&&!_exitShown){
+    var u=GCU();
+    if(u&&!u.isAdmin)showExitPopup();
+  }
+});
+// Also trigger on mobile: if idle 30s
+var _idleTimer=null;
+function resetIdleTimer(){
+  clearTimeout(_idleTimer);
+  _idleTimer=setTimeout(function(){
+    var u=GCU();if(u&&!u.isAdmin&&!_exitShown)showExitPopup();
+  },45000);
+}
+document.addEventListener('touchstart',resetIdleTimer);
+document.addEventListener('touchmove',resetIdleTimer);
+
+// ============================================================
+// 8. DAILY CHECK-IN
+// ============================================================
+function getCheckinData(){return JSON.parse(localStorage.getItem('checkin_data')||'{"streak":0,"lastDate":"","history":[]}');}
+function saveCheckinData(d){localStorage.setItem('checkin_data',JSON.stringify(d));}
+function doCheckIn(){
+  var u=GCU();if(!u||u.isAdmin){showToast('লগইন করুন!','err');return;}
+  var d=getCheckinData();
+  var today=new Date().toDateString();
+  if(d.lastDate===today){showToast('আজকে ইতিমধ্যে চেক-ইন করেছেন!','err');return;}
+  var yesterday=new Date(Date.now()-86400000).toDateString();
+  d.streak=d.lastDate===yesterday?d.streak+1:1;
+  d.lastDate=today;
+  d.history=d.history||[];
+  d.history.push(today);
+  saveCheckinData(d);
+  var pts=10*Math.min(d.streak,7); // max 70 pts/day for 7-day streak
+  addLoyaltyPts&&addLoyaltyPts(u.id,pts);
+  showToast('✅ চেক-ইন সফল! +'+pts+' পয়েন্ট ('+d.streak+' দিনের streak)','ok',3000);
+  addNotif('📅','দৈনিক চেক-ইন: +'+pts+' পয়েন্ট! Streak: '+d.streak+' দিন।');
+  renderCheckinBox();
+}
+function renderCheckinBox(){
+  var el=$id('checkin-section');if(!el)return;
+  var d=getCheckinData();
+  var today=new Date().toDateString();
+  var alreadyDone=d.lastDate===today;
+  var days=['রবি','সোম','মঙ্গল','বুধ','বৃহ','শুক্র','শনি'];
+  var dayEls=days.map(function(day,i){
+    var past=i<new Date().getDay();
+    var isToday=i===new Date().getDay();
+    return '<div class="checkin-day'+(past?' done':isToday?' today':'')+'">'+(past?'✅':isToday?'📅':day)+'</div>';
+  }).join('');
+  el.innerHTML='<div class="checkin-box">'
+    +'<div class="checkin-title">📅 দৈনিক চেক-ইন — Streak: '+d.streak+' দিন 🔥</div>'
+    +'<div class="checkin-sub">প্রতিদিন চেক-ইন করুন, পয়েন্ট জিতুন!</div>'
+    +'<div class="checkin-days">'+dayEls+'</div>'
+    +'<button class="checkin-btn" onclick="doCheckIn()" '+(alreadyDone?'disabled':'')+'>'+
+    (alreadyDone?'✅ আজকে চেক-ইন হয়েছে':'🎁 চেক-ইন করুন (+'+10*Math.min(d.streak+1,7)+' পয়েন্ট)')+'</button>'
+    +'</div>';
+}
+
+// ============================================================
+// 9. ACHIEVEMENT BADGES
+// ============================================================
+var ACHIEVEMENTS=[
+  {id:'first_order',icon:'🛒',name:'প্রথম অর্ডার',desc:'প্রথম অর্ডার দিন',check:function(u,os){return os.some(function(o){return o.userId===u.id;});}},
+  {id:'five_orders',icon:'⭐',name:'নিয়মিত ক্রেতা',desc:'৫টি অর্ডার দিন',check:function(u,os){return os.filter(function(o){return o.userId===u.id;}).length>=5;}},
+  {id:'big_spender',icon:'💰',name:'বড় ক্রেতা',desc:'একটি অর্ডারে ৳১০০০+',check:function(u,os){return os.some(function(o){return o.userId===u.id&&o.total>=1000;});}},
+  {id:'reviewer',icon:'✍️',name:'রিভিউয়ার',desc:'একটি রিভিউ দিন',check:function(u){var rv=JSON.parse(localStorage.getItem('reviews_p1')||'[]');return rv.some(function(r){return r.userId===u.id;});}},
+  {id:'wishlist_fan',icon:'❤️',name:'পছন্দের তালিকা',desc:'৩টি পণ্য wishlist-এ',check:function(u){return (GWL(u.id)||[]).length>=3;}},
+  {id:'loyal',icon:'💎',name:'বিশ্বস্ত গ্রাহক',desc:'Silver লেভেল অর্জন',check:function(u){return (getLoyaltyPts(u.id)||0)>=500;}},
+  {id:'streak7',icon:'🔥',name:'৭ দিনের Streak',desc:'৭ দিন টানা চেক-ইন',check:function(){return getCheckinData().streak>=7;}},
+  {id:'referrer',icon:'🤝',name:'রেফারেল হিরো',desc:'রেফারেল কোড শেয়ার করুন',check:function(u){return localStorage.getItem('ref_used_'+u.id);}},
+];
+function getEarnedAchievements(u){
+  var os=GO();
+  return ACHIEVEMENTS.filter(function(a){
+    try{return a.check(u,os);}catch(e){return false;}
+  }).map(function(a){return a.id;});
+}
+function renderAchievements(containerEl){
+  if(!containerEl)return;
+  var u=GCU();if(!u||u.isAdmin)return;
+  var earned=getEarnedAchievements(u);
+  var prev=JSON.parse(localStorage.getItem('prev_achievements_'+u.id)||'[]');
+  var newOnes=earned.filter(function(id){return !prev.includes(id);});
+  if(newOnes.length){
+    localStorage.setItem('prev_achievements_'+u.id,JSON.stringify(earned));
+    newOnes.forEach(function(id){
+      var a=ACHIEVEMENTS.find(function(x){return x.id===id;});
+      if(a){showToast('🏆 নতুন badge: '+a.name+'!','ok',4000);addNotif('🏆','Achievement unlocked: '+a.name+' '+a.icon);}
+    });
+  }
+  containerEl.innerHTML='<div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px;">🏆 অর্জন</div>'
+    +'<div class="achievements-grid">'+ACHIEVEMENTS.map(function(a){
+      var e=earned.includes(a.id);var isNew=newOnes.includes(a.id);
+      return '<div class="achievement-badge '+(e?'earned':'locked')+'" title="'+a.desc+'">'
+        +(isNew?'<span class="achievement-new">NEW</span>':'')
+        +'<div class="achievement-icon">'+a.icon+'</div>'
+        +'<div class="achievement-name">'+a.name+'</div>'
+        +'</div>';
+    }).join('')+'</div>';
+}
+
+// ============================================================
+// 10. LUCKY DRAW
+// ============================================================
+function renderLuckyDraw(el){
+  if(!el)return;
+  var u=GCU();if(!u||u.isAdmin)return;
+  var weekKey='lucky_'+new Date().toISOString().slice(0,10).slice(0,7)+'-W'+Math.floor(new Date().getDate()/7);
+  var alreadyPlayed=localStorage.getItem(weekKey+'_'+u.id);
+  var ticket='LD-'+u.id.slice(-4)+'-'+Date.now().toString().slice(-4);
+  el.innerHTML='<div class="lucky-draw-box">'
+    +'<div class="lucky-title">🎰 সাপ্তাহিক লাকি ড্র</div>'
+    +'<div class="lucky-sub">সপ্তাহের সেরা গ্রাহক পাবেন বিনামূল্যে আম!</div>'
+    +(alreadyPlayed
+      ?'<div class="lucky-ticket">🎫 আপনার টিকেট: '+alreadyPlayed+'</div><div style="font-size:11px;color:rgba(255,255,255,.7);">ড্র হবে রবিবার রাত ১২টায়</div>'
+      :'<button class="lucky-btn" onclick="joinLuckyDraw(\''+weekKey+'\',\''+u.id+'\')">🎫 টিকেট নিন</button>'
+    )
+    +'</div>';
+}
+function joinLuckyDraw(key,uid){
+  var ticket='LK-'+uid.slice(-4)+'-'+Date.now().toString().slice(-4);
+  localStorage.setItem(key+'_'+uid,ticket);
+  var draws=JSON.parse(localStorage.getItem('lucky_draws')||'[]');
+  draws.push({ticket:ticket,userId:uid,week:key,ts:Date.now()});
+  localStorage.setItem('lucky_draws',JSON.stringify(draws));
+  showToast('🎫 টিকেট পেয়েছেন: '+ticket,'ok',4000);
+  addNotif('🎰','লাকি ড্র-তে অংশ নিয়েছেন! টিকেট: '+ticket);
+  var el=$id('lucky-section');if(el)renderLuckyDraw(el);
+}
+
+// ============================================================
+// 11. ADMIN: PROFIT MARGIN TABLE
+// ============================================================
+function renderProfitTable(){
+  var el=$id('profit-table-body');if(!el)return;
+  var ps=GP(),os=GO();
+  var costMap={};
+  ps.forEach(function(p){costMap[p.id]=p.cost||Math.round((p.fp||p.price)*0.6);});
+  var rows=ps.map(function(p){
+    var sales=os.reduce(function(s,o){return s+(o.items||[]).reduce(function(s2,i){return s2+(i.id===p.id?i.qty:0);},0);},0);
+    var revenue=sales*(p.fp||p.price);
+    var cost=sales*(costMap[p.id]||0);
+    var profit=revenue-cost;
+    var margin=revenue?Math.round(profit/revenue*100):0;
+    return {name:p.name,sales:sales,revenue:revenue,profit:profit,margin:margin};
+  }).sort(function(a,b){return b.profit-a.profit;});
+  el.innerHTML=rows.map(function(r){
+    return '<tr>'
+      +'<td><strong style="font-size:12px;">'+r.name+'</strong></td>'
+      +'<td>'+r.sales+'কেজি</td>'
+      +'<td>৳'+r.revenue.toLocaleString()+'</td>'
+      +'<td class="'+(r.profit>=0?'profit-cell-good':'profit-cell-bad')+'">৳'+r.profit.toLocaleString()+'</td>'
+      +'<td><div class="profit-margin-bar"><div class="profit-margin-fill" style="width:'+Math.max(0,r.margin)+'%;"></div></div><span style="font-size:10px;color:var(--text2);">'+r.margin+'%</span></td>'
+      +'</tr>';
+  }).join('');
+}
+
+// ============================================================
+// 12. ADMIN: BULK STATUS UPDATE
+// ============================================================
+function bulkUpdateStatus(newStatus){
+  var os=GO();
+  var count=0;
+  os=os.map(function(o){
+    if(o.status==='pending'){o.status=newStatus;count++;}
+    return o;
+  });
+  localStorage.setItem('orders',JSON.stringify(os));
+  showToast('✅ '+count+'টি অর্ডার → '+newStatus,'ok');
+  logActivity('⚡','Bulk update: '+count+' অর্ডার → '+newStatus);
+  renderAO();
+}
+
+// ============================================================
+// 13. ADMIN: BANGLADESH DISTRICT MAP
+// ============================================================
+var BD_DISTRICTS=['ঢাকা','চট্টগ্রাম','রাজশাহী','খুলনা','সিলেট','ময়মনসিংহ','বরিশাল','রংপুর','কুমিল্লা','গাজীপুর','নারায়ণগঞ্জ','টাঙ্গাইল','ফরিদপুর','যশোর','বগুড়া','দিনাজপুর','পাবনা','নোয়াখালী','রাঙামাটি','কক্সবাজার','সাতক্ষীরা','কুষ্টিয়া','নেত্রকোনা','হবিগঞ্জ','বান্দরবান'];
+function renderDistrictMap(){
+  var el=$id('district-map');if(!el)return;
+  var os=GO();
+  var districtCount={};
+  os.forEach(function(o){
+    var addr=(o.address||'').split(',');
+    addr.forEach(function(part){
+      BD_DISTRICTS.forEach(function(d){
+        if(part.includes(d)){districtCount[d]=(districtCount[d]||0)+1;}
+      });
+    });
+  });
+  var max=Math.max.apply(null,Object.values(districtCount).concat([1]));
+  el.innerHTML='<div class="bd-district-grid">'+BD_DISTRICTS.map(function(d){
+    var cnt=districtCount[d]||0;
+    var intensity=Math.round(cnt/max*100);
+    var bg=cnt?'rgba(217,119,6,'+Math.max(.1,intensity/100)*0.8+')':'var(--g0)';
+    return '<div class="bd-district" style="background:'+bg+';" title="'+d+': '+cnt+' অর্ডার">'
+      +'<span class="bd-district-name">'+d+'</span>'
+      +'<span class="bd-district-orders">'+cnt+'</span>'
+      +'</div>';
+  }).join('')+'</div>';
+}
+
+// ============================================================
+// 14. SEO: JSON-LD + OG META TAGS
+// ============================================================
+function injectSEOMeta(){
+  // JSON-LD structured data
+  var existing=$id('jsonld-script');
+  if(!existing){
+    var ld=document.createElement('script');
+    ld.type='application/ld+json';ld.id='jsonld-script';
+    var ps=GP();
+    ld.textContent=JSON.stringify({
+      "@context":"https://schema.org",
+      "@type":"Store",
+      "name":"আমবাজার",
+      "description":"বাংলাদেশের সেরা আমের অনলাইন দোকান",
+      "url":window.location.href,
+      "telephone":"+8801800000000",
+      "address":{"@type":"PostalAddress","addressLocality":"রাজশাহী","addressCountry":"BD"},
+      "hasOfferCatalog":{
+        "@type":"OfferCatalog",
+        "name":"আমের সংগ্রহ",
+        "itemListElement":ps.slice(0,5).map(function(p){return {
+          "@type":"Offer","itemOffered":{"@type":"Product","name":p.name},"price":p.fp||p.price,"priceCurrency":"BDT"
+        };})
+      }
+    });
+    document.head.appendChild(ld);
+  }
+  // OG meta tags
+  var metas={'og:title':'আমবাজার — বাংলাদেশের সেরা আমের দোকান','og:description':'রাজশাহীর সেরা আম সরাসরি আপনার দরজায়। ১০০% তাজা, রাসায়নিকমুক্ত।','og:type':'website','og:locale':'bn_BD','twitter:card':'summary_large_image','twitter:title':'আমবাজার 🥭','twitter:description':'সেরা আম, সেরা দামে।'};
+  Object.keys(metas).forEach(function(name){
+    var el=document.querySelector('meta[property="'+name+'"],meta[name="'+name+'"]');
+    if(!el){el=document.createElement('meta');el.setAttribute(name.includes(':')?'property':'name',name);document.head.appendChild(el);}
+    el.setAttribute('content',metas[name]);
+  });
+}
+
+// ============================================================
+// 15. PRODUCT IMAGE GALLERY
+// ============================================================
+function openImageGallery(pid){
+  var p=GP().find(function(x){return x.id===pid;});if(!p)return;
+  var imgs=p.images||['🥭','🌿','📦'];
+  var existing=$id('gallery-modal');if(existing)existing.remove();
+  var modal=document.createElement('div');
+  modal.id='gallery-modal';
+  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:900;display:flex;align-items:center;justify-content:center;padding:20px;';
+  var current=0;
+  function buildGallery(){
+    modal.innerHTML='<div style="max-width:400px;width:100%;">'
+      +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">'
+      +'<div style="color:#fff;font-size:14px;font-weight:700;">'+p.name+'</div>'
+      +'<button onclick="$id(\'gallery-modal\').remove()" style="background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;">✕</button>'
+      +'</div>'
+      +'<div class="gallery-wrap" style="background:rgba(255,255,255,.05);">'
+      +'<div class="gallery-main" id="gallery-main">'+imgs[current]+'</div>'
+      +'</div>'
+      +'<div class="gallery-thumbs" style="margin-top:8px;justify-content:center;">'+imgs.map(function(img,i){
+        return '<div class="gallery-thumb '+(i===current?'active':'')+'" onclick="switchGalleryImg('+i+')">'+img+'</div>';
+      }).join('')+'</div>'
+      +'<div style="display:flex;gap:8px;margin-top:10px;">'
+      +'<button onclick="switchGalleryImg('+(current-1<0?imgs.length-1:current-1)+')" style="flex:1;padding:8px;background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:8px;cursor:pointer;">← আগের</button>'
+      +'<button onclick="switchGalleryImg('+(current+1>=imgs.length?0:current+1)+')" style="flex:1;padding:8px;background:rgba(255,255,255,.15);border:none;color:#fff;border-radius:8px;cursor:pointer;">পরের →</button>'
+      +'</div></div>';
+  }
+  window.switchGalleryImg=function(i){current=i;buildGallery();};
+  buildGallery();
+  document.body.appendChild(modal);
+}
+
+// ============================================================
+// 16. PATCH renderProfile — add new sections
+// ============================================================
+var _origRPNew=renderProfile;
+renderProfile=function(){
+  _origRPNew();
+  setTimeout(function(){
+    var profileEl=$id('page-profile');if(!profileEl)return;
+    // Loyalty bar
+    var lbEl=$id('loyalty-bar-container');
+    if(!lbEl){
+      lbEl=document.createElement('div');lbEl.id='loyalty-bar-container';
+      lbEl.style.cssText='padding:0 16px;margin-bottom:4px;';
+      var firstSS=profileEl.querySelector('.ss');
+      if(firstSS&&firstSS.parentNode===profileEl){profileEl.insertBefore(lbEl,firstSS);}else{profileEl.prepend(lbEl);}
+    }
+    renderLoyaltyBar(lbEl);
+    // Achievements — append after loyalty bar
+    var achEl=$id('achievements-container');
+    if(!achEl){
+      achEl=document.createElement('div');achEl.id='achievements-container';
+      achEl.style.cssText='padding:0 16px;margin-bottom:10px;';
+      lbEl.insertAdjacentElement('afterend',achEl);
+    }
+    renderAchievements(achEl);
+    // Check-in
+    var ciEl=$id('checkin-section');
+    if(!ciEl){
+      ciEl=document.createElement('div');ciEl.id='checkin-section';
+      ciEl.style.cssText='padding:0 16px;margin-bottom:10px;';
+      achEl.insertAdjacentElement('afterend',ciEl);
+    }
+    renderCheckinBox();
+    // Lucky draw
+    var ldEl=$id('lucky-section');
+    if(!ldEl){
+      ldEl=document.createElement('div');ldEl.id='lucky-section';
+      ldEl.style.cssText='padding:0 16px;margin-bottom:10px;';
+      ciEl.insertAdjacentElement('afterend',ldEl);
+    }
+    renderLuckyDraw(ldEl);
+  },400);
+};
+
+// ============================================================
+// 17. PATCH refreshAdmin — add new admin features
+// ============================================================
+var _origRANew=refreshAdmin;
+refreshAdmin=function(){
+  _origRANew();
+  setTimeout(function(){
+    // Add profit table to tp2 (products tab)
+    var tp2=$id('tp2');
+    if(tp2&&!$id('profit-section')){
+      var sec=document.createElement('div');
+      sec.id='profit-section';sec.className='ss';sec.style.marginTop='14px';
+      sec.innerHTML='<div class="ss-t" style="padding:10px 14px;">💰 লাভ-ক্ষতি বিশ্লেষণ</div>'
+        +'<div class="tw"><table class="profit-table"><thead><tr><th>পণ্য</th><th>বিক্রয়</th><th>আয়</th><th>লাভ</th><th>মার্জিন</th></tr></thead><tbody id="profit-table-body"></tbody></table></div>';
+      tp2.appendChild(sec);
+    }
+    renderProfitTable();
+    // Add district map to tp4 (customers)
+    var tp4=$id('tp4');
+    if(tp4&&!$id('district-map-section')){
+      var mapSec=document.createElement('div');
+      mapSec.id='district-map-section';mapSec.className='ss';mapSec.style.marginTop='14px';
+      mapSec.innerHTML='<div class="ss-t" style="padding:10px 14px;">🗺️ জেলা ভিত্তিক অর্ডার</div><div class="bd-map-wrap" id="district-map"></div>';
+      tp4.appendChild(mapSec);
+    }
+    renderDistrictMap();
+    // Add bulk status to tp3 (orders)
+    var tp3=$id('tp3');
+    if(tp3&&!$id('bulk-status-section')){
+      var bulkSec=document.createElement('div');
+      bulkSec.id='bulk-status-section';
+      bulkSec.className='bulk-status-bar';
+      bulkSec.innerHTML='<span class="bulk-status-label">⚡ বাল্ক স্ট্যাটাস আপডেট:</span>'
+        +'<button class="abtn2" onclick="bulkUpdateStatus(\'confirmed\')">✅ সব Confirm</button>'
+        +'<button class="ab abg" onclick="bulkUpdateStatus(\'shipped\')">🚚 সব Ship</button>'
+        +'<button class="ab" onclick="bulkUpdateStatus(\'delivered\')">🏠 সব Deliver</button>';
+      tp3.prepend(bulkSec);
+    }
+  },600);
+};
+
+// ============================================================
+// 18. PATCH navigate — init new features on home
+// ============================================================
+var _origNavFeat=navigate;
+navigate=function(pg){
+  _origNavFeat(pg);
+  if(pg==='home'){
+    setTimeout(function(){
+      initFlashSaleTimer();
+      renderRecentlyViewedSection();
+      checkPriceDrops();
+      resetIdleTimer();
+    },500);
+  }
+  if(pg==='profile'){
+    setTimeout(function(){
+      checkBirthdayCoupon();
+    },800);
+  }
+};
+
+// ============================================================
+// INIT
+// ============================================================
+(function(){
+  setTimeout(function(){
+    injectSEOMeta();
+    checkBirthdayCoupon();
+    initFlashSaleTimer();
+    resetIdleTimer();
+  },1000);
+})();
+
+
+
+// Update footer stats
+function updateFooterStats(){
+  var os=GO(),us=GU();
+  var fs_o=document.getElementById('fs-orders');
+  var fs_c=document.getElementById('fs-customers');
+  if(fs_o)fs_o.textContent=(5000+os.length).toLocaleString()+'+';
+  if(fs_c)fs_c.textContent=(1000+us.filter(function(u){return !u.isAdmin;}).length).toLocaleString()+'+';
+}
+setTimeout(updateFooterStats,1000);
+
+// ═══════════════════════════════════════════════════
+// ALL NEW FEATURES JS
+// ═══════════════════════════════════════════════════
+
+// ── BACK TO TOP BUTTON ──
+(function(){
+  var btt=document.getElementById('btt');
+  if(!btt){btt=document.createElement('button');btt.id='btt';btt.innerHTML='↑';btt.title='উপরে যান';btt.onclick=function(){window.scrollTo({top:0,behavior:'smooth'});};document.body.appendChild(btt);}
+  window.addEventListener('scroll',function(){btt.classList.toggle('show',window.scrollY>300);});
+})();
+
+// ── FLOATING WHATSAPP BUTTON ──
+(function(){
+  if(document.getElementById('wa-float'))return;
+  var wa=document.createElement('a');
+  wa.id='wa-float';wa.href='https://wa.me/8801800000000?text=আমবাজারে সাহায্য দরকার';
+  wa.target='_blank';wa.title='WhatsApp-এ কথা বলুন';
+  wa.innerHTML='<svg width="22" height="22" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>';
+  document.body.appendChild(wa);
+})();
+
+// ── COOKIE CONSENT BANNER ──
+(function(){
+  if(localStorage.getItem('cookie_consent'))return;
+  setTimeout(function(){
+    if(document.getElementById('cookie-banner'))return;
+    var banner=document.createElement('div');
+    banner.id='cookie-banner';banner.className='cookie-banner';
+    banner.innerHTML='<p>🍪 আমরা আপনার অভিজ্ঞতা উন্নত করতে কুকি ব্যবহার করি। আমাদের <a href="#" style="color:#f59e0b;">গোপনীয়তা নীতি</a> দেখুন।</p>'
+      +'<button class="cookie-btn accept" onclick="acceptCookies()">✅ সম্মত</button>'
+      +'<button class="cookie-btn decline" onclick="declineCookies()">না</button>';
+    document.body.appendChild(banner);
+    setTimeout(function(){banner.classList.add('show');},200);
+  },2500);
+})();
+function acceptCookies(){localStorage.setItem('cookie_consent','accepted');var b=document.getElementById('cookie-banner');if(b){b.classList.remove('show');setTimeout(function(){b.remove();},400);}}
+function declineCookies(){localStorage.setItem('cookie_consent','declined');var b=document.getElementById('cookie-banner');if(b){b.classList.remove('show');setTimeout(function(){b.remove();},400);}}
+
+// ── ONBOARDING TOUR ──
+var TOUR_STEPS=[
+  {target:'nav.nav',title:'স্বাগতম আমবাজারে! 🥭',text:'বাংলাদেশের সেরা আমের দোকানে আপনাকে স্বাগত। চলুন একটু পরিচয় করিয়ে দিই।',pos:'bottom'},
+  {target:'.hero',title:'আমাদের বিশেষ অফার',text:'এখানে ফ্ল্যাশ সেল, বিশেষ ছাড় ও নতুন আমের খবর পাবেন।',pos:'bottom'},
+  {target:'#srch',title:'পণ্য খুঁজুন',text:'এখানে আমের নাম বাংলায় লিখুন। ভয়েস সার্চও করতে পারবেন! 🎤',pos:'bottom'},
+  {target:'.pc',title:'পণ্য কার্ড',text:'প্রতিটি কার্ডে দাম, স্টক ও রেটিং দেখুন। কার্টে যোগ করতে বাটন চাপুন।',pos:'top'},
+  {target:'#cb2',title:'আপনার কার্ট',text:'কার্টে যোগ করা পণ্য এখানে দেখুন। কুপন কোড ও লয়্যালটি পয়েন্টও ব্যবহার করতে পারবেন।',pos:'bottom'},
+];
+var _tourActive=false;var _tourStep=0;
+function startTour(){
+  if(_tourActive)return;
+  if(localStorage.getItem('tour_done'))return;
+  _tourActive=true;_tourStep=0;showTourStep();
+}
+function showTourStep(){
+  cleanTour();
+  if(_tourStep>=TOUR_STEPS.length){endTour();return;}
+  var step=TOUR_STEPS[_tourStep];
+  var target=document.querySelector(step.target);
+  if(!target){_tourStep++;showTourStep();return;}
+  var rect=target.getBoundingClientRect();
+  var overlay=document.createElement('div');overlay.className='tour-overlay';overlay.id='tour-overlay';
+  var spot=document.createElement('div');spot.className='tour-spotlight';
+  spot.style.cssText='top:'+(rect.top+window.scrollY-6)+'px;left:'+(rect.left-6)+'px;width:'+(rect.width+12)+'px;height:'+(rect.height+12)+'px;';
+  overlay.appendChild(spot);document.body.appendChild(overlay);
+  var tip=document.createElement('div');tip.className='tour-tooltip';tip.id='tour-tooltip';
+  var dots=TOUR_STEPS.map(function(_,i){return '<div class="tour-step-dot'+(i===_tourStep?' active':'')+'"></div>';}).join('');
+  tip.innerHTML='<div class="tour-tooltip-title">'+step.title+'</div>'
+    +'<div class="tour-tooltip-text">'+step.text+'</div>'
+    +'<div class="tour-steps-indicator">'+dots+'</div>'
+    +'<div class="tour-btn-row">'
+    +'<button class="tour-btn skip" onclick="endTour()">এড়িয়ে যান</button>'
+    +'<button class="tour-btn next" onclick="nextTourStep()">'
+    +(_tourStep===TOUR_STEPS.length-1?'শেষ করুন ✓':'পরবর্তী →')+'</button>'
+    +'</div>';
+  var tipTop=rect.bottom+window.scrollY+12;
+  if(step.pos==='top')tipTop=rect.top+window.scrollY-160;
+  tip.style.cssText='top:'+Math.max(10,Math.min(tipTop,window.scrollY+window.innerHeight-180))+'px;left:'+Math.max(10,Math.min(rect.left,window.innerWidth-290))+'px;';
+  document.body.appendChild(tip);
+}
+function nextTourStep(){_tourStep++;showTourStep();}
+function cleanTour(){var o=document.getElementById('tour-overlay');var t=document.getElementById('tour-tooltip');if(o)o.remove();if(t)t.remove();}
+function endTour(){cleanTour();_tourActive=false;localStorage.setItem('tour_done','1');showToast('ট্যুর শেষ! কেনাকাটা উপভোগ করুন 🥭','ok');}
+
+// ── PRODUCT RECOMMENDATION ──
+function getRecommendations(limit){
+  var rv=JSON.parse(localStorage.getItem('rv_products')||'[]');
+  var cart=GCart();
+  var os=GO();var u=GCU();
+  var ps=GP();
+  // Score: recently viewed > cart > ordered before > random
+  var scores={};
+  ps.forEach(function(p){scores[p.id]=Math.random()*10;});
+  rv.forEach(function(id,i){if(scores[id]!==undefined)scores[id]+=50-i*5;});
+  cart.forEach(function(i){if(scores[i.id]!==undefined)scores[i.id]+=30;});
+  if(u){os.filter(function(o){return o.userId===u.id;}).forEach(function(o){(o.items||[]).forEach(function(i){if(scores[i.id]!==undefined)scores[i.id]+=20;});});}
+  return ps.sort(function(a,b){return (scores[b.id]||0)-(scores[a.id]||0);}).slice(0,limit||6);
+}
+function renderRecommendations(){
+  var el=document.getElementById('rec-section');if(!el)return;
+  var recs=getRecommendations(6);
+  if(!recs.length){el.style.display='none';return;}
+  el.style.display='block';
+  el.innerHTML='<div class="rec-title">🤖 আপনার জন্য বাছাই</div>'
+    +'<div class="rec-scroll">'+recs.map(function(p){
+      return '<div class="rv-card" onclick="openQV(\''+p.id+'\')">'
+        +'<div class="rv-card-img">🥭</div>'
+        +'<div class="rv-card-name">'+p.name+'</div>'
+        +'<div class="rv-card-price">৳'+(p.fp||p.price)+'/কেজি</div>'
+        +'</div>';
+    }).join('')+'</div>';
+}
+
+// ── SMART SEARCH AUTOCOMPLETE ──
+function initSmartAutocomplete(){
+  var srch=document.getElementById('srch');if(!srch||srch._acInit)return;
+  srch._acInit=true;
+  var box=document.createElement('div');
+  box.id='ac-box';box.style.cssText='position:absolute;top:100%;left:0;right:0;background:var(--card);border:1.5px solid var(--card-border);border-radius:0 0 12px 12px;box-shadow:0 8px 24px rgba(0,0,0,.12);z-index:200;display:none;max-height:200px;overflow-y:auto;';
+  var parent=srch.parentElement;parent.style.position='relative';parent.appendChild(box);
+  var timer=null;
+  srch.addEventListener('input',function(){
+    clearTimeout(timer);
+    var q=srch.value.trim();
+    if(q.length<1){box.style.display='none';return;}
+    timer=setTimeout(function(){
+      var ps=GP();
+      var suggestions=ps.filter(function(p){
+        return p.name.includes(q)||p.desc&&p.desc.includes(q)||(p.tags||[]).some(function(t){return t.includes(q);});
+      }).slice(0,6);
+      if(!suggestions.length){box.style.display='none';return;}
+      box.innerHTML=suggestions.map(function(p){
+        return '<div onclick="srch.value=\''+p.name+'\';applyFilters();box.style.display=\'none\';" style="padding:9px 14px;cursor:pointer;font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--card-border);transition:.15s;" onmouseover="this.style.background=\'var(--a0)\'" onmouseout="this.style.background=\'\'">🥭 '+p.name+'<span style="margin-left:auto;font-size:11px;color:var(--text2);">৳'+(p.fp||p.price)+'/কেজি</span></div>';
+      }).join('');
+      box.style.display='block';
+    },200);
+  });
+  document.addEventListener('click',function(e){if(!srch.contains(e.target))box.style.display='none';});
+}
+
+// ── CHATBOT FAQ ──
+var CHATBOT_QA=[
+  {q:'ডেলিভারি',a:'ঢাকায় ২৪ ঘণ্টা, অন্যান্য জেলায় ৪৮ ঘণ্টায় ডেলিভারি। ৳৫০০+ অর্ডারে ফ্রি ডেলিভারি!'},
+  {q:'পেমেন্ট',a:'বিকাশ, নগদ, রকেট ও ক্যাশ অন ডেলিভারি গ্রহণযোগ্য।'},
+  {q:'রিটার্ন',a:'পণ্যে সমস্যা হলে ৪৮ ঘণ্টার মধ্যে জানান। সম্পূর্ণ রিফান্ড বা রিপ্লেসমেন্ট দেওয়া হবে।'},
+  {q:'কুপন',a:'MANGO20 দিয়ে ২০% ছাড়, FIRST15 দিয়ে প্রথম অর্ডারে ১৫% ছাড় পাবেন।'},
+  {q:'আম',a:'ফজলি, হিমসাগর, ল্যাংড়া, আম্রপালি, গোপালভোগ ও খিরসাপাত পাওয়া যায়।'},
+  {q:'ট্র্যাক',a:'"আমার অর্ডার" পেজে গিয়ে ট্র্যাকিং নম্বর দিয়ে অর্ডার ট্র্যাক করুন।'},
+  {q:'অ্যাকাউন্ট',a:'উপরের "নিবন্ধন" বাটনে ক্লিক করে বিনামূল্যে অ্যাকাউন্ট খুলুন।'},
+];
+function initChatbot(){
+  if(document.getElementById('chatbot-btn'))return;
+  var btn=document.createElement('button');
+  btn.id='chatbot-btn';btn.innerHTML='💬';btn.title='সাহায্য';
+  btn.onclick=toggleChatbot;
+  document.body.appendChild(btn);
+  var panel=document.createElement('div');
+  panel.id='chatbot-panel';
+  panel.innerHTML='<div class="chatbot-header">'
+    +'<span style="font-size:20px;">🥭</span>'
+    +'<span class="chatbot-header-title">আমবাজার সহায়তা</span>'
+    +'<button class="chatbot-close" onclick="toggleChatbot()">✕</button>'
+    +'</div>'
+    +'<div class="chatbot-messages" id="cb-msgs"></div>'
+    +'<div class="chatbot-quick" id="cb-quick"></div>'
+    +'<div class="chatbot-input-row">'
+    +'<input class="chatbot-input" id="cb-input" placeholder="প্রশ্ন করুন..." onkeydown="if(event.key===\'Enter\')sendChatMsg()">'
+    +'<button class="chatbot-send" onclick="sendChatMsg()">➤</button>'
+    +'</div>';
+  document.body.appendChild(panel);
+}
+function toggleChatbot(){
+  var panel=document.getElementById('chatbot-panel');if(!panel)return;
+  var showing=panel.classList.toggle('show');
+  if(showing&&!document.getElementById('cb-msgs').children.length){
+    addChatMsg('bot','নমস্কার! 🥭 আমি আমবাজারের সহায়তাকারী। কীভাবে সাহায্য করতে পারি?');
+    renderChatQuickBtns();
+  }
+}
+function renderChatQuickBtns(){
+  var qEl=document.getElementById('cb-quick');if(!qEl)return;
+  var topics=['ডেলিভারি','পেমেন্ট','রিটার্ন','কুপন','আম জাত'];
+  qEl.innerHTML=topics.map(function(t){return '<button class="chatbot-quick-btn" onclick="chatAnswer(\''+t+'\')">'+t+'</button>';}).join('');
+}
+function addChatMsg(type,text){
+  var msgs=document.getElementById('cb-msgs');if(!msgs)return;
+  var div=document.createElement('div');div.className='chatbot-msg '+type;div.textContent=text;
+  msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;
+}
+function chatAnswer(q){
+  addChatMsg('user',q);
+  var found=CHATBOT_QA.find(function(qa){return q.includes(qa.q)||qa.q.includes(q);});
+  setTimeout(function(){
+    addChatMsg('bot',found?found.a:'এই বিষয়ে আরও জানতে আমাদের সাথে সরাসরি WhatsApp-এ যোগাযোগ করুন।');
+  },500);
+}
+function sendChatMsg(){
+  var inp=document.getElementById('cb-input');if(!inp||!inp.value.trim())return;
+  chatAnswer(inp.value.trim());inp.value='';
+}
+
+// ── REFERRAL DASHBOARD ──
+function renderReferralDashboard(el){
+  if(!el)return;
+  var u=GCU();if(!u||u.isAdmin)return;
+  var code='REF'+u.id.slice(-6).toUpperCase();
+  var allUsers=GU();
+  var referred=allUsers.filter(function(usr){return usr.referredBy===code;});
+  var earned=referred.length*50; // ৳50 per referral
+  el.innerHTML='<div class="ref-dash">'
+    +'<div style="font-size:14px;font-weight:700;margin-bottom:4px;">🤝 রেফারেল প্রোগ্রাম</div>'
+    +'<div style="font-size:12px;color:rgba(255,255,255,.75);margin-bottom:8px;">বন্ধুকে রেফার করুন, প্রতিটিতে ৳৫০ পয়েন্ট পান!</div>'
+    +'<div class="ref-code-box" onclick="copyRefCode(\''+code+'\')" title="কপি করুন">'
+    +'<div style="font-size:10px;color:rgba(255,255,255,.7);margin-bottom:4px;">আপনার রেফারেল কোড (ক্লিক করে কপি)</div>'
+    +'<div class="ref-code">'+code+'</div>'
+    +'</div>'
+    +'<div class="ref-stats">'
+    +'<div class="ref-stat"><div class="ref-stat-num">'+referred.length+'</div><div class="ref-stat-lbl">রেফার</div></div>'
+    +'<div class="ref-stat"><div class="ref-stat-num">৳'+earned+'</div><div class="ref-stat-lbl">অর্জিত</div></div>'
+    +'<div class="ref-stat"><div class="ref-stat-num">'+(referred.length*2+1)+'</div><div class="ref-stat-lbl">লেভেল আপ</div></div>'
+    +'</div>'
+    +'<button onclick="shareReferralCode(\''+code+'\')" style="margin-top:10px;width:100%;padding:9px;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.25);border-radius:10px;color:#fff;font-family:\'Hind Siliguri\',sans-serif;font-size:12px;font-weight:700;cursor:pointer;">📱 শেয়ার করুন</button>'
+    +'</div>';
+}
+function copyRefCode(code){navigator.clipboard.writeText(code).then(function(){showToast('✅ রেফারেল কোড কপি: '+code,'ok');});logActivity('🤝','রেফারেল কোড কপি করা হয়েছে');}
+function shareReferralCode(code){var text='আমবাজারে আম কিনুন! আমার রেফারেল কোড ব্যবহার করুন: '+code+' — প্রথম অর্ডারে ৳৫০ ছাড় পাবেন! '+window.location.href;if(navigator.share){navigator.share({title:'আমবাজার',text:text});}else{navigator.clipboard.writeText(text).then(function(){showToast('✅ লিঙ্ক কপি হয়েছে!','ok');});}}
+
+// ── ORDER NOTES ──
+function initOrderNotes(){
+  var orderForm=document.getElementById('page-order');if(!orderForm)return;
+  if(document.getElementById('order-notes-section'))return;
+  var note=document.createElement('div');note.id='order-notes-section';
+  note.innerHTML='<div class="order-notes-box"><div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;">📝 বিশেষ নির্দেশনা (ঐচ্ছিক)</div><textarea id="order-notes" placeholder="যেমন: আম পাকা হলে দিন, বাসায় না থাকলে প্রতিবেশীকে দিন..."></textarea></div>';
+  var deliverySection=orderForm.querySelector('.courier-section');
+  if(deliverySection)deliverySection.insertAdjacentElement('afterend',note);
+  else orderForm.querySelector('.ss')&&orderForm.querySelector('.ss').appendChild(note);
+}
+
+// ── PROMO CODE SUGGESTION ──
+function renderPromoSuggestions(){
+  var cart=GCart();if(!cart.length)return;
+  var el=document.getElementById('promo-suggestions');
+  if(!el){
+    var couponSection=document.getElementById('coup-section');
+    if(!couponSection)return;
+    el=document.createElement('div');el.id='promo-suggestions';
+    couponSection.insertAdjacentElement('beforebegin',el);
+  }
+  var sub=cart.reduce(function(s,i){return s+(i.fp||i.price)*i.qty;},0);
+  var cs=GC().filter(function(c){return c.active&&c.usedCount<(c.maxUses||99)&&sub>=(c.minOrder||0);});
+  if(!cs.length){el.innerHTML='';return;}
+  el.innerHTML=cs.slice(0,2).map(function(c){
+    var disc=c.type==='percent'?Math.round(sub*c.value/100):c.value;
+    return '<div class="promo-suggest" onclick="applyPromoSuggest(\''+c.code+'\')">🎫 <strong>'+c.code+'</strong> — ৳'+disc+' ছাড় পান! <span style="float:right;color:var(--text2);">প্রয়োগ করুন →</span></div>';
+  }).join('');
+}
+function applyPromoSuggest(code){
+  var ci=document.getElementById('coupon-input');if(ci)ci.value=code;
+  if(typeof applyCoupon==='function')applyCoupon();
+  else showToast('কুপন: '+code+' প্রয়োগ হয়েছে','ok');
+}
+
+// ── SEASONAL AUTO-DISCOUNT ──
+function checkSeasonalDiscount(){
+  var month=new Date().getMonth();
+  var seasonals=[
+    {months:[4,5],icon:'🌸',title:'আমের মৌসুম শুরু!',sub:'বসন্তে বিশেষ ১৫% ছাড়',code:'SEASON15',val:15},
+    {months:[5,6],icon:'☀️',title:'গ্রীষ্মের মূল মৌসুম!',sub:'সেরা আম সবচেয়ে কম দামে',code:'SUMMER20',val:20},
+    {months:[6,7],icon:'🌧️',title:'বর্ষায় আম উৎসব!',sub:'বর্ষার আমে বিশেষ অফার',code:'RAINY10',val:10},
+    {months:[11,0,1],icon:'❄️',title:'শীতকালীন অফার!',sub:'শীতে গিফট দিন আমের হ্যাম্পার',code:'WINTER10',val:10},
+  ];
+  var seasonal=seasonals.find(function(s){return s.months.includes(month);});
+  if(!seasonal)return;
+  var key='seasonal_shown_'+seasonal.code+'_'+new Date().getMonth();
+  if(localStorage.getItem(key))return;
+  localStorage.setItem(key,'1');
+  // Auto-add coupon
+  var cs=GC();
+  if(!cs.find(function(c){return c.code===seasonal.code;})){
+    cs.push({id:'sea'+Date.now(),code:seasonal.code,type:'percent',value:seasonal.val,minOrder:300,maxUses:999,usedCount:0,expiry:'',active:true});
+    localStorage.setItem('coupons',JSON.stringify(cs));
+  }
+  // Show banner
+  var banner=document.getElementById('seasonal-auto-banner');
+  if(!banner){
+    banner=document.createElement('div');banner.id='seasonal-auto-banner';banner.className='seasonal-banner';
+    var pg=document.querySelector('#page-home .why-section');
+    if(pg)pg.insertAdjacentElement('afterend',banner);
+  }
+  banner.innerHTML='<div class="seasonal-banner-icon">'+seasonal.icon+'</div>'
+    +'<div class="seasonal-banner-text"><div class="seasonal-banner-title">'+seasonal.title+'</div><div class="seasonal-banner-sub">'+seasonal.sub+' — কুপন: <strong>'+seasonal.code+'</strong></div></div>'
+    +'<button class="seasonal-banner-btn" onclick="copySeasonCode(\''+seasonal.code+'\')">কুপন নিন</button>';
+  banner.style.display='flex';
+  setTimeout(function(){addNotif(seasonal.icon,'মৌসুমী অফার! কুপন কোড: '+seasonal.code+' ('+seasonal.val+'% ছাড়)');},1500);
+}
+function copySeasonCode(code){navigator.clipboard.writeText(code).catch(function(){});showToast('✅ কুপন কপি: '+code,'ok');}
+
+// ── ADMIN: REVENUE GAUGE CHART ──
+function renderRevenueGauge(){
+  var el=document.getElementById('revenue-gauge');if(!el)return;
+  var os=GO();
+  var rev=os.reduce(function(s,o){return s+(o.status!=='cancelled'?o.total:0);},0);
+  var target=JSON.parse(localStorage.getItem('revenue_target')||'50000');
+  var pct=Math.min(100,Math.round(rev/target*100));
+  var angle=pct*1.8; // 0-180 degrees
+  var r=70;var cx=90;var cy=90;
+  var startX=cx-r;var startY=cy;
+  var rad=(180-angle)*Math.PI/180;
+  var endX=cx+r*Math.cos(rad);var endY=cy-r*Math.sin(rad);
+  var largeArc=angle>180?1:0;
+  el.innerHTML='<div class="gauge-chart">'
+    +'<svg class="gauge-svg" width="180" height="100" viewBox="0 0 180 100">'
+    +'<path d="M20,90 A70,70 0 0,1 160,90" fill="none" stroke="var(--g2)" stroke-width="14" stroke-linecap="round"/>'
+    +(pct>0?'<path d="M20,90 A70,70 0 '+largeArc+',1 '+endX.toFixed(1)+','+endY.toFixed(1)+'" fill="none" stroke="url(#gg)" stroke-width="14" stroke-linecap="round"/>'  :'')
+    +'<defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#d97706"/></linearGradient></defs>'
+    +'<text x="90" y="78" text-anchor="middle" font-size="22" font-weight="900" fill="var(--o)">'+pct+'%</text>'
+    +'<text x="90" y="93" text-anchor="middle" font-size="9" fill="var(--text2)">লক্ষ্যের</text>'
+    +'</svg>'
+    +'<div style="font-size:13px;font-weight:700;color:var(--text);">৳'+rev.toLocaleString()+' / ৳'+target.toLocaleString()+'</div>'
+    +'<div style="font-size:11px;color:var(--text2);margin-top:3px;">মাসিক লক্ষ্যমাত্রা</div>'
+    +'<div style="display:flex;gap:6px;margin-top:8px;justify-content:center;">'
+    +'<input type="number" id="target-input" value="'+target+'" style="width:100px;padding:5px 8px;border:1px solid var(--card-border);border-radius:6px;font-size:11px;background:var(--input-bg);color:var(--text);">'
+    +'<button onclick="setRevenueTarget()" style="padding:5px 10px;background:var(--o);color:#fff;border:none;border-radius:6px;font-size:11px;cursor:pointer;">সেট</button>'
+    +'</div>'+'</div>';
+}
+function setRevenueTarget(){var inp=document.getElementById('target-input');if(!inp)return;var val=parseInt(inp.value)||50000;localStorage.setItem('revenue_target',JSON.stringify(val));renderRevenueGauge();showToast('✅ লক্ষ্যমাত্রা সেট: ৳'+val,'ok');}
+
+// ── ADMIN: BEST SELLING TIME HEATMAP ──
+function renderSalesHeatmap(){
+  var el=document.getElementById('sales-heatmap');if(!el)return;
+  var os=GO();
+  var grid=Array(7).fill(null).map(function(){return Array(4).fill(0);});
+  os.forEach(function(o){
+    var d=new Date(o.ts||0);
+    var day=d.getDay();var slot=Math.floor(d.getHours()/6); // 4 slots: 0-6,6-12,12-18,18-24
+    if(grid[day])grid[day][slot]++;
+  });
+  var maxVal=Math.max.apply(null,grid.map(function(r){return Math.max.apply(null,r);}));
+  var days=['রবি','সোম','মঙ্গ','বুধ','বৃহ','শুক্র','শনি'];
+  var slots=['রাত','সকাল','দুপুর','রাত'];
+  el.innerHTML='<div style="display:grid;grid-template-columns:30px 1fr 1fr 1fr 1fr;gap:3px;">'
+    +'<div></div>'+slots.map(function(s){return '<div class="heatmap-label">'+s+'</div>';}).join('')
+    +days.map(function(day,di){
+      return '<div class="heatmap-label" style="text-align:right;padding-right:4px;">'+day+'</div>'
+        +grid[di].map(function(val){
+          var intensity=maxVal?val/maxVal:0;
+          var bg=intensity?'rgba(245,158,11,'+Math.max(.1,intensity)+')':'var(--g0)';
+          return '<div class="heatmap-cell" style="background:'+bg+';color:'+(intensity>.5?'var(--db)':'var(--text2)')+';" title="'+val+' অর্ডার">'+val+'</div>';
+        }).join('');
+    }).join('')
+    +'</div>';
+}
+
+// ── ADMIN: CUSTOMER RETENTION ──
+function renderRetentionStats(){
+  var el=document.getElementById('retention-stats');if(!el)return;
+  var os=GO();var us=GU().filter(function(u){return !u.isAdmin;});
+  var returning=us.filter(function(u){return os.filter(function(o){return o.userId===u.id;}).length>1;});
+  var newUsers=us.filter(function(u){return os.filter(function(o){return o.userId===u.id;}).length===1;});
+  var retention=us.length?Math.round(returning.length/us.length*100):0;
+  el.innerHTML='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px;">'
+    +'<div style="text-align:center;padding:10px;background:var(--g0);border-radius:10px;"><div style="font-size:20px;font-weight:800;color:var(--o);">'+retention+'%</div><div style="font-size:10px;color:var(--text2);">রিটেনশন রেট</div></div>'
+    +'<div style="text-align:center;padding:10px;background:var(--g0);border-radius:10px;"><div style="font-size:20px;font-weight:800;color:var(--ok);">'+returning.length+'</div><div style="font-size:10px;color:var(--text2);">ফিরে আসা</div></div>'
+    +'<div style="text-align:center;padding:10px;background:var(--g0);border-radius:10px;"><div style="font-size:20px;font-weight:800;color:var(--blue);">'+newUsers.length+'</div><div style="font-size:10px;color:var(--text2);">নতুন গ্রাহক</div></div>'
+    +'</div>'
+    +'<div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:5px;">রিটেনশন রেট</div>'
+    +'<div class="retention-bar"><div class="retention-fill" style="width:'+retention+'%;"></div></div>';
+}
+
+// ── PATCH navigate — init new features ──
+var _origNavAll=navigate;
+navigate=function(pg){
+  _origNavAll(pg);
+  if(pg==='home'){
+    setTimeout(function(){
+      renderRecommendations();
+      checkSeasonalDiscount();
+      initSmartAutocomplete();
+      renderPromoSuggestions();
+    },600);
+  }
+  if(pg==='order'){
+    setTimeout(function(){initOrderNotes();renderPromoSuggestions();},400);
+  }
+  if(pg==='profile'){
+    setTimeout(function(){
+      var refEl=document.getElementById('referral-section');
+      if(!refEl){
+        refEl=document.createElement('div');refEl.id='referral-section';
+        refEl.style.cssText='padding:0 16px;margin-bottom:10px;';
+        var page=document.getElementById('page-profile');
+        if(page)page.prepend(refEl);
+      }
+      renderReferralDashboard(refEl);
+    },500);
+  }
+  if(pg==='admin'){
+    setTimeout(function(){
+      // Add gauge to dashboard
+      var tp1=document.getElementById('tp1');
+      if(tp1&&!document.getElementById('revenue-gauge')){
+        var gaugeDiv=document.createElement('div');
+        gaugeDiv.style.cssText='display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px;';
+        gaugeDiv.innerHTML='<div class="chart-wrap" id="revenue-gauge"></div>'
+          +'<div class="chart-wrap"><div class="chart-title">🌡️ বিক্রয় হিটম্যাপ</div><div id="sales-heatmap"></div></div>'
+          +'<div class="chart-wrap"><div class="chart-title">🔄 গ্রাহক ধরে রাখা</div><div id="retention-stats"></div></div>';
+        var statsPanel=tp1.querySelector('#analytics-sales-chart');
+        if(statsPanel)statsPanel.appendChild(gaugeDiv);
+      }
+      renderRevenueGauge();
+      renderSalesHeatmap();
+      renderRetentionStats();
+    },600);
+  }
+};
+
+// ── PATCH refreshAdmin ──
+var _origRAAll=refreshAdmin;
+refreshAdmin=function(){
+  _origRAAll();
+  setTimeout(function(){
+    renderRevenueGauge();
+    renderSalesHeatmap();
+    renderRetentionStats();
+  },800);
+};
+
+// ── SWIPE GESTURE — wishlist on product card ──
+(function initSwipeGesture(){
+  var startX=0;
+  document.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-startX;
+    if(Math.abs(dx)<60)return;
+    var card=e.target.closest('.pc');if(!card)return;
+    var pid=card.id&&card.id.replace('pc-','');
+    if(!pid)return;
+    if(dx<-60){// swipe left = wishlist
+      toggleWishlist(pid);
+      card.style.transform='scale(0.95)';
+      setTimeout(function(){card.style.transform='';},300);
+      showToast('❤️ পছন্দের তালিকায় যোগ হয়েছে','ok',1500);
+    }
+  },{passive:true});
+})();
+
+// ── INIT ALL ──
+(function(){
+  setTimeout(function(){
+    initChatbot();
+    checkSeasonalDiscount();
+    startTour&&!localStorage.getItem('tour_done')&&setTimeout(function(){
+      var u=GCU();if(u&&!u.isAdmin)startTour();
+    },3000);
+  },1200);
+})();
+
 </script>
+<footer class="ft">
+  <!-- ANIMATED MARQUEE -->
+  <div class="fts">
+    <div class="fts-inner">
+      🥭 ফজলি &nbsp;•&nbsp; হিমসাগর &nbsp;•&nbsp; ল্যাংড়া &nbsp;•&nbsp; আম্রপালি &nbsp;•&nbsp; গোপালভোগ &nbsp;•&nbsp; খিরসাপাত &nbsp;•&nbsp; আশ্বিনা &nbsp;•&nbsp; বোম্বাই &nbsp;•&nbsp; বারি-৪ &nbsp;•&nbsp; কাটিমন &nbsp;&nbsp;
+      🥭 ফজলি &nbsp;•&nbsp; হিমসাগর &nbsp;•&nbsp; ল্যাংড়া &nbsp;•&nbsp; আম্রপালি &nbsp;•&nbsp; গোপালভোগ &nbsp;•&nbsp; খিরসাপাত &nbsp;•&nbsp; আশ্বিনা &nbsp;•&nbsp; বোম্বাই &nbsp;•&nbsp; বারি-৪ &nbsp;•&nbsp; কাটিমন
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="ftg">
+
+    <!-- Column 1: Brand -->
+    <div>
+      <div class="flogo"><span>🥭</span> আমবাজার</div>
+      <div class="ftag">বাংলাদেশের সেরা আমের দোকান</div>
+      <div class="fd">রাজশাহীর বাগান থেকে সরাসরি আপনার দরজায়।</div>
+      <div class="fd">তাজা, খাঁটি ও রাসায়নিকমুক্ত আমের নিশ্চয়তা।</div>
+      <div class="fci" style="margin-top:10px;">📞 +৮৮০ ১৮০০-AAMBAZAR</div>
+      <div class="fci">📧 info@aambazar.com</div>
+      <div class="fci">📍 রাজশাহী, বাংলাদেশ</div>
+      <div class="fci">⏰ সকাল ৮টা – রাত ১০টা</div>
+      <!-- Social -->
+      <div class="fsoc">
+        <a class="sb2" href="https://facebook.com" target="_blank" title="Facebook">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a class="sb2" href="https://wa.me/8801800000000" target="_blank" title="WhatsApp">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+        <a class="sb2" href="https://instagram.com" target="_blank" title="Instagram">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a class="sb2" href="https://youtube.com" target="_blank" title="YouTube">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a class="sb2" href="https://tiktok.com" target="_blank" title="TikTok" style="font-size:14px;font-weight:900;font-style:italic;font-family:sans-serif;">T</a>
+      </div>
+      <div class="fapp">
+        <span>📱</span>
+        <span>অ্যাপ শীঘ্রই আসছে — Google Play & App Store</span>
+      </div>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div>
+      <div class="fct">🔗 দ্রুত লিংক</div>
+      <ul class="fls">
+        <li><a onclick="navigate('home')">🏠 হোম পেজ</a></li>
+        <li><a onclick="navigate('about')">ℹ️ আমাদের সম্পর্কে</a></li>
+        <li><a onclick="navigate('faq')">❓ সাধারণ প্রশ্ন</a></li>
+        <li><a onclick="navigate('contact')">📞 যোগাযোগ</a></li>
+        <li><a onclick="navigate('orders')">📦 আমার অর্ডার</a></li>
+        <li><a onclick="navigate('wishlist')">❤️ পছন্দের তালিকা</a></li>
+        <li><a onclick="navigate('profile')">👤 আমার প্রোফাইল</a></li>
+      </ul>
+      <div class="fct" style="margin-top:16px;">🥭 আমের প্রজাতি</div>
+      <ul class="fls">
+        <li><a>🌟 ফজলি — রাজশাহী</a></li>
+        <li><a>💛 হিমসাগর — চাঁপাই</a></li>
+        <li><a>🟡 ল্যাংড়া — মেহেরপুর</a></li>
+        <li><a>🟠 আম্রপালি — সাতক্ষীরা</a></li>
+        <li><a>🍊 গোপালভোগ — রাজশাহী</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Payment & Courier -->
+    <div>
+      <div class="fct">💳 পেমেন্ট পদ্ধতি</div>
+      <div style="display:flex;flex-wrap:wrap;margin-bottom:16px;">
+        <span class="pay-badge" style="background:rgba(226,19,110,.15);">💸 bKash</span>
+        <span class="pay-badge" style="background:rgba(245,166,35,.15);">🔴 Nagad</span>
+        <span class="pay-badge" style="background:rgba(139,92,246,.15);">🚀 Rocket</span>
+        <span class="pay-badge" style="background:rgba(16,185,129,.15);">💵 COD</span>
+      </div>
+      <div class="fct">🚚 কুরিয়ার সার্ভিস</div>
+      <ul class="fls">
+        <li><a>🟠 Pathao Courier</a></li>
+        <li><a>🔴 RedX</a></li>
+        <li><a>✈️ Paperfly</a></li>
+        <li><a>🚢 সুন্দরবন কুরিয়ার</a></li>
+        <li><a>⚡ eCourier</a></li>
+      </ul>
+      <div class="fct" style="margin-top:16px;">🏆 আমাদের অর্জন</div>
+      <ul class="fls">
+        <li><a>⭐ ৪.৮/৫ গড় রেটিং</a></li>
+        <li><a>✅ ৫০০০+ সফল অর্ডার</a></li>
+        <li><a>🌿 ১০০% অর্গানিক</a></li>
+        <li><a>🇧🇩 ৬৪ জেলায় সেবা</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Newsletter -->
+    <div>
+      <div class="fct">📧 নিউজলেটার</div>
+      <div class="nl-wrap">
+        <div class="nl-desc">নতুন আম, বিশেষ অফার ও মৌসুমী আপডেট সবার আগে পান।</div>
+        <div class="nl-row">
+          <input class="nl-inp" id="footer-nl-email" type="email" placeholder="আপনার ইমেইল...">
+          <button class="nl-btn" onclick="copyFooterEmail();subscribeNewsletter()">✉️ যোগ</button>
+        </div>
+      </div>
+      <div class="fct">📅 হার্ভেস্ট ক্যালেন্ডার</div>
+      <ul class="fls">
+        <li><a>🌸 গোপালভোগ — মে মাস</a></li>
+        <li><a>💛 হিমসাগর — জুন মাস</a></li>
+        <li><a>🟡 ল্যাংড়া — জুন-জুলাই</a></li>
+        <li><a>🌟 ফজলি — জুলাই-আগস্ট</a></li>
+        <li><a>🟠 আম্রপালি — জুলাই</a></li>
+      </ul>
+      <div class="fct" style="margin-top:16px;">📞 যোগাযোগ করুন</div>
+      <ul class="fls">
+        <li><a href="tel:+8801800000000">📞 ১৮০০-AAMBAZAR</a></li>
+        <li><a href="https://wa.me/8801800000000" target="_blank">💬 WhatsApp করুন</a></li>
+        <li><a onclick="navigate('contact')">📝 বার্তা পাঠান</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STATS ROW -->
+  <div class="fstats" id="footer-stats">
+    <div class="fstat"><div class="fstat-num" id="fs-orders">৫০০০+</div><div class="fstat-lbl">সফল অর্ডার</div></div>
+    <div class="fstat"><div class="fstat-num" id="fs-customers">১০০০+</div><div class="fstat-lbl">সন্তুষ্ট গ্রাহক</div></div>
+    <div class="fstat"><div class="fstat-num">১০০%</div><div class="fstat-lbl">তাজা গ্যারান্টি</div></div>
+    <div class="fstat"><div class="fstat-num">৪৮ঘণ্টা</div><div class="fstat-lbl">দ্রুত ডেলিভারি</div></div>
+    <div class="fstat"><div class="fstat-num">৪.৮⭐</div><div class="fstat-lbl">গড় রেটিং</div></div>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="ftrust">
+    <div class="ftrust-item">✅ ১০০% তাজা</div>
+    <div class="ftrust-item">🔒 নিরাপদ পেমেন্ট</div>
+    <div class="ftrust-item">🚚 দ্রুত ডেলিভারি</div>
+    <div class="ftrust-item">🔄 সহজ রিটার্ন</div>
+    <div class="ftrust-item">🌿 রাসায়নিকমুক্ত</div>
+    <div class="ftrust-item">🤝 বিশ্বস্ত সার্ভিস</div>
+    <div class="ftrust-item">📦 সুরক্ষিত প্যাকেজিং</div>
+    <div class="ftrust-item">💬 ২৪/৭ সাপোর্ট</div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="fbot">
+    <div class="fcp">© ২০২৪ <span>আমবাজার</span> — সর্বস্বত্ব সংরক্ষিত। Made with 🥭 in Bangladesh 🇧🇩</div>
+    <div class="fbl">
+      <a onclick="navigate('about')">আমাদের সম্পর্কে</a>
+      <a onclick="navigate('faq')">সাধারণ প্রশ্ন</a>
+      <a onclick="navigate('contact')">যোগাযোগ</a>
+      <a href="#">গোপনীয়তা নীতি</a>
+      <a href="#">ব্যবহারের শর্ত</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
