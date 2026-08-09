@@ -243,19 +243,19 @@ select.fi{cursor:pointer;}
 /* WISHLIST PAGE */
 .wl-sec{max-width:1280px;margin:0 auto;padding:20px 20px 40px;}
 /* REVIEWS */
-.rev-modal{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
-.rev-modal.show{display:flex;animation:fadeUp .3s ease;}
+
+
 .rev-box{background:var(--card);border-radius:var(--rx);padding:28px;max-width:560px;width:100%;box-shadow:var(--sl);animation:popIn .4s cubic-bezier(.175,.885,.32,1.275);max-height:90vh;overflow-y:auto;}
-.rev-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+
 .rev-title{font-size:18px;font-weight:700;color:var(--text);}
 .rev-list{margin-bottom:20px;}
-.rev-item{background:var(--g0);border-radius:var(--r);padding:14px;margin-bottom:10px;border:1px solid var(--card-border);}
+
 .rev-stars{color:#f59e0b;font-size:14px;margin-bottom:4px;}
 .rev-author{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px;}
 .rev-date{font-size:11px;color:var(--g4);}
 .rev-text{font-size:13px;color:var(--text2);margin-top:6px;line-height:1.6;}
 .rev-form{border-top:1px solid var(--card-border);padding-top:18px;}
-.star-pick{display:flex;gap:6px;margin-bottom:12px;}
+
 .star-btn{font-size:24px;cursor:pointer;transition:.2s;background:none;border:none;padding:2px;}
 .star-btn:hover,.star-btn.active{transform:scale(1.2);}
 /* ZOOM MODAL */
@@ -827,7 +827,7 @@ select.fi{cursor:pointer;}
 
 /* ====== REVIEW MODAL PREMIUM ====== */
 .rev-box { border-radius: 28px; }
-.rev-item { border-radius: 14px; border: 1.5px solid var(--card-border); }
+
 .star-btn { font-size: 26px; color: #d1d5db; transition: all 0.2s; }
 .star-btn.active { color: #f59e0b; }
 
@@ -1999,7 +1999,7 @@ button:active:not(.no-ripple){transform:scale(.97);}
 .gift-card-code{font-family:monospace;letter-spacing:3px;font-size:16px;background:rgba(255,255,255,.2);padding:6px 14px;border-radius:8px;display:inline-block;margin-top:8px;}
 
 /* REVIEW HELPFUL VOTES */
-.rev-helpful{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--card-border);}
+
 .helpful-btn{padding:4px 10px;border:1px solid var(--card-border);border-radius:8px;font-size:11px;cursor:pointer;background:var(--g0);transition:.2s;font-family:'Hind Siliguri',sans-serif;}
 .helpful-btn:hover{border-color:var(--y);background:var(--a0);}
 .helpful-count{font-size:11px;color:var(--text2);}
@@ -3128,6 +3128,228 @@ body.admin-mode #btt { display: none !important; }
 @media(max-width:480px){
   #chatbot-panel { right: 8px !important; width: calc(100vw - 72px); bottom: 180px !important; }
 }
+
+/* ═══════════════════════════════════════
+   REVIEW SYSTEM V2 — PREMIUM
+   ═══════════════════════════════════════ */
+
+/* Review modal */
+.rev-modal-wrap { display: flex; flex-direction: column; height: 100%; }
+
+/* Rating summary box */
+.rev-summary {
+  background: var(--g0);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.rev-avg-big { text-align: center; flex-shrink: 0; }
+.rev-avg-num {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1;
+}
+.rev-avg-stars { font-size: 18px; color: #f59e0b; margin: 4px 0; }
+.rev-avg-count { font-size: 11px; color: var(--text2); }
+.rev-bars { flex: 1; }
+.rev-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.rev-bar-row:hover .rev-bar-fill { opacity: .8; }
+.rev-bar-label { font-size: 11px; color: var(--text2); width: 20px; text-align: right; flex-shrink: 0; }
+.rev-bar-track { flex: 1; height: 8px; background: var(--g2); border-radius: 4px; overflow: hidden; }
+.rev-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #f59e0b, #d97706); transition: width .5s ease; }
+.rev-bar-count { font-size: 11px; color: var(--text2); width: 24px; flex-shrink: 0; }
+
+/* Filter + sort bar */
+.rev-filter-bar {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  align-items: center;
+}
+.rev-filter-chip {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  border: 1.5px solid var(--card-border);
+  background: var(--card);
+  color: var(--text2);
+  cursor: pointer;
+  transition: .2s;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+.rev-filter-chip.active {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: var(--db);
+  border-color: var(--o);
+}
+.rev-sort-sel {
+  margin-left: auto;
+  padding: 5px 10px;
+  border: 1.5px solid var(--card-border);
+  border-radius: 10px;
+  font-size: 11px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-family: 'Hind Siliguri', sans-serif;
+  cursor: pointer;
+}
+
+/* Review cards V2 */
+.rev-item-v2 {
+  background: var(--card);
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 10px;
+  transition: .25s;
+}
+.rev-item-v2:hover { border-color: var(--a2); box-shadow: var(--ss); }
+.rev-item-v2.highlight { border-color: var(--y); background: var(--a0); }
+
+.rev-head { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+.rev-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--y), var(--o));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 900; color: var(--db);
+  flex-shrink: 0;
+}
+.rev-meta { flex: 1; }
+.rev-author-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.rev-author-name { font-size: 13px; font-weight: 700; color: var(--text); }
+.rev-verified {
+  display: inline-flex; align-items: center; gap: 3px;
+  background: rgba(5,150,105,.1); color: #059669;
+  font-size: 9px; font-weight: 700;
+  padding: 2px 7px; border-radius: 10px;
+  border: 1px solid rgba(5,150,105,.2);
+}
+.rev-stars-row { color: #f59e0b; font-size: 14px; margin-top: 2px; }
+.rev-date-text { font-size: 10px; color: var(--text2); margin-top: 1px; }
+
+.rev-body { font-size: 13px; color: var(--text); line-height: 1.7; margin-bottom: 8px; }
+
+/* Review photos */
+.rev-photos { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.rev-photo-thumb {
+  width: 60px; height: 60px;
+  border-radius: 10px;
+  background: var(--a0);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  border: 1px solid var(--a1);
+  cursor: pointer;
+  transition: .2s;
+  overflow: hidden;
+}
+.rev-photo-thumb:hover { transform: scale(1.05); border-color: var(--y); }
+
+/* Review actions */
+.rev-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--card-border);
+  flex-wrap: wrap;
+}
+.rev-helpful-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11px; font-weight: 600;
+  border: 1px solid var(--card-border);
+  background: var(--g0);
+  color: var(--text2);
+  cursor: pointer;
+  transition: .2s;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+.rev-helpful-btn:hover { background: var(--a0); border-color: var(--y); color: var(--o); }
+.rev-helpful-btn.voted { background: var(--a1); border-color: var(--y); color: var(--db); }
+.rev-helpful-count { margin-left: auto; font-size: 10px; color: var(--text2); }
+
+/* Admin reply */
+.rev-reply {
+  background: var(--a0);
+  border-left: 3px solid var(--y);
+  border-radius: 0 10px 10px 0;
+  padding: 10px 12px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text2);
+}
+.rev-reply-header { font-size: 11px; font-weight: 700; color: var(--o); margin-bottom: 4px; }
+.rev-reply-input { display: none; margin-top: 6px; }
+.rev-reply-input.show { display: flex; gap: 6px; }
+
+/* Write review form V2 */
+.rev-form-v2 { background: var(--g0); border-radius: 14px; padding: 16px; }
+.rev-form-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+.star-pick-v2 { display: flex; gap: 4px; margin-bottom: 12px; }
+.star-pick-v2 button {
+  font-size: 28px;
+  background: none; border: none; cursor: pointer;
+  transition: transform .15s;
+  padding: 2px;
+  line-height: 1;
+}
+.star-pick-v2 button:hover { transform: scale(1.2); }
+.rev-rating-label { font-size: 12px; color: var(--text2); margin-left: 6px; align-self: center; }
+.rev-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.rev-tag {
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 11px;
+  border: 1.5px solid var(--card-border);
+  background: var(--card);
+  color: var(--text2);
+  cursor: pointer;
+  transition: .2s;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+.rev-tag.selected { background: var(--a1); border-color: var(--y); color: var(--db); }
+.rev-char-count { font-size: 10px; color: var(--text2); text-align: right; margin-top: 3px; }
+.rev-photo-add {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px;
+  border: 1.5px dashed var(--card-border);
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text2);
+  font-size: 12px;
+  margin-bottom: 10px;
+  transition: .2s;
+}
+.rev-photo-add:hover { border-color: var(--y); color: var(--o); background: var(--a0); }
+
+/* Summary keyword tags */
+.rev-keywords { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.rev-keyword { padding: 3px 9px; border-radius: 12px; font-size: 10px; background: var(--a0); color: var(--db); border: 1px solid var(--a1); font-weight: 600; }
+
+@media(max-width:600px){
+  .rev-summary { flex-direction: column; }
+  .rev-avg-big { display: flex; align-items: center; gap: 12px; width: 100%; }
+  .rev-avg-num { font-size: 36px; }
+  .rev-bars { width: 100%; }
+}
+
+/* ── REVIEW MODAL OVERLAY ── */
+#rev-modal{position:fixed!important;inset:0!important;z-index:900!important;display:none;align-items:center;justify-content:center;padding:12px!important;background:rgba(0,0,0,.65)!important;backdrop-filter:blur(4px);}
+#rev-modal.show{display:flex!important;}
 </style>
 </head>
 <body>
@@ -3776,8 +3998,8 @@ body.admin-mode #btt { display: none !important; }
       <button class="abtn2" onclick="$id('broadcast-modal').classList.add('show')">📢 Broadcast পাঠান</button>
     </div>
     <div class="ss"><div class="ss-t">📊 ঘণ্টাওয়ারি বিক্রয় চার্ট (আজ)</div>
-      <div class="hourly-chart" id="hourly-chart"></div>
-      <div class="hr-labels" id="hr-labels"></div>
+      <div class="hourly-chart" id="hourly-chart2"></div>
+      <div class="hr-labels" id="hr-labels2"></div>
     </div>
     <div class="ss"><div class="ss-t">🔔 স্টক শেষ হওয়া পণ্য</div>
       <div id="restock-list"></div>
@@ -4086,18 +4308,7 @@ body.admin-mode #btt { display: none !important; }
 </div>
 
 <!-- REVIEW MODAL -->
-<div class="rev-modal" id="rev-modal">
-  <div class="rev-box">
-    <div class="rev-head"><div class="rev-title" id="rev-title">রিভিউ</div><button class="amc" onclick="closeRevModal()">✕</button></div>
-    <div class="rev-list" id="rev-list"></div>
-    <div class="rev-form" id="rev-form" style="display:none;">
-      <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:10px;">আপনার রিভিউ দিন</div>
-      <div class="star-pick" id="star-pick"></div>
-      <div class="fg"><textarea class="fi" id="rev-text" rows="3" placeholder="আপনার অভিজ্ঞতা লিখুন..."></textarea></div>
-      <button class="btns" style="width:100%;" onclick="submitReview()">রিভিউ জমা দিন</button>
-    </div>
-  </div>
-</div>
+
 
 <!-- IMAGE ZOOM MODAL -->
 <div class="zoom-modal" id="zoom-modal" onclick="closeZoom()">
@@ -4171,8 +4382,8 @@ body.admin-mode #btt { display: none !important; }
     </div>
     <div class="chat-msgs" id="chat-msgs"></div>
     <div class="chat-input-row">
-      <input class="chat-inp" id="chat-inp" placeholder="বার্তা লিখুন..." onkeydown="if(event.key==='Enter')sendChatMsg()">
-      <button class="chat-send" onclick="sendChatMsg()">➤</button>
+      <input class="chat-inp" id="chat-inp" placeholder="বার্তা লিখুন..." onkeydown="if(event.key==='Enter')sendLiveChatMsg()">
+      <button class="chat-send" onclick="sendLiveChatMsg()">➤</button>
     </div>
   </div>
   <button class="chat-toggle" onclick="toggleChat()">💬<span class="chat-badge" id="chat-badge">1</span></button>
@@ -4754,40 +4965,6 @@ function closeZoom(){$id('zoom-modal').classList.remove('show');}
 // ============================================================
 // REVIEWS
 // ============================================================
-function openRevModal(pid){
-  currentRevPid=pid;const p=GP().find(x=>x.id===pid);if(!p)return;
-  var rt=$id('rev-title');if(rt)rt.textContent='⭐ '+p.name+' — রিভিউ';
-  const revs=GRevs(pid);
-  const list=$id('rev-list');
-  if(!revs.length)list.innerHTML='<div style="text-align:center;color:var(--text2);padding:20px;">এখনো কোনো রিভিউ নেই। প্রথম হন!</div>';
-  else list.innerHTML=revs.map(r=>'<div class="rev-item"><div class="rev-stars">'+stars(r.rating)+'</div><div class="rev-author">'+r.userName+'</div><div class="rev-date">'+r.date+'</div><div class="rev-text">'+r.text+'</div></div>').join('');
-  const u=GCU();
-  const rf=$id('rev-form');rf.style.display=u&&!u.isAdmin?'block':'none';
-  if(u&&!u.isAdmin){
-    selectedStars=5;
-    const sp=$id('star-pick');sp.innerHTML=[1,2,3,4,5].map(i=>'<button class="star-btn'+(i<=5?' active':'')+'" onclick="pickStar('+i+')" data-s="'+i+'">★</button>').join('');
-    $id('rev-text').value='';
-  }
-  $id('rev-modal').classList.add('show');
-}
-function closeRevModal(){$id('rev-modal').classList.remove('show');currentRevPid=null;}
-function pickStar(n){
-  selectedStars=n;
-  document.querySelectorAll('.star-btn').forEach(btn=>{const s=parseInt(btn.getAttribute('data-s'));btn.classList.toggle('active',s<=n);btn.textContent=s<=n?'★':'☆';});
-}
-function submitReview(){
-  const u=GCU();if(!u)return;
-  const text=$id('rev-text').value.trim();
-  if(!text){showToast('রিভিউ লিখুন।','err');return;}
-  const revs=GRevs(currentRevPid);
-  revs.unshift({userId:u.id,userName:u.name,rating:selectedStars,text,date:new Date().toLocaleDateString('bn-BD')});
-  localStorage.setItem('reviews_'+currentRevPid,JSON.stringify(revs));
-  // Update average rating
-  const avg=revs.reduce((s,r)=>s+r.rating,0)/revs.length;
-  let prods=GP();prods=prods.map(p=>p.id===currentRevPid?{...p,rating:Math.round(avg*10)/10,ratingCount:revs.length}:p);
-  localStorage.setItem('products',JSON.stringify(prods));
-  showToast('✅ রিভিউ জমা দেওয়া হয়েছে!','ok');closeRevModal();renderProds();
-}
 
 // ============================================================
 // PRODUCTS
@@ -6049,7 +6226,7 @@ function addBotMsg(text){
   chatHistory.push({type:'bot',text:text});
   renderChatMsgs();
 }
-function sendChatMsg(){
+function sendLiveChatMsg(){
   var inp=document.getElementById('chat-inp');
   if(!inp||!inp.value.trim())return;
   var msg=inp.value.trim();inp.value='';
@@ -7664,7 +7841,7 @@ function initDragDrop(){
 // ============================================================
 // PRICE DROP ALERT (simulated)
 // ============================================================
-function checkPriceDrops(){
+function showPriceDropBanner(){
   if(!document.getElementById('page-home').classList.contains('active'))return;
   var prods=GP().filter(function(p){return p.disc>0&&p.disc>=10;});
   if(!prods.length)return;
@@ -8480,21 +8657,7 @@ function previewRevPhoto(e){
   reader.readAsDataURL(file);
 }
 
-// Patch submitReview to include photo
-var _origSR7=submitReview;
-submitReview=function(){
-  // Store photo before calling original
-  var photoToSave=revPhotoData;
-  _origSR7();
-  // Update the last review with photo
-  if(photoToSave&&currentRevPid){
-    var revs=GRevs(currentRevPid);
-    if(revs.length>0){revs[0].photo=photoToSave;localStorage.setItem('reviews_'+currentRevPid,JSON.stringify(revs));}
-  }
-  revPhotoData='';
-  var pi=document.getElementById('rev-photo-input');if(pi)pi.value='';
-  var pp=document.getElementById('rev-photo-preview');if(pp)pp.innerHTML='';
-};
+// Photo review handled in submitNewReview
 
 // Patch openRevModal to show photos in reviews
 var _origORM7=openRevModal;
@@ -8595,9 +8758,9 @@ renderAO=function(){
 // HOURLY SALES CHART
 // ============================================================
 function renderHourlySales(){
-  var chart=document.getElementById('hourly-chart');
-  var labels=document.getElementById('hr-labels');
-  if(!chart||!labels)return;
+  var charts=document.querySelectorAll('.hourly-chart');
+  var labelsEls=document.querySelectorAll('.hr-labels');
+  if(!charts.length||!labelsEls.length)return;
   var os=GO();
   var today=new Date().toDateString();
   var hours=Array(24).fill(0);
@@ -8608,14 +8771,16 @@ function renderHourlySales(){
     }
   });
   var maxH=Math.max.apply(null,hours)||1;
-  chart.innerHTML=hours.map(function(v,i){
+  var barsHtml=hours.map(function(v,i){
     var h=Math.max(2,Math.round(v/maxH*72));
     return '<div class="hr-bar" style="height:'+h+'px;" data-val="'+(v>0?'৳'+v:'')+'"></div>';
   }).join('');
   // Show every 3 hours
-  labels.innerHTML=hours.map(function(_,i){
+  var labelsHtml=hours.map(function(_,i){
     return '<div class="hr-label">'+(i%3===0?i+'h':'')+'</div>';
   }).join('');
+  charts.forEach(function(chart){chart.innerHTML=barsHtml;});
+  labelsEls.forEach(function(labels){labels.innerHTML=labelsHtml;});
 }
 
 // ============================================================
@@ -11078,6 +11243,7 @@ navigate=function(pg){
       initFlashSaleTimer();
       renderRecentlyViewedSection();
       checkPriceDrops();
+      showPriceDropBanner();
       resetIdleTimer();
     },500);
   }
@@ -11310,7 +11476,7 @@ function renderReferralDashboard(el){
   el.innerHTML='<div class="ref-dash">'
     +'<div style="font-size:14px;font-weight:700;margin-bottom:4px;">🤝 রেফারেল প্রোগ্রাম</div>'
     +'<div style="font-size:12px;color:rgba(255,255,255,.75);margin-bottom:8px;">বন্ধুকে রেফার করুন, প্রতিটিতে ৳৫০ পয়েন্ট পান!</div>'
-    +'<div class="ref-code-box" onclick="copyRefCode(\''+code+'\')" title="কপি করুন">'
+    +'<div class="ref-code-box" onclick="copyRefCodeArg(\''+code+'\')" title="কপি করুন">'
     +'<div style="font-size:10px;color:rgba(255,255,255,.7);margin-bottom:4px;">আপনার রেফারেল কোড (ক্লিক করে কপি)</div>'
     +'<div class="ref-code">'+code+'</div>'
     +'</div>'
@@ -11322,7 +11488,7 @@ function renderReferralDashboard(el){
     +'<button onclick="shareReferralCode(\''+code+'\')" style="margin-top:10px;width:100%;padding:9px;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.25);border-radius:10px;color:#fff;font-family:\'Hind Siliguri\',sans-serif;font-size:12px;font-weight:700;cursor:pointer;">📱 শেয়ার করুন</button>'
     +'</div>';
 }
-function copyRefCode(code){navigator.clipboard.writeText(code).then(function(){showToast('✅ রেফারেল কোড কপি: '+code,'ok');});logActivity('🤝','রেফারেল কোড কপি করা হয়েছে');}
+function copyRefCodeArg(code){navigator.clipboard.writeText(code).then(function(){showToast('✅ রেফারেল কোড কপি: '+code,'ok');});logActivity('🤝','রেফারেল কোড কপি করা হয়েছে');}
 function shareReferralCode(code){var text='আমবাজারে আম কিনুন! আমার রেফারেল কোড ব্যবহার করুন: '+code+' — প্রথম অর্ডারে ৳৫০ ছাড় পাবেন! '+window.location.href;if(navigator.share){navigator.share({title:'আমবাজার',text:text});}else{navigator.clipboard.writeText(text).then(function(){showToast('✅ লিঙ্ক কপি হয়েছে!','ok');});}}
 
 // ── ORDER NOTES ──
@@ -11555,6 +11721,416 @@ refreshAdmin=function(){
   },1200);
 })();
 
+
+// ═══════════════════════════════════════════════
+// REVIEW SYSTEM V2 — PREMIUM UPDATE
+// ═══════════════════════════════════════════════
+
+var _currentRevPid = '';
+var _revFilterStar = 0;
+var _revSort = 'newest';
+var _selectedRevRating = 0;
+var _selectedRevTags = [];
+
+// ── Rating labels ──
+var RATING_LABELS = ['', 'খুব খারাপ', 'খারাপ', 'ঠিকঠাক', 'ভালো', 'অসাধারণ!'];
+var REVIEW_TAGS = ['তাজা আম', 'ভালো প্যাকিং', 'দ্রুত ডেলিভারি', 'সুমিষ্ট', 'সঠিক পরিমাণ', 'পরিষ্কার', 'ভালো দাম', 'আবার কিনব'];
+
+// ── Get reviews with caching ──
+function getReviews(pid) {
+  return JSON.parse(localStorage.getItem('reviews_' + pid) || '[]');
+}
+function saveReviews(pid, revs) {
+  localStorage.setItem('reviews_' + pid, JSON.stringify(revs));
+}
+
+// ── Check if user bought product ──
+function isVerifiedBuyer(userId, pid) {
+  return GO().some(function(o) {
+    return o.userId === userId && o.status !== 'cancelled' &&
+      (o.items || []).some(function(i) { return i.id === pid; });
+  });
+}
+
+// ── Rating distribution ──
+function getRatingDist(revs) {
+  var dist = [0, 0, 0, 0, 0, 0]; // index 1-5
+  revs.forEach(function(r) { if (r.rating >= 1 && r.rating <= 5) dist[r.rating]++; });
+  return dist;
+}
+
+// ── Average rating ──
+function getAvgRating(revs) {
+  if (!revs.length) return 0;
+  return (revs.reduce(function(s, r) { return s + r.rating; }, 0) / revs.length).toFixed(1);
+}
+
+// ── MAIN: open review modal ──
+function openRevModal(pid){
+  _currentRevPid=pid;
+  _revFilterStar=0;
+  _revSort='newest';
+  var p=GP().find(function(x){return x.id===pid;});
+  if(!p)return;
+  buildRevModal();
+  var modal=document.getElementById('rev-modal');
+  var titleEl=document.getElementById('rev-title');
+  if(titleEl)titleEl.textContent='⭐ '+p.name+' — রিভিউ';
+  modal.style.display='flex';
+  document.body.style.overflow='hidden';
+  renderRevContent(pid);
+}
+
+// ── Build modal once ──
+function buildRevModal(){
+  var existing=document.getElementById('rev-modal');if(existing)existing.remove();
+  var modal=document.createElement('div');
+  modal.id='rev-modal';
+  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:900;display:none;align-items:center;justify-content:center;padding:12px;backdrop-filter:blur(4px);';
+  modal.innerHTML='<div style="background:var(--card);max-width:580px;width:100%;max-height:88vh;display:flex;flex-direction:column;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4);">'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--card-border);flex-shrink:0;background:var(--card);">'
+    +'<div style="font-size:15px;font-weight:800;color:var(--text);" id="rev-title">⭐ রিভিউ</div>'
+    +'<button onclick="closeRevModal()" style="width:32px;height:32px;border-radius:50%;border:1.5px solid var(--card-border);background:var(--g0);cursor:pointer;font-size:16px;color:var(--text);display:flex;align-items:center;justify-content:center;">✕</button>'
+    +'</div>'
+    +'<div id="rev-body" style="flex:1;overflow-y:auto;padding:16px;"></div>'
+    +'</div>';
+  modal.addEventListener('click',function(e){if(e.target===modal)closeRevModal();});
+  document.body.appendChild(modal);
+}
+function closeRevModal() {
+  var m = document.getElementById('rev-modal');
+  if (m) m.classList.remove('show');
+}
+
+// ── Render full review content ──
+function renderRevContent(pid) {
+  var body = document.getElementById('rev-body');
+  if (!body) return;
+  var revs = getReviews(pid);
+  var u = GCU();
+
+  // Filter + sort
+  var filtered = revs.slice();
+  if (_revFilterStar > 0) filtered = filtered.filter(function(r) { return r.rating === _revFilterStar; });
+  if (_revSort === 'newest') filtered.sort(function(a, b) { return (b.ts || 0) - (a.ts || 0); });
+  else if (_revSort === 'helpful') filtered.sort(function(a, b) { return (b.helpful || 0) - (a.helpful || 0); });
+  else if (_revSort === 'highest') filtered.sort(function(a, b) { return b.rating - a.rating; });
+  else if (_revSort === 'lowest') filtered.sort(function(a, b) { return a.rating - b.rating; });
+
+  var avg = getAvgRating(revs);
+  var dist = getRatingDist(revs);
+  var maxDist = Math.max.apply(null, dist) || 1;
+
+  // ── Summary ──
+  var summaryHtml = '<div class="rev-summary">'
+    + '<div class="rev-avg-big">'
+    + '<div class="rev-avg-num">' + (avg>0?avg:'—') + '</div>'
+    + '<div class="rev-avg-stars">' + renderStarsHtml(parseFloat(avg)) + '</div>'
+    + '<div class="rev-avg-count">' + revs.length + ' টি রিভিউ</div>'
+    + '</div>'
+    + '<div class="rev-bars">'
+    + [5,4,3,2,1].map(function(star) {
+        var cnt = dist[star] || 0;
+        var pct = Math.round(cnt / maxDist * 100);
+        return '<div class="rev-bar-row" onclick="filterByStar(' + star + ')">'
+          + '<span class="rev-bar-label">' + star + '★</span>'
+          + '<div class="rev-bar-track"><div class="rev-bar-fill" style="width:' + pct + '%;"></div></div>'
+          + '<span class="rev-bar-count">' + cnt + '</span>'
+          + '</div>';
+      }).join('')
+    + '</div>'
+    + '</div>';
+
+  // ── Keywords from reviews ──
+  var allWords = revs.map(function(r) { return r.tags || []; }).flat();
+  var wordCount = {};
+  allWords.forEach(function(w) { wordCount[w] = (wordCount[w] || 0) + 1; });
+  var topWords = Object.keys(wordCount).sort(function(a,b){return wordCount[b]-wordCount[a];}).slice(0,5);
+  var keywordsHtml = topWords.length ? '<div class="rev-keywords">' + topWords.map(function(w) {
+    return '<span class="rev-keyword">✓ ' + w + ' (' + wordCount[w] + ')</span>';
+  }).join('') + '</div>' : '';
+
+  // ── Filter bar ──
+  var filterHtml = '<div class="rev-filter-bar">'
+    + '<button class="rev-filter-chip' + (_revFilterStar===0?' active':'') + '" onclick="filterByStar(0)">সব</button>'
+    + [5,4,3,2,1].map(function(s) {
+        return '<button class="rev-filter-chip' + (_revFilterStar===s?' active':'') + '" onclick="filterByStar(' + s + ')">' + s + '★</button>';
+      }).join('')
+    + '<select class="rev-sort-sel" onchange="sortReviews(this.value)">'
+    + '<option value="newest"' + (_revSort==='newest'?' selected':'') + '>নতুন আগে</option>'
+    + '<option value="helpful"' + (_revSort==='helpful'?' selected':'') + '>সহায়ক আগে</option>'
+    + '<option value="highest"' + (_revSort==='highest'?' selected':'') + '>উচ্চ রেটিং</option>'
+    + '<option value="lowest"' + (_revSort==='lowest'?' selected':'') + '>কম রেটিং</option>'
+    + '</select>'
+    + '</div>';
+
+  // ── Review cards ──
+  var cardsHtml = filtered.length
+    ? filtered.map(function(r, i) { return buildRevCard(r, i, pid, u); }).join('')
+    : '<div style="text-align:center;padding:24px;color:var(--text2);font-size:13px;">এই ফিল্টারে কোনো রিভিউ নেই।</div>';
+
+  // ── Write review form ──
+  var canReview = u && !u.isAdmin;
+  var alreadyReviewed = u && revs.some(function(r) { return r.userId === u.id; });
+  var formHtml = canReview ? buildRevForm(pid, u, alreadyReviewed) : '';
+
+  body.innerHTML = summaryHtml + keywordsHtml + filterHtml
+    + '<div id="rev-cards">' + cardsHtml + '</div>'
+    + '<div style="border-top:1px solid var(--card-border);padding-top:14px;margin-top:14px;">' + formHtml + '</div>';
+
+  // Animate bars
+  setTimeout(function() {
+    body.querySelectorAll('.rev-bar-fill').forEach(function(el) {
+      var w = el.style.width; el.style.width = '0';
+      setTimeout(function() { el.style.width = w; }, 50);
+    });
+  }, 50);
+}
+
+// ── Build single review card ──
+function buildRevCard(r, idx, pid, u) {
+  var verified = isVerifiedBuyer(r.userId, pid);
+  var initial = (r.userName || 'অ')[0].toUpperCase();
+  var date = r.ts ? new Date(r.ts).toLocaleDateString('bn-BD') : r.date || '';
+  var starsHtml = renderStarsHtml(r.rating);
+  var helpful = r.helpful || 0;
+  var votedKey = 'helpful_' + pid + '_' + idx;
+  var voted = localStorage.getItem(votedKey);
+  var isMyReview = u && r.userId === u.id;
+  var isAdmin = u && u.isAdmin;
+
+  // Photos
+  var photosHtml = '';
+  if (r.photo) {
+    photosHtml = '<div class="rev-photos"><div class="rev-photo-thumb" onclick="openRevPhoto(\'' + r.photo + '\')">' + r.photo + '</div></div>';
+  }
+
+  // Tags
+  var tagsHtml = (r.tags && r.tags.length) ? '<div class="rev-keywords" style="margin-bottom:8px;">' + r.tags.map(function(t){return '<span class="rev-keyword">✓ '+t+'</span>';}).join('') + '</div>' : '';
+
+  // Admin reply
+  var replyHtml = '';
+  if (r.adminReply) {
+    replyHtml = '<div class="rev-reply"><div class="rev-reply-header">🏪 আমবাজার উত্তর দিয়েছে</div>' + r.adminReply + '</div>';
+  } else if (isAdmin) {
+    replyHtml = '<button onclick="showRevReply(' + idx + ',\'' + pid + '\')" class="rev-helpful-btn" style="margin-top:6px;">💬 উত্তর দিন</button>'
+      + '<div class="rev-reply-input" id="rev-reply-' + idx + '">'
+      + '<input style="flex:1;padding:6px 10px;border:1px solid var(--card-border);border-radius:8px;font-family:\'Hind Siliguri\',sans-serif;font-size:12px;background:var(--input-bg);color:var(--text);" id="rev-reply-inp-' + idx + '" placeholder="উত্তর লিখুন...">'
+      + '<button onclick="submitRevReply(' + idx + ',\'' + pid + '\')" class="ab abg">পাঠান</button>'
+      + '</div>';
+  }
+
+  return '<div class="rev-item-v2' + (isMyReview ? ' highlight' : '') + '">'
+    + '<div class="rev-head">'
+    + '<div class="rev-avatar">' + initial + '</div>'
+    + '<div class="rev-meta">'
+    + '<div class="rev-author-row">'
+    + '<span class="rev-author-name">' + (r.userName || 'অজ্ঞাত') + '</span>'
+    + (verified ? '<span class="rev-verified">✓ যাচাই ক্রেতা</span>' : '')
+    + (isMyReview ? '<span style="font-size:9px;color:var(--o);font-weight:700;">(আপনার রিভিউ)</span>' : '')
+    + '</div>'
+    + '<div class="rev-stars-row">' + starsHtml + ' <span style="font-size:11px;color:var(--text2);">(' + r.rating + '/৫)</span></div>'
+    + '<div class="rev-date-text">' + date + '</div>'
+    + '</div>'
+    + '</div>'
+    + (r.title ? '<div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px;">' + r.title + '</div>' : '')
+    + '<div class="rev-body">' + (r.text || '') + '</div>'
+    + tagsHtml + photosHtml + replyHtml
+    + '<div class="rev-actions">'
+    + '<button class="rev-helpful-btn' + (voted ? ' voted' : '') + '" onclick="voteRevHelpful(\'' + pid + '\',' + idx + ',1)">'
+    + '👍 সহায়ক (' + helpful + ')</button>'
+    + '<button class="rev-helpful-btn" onclick="voteRevHelpful(\'' + pid + '\',' + idx + ',-1)">👎</button>'
+    + (isMyReview ? '<button class="rev-helpful-btn" onclick="deleteMyReview(\'' + pid + '\',' + idx + ')">🗑️ মুছুন</button>' : '')
+    + (isAdmin ? '<button class="rev-helpful-btn" onclick="adminDeleteReview(\'' + pid + '\',' + idx + ')">🗑️ Remove</button>' : '')
+    + '<span class="rev-helpful-count">' + (helpful > 0 ? helpful + ' জন সহায়ক মনে করেছেন' : '') + '</span>'
+    + '</div>'
+    + '</div>';
+}
+
+// ── Build write review form ──
+function buildRevForm(pid, u, alreadyReviewed) {
+  if (alreadyReviewed) return '<div style="text-align:center;padding:12px;color:var(--text2);font-size:13px;">✅ আপনি ইতিমধ্যে এই পণ্যে রিভিউ দিয়েছেন।</div>';
+  return '<div class="rev-form-v2">'
+    + '<div class="rev-form-title">✍️ আপনার রিভিউ লিখুন</div>'
+    + '<div style="display:flex;align-items:center;margin-bottom:12px;">'
+    + '<div class="star-pick-v2" id="star-pick">'
+    + [1,2,3,4,5].map(function(s) {
+        return '<button onclick="pickRevStar(' + s + ')" id="sp-' + s + '" title="' + RATING_LABELS[s] + '">☆</button>';
+      }).join('')
+    + '</div>'
+    + '<span class="rev-rating-label" id="rev-rating-lbl">রেটিং বেছে নিন</span>'
+    + '</div>'
+    + '<div class="fg" style="margin-bottom:8px;">'
+    + '<input class="fi" id="rev-title-inp" placeholder="রিভিউ শিরোনাম (ঐচ্ছিক)" style="margin-bottom:6px;">'
+    + '<textarea class="fi" id="rev-text-inp" rows="3" placeholder="আম কেমন ছিল? স্বাদ, টাটকাত্ব, প্যাকেজিং নিয়ে লিখুন..." oninput="updateRevCharCount(this)" style="resize:none;"></textarea>'
+    + '<div class="rev-char-count" id="rev-char-count">০/৫০০ অক্ষর</div>'
+    + '</div>'
+    + '<div style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:6px;">ট্যাগ যোগ করুন:</div>'
+    + '<div class="rev-tags">' + REVIEW_TAGS.map(function(t) {
+        return '<button class="rev-tag" onclick="toggleRevTag(this,\'' + t + '\')">' + t + '</button>';
+      }).join('') + '</div>'
+    + '<div class="rev-photo-add" onclick="addRevPhoto()" style="margin-top:8px;">'
+    + '📷 <span>ছবি যোগ করুন (ঐচ্ছিক)</span>'
+    + '</div>'
+    + '<button class="bf" onclick="submitNewReview(\'' + pid + '\')" style="width:100%;margin-top:8px;padding:11px;">⭐ রিভিউ জমা দিন</button>'
+    + '</div>';
+}
+
+// ── Star picker ──
+function pickRevStar(n) {
+  _selectedRevRating = n;
+  for (var i = 1; i <= 5; i++) {
+    var btn = document.getElementById('sp-' + i);
+    if (btn) btn.textContent = i <= n ? '⭐' : '☆';
+  }
+  var lbl = document.getElementById('rev-rating-lbl');
+  if (lbl) lbl.textContent = RATING_LABELS[n] || '';
+}
+
+// ── Tag toggle ──
+function toggleRevTag(btn, tag) {
+  btn.classList.toggle('selected');
+  if (btn.classList.contains('selected')) {
+    if (!_selectedRevTags.includes(tag)) _selectedRevTags.push(tag);
+  } else {
+    _selectedRevTags = _selectedRevTags.filter(function(t) { return t !== tag; });
+  }
+}
+
+function updateRevCharCount(ta) {
+  var el = document.getElementById('rev-char-count');
+  if (el) el.textContent = ta.value.length + '/৫০০ অক্ষর';
+}
+
+// ── Submit new review ──
+function submitNewReview(pid) {
+  var u = GCU(); if (!u || u.isAdmin) { showToast('লগইন করুন!', 'err'); return; }
+  if (!_selectedRevRating) { showToast('রেটিং বেছে নিন!', 'err'); return; }
+  var text = (document.getElementById('rev-text-inp') || {}).value || '';
+  if (text.length < 5) { showToast('অন্তত ৫ অক্ষর লিখুন!', 'err'); return; }
+  var title = (document.getElementById('rev-title-inp') || {}).value || '';
+  var revs = getReviews(pid);
+  if (revs.some(function(r) { return r.userId === u.id; })) { showToast('আপনি ইতিমধ্যে রিভিউ দিয়েছেন!', 'err'); return; }
+  var newRev = {
+    userId: u.id,
+    userName: u.name,
+    rating: _selectedRevRating,
+    title: title,
+    text: text,
+    tags: _selectedRevTags.slice(),
+    helpful: 0,
+    ts: Date.now(),
+    date: new Date().toLocaleDateString('bn-BD'),
+  };
+  revs.unshift(newRev);
+  saveReviews(pid, revs);
+  _selectedRevRating = 0;
+  _selectedRevTags = [];
+  // Give loyalty points for review
+  if (typeof addLoyaltyPts === 'function') addLoyaltyPts(u.id, 20);
+  showToast('✅ রিভিউ জমা হয়েছে! +২০ পয়েন্ট পেয়েছেন 🎉', 'ok', 4000);
+  addNotif('⭐', 'রিভিউ সফলভাবে জমা হয়েছে। ধন্যবাদ!');
+  logActivity && logActivity('⭐', u.name + ' রিভিউ দিয়েছেন: ' + pid);
+  renderRevContent(pid);
+}
+
+// ── Helper: render star HTML ──
+function renderStarsHtml(rating) {
+  var full = Math.floor(rating);
+  var half = (rating - full) >= 0.5;
+  var html = '';
+  for (var i = 1; i <= 5; i++) {
+    if (i <= full) html += '⭐';
+    else if (i === full + 1 && half) html += '✨';
+    else html += '☆';
+  }
+  return html;
+}
+
+// ── Filter + sort ──
+function filterByStar(star) {
+  _revFilterStar = star;
+  renderRevContent(_currentRevPid);
+}
+function sortReviews(val) {
+  _revSort = val;
+  renderRevContent(_currentRevPid);
+}
+
+// ── Helpful vote ──
+function voteRevHelpful(pid, idx, dir) {
+  var key = 'helpful_' + pid + '_' + idx;
+  if (localStorage.getItem(key)) { showToast('ইতিমধ্যে ভোট দিয়েছেন।', 'err'); return; }
+  var revs = getReviews(pid);
+  if (!revs[idx]) return;
+  revs[idx].helpful = (revs[idx].helpful || 0) + (dir > 0 ? 1 : 0);
+  saveReviews(pid, revs);
+  localStorage.setItem(key, '1');
+  showToast(dir > 0 ? '👍 ধন্যবাদ!' : '👎 মতামতের জন্য ধন্যবাদ', 'ok', 1500);
+  renderRevContent(pid);
+}
+
+// ── Delete review ──
+function deleteMyReview(pid, idx) {
+  if (!confirm('রিভিউটি মুছে ফেলবেন?')) return;
+  var revs = getReviews(pid);
+  revs.splice(idx, 1);
+  saveReviews(pid, revs);
+  showToast('রিভিউ মুছে ফেলা হয়েছে।', 'ok');
+  renderRevContent(pid);
+}
+function adminDeleteReview(pid, idx) {
+  var revs = getReviews(pid);
+  revs.splice(idx, 1);
+  saveReviews(pid, revs);
+  showToast('রিভিউ সরানো হয়েছে।', 'ok');
+  logActivity && logActivity('🗑️', 'Admin deleted review on ' + pid);
+  renderRevContent(pid);
+}
+
+// ── Admin reply ──
+function showRevReply(idx, pid) {
+  var el = document.getElementById('rev-reply-' + idx);
+  if (el) el.classList.toggle('show');
+}
+function submitRevReply(idx, pid) {
+  var inp = document.getElementById('rev-reply-inp-' + idx);
+  if (!inp || !inp.value.trim()) return;
+  var revs = getReviews(pid);
+  if (revs[idx]) { revs[idx].adminReply = inp.value.trim(); saveReviews(pid, revs); }
+  showToast('✅ উত্তর যোগ হয়েছে!', 'ok');
+  renderRevContent(pid);
+}
+
+// ── Photo ──
+function addRevPhoto() { showToast('📷 ছবি আপলোড ফিচার শীঘ্রই আসছে!', 'ok'); }
+function openRevPhoto(src) {
+  var ov = document.createElement('div');
+  ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;display:flex;align-items:center;justify-content:center;font-size:80px;cursor:pointer;';
+  ov.textContent = src;
+  ov.onclick = function() { ov.remove(); };
+  document.body.appendChild(ov);
+}
+
+// ── Patch buildCard — show avg rating ──
+var _origBCRevV2 = buildCard;
+buildCard = function(p) {
+  var card = _origBCRevV2(p);
+  var revs = getReviews(p.id);
+  if (revs.length) {
+    var avg = getAvgRating(revs);
+    var ratingHtml = '<div style="display:flex;align-items:center;gap:3px;margin-top:3px;">'
+      + '<span style="color:#f59e0b;font-size:12px;">⭐</span>'
+      + '<span style="font-size:11px;font-weight:700;color:var(--text);">' + avg + '</span>'
+      + '<span style="font-size:10px;color:var(--text2);">(' + revs.length + ')</span>'
+      + '</div>';
+    card = card.replace('</div></div></div>', ratingHtml + '</div></div></div>');
+  }
+  return card;
+};
+
+// ── Initialise (override old openRevModal) ──
+// Old function is replaced by new one above
 </script>
 <footer class="ft">
   <!-- ANIMATED MARQUEE -->
