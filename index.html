@@ -4691,6 +4691,9 @@ function updBadge(){
   const wq=document.getElementById('wl-quick');if(wq)wq.style.display=wl>0?'block':'none';
 }
 function $id(id){return document.getElementById(id);}
+function isValidBDPhone(ph){
+  return /^(?:\+?88)?01[3-9]\d{8}$/.test(String(ph||'').replace(/[\s-]/g,''));
+}
 function esc(s){
   if(s===null||s===undefined)return '';
   return String(s).replace(/[&<>"']/g,function(c){
@@ -4808,6 +4811,7 @@ function doReg(){
   const er=$id('re1'),ok=$id('ro1');er.classList.remove('show');ok.classList.remove('show');
   if(!n||!e||!ph||!pw){er.innerHTML='⚠️ সকল তথ্য পূরণ করুন।';return er.classList.add('show');}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){er.innerHTML='⚠️ সঠিক ইমেইল লিখুন।';return er.classList.add('show');}
+  if(!isValidBDPhone(ph)){er.innerHTML='⚠️ সঠিক মোবাইল নম্বর লিখুন। (যেমন: 01712345678)';return er.classList.add('show');}
   if(pw.length<6){er.innerHTML='⚠️ পাসওয়ার্ড কমপক্ষে ৬ অক্ষর।';return er.classList.add('show');}
   const us=GU();if(us.find(u=>u.email===e)){er.innerHTML='⚠️ এই ইমেইলে অ্যাকাউন্ট আছে।';return er.classList.add('show');}
   setLoading('reg-btn',true);
@@ -5257,6 +5261,7 @@ function doOrder(){
   const n=$id('on').value.trim(),ph=$id('oph').value.trim(),addr=$id('oaddr').value.trim(),dt=$id('odt').value,note=$id('onote').value.trim();
   const er=$id('oe1');er.classList.remove('show');
   if(!n||!ph||!addr||!dt){er.innerHTML='⚠️ সকল তথ্য পূরণ করুন।';return er.classList.add('show');}
+  if(!isValidBDPhone(ph)){er.innerHTML='⚠️ সঠিক মোবাইল নম্বর লিখুন। (যেমন: 01712345678) — ডেলিভারির জন্য এটি গুরুত্বপূর্ণ।';return er.classList.add('show');}
   setLoading('order-btn',true);
   setTimeout(()=>{
     const u=GCU(),cart=GCart();
