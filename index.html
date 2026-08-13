@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#92400e">
 <title>🥭 আমবাজার - সেরা আমের দোকান</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="manifest" href="data:application/json,{}">
 <style>
@@ -117,8 +119,8 @@ select.fi{cursor:pointer;}
 .sw a{color:var(--o);font-weight:600;cursor:pointer;}.sw a:hover{text-decoration:underline;}
 .al{padding:11px 14px;border-radius:var(--r);font-size:13px;margin-bottom:14px;font-weight:500;display:none;}
 .al.show{display:flex;align-items:center;gap:8px;animation:fadeUp .3s ease;}
-.ae2{background:#fef2f2;color:var(--err);border:1px solid #fca5a5;}
-.ao2{background:#f0fdf4;color:var(--ok);border:1px solid #86efac;}
+.ae2{background:var(--err-bg);color:var(--err);border:1px solid #fca5a5;}
+.ao2{background:var(--ok-bg);color:var(--ok);border:1px solid #86efac;}
 .pw-wrap{position:relative;}
 .pw-eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:16px;color:var(--g4);}
 /* HERO */
@@ -149,7 +151,7 @@ select.fi{cursor:pointer;}
 .gb-t{color:white;font-size:13px;font-weight:500;}
 .gb-b{display:flex;gap:8px;}
 .gbl{padding:7px 18px;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:.2s;}
-.gb-l{padding:7px 18px;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:.2s;}.gbl-l{background:var(--y);color:var(--db);}.gbl-l:hover{background:white;}
+.gb-l{padding:7px 18px;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:.2s;}.gbl-l{background:var(--y);color:var(--db);}.gbl-l:hover{background:white;color:#92400e;}
 .gbl-r{background:transparent;border:2px solid rgba(255,255,255,.5);color:white;}.gbl-r:hover{background:rgba(255,255,255,.15);}
 /* SEARCH BAR */
 .search-hero{padding:16px 20px;background:var(--card);border-bottom:2px solid var(--card-border);position:sticky;top:60px;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06);}
@@ -203,7 +205,7 @@ select.fi{cursor:pointer;}
 /* WISHLIST HEART */
 .wl-btn{position:absolute;top:10px;right:10px;width:32px;height:32px;background:rgba(255,255,255,.9);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.3s;z-index:3;box-shadow:0 2px 8px rgba(0,0,0,.15);}
 .wl-btn:hover{transform:scale(1.2);}
-.wl-btn.liked{background:#fef2f2;color:var(--err);}
+.wl-btn.liked{background:var(--err-bg);color:var(--err);}
 /* STOCK BAR */
 .stock-bar{padding:0 15px 10px;}
 .stock-label{font-size:11px;color:var(--text2);margin-bottom:3px;display:flex;justify-content:space-between;}
@@ -219,7 +221,7 @@ select.fi{cursor:pointer;}
 .pp sup{font-size:12px;font-weight:600;}
 .pp span{font-size:11px;color:var(--g4);font-weight:400;}
 .pop{font-size:12px;color:var(--g4);text-decoration:line-through;}
-.psv{font-size:10px;background:#fef2f2;color:var(--err);padding:2px 5px;border-radius:4px;font-weight:700;}
+.psv{font-size:10px;background:var(--err-bg);color:var(--err);padding:2px 5px;border-radius:4px;font-weight:700;}
 .prt{display:flex;align-items:center;gap:6px;margin-bottom:7px;cursor:pointer;}
 .prs{color:#f59e0b;font-size:12px;}
 .prc{font-size:12px;color:var(--text2);}
@@ -285,7 +287,7 @@ select.fi{cursor:pointer;}
 .cqb{width:22px;height:22px;border-radius:5px;border:1.5px solid var(--y);background:var(--card);color:var(--o);font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;line-height:1;}
 .cqb:hover{background:var(--y);color:white;}
 .cqv{font-size:12px;font-weight:700;min-width:16px;text-align:center;color:var(--text);}
-.ci-del{margin-left:auto;background:#fef2f2;border:1px solid #fca5a5;color:var(--err);border-radius:5px;padding:3px 7px;font-size:11px;cursor:pointer;font-family:'Hind Siliguri',sans-serif;transition:.2s;}
+.ci-del{margin-left:auto;background:var(--err-bg);border:1px solid #fca5a5;color:var(--err);border-radius:5px;padding:3px 7px;font-size:11px;cursor:pointer;font-family:'Hind Siliguri',sans-serif;transition:.2s;}
 .ci-del:hover{background:var(--err);color:white;}
 .cpb{padding:10px 14px;border-top:1px solid var(--card-border);}
 .cpr{display:flex;gap:7px;}
@@ -400,7 +402,7 @@ select.fi{cursor:pointer;}
 .at tr:hover td{background:var(--a0);}
 .ab{padding:4px 9px;border-radius:6px;font-family:'Hind Siliguri',sans-serif;font-size:11px;font-weight:600;cursor:pointer;border:none;transition:.2s;margin-right:3px;white-space:nowrap;}
 .abe{background:#dbeafe;color:#1e40af;}.abe:hover{background:#1e40af;color:white;}
-.abd{background:#fef2f2;color:var(--err);}.abd:hover{background:var(--err);color:white;}
+.abd{background:var(--err-bg);color:var(--err);}.abd:hover{background:var(--err);color:white;}
 .abg{background:#d1fae5;color:#065f46;}.abg:hover{background:#065f46;color:white;}
 .abe2{background:#f3e8ff;color:#7c3aed;}.abe2:hover{background:#7c3aed;color:white;}
 .sse{padding:5px 7px;border:1.5px solid var(--input-border);border-radius:6px;font-family:'Hind Siliguri',sans-serif;font-size:11px;cursor:pointer;background:var(--input-bg);color:var(--text);}
@@ -994,7 +996,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--y); outline-off
 .pstat-label{font-size:11px;color:var(--text2);margin-top:3px;}
 .profile-section-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
 .login-hist-item{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--g0);border-radius:10px;margin-bottom:6px;font-size:12px;color:var(--text2);}
-.cancel-btn{padding:5px 10px;background:#fef2f2;border:1px solid #fca5a5;color:var(--err);border-radius:7px;font-family:'Hind Siliguri',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:.2s;}
+.cancel-btn{padding:5px 10px;background:var(--err-bg);border:1px solid #fca5a5;color:var(--err);border-radius:7px;font-family:'Hind Siliguri',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:.2s;}
 .cancel-btn:hover{background:var(--err);color:white;}
 /* ===== RELATED PRODUCTS ===== */
 .related-sec{max-width:1280px;margin:0 auto;padding:0 20px 32px;}
@@ -1148,7 +1150,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--y); outline-off
 .pp span{font-size:11px;color:var(--g4);font-weight:500;letter-spacing:0;}
 .price-orig{display:flex;flex-direction:column;align-items:flex-end;gap:2px;}
 .pop{font-size:12px;color:var(--g4);text-decoration:line-through;}
-.psv{font-size:11px;background:linear-gradient(135deg,#fef2f2,#fee2e2);color:var(--err);padding:3px 8px;border-radius:8px;font-weight:700;border:1px solid #fca5a5;}
+.psv{font-size:11px;background:var(--err-bg);color:var(--err);padding:3px 8px;border-radius:8px;font-weight:700;border:1px solid #fca5a5;}
 /* RATING */
 .prt{
   display:flex;align-items:center;gap:8px;margin-bottom:8px;cursor:pointer;
@@ -1373,9 +1375,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--y); outline-off
 .hero-inner{will-change:transform;transition:transform .1s linear;}
 
 /* REFERRAL SECTION */
-.referral-box{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;border-radius:16px;padding:18px;margin:0 20px 16px;display:none;}
-.ref-code{background:white;border:2px dashed var(--ok);border-radius:10px;padding:10px 16px;font-size:18px;font-weight:800;color:var(--ok);text-align:center;letter-spacing:3px;cursor:pointer;transition:.2s;}
-.ref-code:hover{background:#f0fdf4;}
+.referral-box{background:var(--ok-bg);border:1.5px solid #86efac;border-radius:16px;padding:18px;margin:0 20px 16px;display:none;}
+.ref-code{background:var(--card);border:2px dashed var(--ok);border-radius:10px;padding:10px 16px;font-size:18px;font-weight:800;color:var(--ok);text-align:center;letter-spacing:3px;cursor:pointer;transition:.2s;}
+.ref-code:hover{background:var(--ok-bg);}
 
 /* BACKUP/RESTORE */
 .backup-section{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
@@ -1465,7 +1467,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--y); outline-off
 .level-gold{background:linear-gradient(135deg,#f59e0b,#d97706);color:white;}
 .level-platinum{background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:white;}
 /* POINT REDEMPTION */
-.redeem-box{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;border-radius:12px;padding:12px 14px;margin-bottom:12px;}
+.redeem-box{background:var(--ok-bg);border:1.5px solid #86efac;border-radius:12px;padding:12px 14px;margin-bottom:12px;}
 .redeem-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
 .redeem-info{font-size:12px;color:var(--ok);font-weight:600;}
 .redeem-btn{padding:6px 14px;background:var(--ok);color:white;border:none;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;}
@@ -1596,7 +1598,7 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
 /* BUNDLE DEALS */
 .bundle-section{background:linear-gradient(135deg,#fef3c7,#fde68a,#fbbf24);border-radius:20px;padding:20px;margin:0 20px 16px;border:2px solid var(--y);}
 .bundle-title{font-size:16px;font-weight:800;color:var(--db);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.bundle-card{background:white;border-radius:14px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:.25s;cursor:pointer;}
+.bundle-card{background:var(--card);border-radius:14px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.06);transition:.25s;cursor:pointer;}
 .bundle-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1);}
 .bundle-emoji{font-size:28px;}
 .bundle-info{flex:1;}
@@ -1646,7 +1648,7 @@ kbd{background:var(--g1);border:1px solid var(--g2);border-radius:5px;padding:2p
 
 /* COUPON GENERATOR */
 .coupon-gen-box{background:linear-gradient(135deg,var(--a0),var(--a1));border:1.5px solid var(--y);border-radius:14px;padding:16px;}
-.gen-code-display{font-family:monospace;font-size:20px;font-weight:800;letter-spacing:3px;color:var(--db);text-align:center;padding:10px;background:white;border-radius:10px;border:2px dashed var(--y);margin:10px 0;cursor:pointer;}
+.gen-code-display{font-family:monospace;font-size:20px;font-weight:800;letter-spacing:3px;color:var(--db);text-align:center;padding:10px;background:var(--card);border-radius:10px;border:2px dashed var(--y);margin:10px 0;cursor:pointer;}
 .gen-code-display:hover{background:var(--a0);}
 
 /* ORDER FULFILLMENT */
@@ -1826,7 +1828,7 @@ button:active:not(.no-ripple){transform:scale(.97);}
 /* DELIVERY MAP */
 .delivery-map{background:linear-gradient(135deg,#e0f2fe,#bae6fd);border-radius:16px;padding:20px;margin:0 20px 16px;border:1px solid #7dd3fc;position:relative;overflow:hidden;}
 .delivery-map-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px;}
-.delivery-area{background:white;border-radius:10px;padding:8px;text-align:center;font-size:11px;font-weight:600;color:var(--db);border:1.5px solid #7dd3fc;transition:.2s;}
+.delivery-area{background:var(--card);border-radius:10px;padding:8px;text-align:center;font-size:11px;font-weight:600;color:var(--db);border:1.5px solid #7dd3fc;transition:.2s;}
 .delivery-area:hover{background:var(--a1);border-color:var(--o);}
 .delivery-area.same-day{border-color:var(--ok);background:#d1fae5;color:#065f46;}
 
@@ -1907,7 +1909,7 @@ button:active:not(.no-ripple){transform:scale(.97);}
 .coupon-bulk-row{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
 
 /* RESTOCK ALERT */
-.restock-alert-badge{background:linear-gradient(135deg,#fef2f2,#fee2e2);border:1.5px solid #fca5a5;border-radius:10px;padding:10px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.restock-alert-badge{background:var(--err-bg);border:1.5px solid #fca5a5;border-radius:10px;padding:10px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
 
 /* CUSTOMER BLACKLIST */
 .blacklist-badge{background:linear-gradient(135deg,#374151,#1f2937);color:white;font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px;letter-spacing:.5px;}
@@ -2614,7 +2616,7 @@ body.admin-mode footer,body.admin-mode .bnav,body.admin-mode #wa-float,body.admi
 .checkin-day{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;background:rgba(255,255,255,.12);color:rgba(255,255,255,.6);font-size:11px;}
 .checkin-day.done{background:var(--y);color:var(--db);}
 .checkin-day.today{background:rgba(255,255,255,.25);color:#fff;border:2px solid #fff;}
-.checkin-btn{padding:10px 24px;background:#fff;color:var(--db);border:none;border-radius:10px;font-family:'Hind Siliguri',sans-serif;font-size:13px;font-weight:700;cursor:pointer;}
+.checkin-btn{padding:10px 24px;background:var(--card);color:var(--db);border:none;border-radius:10px;font-family:'Hind Siliguri',sans-serif;font-size:13px;font-weight:700;cursor:pointer;}
 .checkin-btn:disabled{opacity:.5;cursor:default;}
 
 /* LUCKY DRAW */
@@ -4341,6 +4343,23 @@ body.admin-mode #btt { display: none !important; }
   </div>
 </div>
 
+<!-- EDIT PROFILE MODAL -->
+<div class="am" id="ep-modal">
+  <div class="amb" style="max-width:440px;">
+    <div class="amh"><div class="amt">✏️ প্রোফাইল সম্পাদনা</div><button class="amc" onclick="closeEditProfile()">✕</button></div>
+    <div class="al ae2" id="ep-err"></div><div class="al ao2" id="ep-ok"></div>
+    <div class="fg"><label class="fl">নাম</label><input class="fi" id="ep-name" type="text" placeholder="আপনার নাম"></div>
+    <div class="fg"><label class="fl">ইমেইল</label><input class="fi" id="ep-email" type="email" placeholder="example@gmail.com"></div>
+    <div class="fg"><label class="fl">ফোন নম্বর</label><input class="fi" id="ep-phone" type="tel" placeholder="01XXXXXXXXX"></div>
+    <div style="border-top:1px solid var(--card-border);margin:16px 0 12px;padding-top:12px;">
+      <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px;">🔒 পাসওয়ার্ড পরিবর্তন <span style="font-weight:400;color:var(--text2);font-size:11px;">(ঐচ্ছিক)</span></div>
+      <div class="fg"><label class="fl">বর্তমান পাসওয়ার্ড</label><input class="fi" id="ep-curpwd" type="password" placeholder="পরিবর্তন করতে চাইলে দিন"></div>
+      <div class="fg"><label class="fl">নতুন পাসওয়ার্ড</label><input class="fi" id="ep-newpwd" type="password" placeholder="নতুন পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)"></div>
+    </div>
+    <div class="mac"><button class="btnc" onclick="closeEditProfile()">বাতিল</button><button class="btns" id="ep-save-btn" onclick="saveProfileEdit()">সংরক্ষণ করুন</button></div>
+  </div>
+</div>
+
 <!-- CONFIRM MODAL -->
 <div class="am" id="cfm">
   <div class="amb" style="max-width:380px;text-align:center;">
@@ -4724,13 +4743,6 @@ function initTheme(){
 }
 
 // ============================================================
-// BACK TO TOP + SCROLL
-// ============================================================
-window.addEventListener('scroll',()=>{
-  const btt=$id('btt');if(btt)btt.classList.toggle('show',window.scrollY>400);
-});
-
-// ============================================================
 // SESSION MANAGEMENT
 // ============================================================
 function resetSession(){
@@ -4796,7 +4808,7 @@ function updNav(){
   }else{
     if(gb)gb.style.display='none';
     nc.innerHTML=`<button class="nl" onclick="navigate('home')">🏠 হোম</button><button class="nl" onclick="navigate('wishlist')">❤️ পছন্দ</button><button class="nl" onclick="navigate('orders')">📦 অর্ডার</button>`;
-    nr.innerHTML=`${dmBtn}<span class="nu"><div class="av">${u.name.charAt(0).toUpperCase()}</div><span class="nu-name">${u.name}</span></span><div class="cw"><button class="nb np" onclick="openCart()">🛒 কার্ট</button><span class="cb" id="cb2">${cartCount()}</span></div><button class="nb nd" onclick="doLogout()">লগআউট</button>`;
+    nr.innerHTML=`${dmBtn}<span class="nu" onclick="navigate('profile')" style="cursor:pointer;" title="আমার প্রোফাইল"><div class="av">${esc(u.name).charAt(0).toUpperCase()}</div><span class="nu-name">${esc(u.name)}</span></span><div class="cw"><button class="nb np" onclick="openCart()">🛒 কার্ট</button><span class="cb" id="cb2">${cartCount()}</span></div><button class="nb nd" onclick="doLogout()">লগআউট</button>`;
   }
   updBadge();
 }
@@ -5505,7 +5517,7 @@ function renderAP(){
     const th=p.img?'<img src="'+p.img+'" class="pt2" alt="">':'<span class="pe">🥭</span>';
     const dp=dPrice(p);
     const stkBadge=p.stock<=0
-      ?'<span class="sbg" style="background:#fef2f2;color:var(--err);">স্টক নেই</span>'
+      ?'<span class="sbg" style="background:var(--err-bg);color:var(--err);">স্টক নেই</span>'
       :p.stock<=15?'<span class="sbg" style="background:#fef3c7;color:#92400e;">'+p.stock+' কেজি</span>'
       :'<span style="color:var(--ok);">'+p.stock+' কেজি</span>';
     const qStyle=p.quality==='সুপার প্রিমিয়াম'?'background:#d1fae5;color:#065f46':p.quality==='প্রিমিয়াম'?'background:#dbeafe;color:#1e40af':'background:#f3f4f6;color:#4b5563';
@@ -5516,7 +5528,7 @@ function renderAP(){
       +'<td>📍 '+p.origin+'</td>'
       +'<td><span class="sbg" style="'+qStyle+'">'+p.quality+'</span></td>'
       +'<td><span style="'+(p.disc>0?'text-decoration:line-through;color:var(--g4)':'color:var(--o);font-weight:700;')+'">৳'+p.price+'</span></td>'
-      +'<td>'+(p.disc>0?'<span class="sbg" style="background:#fef2f2;color:var(--err);">'+p.disc+'%</span>':'—')+'</td>'
+      +'<td>'+(p.disc>0?'<span class="sbg" style="background:var(--err-bg);color:var(--err);">'+p.disc+'%</span>':'—')+'</td>'
       +'<td><strong style="color:var(--o);">৳'+dp+'</strong></td>'
       +'<td>'+stkBadge+'</td>'
       +'<td>'
@@ -5710,8 +5722,6 @@ function closeCF(){$id('cfm').classList.remove('show');_delTarget={};}
   const u=GCU();
   if(u){if(u.isAdmin)navigate('admin');else{navigate('home');resetSession();}}
   else navigate('home');
-  // Back to top scroll listener
-  window.addEventListener('scroll',()=>{const b=$id('btt');if(b)b.classList.toggle('show',window.scrollY>400);});
   updBadge();
   window.addEventListener('beforeunload',()=>{if(adminInterval){clearInterval(adminInterval);}if(flashInterval){clearInterval(flashInterval);}});
 })();
@@ -5885,18 +5895,6 @@ doOrder=function(){
 })();
 
 // ============================================================
-// TOP PROGRESS BAR
-// ============================================================
-(function initProgress(){
-  var bar=$id('top-bar');if(!bar)return;
-  window.addEventListener('scroll',function(){
-    var d=document.documentElement;
-    var pct=(d.scrollTop||document.body.scrollTop)/(d.scrollHeight-d.clientHeight)*100;
-    bar.style.width=Math.min(100,pct)+'%';
-  });
-})();
-
-// ============================================================
 // PROMO BAR
 // ============================================================
 function closePromo(){var p=$id('promo-bar');if(p){p.style.display='none';sessionStorage.setItem('promo-closed','1');}}
@@ -5948,10 +5946,13 @@ function renderProfile(){
   var hist=(us&&us.loginHistory)||[];
   wrap.innerHTML='<div class="profile-card">'
     +'<div class="profile-header">'
-    +'<div class="profile-avatar">'+u.name.charAt(0).toUpperCase()+'</div>'
-    +'<div><div class="profile-name">'+u.name+'</div>'
-    +'<div class="profile-email">📧 '+u.email+'</div>'
-    +'<div class="profile-badge">🏆 '+pts+' লয়্যালটি পয়েন্ট</div></div></div>'
+    +'<div class="profile-avatar">'+esc(u.name).charAt(0).toUpperCase()+'</div>'
+    +'<div style="flex:1;"><div class="profile-name">'+esc(u.name)+'</div>'
+    +'<div class="profile-email">📧 '+esc(u.email)+'</div>'
+    +(us&&us.phone?'<div class="profile-email">📞 '+esc(us.phone)+'</div>':'')
+    +'<div class="profile-badge">🏆 '+pts+' লয়্যালটি পয়েন্ট</div></div>'
+    +'<button class="ab" style="align-self:flex-start;white-space:nowrap;" onclick="openEditProfile()">✏️ সম্পাদনা</button>'
+    +'</div>'
     +'<div class="profile-stats">'
     +'<div class="pstat"><div class="pstat-val">'+os.length+'</div><div class="pstat-label">মোট অর্ডার</div></div>'
     +'<div class="pstat"><div class="pstat-val">৳'+spent.toLocaleString()+'</div><div class="pstat-label">মোট ব্যয়</div></div>'
@@ -5975,6 +5976,54 @@ function renderProfile(){
     +'<button class="bf" onclick="navigate(\'orders\')" style="font-size:13px;padding:11px;">📦 আমার অর্ডার</button>'
     +'<button class="bf" onclick="doLogout()" style="font-size:13px;padding:11px;background:linear-gradient(135deg,var(--err),#b91c1c);">🚪 লগআউট</button>'
     +'</div>';
+}
+
+// ============================================================
+// EDIT PROFILE
+// ============================================================
+function openEditProfile(){
+  var u=GCU();if(!u)return;
+  var us=GU().find(function(x){return x.id===u.id;});
+  if(!us)return;
+  $id('ep-name').value=us.name||'';
+  $id('ep-email').value=us.email||'';
+  $id('ep-phone').value=us.phone||'';
+  $id('ep-curpwd').value='';
+  $id('ep-newpwd').value='';
+  var er=$id('ep-err'),ok=$id('ep-ok');if(er)er.classList.remove('show');if(ok)ok.classList.remove('show');
+  var m=$id('ep-modal');if(m)m.classList.add('show');
+}
+function closeEditProfile(){var m=$id('ep-modal');if(m)m.classList.remove('show');}
+function saveProfileEdit(){
+  var u=GCU();if(!u)return;
+  var er=$id('ep-err'),ok=$id('ep-ok');er.classList.remove('show');ok.classList.remove('show');
+  var name=$id('ep-name').value.trim();
+  var email=$id('ep-email').value.trim();
+  var phone=$id('ep-phone').value.trim();
+  var curPwd=$id('ep-curpwd').value;
+  var newPwd=$id('ep-newpwd').value;
+  if(!name||!email||!phone){er.innerHTML='⚠️ নাম, ইমেইল ও ফোন নম্বর আবশ্যক।';return er.classList.add('show');}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){er.innerHTML='⚠️ সঠিক ইমেইল লিখুন।';return er.classList.add('show');}
+  if(!isValidBDPhone(phone)){er.innerHTML='⚠️ সঠিক মোবাইল নম্বর লিখুন। (যেমন: 01712345678)';return er.classList.add('show');}
+  var us=GU();
+  var dup=us.find(function(x){return x.email===email&&x.id!==u.id;});
+  if(dup){er.innerHTML='⚠️ এই ইমেইলে অন্য একটি অ্যাকাউন্ট আছে।';return er.classList.add('show');}
+  var idx=us.findIndex(function(x){return x.id===u.id;});
+  if(idx<0)return;
+  if(curPwd||newPwd){
+    if(!curPwd||!newPwd){er.innerHTML='⚠️ পাসওয়ার্ড পরিবর্তন করতে বর্তমান ও নতুন — দুটোই দিন।';return er.classList.add('show');}
+    if(us[idx].password!==curPwd){er.innerHTML='⚠️ বর্তমান পাসওয়ার্ড সঠিক নয়।';return er.classList.add('show');}
+    if(newPwd.length<6){er.innerHTML='⚠️ নতুন পাসওয়ার্ড কমপক্ষে ৬ অক্ষর হতে হবে।';return er.classList.add('show');}
+    us[idx].password=newPwd;
+  }
+  us[idx].name=name;us[idx].email=email;us[idx].phone=phone;
+  localStorage.setItem('users',JSON.stringify(us));
+  SCU({id:u.id,name:name,email:email,isAdmin:false});
+  ok.innerHTML='✅ প্রোফাইল সফলভাবে আপডেট হয়েছে!';ok.classList.add('show');
+  showToast('✅ প্রোফাইল আপডেট হয়েছে','ok');
+  renderProfile();
+  updNav();
+  setTimeout(closeEditProfile,1200);
 }
 
 // ============================================================
@@ -6210,12 +6259,19 @@ function initParticles(){
 // PARALLAX HERO
 // ============================================================
 (function(){
+  var parallaxTicking=false;
   window.addEventListener('scroll',function(){
-    var hero=document.querySelector('.hero');
-    if(!hero||!document.getElementById('page-home').classList.contains('active'))return;
-    var inner=hero?hero.querySelector('.hc'):null;
-    if(inner)inner.style.transform='translateY('+window.scrollY*0.25+'px)';
-  });
+    if(parallaxTicking)return;
+    parallaxTicking=true;
+    requestAnimationFrame(function(){
+      parallaxTicking=false;
+      var homePage=document.getElementById('page-home');
+      if(!homePage||!homePage.classList.contains('active'))return;
+      var hero=document.querySelector('.hero');if(!hero)return;
+      var inner=hero.querySelector('.hc');
+      if(inner)inner.style.transform='translateY('+window.scrollY*0.25+'px)';
+    });
+  },{passive:true});
 })();
 
 // ============================================================
@@ -7996,15 +8052,6 @@ renderProds=function(f){
 // ============================================================
 // 3D CARD TILT
 // ============================================================
-(function init3DTilt(){
-  document.addEventListener('mousemove',function(e){
-    var card=e.target.closest('.pc');
-    if(!card||window.innerWidth<700)return;
-    var rect=card.getBoundingClientRect();
-    var x=(e.clientX-rect.left)/rect.width-.5;
-    var y=(e.clientY-rect.top)/rect.height-.5;
-    card.style.transform='translateY(-10px) rotateY('+(x*12)+'deg) rotateX('+(-y*8)+'deg)';
-  });
 (function init3DTiltSafe(){
   if(window.innerWidth<700)return;
   function attach(card){
@@ -8023,7 +8070,6 @@ renderProds=function(f){
   attachAll();
   var pg=document.getElementById('pg');
   if(pg)new MutationObserver(attachAll).observe(pg,{childList:true});
-})();
 })();
 
 // ============================================================
@@ -8571,13 +8617,21 @@ navigate=function(pg){
 // ============================================================
 // SCROLL PROGRESS BAR
 // ============================================================
-window.addEventListener('scroll',function(){
+(function(){
   var bar=document.getElementById('scroll-progress');
   if(!bar)return;
-  var d=document.documentElement;
-  var pct=(d.scrollTop||document.body.scrollTop)/(d.scrollHeight-d.clientHeight)*100;
-  bar.style.width=Math.min(100,pct)+'%';
-},{passive:true});
+  var spTicking=false;
+  window.addEventListener('scroll',function(){
+    if(spTicking)return;
+    spTicking=true;
+    requestAnimationFrame(function(){
+      spTicking=false;
+      var d=document.documentElement;
+      var pct=(d.scrollTop||document.body.scrollTop)/(d.scrollHeight-d.clientHeight)*100;
+      bar.style.width=Math.min(100,pct)+'%';
+    });
+  },{passive:true});
+})();
 
 // ============================================================
 // FILTER RESET + SORT BY NEWEST
@@ -10638,21 +10692,25 @@ function removeSchedule(i){
   localStorage.setItem('disc_schedules',JSON.stringify(_schedules));
   renderScheduleList();showToast('সময়সূচি মুছে ফেলা হয়েছে।');
 }
-// Auto-activate coupons by schedule
+// Auto-activate coupons by schedule (admin-only background task)
 setInterval(function(){
+  var u=typeof GCU==='function'?GCU():null;
+  if(!u||!u.isAdmin)return;
   var now=new Date();
+  var changed=false;
   _schedules.forEach(function(s){
     var startD=new Date(s.start);
     var endD=s.end?new Date(s.end):null;
     var shouldBeActive=now>=startD&&(!endD||now<=endD);
     if(shouldBeActive!==s.active){
       s.active=shouldBeActive;
+      changed=true;
       var cs=GC().map(function(c){return c.id===s.couponId?Object.assign({},c,{active:shouldBeActive}):c;});
       localStorage.setItem('coupons',JSON.stringify(cs));
       if(shouldBeActive){showToast('⏰ কুপন '+s.code+' সক্রিয় হয়েছে!','ok');logActivity('⏰','Auto-activated: '+s.code);}
     }
   });
-  localStorage.setItem('disc_schedules',JSON.stringify(_schedules));
+  if(changed)localStorage.setItem('disc_schedules',JSON.stringify(_schedules));
 },30000);
 
 // ── SHIPPING LABEL ──
