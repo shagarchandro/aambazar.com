@@ -491,8 +491,9 @@ select.fi{cursor:pointer;}
 @media(max-width:1000px){.pg{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));}}
 .page-admin .bnav,.page-admin~.bnav{display:none!important;}
 @media(max-width:700px){
-  .nav{padding:0 12px;height:56px;}.nav-logo{font-size:17px;}.nav-logo span{font-size:22px;}
+  .nav{padding:0 12px;}.nav-logo{font-size:17px;}.nav-logo span{font-size:22px;}
   .nv{display:none;}.nb{padding:6px 9px;font-size:12px;}.nu-name{display:none;}
+  .nr{gap:5px;}.dm-btn,.notif-btn{width:30px;height:30px;font-size:14px;}.lang-btn{padding:4px 8px;font-size:10px;}.nu .av{width:26px;height:26px;font-size:12px;}
   .bnav{display:block;}.page{padding-bottom:80px;}
   .ht{font-size:24px;}.hm{font-size:52px;}.hs2{font-size:13px;}
   .pg{grid-template-columns:1fr 1fr;gap:10px;}.pb{padding:11px;}.pn{font-size:14px;}.pp{font-size:17px;}.ql{display:none;}
@@ -521,8 +522,8 @@ select.fi{cursor:pointer;}
   background: linear-gradient(110deg, #3d1500 0%, #6b2800 40%, #92400e 70%, #b45309 100%);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(245,158,11,0.2);
-  height: 64px;
 }
+@media(min-width:701px){.nav{height:64px;}}
 .nav-logo { letter-spacing: -0.5px; }
 .nav-logo span { filter: drop-shadow(0 0 8px rgba(245,158,11,0.6)); }
 
@@ -4636,6 +4637,51 @@ body.admin-mode #btt { display: none !important; }
 
 <script>
 // ============================================================
+// STORAGE RESILIENCE — must run first, before anything else
+// ============================================================
+// Some browsers treat a directly-opened file:// page as a restricted/opaque
+// origin, which makes every localStorage call throw SecurityError. Without
+// this guard, that throw happens silently inside onclick handlers (e.g. the
+// very first line of addToCart() reads localStorage), so buttons appear to
+// do nothing with no visible error. Detect that up front and fall back to
+// an in-memory store so the site stays usable for the current session.
+var _storageIsRestricted = false;
+(function(){
+  function makeMemoryStorage(){
+    var _mem = {};
+    return {
+      getItem: function(k){ return Object.prototype.hasOwnProperty.call(_mem,k) ? _mem[k] : null; },
+      setItem: function(k,v){ _mem[k]=String(v); },
+      removeItem: function(k){ delete _mem[k]; },
+      clear: function(){ _mem={}; },
+      key: function(i){ return Object.keys(_mem)[i]||null; },
+      get length(){ return Object.keys(_mem).length; }
+    };
+  }
+  try {
+    var t = '__storage_test__';
+    window.localStorage.setItem(t, '1');
+    window.localStorage.removeItem(t);
+  } catch (e) {
+    _storageIsRestricted = true;
+    try {
+      Object.defineProperty(window, 'localStorage', { value: makeMemoryStorage(), writable: true, configurable: true });
+    } catch(e2) {}
+  }
+  try {
+    var t2 = '__storage_test__';
+    window.sessionStorage.setItem(t2, '1');
+    window.sessionStorage.removeItem(t2);
+  } catch (e) {
+    _storageIsRestricted = true;
+    try {
+      Object.defineProperty(window, 'sessionStorage', { value: makeMemoryStorage(), writable: true, configurable: true });
+    } catch(e2) {}
+  }
+})();
+</script>
+<script>
+// ============================================================
 // DEFAULT DATA
 // ============================================================
 var DP=[
@@ -5723,6 +5769,11 @@ function closeCF(){$id('cfm').classList.remove('show');_delTarget={};}
   if(u){if(u.isAdmin)navigate('admin');else{navigate('home');resetSession();}}
   else navigate('home');
   updBadge();
+  if(_storageIsRestricted){
+    setTimeout(function(){
+      showToast('⚠️ ব্রাউজার এই ফাইলে ডেটা সেভ করতে দিচ্ছে না (localStorage ব্লকড)। সাইট চলবে, কিন্তু পেজ রিলোড/বন্ধ করলে সব ডেটা মুছে যাবে। এটি এড়াতে ফাইলটি কোনো ওয়েব সার্ভারে (Netlify/GitHub Pages ইত্যাদি) হোস্ট করে খুলুন।','err');
+    },1200);
+  }
   window.addEventListener('beforeunload',()=>{if(adminInterval){clearInterval(adminInterval);}if(flashInterval){clearInterval(flashInterval);}});
 })();
 
@@ -5950,6 +6001,7 @@ function renderProfile(){
     +'<div style="flex:1;"><div class="profile-name">'+esc(u.name)+'</div>'
     +'<div class="profile-email">📧 '+esc(u.email)+'</div>'
     +(us&&us.phone?'<div class="profile-email">📞 '+esc(us.phone)+'</div>':'')
+    +(us&&us.date?'<div class="profile-email">🗓️ সদস্য থেকে: '+us.date+'</div>':'')
     +'<div class="profile-badge">🏆 '+pts+' লয়্যালটি পয়েন্ট</div></div>'
     +'<button class="ab" style="align-self:flex-start;white-space:nowrap;" onclick="openEditProfile()">✏️ সম্পাদনা</button>'
     +'</div>'
@@ -5957,7 +6009,9 @@ function renderProfile(){
     +'<div class="pstat"><div class="pstat-val">'+os.length+'</div><div class="pstat-label">মোট অর্ডার</div></div>'
     +'<div class="pstat"><div class="pstat-val">৳'+spent.toLocaleString()+'</div><div class="pstat-label">মোট ব্যয়</div></div>'
     +'<div class="pstat"><div class="pstat-val">'+pts+'</div><div class="pstat-label">পয়েন্ট</div></div>'
-    +'</div></div>'
+    +'</div>'
+    +'<button class="ab abe" style="width:100%;margin-top:12px;" onclick="openAddrModal()">📍 আমার সেভ করা ঠিকানাসমূহ</button>'
+    +'</div>'
     +'<div class="profile-card"><div class="profile-section-title">📋 সাম্প্রতিক অর্ডার</div>'
     +(os.length?os.slice(0,3).reverse().map(function(o){
       return '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--card-border);">'
@@ -6897,7 +6951,8 @@ function showSocialProof(){
 // Show every 25-40 seconds on home page
 function startSocialProof(){
   setTimeout(function sp(){
-    if(document.getElementById('page-home').classList.contains('active'))showSocialProof();
+    var homePage=document.getElementById('page-home');
+    if(homePage&&homePage.classList.contains('active'))showSocialProof();
     setTimeout(sp,25000+Math.random()*15000);
   },8000);
 }
@@ -10308,8 +10363,16 @@ setTimeout(function(){
 var _cartRenderTimer=null;
 var _origRenderCartFinal=renderCart;
 renderCart=function(){
-  if(_cartRenderTimer)clearTimeout(_cartRenderTimer);
-  _cartRenderTimer=setTimeout(_origRenderCartFinal,50);
+  if(_cartRenderTimer){
+    // A render is already pending from a rapid prior call — just reschedule the trailing render.
+    clearTimeout(_cartRenderTimer);
+    _cartRenderTimer=setTimeout(function(){_cartRenderTimer=null;_origRenderCartFinal();},50);
+  }else{
+    // Leading edge: render immediately so the cart never shows empty/stale content, then
+    // briefly suppress a duplicate render in case another call arrives within the window.
+    _origRenderCartFinal();
+    _cartRenderTimer=setTimeout(function(){_cartRenderTimer=null;},50);
+  }
 };
 
 // ============================================================
