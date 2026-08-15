@@ -503,6 +503,13 @@ select.fi{cursor:pointer;}
   .po{grid-template-columns:1fr 1fr;}
   .fdiv{margin:0 14px;}.btt{bottom:90px;}
   .toast{bottom:90px;}.mbs{flex-direction:column;}.mb{padding:28px 18px;}
+  .profile-wrap{padding:16px 12px 60px;}.profile-card{padding:18px;}
+  .profile-avatar{width:60px;height:60px;font-size:22px;}
+  .profile-stats{gap:8px;}.pstat{padding:10px 6px;}.pstat-val{font-size:16px;}
+}
+@media(max-width:420px){
+  .profile-header{flex-wrap:wrap;}
+  .profile-header .ab{margin-left:auto;}
 }
 @media(max-width:480px){
   .pg{grid-template-columns:1fr;}.ac{padding:28px 18px;}.nu{display:none;}
@@ -988,8 +995,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--y); outline-off
 .profile-card{background:var(--card);border-radius:24px;padding:28px;box-shadow:var(--sm);border:1px solid var(--card-border);margin-bottom:16px;}
 .profile-header{display:flex;align-items:center;gap:18px;margin-bottom:24px;}
 .profile-avatar{width:72px;height:72px;border-radius:50%;background:var(--gradient-gold);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:white;flex-shrink:0;box-shadow:0 4px 16px rgba(217,119,6,.3);}
-.profile-name{font-size:22px;font-weight:700;color:var(--text);}
-.profile-email{font-size:13px;color:var(--text2);margin-top:3px;}
+.profile-name{font-size:22px;font-weight:700;color:var(--text);overflow-wrap:break-word;}
+.profile-email{font-size:13px;color:var(--text2);margin-top:3px;overflow-wrap:break-word;}
 .profile-badge{display:inline-flex;align-items:center;gap:5px;background:var(--a1);color:var(--db);padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;margin-top:6px;}
 .profile-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;}
 .pstat{background:var(--g0);border-radius:14px;padding:14px;text-align:center;border:1px solid var(--card-border);}
@@ -4714,8 +4721,8 @@ var GRevs=(pid)=>JSON.parse(localStorage.getItem('reviews_'+pid)||'[]');
 var GFS=()=>JSON.parse(localStorage.getItem('flashSale')||'{"active":false,"endsAt":0,"minutes":60}');
 var GSH=()=>JSON.parse(localStorage.getItem('searchHistory')||'[]');
 
-var GCart=()=>{const u=GCU();return u&&!u.isAdmin?JSON.parse(localStorage.getItem('cart_'+u.id)||'[]'):[];};
-var SCart=(c)=>{const u=GCU();if(u&&!u.isAdmin)localStorage.setItem('cart_'+u.id,JSON.stringify(c));};
+var GCart=()=>{const u=GCU();if(u&&u.isAdmin)return[];const key=u?'cart_'+u.id:'cart_guest';return JSON.parse(localStorage.getItem(key)||'[]');};
+var SCart=(c)=>{const u=GCU();if(u&&u.isAdmin)return;const key=u?'cart_'+u.id:'cart_guest';localStorage.setItem(key,JSON.stringify(c));};
 
 // ============================================================
 // STATE
@@ -4882,6 +4889,18 @@ function doReg(){
   },600);
 }
 
+function mergeGuestCart(userId){
+  var guestCart=JSON.parse(localStorage.getItem('cart_guest')||'[]');
+  if(!guestCart.length)return;
+  var userCartKey='cart_'+userId;
+  var userCart=JSON.parse(localStorage.getItem(userCartKey)||'[]');
+  guestCart.forEach(function(gi){
+    var ex=userCart.find(function(ui){return ui.id===gi.id;});
+    if(ex)ex.qty+=gi.qty;else userCart.push(gi);
+  });
+  localStorage.setItem(userCartKey,JSON.stringify(userCart));
+  localStorage.removeItem('cart_guest');
+}
 function doLogin(){
   const e=$id('lem').value.trim(),pw=$id('lpw').value;
   const er=$id('le1');er.classList.remove('show');
@@ -4896,8 +4915,9 @@ function doLogin(){
     u.loginHistory=u.loginHistory||[];u.loginHistory.unshift(new Date().toLocaleString('bn-BD'));u.loginHistory=u.loginHistory.slice(0,5);
     localStorage.setItem('users',JSON.stringify(us));
     SCU({id:u.id,name:u.name,email:u.email,isAdmin:false});
+    mergeGuestCart(u.id);
     setLoading('login-btn',false);var lbtn2=$id('login-btn');if(lbtn2)lbtn2.innerHTML='🚀 লগইন করুন';
-    resetSession();navigate('home');showToast('স্বাগতম, '+u.name+'! 🥭','ok');
+    resetSession();navigate('home');showToast('স্বাগতম, '+u.name+'! 🥭','ok');updBadge();
   },600);
 }
 
@@ -5238,7 +5258,8 @@ function chQty(pid,d){
 }
 
 function addToCart(pid,buyNow){
-  const u=GCU();if(!u||u.isAdmin){showToast('লগইন করুন প্রথমে!','err');navigate('login');return;}
+  const u=GCU();if(u&&u.isAdmin){showToast('অ্যাডমিন একাউন্টে কেনাকাটা করা যায় না।','err');return;}
+  if(buyNow&&!u){showToast('চেকআউট করতে লগইন করুন।','err');navigate('login');return;}
   const p=GP().find(x=>x.id===pid);if(!p)return;
   if(p.stock<=0){showToast('এই পণ্যটি স্টকে নেই!','err');return;}
   const qty=prodQtys[pid]||Math.max(p.minOrder||1,1);
@@ -5279,7 +5300,12 @@ function renderCart(){
 }
 function cQty(id,d){let cart=GCart();const i=cart.find(c=>c.id===id);if(!i)return;i.qty+=d;if(i.qty<=0)cart=cart.filter(c=>c.id!==id);SCart(cart);updBadge();renderCart();}
 function cRem(id){SCart(GCart().filter(c=>c.id!==id));if(!GCart().length){appliedCoupon=null;const m=$id("cpm");if(m)m.textContent="";}updBadge();renderCart();}
-function goOrder(){if(!GCart().length){showToast('কার্ট খালি!','err');return;}closeCart();navigate('order');}
+function goOrder(){
+  if(!GCart().length){showToast('কার্ট খালি!','err');return;}
+  const u=GCU();
+  if(!u){showToast('অর্ডার করতে লগইন করুন। আপনার কার্ট সংরক্ষিত থাকবে।','err');closeCart();navigate('login');return;}
+  closeCart();navigate('order');
+}
 function applyCoupon(){
   const code=$id('cpi').value.trim().toUpperCase();const msg=$id('cpm');
   if(!code){msg.className='cpm cpfail';msg.textContent='কুপন কোড লিখুন।';return;}
@@ -5998,7 +6024,7 @@ function renderProfile(){
   wrap.innerHTML='<div class="profile-card">'
     +'<div class="profile-header">'
     +'<div class="profile-avatar">'+esc(u.name).charAt(0).toUpperCase()+'</div>'
-    +'<div style="flex:1;"><div class="profile-name">'+esc(u.name)+'</div>'
+    +'<div style="flex:1;min-width:0;"><div class="profile-name">'+esc(u.name)+'</div>'
     +'<div class="profile-email">📧 '+esc(u.email)+'</div>'
     +(us&&us.phone?'<div class="profile-email">📞 '+esc(us.phone)+'</div>':'')
     +(us&&us.date?'<div class="profile-email">🗓️ সদস্য থেকে: '+us.date+'</div>':'')
