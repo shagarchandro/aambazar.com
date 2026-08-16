@@ -512,10 +512,12 @@ select.fi{cursor:pointer;}
   .profile-header .ab{margin-left:auto;}
 }
 @media(max-width:480px){
-  .pg{grid-template-columns:1fr;}.ac{padding:28px 18px;}.nu{display:none;}
+  .pg{grid-template-columns:1fr;}.ac{padding:28px 18px;}
+  .nu .av{width:24px;height:24px;font-size:11px;}.nr{gap:4px;}
   .fb{flex-wrap:nowrap;overflow-x:auto;}.fsl{display:none;}.fc{display:none;}
   .po{grid-template-columns:1fr;}.adh{padding:16px;}
   .search-hero{padding:10px 14px;}
+  .nd .nb-txt{display:none;}
 }
 
 /* ====== PREMIUM DESIGN OVERRIDES ====== */
@@ -4239,30 +4241,6 @@ body.admin-mode #btt { display: none !important; }
   </div>
 </div></div>
 
-<!-- CART -->
-<div class="co" id="co" onclick="closeCart()"></div>
-<div class="cd" id="cd">
-  <div class="ch"><div class="ch-t">🛒 আমার কার্ট</div><button class="cc" onclick="closeCart()">✕</button></div>
-  <div class="ci-list" id="cil"></div>
-  <div class="redeem-box" id="redeem-box" style="display:none;">
-  <div class="redeem-row">
-    <div class="redeem-info" id="redeem-info">🏆 <span id="redeem-pts">0</span> পয়েন্ট আছে</div>
-    <button class="redeem-btn" id="redeem-btn" onclick="redeemPoints()">পয়েন্ট ব্যবহার করুন</button>
-  </div>
-</div>
-<div class="cpb" id="cpb" style="display:none;">
-    <div class="cpr"><input class="cpi" id="cpi" placeholder="কুপন কোড..." oninput="this.value=this.value.toUpperCase()"><button class="cpa" onclick="applyCoupon()">প্রয়োগ</button></div>
-    <div class="cpm" id="cpm"></div>
-  </div>
-  <div class="cft" id="cft" style="display:none;">
-    <div class="cl"><span>উপমোট:</span><span class="clv" id="csub">৳০</span></div>
-    <div class="cl cld" id="cdl" style="display:none;"><span>🎫 কুপন ছাড়:</span><span class="clv" id="cdv">-৳০</span></div>
-    <div class="cl cldy"><span id="cdyl">🚚 ডেলিভারি:</span><span class="clv" id="cdyv">৳০</span></div>
-    <div class="ctot"><div class="ctl">মোট:</div><div class="ctp" id="ctp">৳০</div></div>
-    <button class="cob" onclick="goOrder()">📦 অর্ডার করুন</button>
-  </div>
-</div>
-
 <!-- SUCCESS MODAL -->
 <div class="mo" id="sm">
   <div class="mb"><span class="mi">🎉</span><div class="mt2">অর্ডার সফল হয়েছে!</div>
@@ -4396,7 +4374,7 @@ body.admin-mode #btt { display: none !important; }
   <div class="bnav-items">
     <button class="bnav-item" onclick="navigate('home')" id="bn-home"><span class="bnav-icon">🏠</span>হোম</button>
     <button class="bnav-item" onclick="navigate('wishlist')" id="bn-wl"><span class="bnav-icon">❤️</span>পছন্দ<span class="bnav-badge" id="wl-badge" style="display:none;">0</span></button>
-    <button class="bnav-item" onclick="openCart()" id="bn-cart"><span class="bnav-icon">🛒</span>কার্ট<span class="bnav-badge" id="cb2">0</span></button>
+    <button class="bnav-item" onclick="openCart()" id="bn-cart"><span class="bnav-icon">🛒</span>কার্ট<span class="bnav-badge" id="cb-bottom">0</span></button>
     <button class="bnav-item" onclick="navigate('orders')" id="bn-ord"><span class="bnav-icon">📦</span>অর্ডার</button>
     <button class="bnav-item" onclick="toggleMenu()" id="bn-menu"><span class="bnav-icon">👤</span>প্রোফাইল</button>
   </div>
@@ -4538,6 +4516,31 @@ body.admin-mode #btt { display: none !important; }
 </div>
 
   </div></div>
+
+<!-- CART -->
+<div class="co" id="co" onclick="closeCart()"></div>
+<div class="cd" id="cd">
+  <div class="ch"><div class="ch-t">🛒 আমার কার্ট</div><button class="cc" onclick="closeCart()">✕</button></div>
+  <div class="ci-list" id="cil"></div>
+  <div class="redeem-box" id="redeem-box" style="display:none;">
+  <div class="redeem-row">
+    <div class="redeem-info" id="redeem-info">🏆 <span id="redeem-pts">0</span> পয়েন্ট আছে</div>
+    <button class="redeem-btn" id="redeem-btn" onclick="redeemPoints()">পয়েন্ট ব্যবহার করুন</button>
+  </div>
+</div>
+<div class="cpb" id="cpb" style="display:none;">
+    <div class="cpr"><input class="cpi" id="cpi" placeholder="কুপন কোড..." oninput="this.value=this.value.toUpperCase()"><button class="cpa" onclick="applyCoupon()">প্রয়োগ</button></div>
+    <div class="cpm" id="cpm"></div>
+  </div>
+  <div class="cft" id="cft" style="display:none;">
+    <div class="cl"><span>উপমোট:</span><span class="clv" id="csub">৳০</span></div>
+    <div class="cl cld" id="cdl" style="display:none;"><span>🎫 কুপন ছাড়:</span><span class="clv" id="cdv">-৳০</span></div>
+    <div class="cl cldy"><span id="cdyl">🚚 ডেলিভারি:</span><span class="clv" id="cdyv">৳০</span></div>
+    <div class="ctot"><div class="ctl">মোট:</div><div class="ctp" id="ctp">৳০</div></div>
+    <button class="cob" onclick="goOrder()">📦 অর্ডার করুন</button>
+  </div>
+</div>
+
 <!-- PAGE: ABOUT -->
 <div class="page" id="page-about">
   <div class="info-page">
@@ -4758,6 +4761,7 @@ function showToast(m,type=''){
 function updBadge(){
   const c=cartCount(),wl=GWL().length;
   const cb=document.getElementById('cb2');if(cb)cb.textContent=c;
+  const cbb=document.getElementById('cb-bottom');if(cbb)cbb.textContent=c;
   const wb=document.getElementById('wl-badge');if(wb){wb.textContent=wl;wb.style.display=wl>0?'flex':'none';}
   const wc=document.getElementById('wl-count');if(wc)wc.textContent=wl>0?wl+' টি':'';
   const wq=document.getElementById('wl-quick');if(wq)wq.style.display=wl>0?'block':'none';
@@ -4854,14 +4858,14 @@ function updNav(){
   const dmBtn='<button class="dm-btn" onclick="toggleDark()" id="dm-btn" title="Dark/Light Mode">'+(document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙')+'</button>';
   if(!u){
     if(gb)gb.style.display='flex';nc.innerHTML='';
-    nr.innerHTML=`${dmBtn}<button class="nb no" onclick="navigate('home')">পণ্য দেখুন</button><button class="nb np" onclick="navigate('login')">লগইন</button><button class="nb no" onclick="navigate('register')">নিবন্ধন</button>`;
+    nr.innerHTML=`${dmBtn}<button class="nb no" onclick="navigate('home')">পণ্য দেখুন</button><div class="cw"><button class="nb np" onclick="openCart()">🛒 কার্ট</button><span class="cb" id="cb2">${cartCount()}</span></div><button class="nb no" onclick="navigate('login')">লগইন</button><button class="nb no" onclick="navigate('register')">নিবন্ধন</button>`;
   }else if(u.isAdmin){
     if(gb)gb.style.display='none';nc.innerHTML='';
-    nr.innerHTML=`${dmBtn}<span class="nu"><div class="av">A</div><span class="nu-name">অ্যাডমিন</span></span><button class="nb nd" onclick="doLogout()">লগআউট</button>`;
+    nr.innerHTML=`${dmBtn}<span class="nu"><div class="av">A</div><span class="nu-name">অ্যাডমিন</span></span><button class="nb nd" onclick="doLogout()" title="লগআউট">🚪<span class="nb-txt">লগআউট</span></button>`;
   }else{
     if(gb)gb.style.display='none';
     nc.innerHTML=`<button class="nl" onclick="navigate('home')">🏠 হোম</button><button class="nl" onclick="navigate('wishlist')">❤️ পছন্দ</button><button class="nl" onclick="navigate('orders')">📦 অর্ডার</button>`;
-    nr.innerHTML=`${dmBtn}<span class="nu" onclick="navigate('profile')" style="cursor:pointer;" title="আমার প্রোফাইল"><div class="av">${esc(u.name).charAt(0).toUpperCase()}</div><span class="nu-name">${esc(u.name)}</span></span><div class="cw"><button class="nb np" onclick="openCart()">🛒 কার্ট</button><span class="cb" id="cb2">${cartCount()}</span></div><button class="nb nd" onclick="doLogout()">লগআউট</button>`;
+    nr.innerHTML=`${dmBtn}<span class="nu" onclick="navigate('profile')" style="cursor:pointer;" title="আমার প্রোফাইল"><div class="av">${esc(u.name).charAt(0).toUpperCase()}</div><span class="nu-name">${esc(u.name)}</span></span><div class="cw"><button class="nb np" onclick="openCart()">🛒 কার্ট</button><span class="cb" id="cb2">${cartCount()}</span></div><button class="nb nd" onclick="doLogout()" title="লগআউট">🚪<span class="nb-txt">লগআউট</span></button>`;
   }
   updBadge();
 }
@@ -9631,7 +9635,7 @@ setTimeout(function(){
 function flyToCart(fromEl){
   try{
     var rect=fromEl?fromEl.getBoundingClientRect():{left:window.innerWidth/2,top:window.innerHeight/2};
-    var cartBtn=document.getElementById('cb2');
+    var cartBtn=document.getElementById('cb2')||document.getElementById('cb-bottom');
     var cartRect=cartBtn?cartBtn.getBoundingClientRect():{left:window.innerWidth-60,top:30};
     var fly=document.createElement('div');
     fly.className='fly-item';
@@ -9641,11 +9645,11 @@ function flyToCart(fromEl){
       +'--tx2:'+(cartRect.left-rect.left)+'px;--ty2:'+(cartRect.top-rect.top)+'px;';
     document.body.appendChild(fly);
     setTimeout(function(){fly.remove();},900);
-    // Pulse cart badge
-    if(cartBtn){
-      cartBtn.style.transform='scale(1.4)';
-      setTimeout(function(){cartBtn.style.transform='';},300);
-    }
+    // Pulse cart badges (top nav and bottom nav, whichever exist)
+    ['cb2','cb-bottom'].forEach(function(id){
+      var b=document.getElementById(id);
+      if(b){b.style.transform='scale(1.4)';setTimeout(function(){b.style.transform='';},300);}
+    });
   }catch(e){}
 }
 
