@@ -3878,6 +3878,7 @@ body.admin-mode #btt { display: none !important; }
     <div class="sidebar-item" id="sb-tp3" onclick="switchTab('tp3',this);updateSidebarActive('tp3')"><span class="sidebar-icon">📦</span>অর্ডার</div>
     <div class="sidebar-item" id="sb-tp4" onclick="switchTab('tp4',this);updateSidebarActive('tp4')"><span class="sidebar-icon">👥</span>কাস্টমার</div>
     <div class="sidebar-item" id="sb-tp19" onclick="switchTab('tp19',this);updateSidebarActive('tp19')"><span class="sidebar-icon">🎁</span>লয়্যালটি</div>
+    <div class="sidebar-item" id="sb-tp20" onclick="switchTab('tp20',this);updateSidebarActive('tp20')"><span class="sidebar-icon">↩️</span>রিটার্ন</div>
     <div class="sidebar-item" id="sb-tp5" onclick="switchTab('tp5',this);updateSidebarActive('tp5')"><span class="sidebar-icon">🎫</span>কুপন</div>
     <div class="sidebar-item" id="sb-tp7" onclick="switchTab('tp7',this);updateSidebarActive('tp7')"><span class="sidebar-icon">⭐</span>রিভিউ</div>
     <div class="sidebar-item" id="sb-tp8" onclick="switchTab('tp8',this);updateSidebarActive('tp8')"><span class="sidebar-icon">💾</span>ব্যাকআপ</div>
@@ -3900,6 +3901,7 @@ body.admin-mode #btt { display: none !important; }
     <button class="tbb" onclick="switchTab('tp3',this)">📦 অর্ডার</button>
     <button class="tbb" onclick="switchTab('tp4',this)">👥 কাস্টমার</button>
     <button class="tbb" onclick="switchTab('tp19',this)">🎁 লয়্যালটি</button>
+    <button class="tbb" onclick="switchTab('tp20',this)">↩️ রিটার্ন</button>
     <button class="tbb" onclick="switchTab('tp5',this)">🎫 কুপন</button>
     <button class="tbb" onclick="switchTab('tp6',this)">⚙️ সেটিংস</button>
     <button class="tbb" onclick="switchTab('tp16',this)">📢 ব্লাস্ট</button>
@@ -3997,6 +3999,12 @@ body.admin-mode #btt { display: none !important; }
     <div class="ss" style="margin-bottom:16px;"><div class="ss-t">🏆 শীর্ষ ৫ বিশ্বস্ত কাস্টমার</div><div id="loyalty-top5"></div></div>
     <div class="tbh"><div class="tbt">🎁 লয়্যালটি পয়েন্ট ব্যবস্থাপনা</div><span id="loyalty-cl" style="font-size:12px;color:var(--text2);"></span></div>
     <div class="tw"><table class="at"><thead><tr><th>#</th><th>কাস্টমার</th><th>লেভেল</th><th>পয়েন্ট</th><th>মোট ব্যয়</th><th>পয়েন্ট সমন্বয়</th></tr></thead><tbody id="loyalty-tb"></tbody></table></div>
+  </div>
+  <!-- TAB20: RETURNS/REFUNDS -->
+  <div class="tp" id="tp20">
+    <div class="kpi-grid" id="returns-kpi-grid" style="margin-bottom:16px;"></div>
+    <div class="tbh"><div class="tbt">↩️ রিটার্ন/রিফান্ড অনুরোধসমূহ</div><span id="returns-cl" style="font-size:12px;color:var(--text2);"></span></div>
+    <div class="tw"><table class="at"><thead><tr><th>#</th><th>অর্ডার</th><th>কাস্টমার</th><th>কারণ</th><th>বিবরণ</th><th>তারিখ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead><tbody id="returns-tb"></tbody></table></div>
   </div>
   <!-- TAB5: COUPONS -->
   <div class="tp" id="tp5">
@@ -4241,16 +4249,6 @@ body.admin-mode #btt { display: none !important; }
   </div>
 </div></div>
 
-<!-- SUCCESS MODAL -->
-<div class="mo" id="sm">
-  <div class="mb"><span class="mi">🎉</span><div class="mt2">অর্ডার সফল হয়েছে!</div>
-  <div class="mtx">আপনার অর্ডার সফলভাবে গ্রহণ করা হয়েছে। আমরা শীঘ্রই যোগাযোগ করব।</div>
-  <div class="mid" id="soid"></div>
-  <div class="mbs">
-    <button class="mbn mbp" onclick="closeSuc()">🏠 হোমে ফিরুন</button>
-    <button class="mbn mbg" onclick="goOrders()">📦 অর্ডার দেখুন</button>
-  </div></div>
-</div>
 
 <!-- PRODUCT MODAL (ADMIN) -->
 <div class="am" id="pmm">
@@ -4307,6 +4305,9 @@ body.admin-mode #btt { display: none !important; }
   <div class="mac"><button class="btnc" onclick="closeCM()">বাতিল</button><button class="btns" onclick="saveCoupon()">💾 সংরক্ষণ</button></div>
   </div>
 </div>
+
+
+  </div></div>
 
 <!-- REVIEW MODAL -->
 
@@ -4420,6 +4421,28 @@ body.admin-mode #btt { display: none !important; }
   </div>
 </div>
 
+<!-- RETURN/REFUND MODAL -->
+<div class="am" id="return-modal">
+  <div class="amb" style="max-width:460px;">
+    <div class="amh"><div class="amt">↩️ রিটার্ন/রিফান্ড অনুরোধ</div><button class="amc" onclick="closeReturnModal()">✕</button></div>
+    <div class="al ae2" id="ret-err"></div>
+    <input type="hidden" id="ret-order-id">
+    <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:12px;" id="ret-order-label"></div>
+    <div class="fg"><label class="fl">কারণ</label>
+      <select class="fi" id="ret-reason">
+        <option value="">নির্বাচন করুন</option>
+        <option value="damaged">পণ্য ক্ষতিগ্রস্ত/খারাপ অবস্থায় পেয়েছি</option>
+        <option value="wrong_item">ভুল পণ্য পেয়েছি</option>
+        <option value="quality">মান প্রত্যাশিত ছিল না</option>
+        <option value="not_needed">আর প্রয়োজন নেই</option>
+        <option value="other">অন্যান্য</option>
+      </select>
+    </div>
+    <div class="fg"><label class="fl">বিস্তারিত (ঐচ্ছিক)</label><textarea class="fi" id="ret-note" rows="3" placeholder="আরও বিস্তারিত লিখুন..."></textarea></div>
+    <div class="mac"><button class="btnc" onclick="closeReturnModal()">বাতিল</button><button class="btns" onclick="submitReturnRequest()">অনুরোধ জমা দিন</button></div>
+  </div>
+</div>
+
 <!-- BROADCAST MODAL (ADMIN) -->
 <div class="am" id="broadcast-modal">
   <div class="amb" style="max-width:460px;">
@@ -4515,7 +4538,16 @@ body.admin-mode #btt { display: none !important; }
   <button class="btn-buy" style="width:auto;padding:10px 16px;" onclick="addToCart(stickyPid,true)">⚡ কিনুন</button>
 </div>
 
+<!-- SUCCESS MODAL -->
+<div class="mo" id="sm">
+  <div class="mb"><span class="mi">🎉</span><div class="mt2">অর্ডার সফল হয়েছে!</div>
+  <div class="mtx">আপনার অর্ডার সফলভাবে গ্রহণ করা হয়েছে। আমরা শীঘ্রই যোগাযোগ করব।</div>
+  <div class="mid" id="soid"></div>
+  <div class="mbs">
+    <button class="mbn mbp" onclick="closeSuc()">🏠 হোমে ফিরুন</button>
+    <button class="mbn mbg" onclick="goOrders()">📦 অর্ডার দেখুন</button>
   </div></div>
+</div>
 
 <!-- CART -->
 <div class="co" id="co" onclick="closeCart()"></div>
@@ -4713,6 +4745,7 @@ var DC=[
 var GP=()=>JSON.parse(localStorage.getItem('products')||'[]');
 var GU=()=>JSON.parse(localStorage.getItem('users')||'[]');
 var GO=()=>JSON.parse(localStorage.getItem('orders')||'[]');
+var GR=()=>JSON.parse(localStorage.getItem('returns')||'[]');
 var GC=()=>JSON.parse(localStorage.getItem('coupons')||'[]');
 var GD=()=>JSON.parse(localStorage.getItem('delSettings')||'{"charge":60,"freeLimit":0}');
 var GCA=()=>JSON.parse(localStorage.getItem('adminCreds')||'{"email":"admin@aambazar.com","password":"admin123"}');
@@ -5380,16 +5413,19 @@ function renderMyOrders(){
   if(!orders.length){list.innerHTML='<div class="es"><div class="esi">📦</div><div class="est">কোনো অর্ডার নেই</div><div class="esd">এখনো অর্ডার করেননি।</div><button class="bf" style="max-width:200px;margin:0 auto;" onclick="navigate(\'home\')">কেনাকাটা শুরু করুন 🛒</button></div>';return;}
   const tlSteps=['pending','confirmed','shipped','delivered'];
   const tlLabels=['অর্ডার','নিশ্চিত','শিপিং','ডেলিভারি'];
+  const returns=GR();
   list.innerHTML=orders.map(o=>{
     const stepIdx=tlSteps.indexOf(o.status);const progW=stepIdx>=0?Math.min(100,(stepIdx/(tlSteps.length-1))*100):0;
     const tl='<div class="timeline"><div class="tl-progress" style="width:'+progW+'%"></div>'
       +tlLabels.map((l,i)=>'<div class="tl-step"><div class="tl-dot'+(i<stepIdx?' done':i===stepIdx?' active':'')+'">'+( i<stepIdx?'✓':i+1 )+'</div><div class="tl-label">'+l+'</div></div>').join('')
       +'</div>';
-    return '<div class="oc"><div class="och"><div><div class="ocid">📋 '+o.orderId+'</div><div class="ocd">📅 '+o.date+'</div></div><div class="ocr"><span class="sbg '+(SBC[o.status]||'sbp')+'">'+( SM[o.status]||o.status)+'</span><button class="ivb" onclick="genInvoice(\''+o.orderId+'\')">🖨️ ইনভয়েস</button><button class="rob" onclick="reOrder(\''+o.orderId+'\')">🔄 পুনরায় অর্ডার</button></div></div>'
+    const existingReturn=returns.find(function(r){return r.orderId===o.orderId;});
+    return '<div class="oc"><div class="och"><div><div class="ocid">📋 '+o.orderId+'</div><div class="ocd">📅 '+o.date+'</div></div><div class="ocr"><span class="sbg '+(SBC[o.status]||'sbp')+'">'+( SM[o.status]||o.status)+'</span><button class="ivb" onclick="genInvoice(\''+o.orderId+'\')">🖨️ ইনভয়েস</button><button class="rob" onclick="reOrder(\''+o.orderId+'\')">🔄 পুনরায় অর্ডার</button>'+(o.status==='delivered'&&!existingReturn?'<button class="ivb" onclick="openReturnModal(\''+o.orderId+'\')">↩️ রিটার্ন/রিফান্ড</button>':'')+'</div></div>'
       +tl
       +'<div class="oitems">'+o.items.map(i=>'<div class="oir"><span>🥭 '+i.name+' × '+i.qty+' কেজি'+(i.disc>0?' ('+i.disc+'% ছাড়)':'')+'</span><span>৳'+((i.fp||i.price)*i.qty)+'</span></div>').join('')+'</div>'
       +(o.couponDiscount>0?'<div class="olr"><span>🎫 কুপন ('+o.couponCode+'):</span><span style="color:var(--err);">-৳'+o.couponDiscount+'</span></div>':'')
       +'<div class="olr"><span>🚚 ডেলিভারি:</span><span>৳'+(o.deliveryCharge||0)+'</span></div>'
+      +(existingReturn?'<div class="olr"><span>🔄 রিটার্ন স্ট্যাটাস:</span><span style="font-weight:700;">'+(RETURN_STATUS_LABEL[existingReturn.status]||existingReturn.status)+'</span></div>':'')
       +'<div class="otr"><span>সর্বমোট</span><span>৳'+o.total+'</span></div>'
       +'<div class="ome"><span>📍 '+esc(o.address)+'</span><span>📞 '+esc(o.phone)+'</span><span>🚚 '+esc(o.deliveryDate)+'</span>'+(o.note?'<span>📝 '+esc(o.note)+'</span>':'')+'</div>'
       +'<div class="pyb">'+(PL[o.paymentMethod]||o.paymentMethod||'N/A')+'</div></div>';
@@ -5400,6 +5436,36 @@ function reOrder(oid){
   const prods=GP();let cart=GCart();
   o.items.forEach(oi=>{const p=prods.find(x=>x.id===oi.id);if(!p||p.stock<=0)return;const ex=cart.find(c=>c.id===oi.id);if(ex)ex.qty+=oi.qty;else cart.push({...oi,fp:dPrice(p,oi.qty)});});
   SCart(cart);updBadge();openCart();showToast('✅ পূর্ববর্তী অর্ডারের পণ্য কার্টে যোগ হয়েছে!','ok');
+}
+
+// ============================================================
+// RETURN / REFUND
+// ============================================================
+var RETURN_STATUS_LABEL={pending:'⏳ পর্যালোচনাধীন',approved:'✅ অনুমোদিত',rejected:'❌ প্রত্যাখ্যাত',refunded:'💰 রিফান্ড সম্পন্ন'};
+function openReturnModal(oid){
+  var o=GO().find(function(x){return x.orderId===oid;});if(!o)return;
+  $id('ret-order-id').value=oid;
+  $id('ret-order-label').textContent='অর্ডার: '+oid+' (৳'+o.total+')';
+  $id('ret-reason').value='';
+  $id('ret-note').value='';
+  var er=$id('ret-err');if(er)er.classList.remove('show');
+  var m=$id('return-modal');if(m)m.classList.add('show');
+}
+function closeReturnModal(){var m=$id('return-modal');if(m)m.classList.remove('show');}
+function submitReturnRequest(){
+  var oid=$id('ret-order-id').value;
+  var reason=$id('ret-reason').value;
+  var note=$id('ret-note').value.trim();
+  var er=$id('ret-err');
+  if(!reason){er.innerHTML='⚠️ কারণ নির্বাচন করুন।';er.classList.add('show');return;}
+  var u=GCU();if(!u)return;
+  var rs=GR();
+  rs.push({id:'RT'+Date.now(),orderId:oid,userId:u.id,userName:u.name,reason:reason,note:note,status:'pending',date:new Date().toLocaleDateString('bn-BD'),ts:Date.now()});
+  localStorage.setItem('returns',JSON.stringify(rs));
+  closeReturnModal();
+  showToast('✅ রিটার্ন অনুরোধ জমা হয়েছে। আমরা শীঘ্রই যোগাযোগ করব।','ok');
+  renderMyOrders();
+  if(typeof logActivity==='function')logActivity('🔄','রিটার্ন অনুরোধ জমা হয়েছে: '+oid);
 }
 
 // ============================================================
@@ -10860,6 +10926,7 @@ switchTab=function(id,btn){
   if(id==='tp17'){setTimeout(function(){loadSchedulerCoupons();renderScheduleList();},100);}
   if(id==='tp18'){setTimeout(function(){loadShippingOrders();},100);}
   if(id==='tp19'){setTimeout(function(){renderAdminLoyalty();},100);}
+  if(id==='tp20'){setTimeout(function(){renderAdminReturns();},100);}
 };
 
 // ── REAL-TIME ORDER NOTIFICATION ──
@@ -11084,6 +11151,65 @@ function renderAdminLoyalty(){
       +'</div></td>'
       +'</tr>';
   }).join('');
+}
+
+// ============================================================
+// ADMIN: RETURN/REFUND MANAGEMENT
+// ============================================================
+var RETURN_REASON_LABEL={damaged:'পণ্য ক্ষতিগ্রস্ত',wrong_item:'ভুল পণ্য',quality:'মান সমস্যা',not_needed:'প্রয়োজন নেই',other:'অন্যান্য'};
+function renderAdminReturns(){
+  var rs=GR().slice().reverse();
+  var kg=$id('returns-kpi-grid');
+  if(kg){
+    var pending=rs.filter(function(r){return r.status==='pending';}).length;
+    var approved=rs.filter(function(r){return r.status==='approved';}).length;
+    var refunded=rs.filter(function(r){return r.status==='refunded';}).length;
+    var rejected=rs.filter(function(r){return r.status==='rejected';}).length;
+    var kpis=[
+      {icon:'⏳',label:'পর্যালোচনাধীন',value:pending},
+      {icon:'✅',label:'অনুমোদিত',value:approved},
+      {icon:'💰',label:'রিফান্ড সম্পন্ন',value:refunded},
+      {icon:'❌',label:'প্রত্যাখ্যাত',value:rejected},
+    ];
+    kg.innerHTML=kpis.map(function(k){
+      return '<div class="kpi-card"><div class="kpi-icon">'+k.icon+'</div><div class="kpi-label">'+k.label+'</div><div class="kpi-value">'+k.value+'</div></div>';
+    }).join('');
+  }
+  var cl=$id('returns-cl');if(cl)cl.textContent='মোট '+rs.length+' টি অনুরোধ';
+  var tb=$id('returns-tb');
+  if(!tb)return;
+  if(!rs.length){tb.innerHTML='<tr><td colspan="8" style="text-align:center;color:var(--g4);padding:28px;">কোনো রিটার্ন অনুরোধ নেই</td></tr>';return;}
+  tb.innerHTML=rs.map(function(r,i){
+    var actions='';
+    if(r.status==='pending'){
+      actions='<button class="ab abg" onclick="setReturnStatus(\''+r.id+'\',\'approved\')">✅ অনুমোদন</button> '
+        +'<button class="ab abd" onclick="setReturnStatus(\''+r.id+'\',\'rejected\')">❌ প্রত্যাখ্যান</button>';
+    }else if(r.status==='approved'){
+      actions='<button class="ab abg" onclick="setReturnStatus(\''+r.id+'\',\'refunded\')">💰 রিফান্ড সম্পন্ন করুন</button>';
+    }else{
+      actions='<span style="color:var(--text2);font-size:11px;">সম্পন্ন</span>';
+    }
+    return '<tr>'
+      +'<td>'+(i+1)+'</td>'
+      +'<td><strong>'+esc(r.orderId)+'</strong></td>'
+      +'<td>'+esc(r.userName)+'</td>'
+      +'<td>'+(RETURN_REASON_LABEL[r.reason]||esc(r.reason))+'</td>'
+      +'<td style="max-width:180px;font-size:12px;color:var(--text2);">'+(r.note?esc(r.note):'—')+'</td>'
+      +'<td style="font-size:11px;white-space:nowrap;">'+r.date+'</td>'
+      +'<td><span class="sbg '+(r.status==='pending'?'sbp':r.status==='approved'?'sbc':r.status==='refunded'?'sbd':'sbp')+'">'+(RETURN_STATUS_LABEL[r.status]||r.status)+'</span></td>'
+      +'<td>'+actions+'</td>'
+      +'</tr>';
+  }).join('');
+}
+function setReturnStatus(returnId,newStatus){
+  var rs=GR();
+  var idx=rs.findIndex(function(r){return r.id===returnId;});
+  if(idx<0)return;
+  rs[idx].status=newStatus;
+  localStorage.setItem('returns',JSON.stringify(rs));
+  renderAdminReturns();
+  showToast('✅ রিটার্ন স্ট্যাটাস আপডেট হয়েছে: '+(RETURN_STATUS_LABEL[newStatus]||newStatus),'ok');
+  if(typeof logActivity==='function')logActivity('↩️','রিটার্ন '+returnId+' স্ট্যাটাস: '+newStatus);
 }
 
 function checkBirthdayCoupon(){
