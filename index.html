@@ -3060,9 +3060,39 @@ footer.ft .fapp {
 
 /* ═══ FLOATING BUTTONS — RIGHT CLUSTER ═══ */
 /* Stack (bottom to top): WA(68) → Chatbot(122) → BTT(176) */
-#wa-float {
+#fab-toggle {
   position: fixed !important;
   bottom: 68px !important;
+  right: 16px !important;
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, var(--y), var(--o));
+  color: var(--db);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 402;
+  font-size: 24px; border: none;
+  box-shadow: 0 4px 18px rgba(217,119,6,.45);
+  transition: transform .3s, box-shadow .25s;
+}
+#fab-toggle:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(217,119,6,.55); }
+#fab-toggle.open { transform: rotate(135deg); }
+#fab-toggle.open:hover { transform: rotate(135deg) scale(1.08); }
+
+#wa-float, #chatbot-btn {
+  opacity: 0;
+  transform: scale(.4) translateY(10px);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+#wa-float.fab-show, #chatbot-btn.fab-show {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+#wa-float {
+  position: fixed !important;
+  bottom: 132px !important;
   right: 16px !important;
   width: 48px; height: 48px;
   background: #25d366;
@@ -3071,9 +3101,7 @@ footer.ft .fapp {
   cursor: pointer; z-index: 400;
   box-shadow: 0 4px 16px rgba(37,211,102,.45);
   text-decoration: none;
-  transition: transform .25s, box-shadow .25s;
 }
-#wa-float:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 6px 22px rgba(37,211,102,.55); }
 #wa-float::after {
   content: 'WhatsApp সাহায্য';
   position: absolute; right: 56px; top: 50%; transform: translateY(-50%);
@@ -3086,7 +3114,7 @@ footer.ft .fapp {
 
 #chatbot-btn {
   position: fixed !important;
-  bottom: 124px !important;
+  bottom: 192px !important;
   right: 16px !important;
   width: 48px; height: 48px;
   background: linear-gradient(135deg, #f59e0b, #d97706);
@@ -3095,13 +3123,11 @@ footer.ft .fapp {
   cursor: pointer; z-index: 400;
   font-size: 22px; border: none;
   box-shadow: 0 4px 16px rgba(245,158,11,.4);
-  transition: transform .25s, box-shadow .25s;
 }
-#chatbot-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 6px 22px rgba(245,158,11,.5); }
 
 #btt {
   position: fixed !important;
-  bottom: 180px !important;
+  bottom: 256px !important;
   right: 16px !important;
   width: 44px; height: 44px;
   background: linear-gradient(135deg, var(--y), var(--o));
@@ -3117,7 +3143,7 @@ footer.ft .fapp {
 
 #chatbot-panel {
   position: fixed !important;
-  bottom: 180px !important;
+  bottom: 192px !important;
   right: 72px !important;
   width: 300px;
   background: var(--card);
@@ -3132,13 +3158,14 @@ footer.ft .fapp {
 #chatbot-panel.show { display: flex; flex-direction: column; animation: fadeUp .25s ease; }
 
 /* Hide on admin */
+body.admin-mode #fab-toggle,
 body.admin-mode #wa-float,
 body.admin-mode #chatbot-btn,
 body.admin-mode #chatbot-panel,
 body.admin-mode #btt { display: none !important; }
 
 @media(max-width:480px){
-  #chatbot-panel { right: 8px !important; width: calc(100vw - 72px); bottom: 180px !important; }
+  #chatbot-panel { right: 8px !important; width: calc(100vw - 72px); bottom: 192px !important; }
 }
 
 /* ═══════════════════════════════════════
@@ -3405,9 +3432,6 @@ body.admin-mode #btt { display: none !important; }
   <button onclick="closePromo()" style="position:absolute;right:14px;background:none;border:none;color:white;cursor:pointer;font-size:16px;opacity:.7;">✕</button>
 </div>
 
-<!-- WHATSAPP FLOAT -->
-<a class="wa-float" href="https://wa.me/8801800000000?text=আমবাজারে%20অর্ডার%20করতে%20চাই" target="_blank" title="WhatsApp এ যোগাযোগ করুন">💬<span class="wa-tooltip">WhatsApp এ অর্ডার করুন</span></a>
-
 <!-- COOKIE CONSENT -->
 <div id="cookie-bar" style="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--g8);color:white;border-radius:16px;padding:16px 20px;display:none;align-items:center;gap:14px;z-index:800;box-shadow:0 8px 40px rgba(0,0,0,.3);max-width:540px;width:calc(100% - 32px);">
   <div style="font-size:12px;color:rgba(255,255,255,.85);line-height:1.6;flex:1;">🍪 আমরা আপনার অভিজ্ঞতা উন্নত করতে কুকি ব্যবহার করি।</div>
@@ -3423,14 +3447,14 @@ body.admin-mode #btt { display: none !important; }
   <div class="nv" id="nc"></div>
   <div class="nr" id="nr">
     <div style="position:relative;">
-      <button class="notif-btn" onclick="toggleNotif()" id="notif-btn" title="নোটিফিকেশন">🔔<span class="notif-dot" id="notif-dot"></span></button>
+      <button class="notif-btn" onclick="toggleNotif()" id="notif-btn" aria-label="নোটিফিকেশন দেখুন" title="নোটিফিকেশন">🔔<span class="notif-dot" id="notif-dot"></span></button>
       <div class="notif-panel" id="notif-panel">
         <div class="notif-head"><span>🔔 নোটিফিকেশন</span><button onclick="clearNotifs()" style="background:none;border:none;color:white;cursor:pointer;font-size:12px;">সব মুছুন</button></div>
         <div id="notif-list"></div>
       </div>
     </div>
     <button class="lang-btn" onclick="toggleLang()" id="lang-btn" title="ভাষা পরিবর্তন">EN</button>
-    <button class="dm-btn" onclick="toggleDark()" id="dm-btn" title="Dark/Light Mode">🌙</button>
+    <button class="dm-btn" onclick="toggleDark()" id="dm-btn" aria-label="থিম পরিবর্তন করুন" title="Dark/Light Mode">🌙</button>
     <button class="nb no" onclick="navigate('home')">পণ্য দেখুন</button>
     <button class="nb np" onclick="navigate('login')">লগইন</button>
     <button class="nb no" onclick="navigate('register')">নিবন্ধন</button>
@@ -3651,7 +3675,7 @@ body.admin-mode #btt { display: none !important; }
   <div class="ps"><div class="pst">🥭 আমাদের পণ্যসমূহ <div class="psl"></div></div><div class="pg" id="pg"></div>
     <div class="load-sentinel" id="load-sentinel"></div>
     <div class="loading-more" id="loading-more">🥭 আরও পণ্য লোড হচ্ছে...</div>
-    <div style="text-align:center;margin-top:10px;" id="load-more-wrap" style="display:none;">
+    <div style="text-align:center;margin-top:10px;display:none;" id="load-more-wrap">
       <button class="load-more-btn" onclick="loadMore()">আরও পণ্য দেখুন ↓</button>
     </div>
   </div>
@@ -4252,7 +4276,7 @@ body.admin-mode #btt { display: none !important; }
 
 <!-- PRODUCT MODAL (ADMIN) -->
 <div class="am" id="pmm">
-  <div class="amb"><div class="amh"><div class="amt" id="pmt">নতুন পণ্য</div><button class="amc" onclick="closePM()">✕</button></div>
+  <div class="amb"><div class="amh"><div class="amt" id="pmt">নতুন পণ্য</div><button class="amc" aria-label="বন্ধ করুন" onclick="closePM()">✕</button></div>
   <div class="al ae2" id="pme"></div>
   <div class="fg"><label class="fl">ছবি (ঐচ্ছিক)</label>
     <div class="iua"><input type="file" id="im-inp" accept="image/*" onchange="handleImg(event)">
@@ -4289,7 +4313,7 @@ body.admin-mode #btt { display: none !important; }
 
 <!-- COUPON MODAL -->
 <div class="am" id="cmm">
-  <div class="amb"><div class="amh"><div class="amt" id="cmt">নতুন কুপন</div><button class="amc" onclick="closeCM()">✕</button></div>
+  <div class="amb"><div class="amh"><div class="amt" id="cmt">নতুন কুপন</div><button class="amc" aria-label="বন্ধ করুন" onclick="closeCM()">✕</button></div>
   <div class="al ae2" id="cme"></div>
   <div class="fg"><label class="fl">কুপন কোড (ইংরেজি বড় হাতে)</label><input class="fi" id="cmc" type="text" placeholder="যেমন: MANGO20" oninput="this.value=this.value.toUpperCase()"></div>
   <div class="fr">
@@ -4321,7 +4345,7 @@ body.admin-mode #btt { display: none !important; }
 <!-- FORGOT PASSWORD MODAL -->
 <div class="am" id="fp-modal">
   <div class="amb" style="max-width:420px;">
-    <div class="amh"><div class="amt">🔑 পাসওয়ার্ড রিসেট</div><button class="amc" onclick="closeForgotPwd()">✕</button></div>
+    <div class="amh"><div class="amt">🔑 পাসওয়ার্ড রিসেট</div><button class="amc" aria-label="বন্ধ করুন" onclick="closeForgotPwd()">✕</button></div>
     <div class="al ae2" id="fp-err"></div><div class="al ao2" id="fp-ok"></div>
     <p style="font-size:13px;color:var(--text2);margin-bottom:16px;">আপনার নিবন্ধিত ইমেইল দিন। নতুন পাসওয়ার্ড পাঠানো হবে।</p>
     <div class="fg"><label class="fl">নিবন্ধিত ইমেইল</label><input class="fi" id="fp-email" type="email" placeholder="example@gmail.com"></div>
@@ -4333,7 +4357,7 @@ body.admin-mode #btt { display: none !important; }
 <!-- EDIT PROFILE MODAL -->
 <div class="am" id="ep-modal">
   <div class="amb" style="max-width:440px;">
-    <div class="amh"><div class="amt">✏️ প্রোফাইল সম্পাদনা</div><button class="amc" onclick="closeEditProfile()">✕</button></div>
+    <div class="amh"><div class="amt">✏️ প্রোফাইল সম্পাদনা</div><button class="amc" aria-label="বন্ধ করুন" onclick="closeEditProfile()">✕</button></div>
     <div class="al ae2" id="ep-err"></div><div class="al ao2" id="ep-ok"></div>
     <div class="fg"><label class="fl">নাম</label><input class="fi" id="ep-name" type="text" placeholder="আপনার নাম"></div>
     <div class="fg"><label class="fl">ইমেইল</label><input class="fi" id="ep-email" type="email" placeholder="example@gmail.com"></div>
@@ -4368,7 +4392,7 @@ body.admin-mode #btt { display: none !important; }
 </div>
 
 <!-- BACK TO TOP -->
-<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button class="btt" id="btt" aria-label="উপরে যান" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <!-- BOTTOM NAV -->
 <div class="bnav">
@@ -4386,7 +4410,7 @@ body.admin-mode #btt { display: none !important; }
   <div class="compare-box">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
       <div style="font-size:18px;font-weight:700;color:var(--text);">⚖️ পণ্য তুলনা</div>
-      <button class="amc" onclick="closeCompare()">✕</button>
+      <button class="amc" aria-label="বন্ধ করুন" onclick="closeCompare()">✕</button>
     </div>
     <div id="compare-content"></div>
   </div>
@@ -4411,7 +4435,7 @@ body.admin-mode #btt { display: none !important; }
 <!-- ADDRESS BOOK MODAL -->
 <div class="am" id="addr-modal">
   <div class="amb" style="max-width:500px;">
-    <div class="amh"><div class="amt">📍 ঠিকানা নির্বাচন করুন</div><button class="amc" onclick="closeAddrModal()">✕</button></div>
+    <div class="amh"><div class="amt">📍 ঠিকানা নির্বাচন করুন</div><button class="amc" aria-label="বন্ধ করুন" onclick="closeAddrModal()">✕</button></div>
     <div id="addr-list"></div>
     <div class="fg" style="margin-top:12px;"><label class="fl">নতুন ঠিকানা যোগ করুন</label><textarea class="fi" id="new-addr-inp" rows="2" placeholder="বাড়ি, রাস্তা, এলাকা, জেলা..."></textarea></div>
     <div class="fr" style="margin-top:8px;">
@@ -4424,7 +4448,7 @@ body.admin-mode #btt { display: none !important; }
 <!-- RETURN/REFUND MODAL -->
 <div class="am" id="return-modal">
   <div class="amb" style="max-width:460px;">
-    <div class="amh"><div class="amt">↩️ রিটার্ন/রিফান্ড অনুরোধ</div><button class="amc" onclick="closeReturnModal()">✕</button></div>
+    <div class="amh"><div class="amt">↩️ রিটার্ন/রিফান্ড অনুরোধ</div><button class="amc" aria-label="বন্ধ করুন" onclick="closeReturnModal()">✕</button></div>
     <div class="al ae2" id="ret-err"></div>
     <input type="hidden" id="ret-order-id">
     <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:12px;" id="ret-order-label"></div>
@@ -4446,7 +4470,7 @@ body.admin-mode #btt { display: none !important; }
 <!-- BROADCAST MODAL (ADMIN) -->
 <div class="am" id="broadcast-modal">
   <div class="amb" style="max-width:460px;">
-    <div class="amh"><div class="amt">📢 Broadcast নোটিফিকেশন</div><button class="amc" onclick="$id('broadcast-modal').classList.remove('show')">✕</button></div>
+    <div class="amh"><div class="amt">📢 Broadcast নোটিফিকেশন</div><button class="amc" aria-label="বন্ধ করুন" onclick="$id('broadcast-modal').classList.remove('show')">✕</button></div>
     <div class="fg"><label class="fl">আইকন</label><input class="fi" id="bc-icon" value="📢" style="width:80px;display:inline-block;"></div>
     <div class="fg"><label class="fl">বার্তা</label><textarea class="fi" id="bc-msg" rows="3" placeholder="সব কাস্টমারকে পাঠানো হবে..."></textarea></div>
     <div class="broadcast-preview" id="bc-preview">এখানে preview দেখাবে...</div>
@@ -4460,7 +4484,7 @@ body.admin-mode #btt { display: none !important; }
 <!-- ADMIN REVIEWS MODAL -->
 <div class="am" id="reviews-modal">
   <div class="amb" style="max-width:560px;">
-    <div class="amh"><div class="amt">⭐ সব রিভিউ</div><button class="amc" onclick="$id('reviews-modal').classList.remove('show')">✕</button></div>
+    <div class="amh"><div class="amt">⭐ সব রিভিউ</div><button class="amc" aria-label="বন্ধ করুন" onclick="$id('reviews-modal').classList.remove('show')">✕</button></div>
     <div id="all-reviews-list" style="max-height:400px;overflow-y:auto;"></div>
   </div>
 </div>
@@ -4472,7 +4496,7 @@ body.admin-mode #btt { display: none !important; }
   <div class="shortcuts-box">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
       <div style="font-size:17px;font-weight:700;color:var(--text);">⌨️ কীবোর্ড শর্টকাট</div>
-      <button class="amc" onclick="document.getElementById('shortcuts-modal').style.display='none'">✕</button>
+      <button class="amc" aria-label="বন্ধ করুন" onclick="document.getElementById('shortcuts-modal').style.display='none'">✕</button>
     </div>
     <div class="shortcut-row"><span>🏠 হোম পেজ</span><div><kbd>G</kbd> + <kbd>H</kbd></div></div>
     <div class="shortcut-row"><span>🛒 কার্ট খুলুন</span><div><kbd>G</kbd> + <kbd>C</kbd></div></div>
@@ -4657,7 +4681,7 @@ body.admin-mode #btt { display: none !important; }
         <button class="font-btn" onclick="changeFontSize(1)">A+</button>
       </div>
     </div>
-    <div class="tc-row"><span>Dark Mode:</span><button class="dm-btn" onclick="toggleDark()" style="width:36px;height:36px;">🌙</button></div>
+    <div class="tc-row"><span>Dark Mode:</span><button class="dm-btn" onclick="toggleDark()" style="width:36px;height:36px;" aria-label="থিম পরিবর্তন করুন">🌙</button></div>
     <button class="btnc" style="width:100%;margin-top:8px;padding:8px;" onclick="resetTheme()">↩️ ডিফল্টে ফিরুন</button>
   </div>
 </div>
@@ -4888,7 +4912,7 @@ function toggleMenu(){
 function updNav(){
   const u=GCU();const nc=$id('nc'),nr=$id('nr'),gb=$id('gb');
   if(!nc||!nr)return;
-  const dmBtn='<button class="dm-btn" onclick="toggleDark()" id="dm-btn" title="Dark/Light Mode">'+(document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙')+'</button>';
+  const dmBtn='<button class="dm-btn" onclick="toggleDark()" id="dm-btn" aria-label="থিম পরিবর্তন করুন" title="Dark/Light Mode">'+(document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙')+'</button>';
   if(!u){
     if(gb)gb.style.display='flex';nc.innerHTML='';
     nr.innerHTML=`${dmBtn}<button class="nb no" onclick="navigate('home')">পণ্য দেখুন</button><div class="cw"><button class="nb np" onclick="openCart()">🛒 কার্ট</button><span class="cb" id="cb2">${cartCount()}</span></div><button class="nb no" onclick="navigate('login')">লগইন</button><button class="nb no" onclick="navigate('register')">নিবন্ধন</button>`;
@@ -5067,7 +5091,7 @@ function renderRecentlyViewed(){
   const rv=GRV();const sec=$id('rv-sec');if(!rv.length||!sec){if(sec)sec.style.display='none';return;}
   const prods=GP();sec.style.display='block';
   const list=$id('rv-list');
-  list.innerHTML=rv.map(id=>{const p=prods.find(x=>x.id===id);if(!p)return'';return'<div class="rv-item" onclick="openZoom(\''+p.id+'\')"><span class="rv-item-img">'+(p.img?'<img src="'+p.img+'" style="width:24px;height:24px;border-radius:4px;object-fit:cover;">':'🥭')+'</span>'+p.name+'<span style="color:var(--o);font-weight:700;font-size:11px;">৳'+dPrice(p)+'</span></div>';}).join('');
+  list.innerHTML=rv.map(id=>{const p=prods.find(x=>x.id===id);if(!p)return'';return'<div class="rv-item" onclick="openZoom(\''+p.id+'\')"><span class="rv-item-img">'+(p.img?'<img src="'+p.img+'" alt="'+esc(p.name)+'" style="width:24px;height:24px;border-radius:4px;object-fit:cover;">':'🥭')+'</span>'+esc(p.name)+'<span style="color:var(--o);font-weight:700;font-size:11px;">৳'+dPrice(p)+'</span></div>';}).join('');
 }
 
 // ============================================================
@@ -5078,7 +5102,7 @@ function toggleWishlist(pid){
   if(had)wl=wl.filter(id=>id!==pid);else wl.push(pid);
   localStorage.setItem('wishlist',JSON.stringify(wl));
   // Update heart buttons
-  document.querySelectorAll('.wl-btn[data-pid="'+pid+'"]').forEach(btn=>{btn.textContent=had?'🤍':'❤️';btn.classList.toggle('liked',!had);});
+  document.querySelectorAll('.wl-btn[data-pid="'+pid+'"]').forEach(btn=>{btn.textContent=had?'🤍':'❤️';btn.classList.toggle('liked',!had);btn.setAttribute('aria-label',had?'পছন্দের তালিকায় যোগ করুন':'পছন্দের তালিকা থেকে সরান');});
   updBadge();showToast(had?'পছন্দের তালিকা থেকে সরানো হয়েছে।':'❤️ পছন্দের তালিকায় যোগ হয়েছে!',had?'':'ok');
 }
 function renderWishlist(){const _u=GCU();if(!_u||_u.isAdmin){const g=$id("wl-grid");if(g)g.innerHTML='<div class="es" style="grid-column:1/-1"><div class="esi">🔑</div><div class="est">লগইন করুন</div><div class="esd">পছন্দের তালিকা দেখতে লগইন করতে হবে।</div><button class="bf" style="max-width:200px;margin:0 auto;" onclick="navigate(\'login\')">লগইন করুন</button></div>';return;}
@@ -5161,6 +5185,7 @@ function buildCard(p){
     ?'<button class="wl-btn'+(isWl?' liked':'')+'" '
      +'data-pid="'+pid+'" '
      +'onclick="event.stopPropagation();toggleWishlist(\''+pid+'\')" '
+     +'aria-label="'+(isWl?'পছন্দের তালিকা থেকে সরান':'পছন্দের তালিকায় যোগ করুন')+'" '
      +'title="পছন্দে যোগ">'+(isWl?'❤️':'🤍')+'</button>'
     :'';
 
@@ -6561,7 +6586,7 @@ function renderRelatedProds(){
   sec.style.display='block';
   scroll.innerHTML=shuffled.map(function(p){
     var dp=dPrice(p);
-    var img=p.img?'<img src="'+p.img+'" style="width:100%;height:100%;object-fit:cover;">':'<span style="font-size:48px;">🥭</span>';
+    var img=p.img?'<img src="'+p.img+'" alt="'+esc(p.name)+'" style="width:100%;height:100%;object-fit:cover;">':'<span style="font-size:48px;">🥭</span>';
     return '<div class="related-mini" onclick="scrollToProd(\''+p.id+'\')">'
       +'<div class="related-mini-img">'+img+'</div>'
       +'<div class="related-mini-body">'
@@ -9221,14 +9246,19 @@ renderProds=function(filtered){
   var pg=document.getElementById('pg');if(!pg)return;
   var hc=document.getElementById('hcnt');if(hc)hc.textContent=GP().length+'+';
   try{
-    var prods=filtered||getFilteredProds();
-    var fc=document.getElementById('fct');if(fc)fc.textContent=prods.length+' টি পণ্য';
-    if(!prods.length){
+    var allProds=filtered||getFilteredProds();
+    var fc=document.getElementById('fct');if(fc)fc.textContent=allProds.length+' টি পণ্য';
+    if(!allProds.length){
       pg.innerHTML=getEmptyState('🔍','কোনো পণ্য পাওয়া যায়নি','আপনার খোঁজা পণ্যটি এই মুহূর্তে নেই। ফিল্টার পরিবর্তন করুন।','ফিল্টার মুছুন','resetFilters()');
+      var lw=document.getElementById('load-more-wrap');if(lw)lw.style.display='none';
       return;
     }
+    var prods=(typeof visibleCount!=='undefined'&&!filtered)?allProds.slice(0,visibleCount):allProds;
     pg.innerHTML=prods.map(function(p){try{return buildCard(p);}catch(e){return '';}}).join('');
     pg.querySelectorAll('.pc').forEach(function(el){el.style.opacity='1';el.style.transform='none';el.classList.add('visible');});
+    var lw2=document.getElementById('load-more-wrap');
+    if(lw2&&typeof visibleCount!=='undefined')lw2.style.display=allProds.length>visibleCount?'block':'none';
+    if(typeof observeCards==='function')setTimeout(observeCards,600);
   }catch(err){
     pg.innerHTML=getEmptyState('⚠️','পণ্য লোড হয়নি','পেজ রিফ্রেশ করুন।','রিফ্রেশ করুন','location.reload()');
   }
@@ -11861,6 +11891,20 @@ function initChatbot(){
     +'</div>';
   document.body.appendChild(panel);
 }
+function toggleFabMenu(){
+  var btn=document.getElementById('fab-toggle');
+  var wa=document.getElementById('wa-float');
+  var cb=document.getElementById('chatbot-btn');
+  if(!btn)return;
+  var opening=!btn.classList.contains('open');
+  btn.classList.toggle('open');
+  if(wa)wa.classList.toggle('fab-show',opening);
+  if(cb)cb.classList.toggle('fab-show',opening);
+  if(!opening){
+    var panel=document.getElementById('chatbot-panel');
+    if(panel)panel.classList.remove('show');
+  }
+}
 function toggleChatbot(){
   var panel=document.getElementById('chatbot-panel');if(!panel)return;
   var showing=panel.classList.toggle('show');
@@ -12712,13 +12756,16 @@ buildCard = function(p) {
   </div>
 </footer>
 
+<!-- FAB MENU TOGGLE -->
+<button id="fab-toggle" aria-label="সাহায্য মেনু খুলুন/বন্ধ করুন" onclick="toggleFabMenu()" title="সাহায্য">💬</button>
+
 <!-- FLOATING WHATSAPP BUTTON -->
-<a id="wa-float" href="https://wa.me/8801800000000?text=আমবাজারে%20সাহায্য%20দরকার" target="_blank" title="WhatsApp" rel="noopener noreferrer">
+<a id="wa-float" aria-label="WhatsApp এ যোগাযোগ করুন" href="https://wa.me/8801800000000?text=আমবাজারে%20সাহায্য%20দরকার" target="_blank" title="WhatsApp" rel="noopener noreferrer">
   <svg width="22" height="22" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
 <!-- CHATBOT BUTTON -->
-<button id="chatbot-btn" onclick="toggleChatbot()" title="সাহায্য">💬</button>
+<button id="chatbot-btn" aria-label="চ্যাটবট সহায়তা খুলুন" onclick="toggleChatbot()" title="সাহায্য">💬</button>
 
 <!-- CHATBOT PANEL (hidden by default) -->
 <div id="chatbot-panel">
